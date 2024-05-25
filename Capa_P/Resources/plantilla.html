@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Document</title>
+    <style>
+        table.border {
+            border-collapse: collapse;
+            font-size: 13px;
+            width: 100%;
+        }
+
+            table.border th, table.border td {
+                padding: 5px;
+                border: 1px solid black;
+                font-size: 11px;
+            }
+
+       .no-border {
+            border: none;
+            padding: 5px;
+            font-size: 11px;
+       }
+
+        table.subtotals {
+            width: 100%;
+            border-collapse: collapse;
+            border: 0;
+        }
+
+            table.subtotals td {
+                border: 0;
+            }
+
+        table#acprintTable {
+            margin-top: 90px; /* Ajusta este valor según sea necesario */
+        }
+
+        .linea {
+            border: 10px;
+            height: 2px;
+            margin-top: 85px;
+            background-color: black;
+            width: 100%; /* Establece el ancho al 100% del contenedor */
+        }
+
+        .entrada-salida {
+            white-space: nowrap; /* Evita que se haga un salto de línea */
+        }
+
+        .entrada {
+            margin-right: 50px; /* Margen derecho para separar la entrada y la salida */
+        }
+    </style>
+</head>
+<body>
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 60%;">
+                <table id="acprintTable">
+                    <tr>
+                        <td align="left" style="font-size: 18px;"><strong>Impdoor Dominicana, SRL</strong></td>
+                    </tr>
+                    <tr>
+                        <td align="left" style="font-size: 12px;">
+                            RNC: 1-3141683-7
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 15%;">
+                <table>
+                    <tr>
+                        <td style="font-size: 10px"> NCF: @CONT</td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 45%;">
+                <table class="border" style="width: 100%;">
+                    <tr>
+                        <td align="center" style="font-size: 12px;">ASESOR CLIENTE: @Asesor</td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-size: 14px;">Nro: @NumFac</td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-size: 14px;">@Fecha</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3" height="20"></td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <table class="no-border" style="width: 100%;">
+                    <thead style="background-color: #26576D; color: white;">
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="2">
+                                <table class="border" style="width: 100%;">
+                                    <tr>
+                                        <td align="left"><strong>CLIENTE:</strong> @Cliente</td>
+                                        <td><strong>Rnc:</strong> @Rnc</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left"><strong>DIRRECCION:</strong> @Direccion</td>
+                                        <td><strong>EMAIL:</strong>@Email</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left"><strong>CONTACTO:</strong> @Cliente</td>
+                                        <td><strong>PROYECTO:</strong> @Proyecto</td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left">
+                                            <strong>ENTRADA:</strong> <span class="entrada">@ENTRADA</span>
+                                            <strong>SALIDA:</strong> @Salida
+                                        </td>
+                                        <td><strong>ENTREGADA:</strong> @Entregada</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <span style="margin-left:300px;">puerta roble</span>
+                <table class="border" style="width: 100%;">
+                    <thead style="background-color: #26576D; color: white;">
+                        <tr>
+                            <th>ARTICULO / DESCRIPCION</th>
+                            <th align="center">MEDIDAS</th>
+                            <th align="center">P. UNIDAD</th>
+                            <th align="center">CANT.</th>
+                            <th align="center">VALOR</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!--tr>
+                            <td>2 fulano</td>
+                            <td>20</td>
+                            <td>19.8</td>
+                            <td>40000</td>
+                        </!--tr-->
+                        @Lista
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <table class="no-border" style="width: 100%; margin-top:10px;">
+        <thead style="background-color: #26576D; color: white;">
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="2">
+                    <table class="border" style="width: 100%;">
+                        <tr>
+                            <td align="left">
+                                <strong>Precios incluyen:</strong>
+                                <ul>
+                                    @PrecioIn
+                                </ul>
+                            </td>
+                            <td><strong>SUB-TOTAL:</strong> @SubTotal</td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <strong>Precios no incluyen:</strong>
+                                <ul>
+                                    <li>@Llavines, manillas o cerraduras. PAGOS vía: Depósito a Cuenta. Transferencia Bancaria y Cheque Certificado.</li>
+                                </ul>
+                            </td>
+                            <td style="width: 35%;"><strong>ITBIS:</strong> @Impuestos</td>
+                        </tr>
+                        @compn
+                        <tr>
+                            <td style="border: 0px !important;"></td>
+                            <td><strong>TRANSPORTE:</strong> @TRANSPORTE</td>
+                        </tr>
+                        <tr>
+                            <td style="border: 0px !important;"></td>
+                            <td><strong>Total a Pagar:</strong> @Impuestos</td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <strong>TIEMPO DE ENTREGA:</strong> @TIEMPOENTREGA
+                            </td>
+                            <td><strong>Dollar:</strong> @US</td>
+                        </tr>
+                        <tr>
+                            <td align="left">
+                                <strong>Vigencia de cotizacion:</strong> @vigencia
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table>
+        <tr>
+            <td colspan="3">
+                <table style="width: 100%;">
+                    <tr>
+                        <td style="width: 50%; font-size: 10px; text-align: left;"><strong>AUTORIZADO POR:</strong></td>
+                        <td style="width: 50%; font-size: 10px; text-align: right;"><strong>RECIBIDO POR:</strong></td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" style="font-size: 10px; padding: 0;">
+                            <hr style="border: none; border-top: 1px solid black; margin: 0; padding: 0;"></hr>
+                        </td>
+                        <td colspan="1" style="font-size: 10px; padding: 0; text-align: right;">
+                            <hr style="border: none; border-top: 1px solid black; margin: 0; padding: 0;"></hr>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <!-->
+        <img src="../img/proyecto1.png" alt="Imagen de la factura"></img>
+    </!--> 
+    @img
+</body>
+</html>
