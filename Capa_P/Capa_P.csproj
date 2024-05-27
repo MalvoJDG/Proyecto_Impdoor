@@ -61,7 +61,7 @@
       <HintPath>..\packages\Bunifu.Dataviz.WinForms.2.2.1\lib\Bunifu.Dataviz.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bunifu.Dataviz.WinForms.2.2.1\lib\Bunifu.Licensing.dll</HintPath>
+      <HintPath>..\packages\Bunifu.UI.WinForms.6.3.0\lib\net452\Bunifu.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.UI.WinForms, Version=0.0.0.0, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.UI.WinForms.6.3.0\lib\net452\Bunifu.UI.WinForms.dll</HintPath>
@@ -158,6 +158,7 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="img\Prueba.cs" />
     <Compile Include="Layout.cs">
       <SubType>Form</SubType>
     </Compile>
