@@ -158,7 +158,6 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="img\Prueba.cs" />
     <Compile Include="Layout.cs">
       <SubType>Form</SubType>
     </Compile>
