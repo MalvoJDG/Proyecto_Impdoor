@@ -103,13 +103,13 @@
     <Compile Include="Tipo_Madera.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Capa_A\Capa_A.csproj">
       <Project>{2bcdd098-1553-4bae-9899-63aa2908fb17}</Project>
       <Name>Capa_A</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
