@@ -1,24 +1,20 @@
 ﻿using System.Data;
-using Capa_A; // Importa la capa de acceso a datos
 using Capa_N;
 
 public class Jambas: ClsEstandar
 {
 
-    private clsManejador m = new clsManejador();
-
-
-    // Listado Jambas
-    public DataTable ListadoJambas()
+    public DataTable ObtenerListadoJambas()
     {
-        return m.consultas("Buscar_Jambas", null);
+        string procedure = "Buscar_Jambas";
+        return Listado(procedure);
     }
 
-
+  
 
     // Método para registrar un nuevo usuario
     /* public string GuardarUsuario()
-     {
+     {sadasdasda
          string mensaje = "";
          List<clsParametros> lst = new List<clsParametros>();
 

@@ -84,7 +84,7 @@ namespace Capa_P
 
         public void cargarJambas()
         {
-            DataTable dt = jambas.ListadoJambas();
+            DataTable dt = jambas.ObtenerListadoJambas();
             cbmJambas.DataSource = dt;
             cbmJambas.DisplayMember = "Nombre";
         }
