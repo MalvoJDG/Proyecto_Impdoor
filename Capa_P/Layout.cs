@@ -61,5 +61,10 @@ namespace Capa_P
         {
             abrirformhija(new Dashboard());
         }
+
+        private void btnCliente_Click(object sender, EventArgs e)
+        {
+            abrirformhija(new Clientes());
+        }
     }
 }

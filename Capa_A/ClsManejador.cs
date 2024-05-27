@@ -7,7 +7,9 @@ namespace Capa_A
 {
     public class clsManejador
     {
-        MySqlConnection cnx = new MySqlConnection("Server=localhost;Database=PruebaJ;Uid=root;");
+        MySqlConnection cnx = new MySqlConnection("Server=busvd6awvun6g9nsaz5y-mysql.services.clever-cloud.com;Port=3306;Database=busvd6awvun6g9nsaz5y;Uid=u2ackyoacgvofueg;Pwd=aYPF5qq4l6wiWwjKG8zm;");
+
+
 
         // Metodo para abrir Conexion
         void abrir_conexion()

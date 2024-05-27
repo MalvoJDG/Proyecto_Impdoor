@@ -354,12 +354,6 @@ CREATE PROCEDURE ObtenerPrecioProducto(
 )
 BEGIN
     SELECT
-        p.Nombre AS Producto,
-        m.Nombre AS Material,
-        tm.Nombre AS Tipo_Madera,
-        a.Nombre AS Apanelado,
-        j.Nombre AS Jambas,
-        s.Medida AS Size,
         pr.Precio
     FROM
         Precios pr
@@ -385,15 +379,9 @@ BEGIN
 END //
 
 DELIMITER ;
-
+drop procedure ObtenerPrecioProducto;
 
 SELECT
-        p.Nombre AS Producto,
-        m.Nombre AS Material,
-        tm.Nombre AS Tipo_Madera,
-        a.Nombre AS Apanelado,
-        j.Nombre AS Jambas,
-        s.Medida AS Size,
         pr.Precio
     FROM
         Precios pr
@@ -413,12 +401,12 @@ SELECT
         pr.Producto_id = 1
         AND pr.Material_id = 1
         AND pr.Tipo_Madera = 3
-        AND pr.Apanelado_id = 3
+        AND pr.Apanelado_id = 1
         AND pr.Jambas_id = 2
         AND pr.Size_id = 1;
 
 
-drop table tipo_madera;
+
 
 
 
