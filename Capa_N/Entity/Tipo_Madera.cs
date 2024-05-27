@@ -1,21 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using Capa_A; // Importa la capa de acceso a datos
+using Capa_N;
 
-public class Size
+public class Tipo_Madera: ClsEstandar
 {
-    public int Id { get; set; }
-    public string Nombre { get; set; }
 
     private clsManejador m = new clsManejador();
 
 
-    // Listado Sizes
-    public DataTable ListadoSizes()
+    // Listado Maderas
+    public DataTable ListadoMadera()
     {
-        return m.consultas("Buscar_Size", null);
+        return m.consultas("Buscar_Madera", null);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Método para registrar un nuevo usuario
     /* public string GuardarUsuario()

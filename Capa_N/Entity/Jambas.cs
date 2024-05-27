@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using Capa_A; // Importa la capa de acceso a datos
+using Capa_N;
 
-public class Jambas
+public class Jambas: ClsEstandar
 {
-    public int Id { get; set; }
-    public string Nombre { get; set; }
 
     private clsManejador m = new clsManejador();
 
@@ -16,6 +13,8 @@ public class Jambas
     {
         return m.consultas("Buscar_Jambas", null);
     }
+
+
 
     // Método para registrar un nuevo usuario
     /* public string GuardarUsuario()

@@ -2,20 +2,20 @@
 using System.Collections.Generic;
 using System.Data;
 using Capa_A; // Importa la capa de acceso a datos
+using Capa_N;
 
-public class Tipo_Madera
+public class Materiales: ClsEstandar
 {
-    public int Id { get; set; }
-    public string Nombre { get; set; }
 
     private clsManejador m = new clsManejador();
 
 
-    // Listado Maderas
-    public DataTable ListadoMadera()
+    // Listar Materiales
+    public DataTable ListadoMateriales()
     {
-        return m.consultas("Buscar_Madera", null);
+        return m.consultas("Buscar_Materiales", null);
     }
+
 
     // Método para registrar un nuevo usuario
     /* public string GuardarUsuario()

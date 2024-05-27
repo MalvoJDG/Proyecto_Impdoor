@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using Capa_A; // Importa la capa de acceso a datos
 
 public class Apanelados
@@ -17,7 +15,9 @@ public class Apanelados
         return m.consultas("Buscar_Apanelado", null);
     }
 
-    // Método para registrar un nuevo usuario
+
+
+
     /* public string GuardarUsuario()
      {
          string mensaje = "";

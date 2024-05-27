@@ -146,11 +146,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clientescs.cs">
+    <Compile Include="Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clientescs.Designer.cs">
-      <DependentUpon>Clientescs.cs</DependentUpon>
+    <Compile Include="Clientes.Designer.cs">
+      <DependentUpon>Clientes.cs</DependentUpon>
     </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
@@ -173,8 +173,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Clientescs.resx">
-      <DependentUpon>Clientescs.cs</DependentUpon>
+    <EmbeddedResource Include="Clientes.resx">
+      <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>

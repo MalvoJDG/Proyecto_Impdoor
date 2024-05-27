@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Data;
 using Capa_A; // Importa la capa de acceso a datos
+using Capa_N;
 
-public class Productos
+public class Productos: ClsEstandar
 {
-    public int Id { get; set; }
-    public string Nombre { get; set; }
 
     private clsManejador m = new clsManejador();
 
