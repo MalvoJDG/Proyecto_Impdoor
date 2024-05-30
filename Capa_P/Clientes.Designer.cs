@@ -467,6 +467,7 @@
             this.btnGuardarClienteR.TextMarginLeft = 0;
             this.btnGuardarClienteR.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnGuardarClienteR.UseDefaultRadiusAndThickness = true;
+            this.btnGuardarClienteR.Click += new System.EventHandler(this.btnGuardarClienteR_Click);
             // 
             // btnborrar
             // 
