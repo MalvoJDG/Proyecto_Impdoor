@@ -1,5 +1,5 @@
-﻿using System.Data;
-using Capa_A; // Importa la capa de acceso a datos
+﻿using Capa_A; // Importa la capa de acceso a datos
+using System.Data;
 
 public class Apanelados
 {

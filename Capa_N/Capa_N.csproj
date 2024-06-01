@@ -93,6 +93,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntityProve\ClienteFr.cs" />
     <Compile Include="EntityProve\Clientes.cs" />
     <Compile Include="Entity\Apanelados.cs" />
     <Compile Include="Entity\ClsEstandar.cs" />

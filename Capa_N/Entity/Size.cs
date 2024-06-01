@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using Capa_A; // Importa la capa de acceso a datos
+﻿using Capa_A; // Importa la capa de acceso a datos
 using Capa_N;
+using System.Data;
 
-public class Size: ClsEstandar
+public class Size : ClsEstandar
 {
 
     private clsManejador m = new clsManejador();

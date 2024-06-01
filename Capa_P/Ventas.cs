@@ -1,20 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using iTextSharp.text;
+﻿using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
-using Capa_P;
+using System;
+using System.Data;
+using System.Globalization;
+using System.IO;
+using System.Windows.Forms;
 
 
 namespace Capa_P

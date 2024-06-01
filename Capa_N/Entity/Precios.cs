@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Capa_A; // Importa la capa de acceso a datos
 using System.Collections.Generic;
 using System.Data;
-using Capa_A; // Importa la capa de acceso a datos
 
 public class Precios
 {
@@ -16,7 +15,7 @@ public class Precios
 
     private clsManejador m = new clsManejador();
 
-   
+
     // Traer Precio
     public DataTable ObtenerPrecioProducto()
     {

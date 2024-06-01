@@ -1,8 +1,8 @@
-﻿using System.Data;
-using Capa_A; // Importa la capa de acceso a datos
+﻿using Capa_A; // Importa la capa de acceso a datos
 using Capa_N;
+using System.Data;
 
-public class Tipo_Madera: ClsEstandar
+public class Tipo_Madera : ClsEstandar
 {
 
     private clsManejador m = new clsManejador();

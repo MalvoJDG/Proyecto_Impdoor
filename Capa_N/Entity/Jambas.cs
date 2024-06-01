@@ -1,7 +1,7 @@
-﻿using System.Data;
-using Capa_N;
+﻿using Capa_N;
+using System.Data;
 
-public class Jambas: ClsEstandar
+public class Jambas : ClsEstandar
 {
 
     public DataTable ObtenerListadoJambas()
@@ -10,7 +10,7 @@ public class Jambas: ClsEstandar
         return Listado(procedure);
     }
 
-  
+
 
     // Método para registrar un nuevo usuario
     /* public string GuardarUsuario()
