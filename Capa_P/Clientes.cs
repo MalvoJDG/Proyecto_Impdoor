@@ -1,7 +1,6 @@
 ﻿using Capa_N.EntityProv;
 using ClosedXML.Excel;
 using System;
-using System.Data;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -274,17 +273,13 @@ namespace Capa_P
             RellenarCamposCliente();
 
             existent = true;
-
-
-
-
-
         }
 
         private void bunifuVScrollBar2_Scroll(object sender, Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs e)
         {
 
         }
+
 
         private void bunifuButton21_Click(object sender, EventArgs e)
         {

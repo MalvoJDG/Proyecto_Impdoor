@@ -5,6 +5,7 @@ using System;
 using System.Data;
 using System.Globalization;
 using System.IO;
+using System.Runtime.Remoting.Channels;
 using System.Windows.Forms;
 
 
@@ -167,24 +168,34 @@ namespace Capa_P
             // Ejecutar el procedimiento almacenado y obtener el resultado en un DataTable
             DataTable resultado = precios.ObtenerPrecioProducto();
 
-            // Verificar si hay filas en el resultado
-            if (resultado.Rows.Count > 0)
+            try
             {
-                // Obtener el precio de la primera fila (asumiendo que solo esperas un resultado)
-                float precio = Convert.ToSingle(resultado.Rows[0]["Precio"]);
-                int cantidad = int.Parse(txtCantidad.Text);
-                precio = precio * cantidad;
-                double impuesto = precio * 0.18;
 
-                lblitbis.Text = impuesto.ToString("N2", CultureInfo.InvariantCulture);
 
-                // Asignar el precio al TextBox
-                lblTotalln.Text = precio.ToString("N2", CultureInfo.InvariantCulture);
+                // Verificar si hay filas en el resultado
+                if (resultado.Rows.Count > 0)
+                {
+                    // Obtener el precio de la primera fila (asumiendo que solo esperas un resultado)
+                    float precio = Convert.ToSingle(resultado.Rows[0]["Precio"]);
+                    int cantidad = int.Parse(txtCantidad.Text);
+                    precio = precio * cantidad;
+                    double impuesto = precio * 0.18;
+
+                    lblitbis.Text = impuesto.ToString("N2", CultureInfo.InvariantCulture);
+
+                    // Asignar el precio al TextBox
+                    lblTotalln.Text = precio.ToString("N2", CultureInfo.InvariantCulture);
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron resultados.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No se encontraron resultados.");
+                MessageBox.Show("No se pudo obtener el precio, revise los valores ingresados","error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void bunifuButton21_Click(object sender, EventArgs e)
@@ -199,7 +210,6 @@ namespace Capa_P
             int xRows = dtaVentas.Rows.Add(); // Añade una nueva fila y obtiene el índice de la fila agregada
             double Totalln = double.Parse(lblTotalln.Text);
             double Itbis = double.Parse(lblitbis.Text);
-            double calcTotal = Totalln + Itbis;
             dtaVentas.Rows[xRows].Cells[0].Value = txtServicio.Text;
             dtaVentas.Rows[xRows].Cells[1].Value = cbmProducto.Text;
             dtaVentas.Rows[xRows].Cells[2].Value = cbmMaterial.Text;
@@ -211,13 +221,13 @@ namespace Capa_P
 
             if (cbmImpuesto.Text == "Si")
             {
-                dtaVentas.Rows[xRows].Cells[8].Value = lblitbis.Text;
-                dtaVentas.Rows[xRows].Cells[9].Value = calcTotal.ToString("N2");
+                dtaVentas.Rows[xRows].Cells[8].Value = Itbis.ToString("N2");
+                dtaVentas.Rows[xRows].Cells[9].Value = Totalln.ToString("N2");
             }
             else
             {
                 dtaVentas.Rows[xRows].Cells[8].Value = 0;
-                dtaVentas.Rows[xRows].Cells[9].Value = lblTotalln.Text;
+                dtaVentas.Rows[xRows].Cells[9].Value = Totalln.ToString("N2");
             }
         }
 
@@ -239,24 +249,24 @@ namespace Capa_P
                     // Añade un bloque try-catch para capturar la excepción específica
                     try
                     {
-                        if (double.TryParse(Convert.ToString(lblTotalln.Text), NumberStyles.Any, CultureInfo.InvariantCulture, out double subtotal) &&
-                            double.TryParse(Convert.ToString(row.Cells[9].Value), NumberStyles.Any, CultureInfo.InvariantCulture, out double total))
+                        if (double.TryParse(Convert.ToString(row.Cells[9].Value), NumberStyles.Any, CultureInfo.InvariantCulture, out double total) &&
+                            double.TryParse(Convert.ToString(row.Cells[8].Value), NumberStyles.Any, CultureInfo.InvariantCulture, out double impuesto))
                         {
 
 
                             if (cbmImpuesto.Text == "Si")
                             {
-                                xImpuesto += subtotal * 0.18;
+                                xImpuesto += impuesto;
                             }
 
-                            xSubtotal += subtotal;
-                            xTotal += total;
+                            xSubtotal += total;
+                            xTotal += total + impuesto;
 
 
                         }
                         else
                         {
-                            MessageBox.Show($"Error al convertir el valor '{row.Cells[9].Value}' de la celda a número.", "Error de conversión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show($"Error al convertir el valor '{row.Cells[7].Value}' de la celda a número.", "Error de conversión", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;  // Salir del método si la conversión falla
                         }
                     }
@@ -296,18 +306,17 @@ namespace Capa_P
 
             string plantilla_html = Properties.Resources.plantilla.ToString();
 
+            // Reemplazos de valores en la plantilla HTML
             plantilla_html = plantilla_html.Replace("@Cliente", txtNombre.Text);
-
             plantilla_html = plantilla_html.Replace("@Rnc", lblRnc.Text);
             plantilla_html = plantilla_html.Replace("@Fecha", DateTime.Now.ToString("dd/MM/yyyy"));
             plantilla_html = plantilla_html.Replace("@SubTotal", "$" + lblSubTotal.Text);
             plantilla_html = plantilla_html.Replace("@Impuestos", "$" + lblImpuesto.Text);
             plantilla_html = plantilla_html.Replace("@Total", "$" + lblTotal.Text);
 
+            // Reemplazos adicionales dependiendo de las opciones seleccionadas
             if (swtipe.Checked == true)
             {
-
-
                 if (cbmNCF.Text == "Si")
                 {
                     plantilla_html = plantilla_html.Replace("@CONT", lblNCF.Text);
@@ -326,13 +335,11 @@ namespace Capa_P
                 {
                     plantilla_html = plantilla_html.Replace("@Estado", "De contado");
                 }
-
                 else
                 {
                     plantilla_html = plantilla_html.Replace("@Estado", "Credito");
                 }
             }
-
             else
             {
                 plantilla_html = plantilla_html.Replace("@Factura", "COTIZACION");
@@ -343,9 +350,8 @@ namespace Capa_P
                 plantilla_html = plantilla_html.Replace("@Estado", "");
             }
 
-
+            // Agregar filas de la tabla de ventas
             string filas = string.Empty;
-
             foreach (DataGridViewRow Row in dtaVentas.Rows)
             {
                 filas += "<tr>";
@@ -356,31 +362,33 @@ namespace Capa_P
                 filas += "<td align='right' style='width: 15%; font-weight: bold; font-size: 12px;'>" + "$" + Row.Cells["Total_Linea"].Value.ToString() + "</td>";
                 filas += "</tr>";
             }
-
             plantilla_html = plantilla_html.Replace("@Lista", filas);
 
+            // Agregar precios incluidos y no incluidos
             string precioIn = string.Empty;
-
-            // Recorre cada línea en el TextBox
             foreach (string linea in txtPrecioIncluye.Lines)
             {
                 precioIn += "<li>" + linea + "</li>";
             }
             plantilla_html = plantilla_html.Replace("@PrecioIn", precioIn);
 
+            string precioNoIN = string.Empty;
+            foreach (string linea in txtPrecioNoIncluye.Lines)
+            {
+                precioNoIN += "<li>" + linea + "</li>";
+            }
+            plantilla_html = plantilla_html.Replace("@PrecioNOIn", precioNoIN);
 
-            // Usar una ruta absoluta para la imagen
-            string imagePath = Path.GetFullPath(@"..\..\img\proyecto1.png");
-            string imagenHtml = $"<img src='file:///{imagePath.Replace('\\', '/')}' alt='Imagen de la factura' style='width:100%; height:auto;' />";
+            // Ruta de la imagen de la firma
+            string imagePath = Path.GetFullPath(@"..\..\img\firma.png");
+            string imagenHtml = $"<img src='file:///{imagePath.Replace('\\', '/')}' alt='Imagen de la factura' style='max-width:100%; height:auto; display:block; margin:auto;' />";
             plantilla_html = plantilla_html.Replace("@img", imagenHtml);
-
-
 
             if (save.ShowDialog() == DialogResult.OK)
             {
                 using (FileStream stream = new FileStream(save.FileName, FileMode.Create))
                 {
-                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 25);
+                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 50); // Ajusta el margen inferior
                     PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
 
                     writer.PageEvent = new Footer();
@@ -394,18 +402,24 @@ namespace Capa_P
                     img.SetAbsolutePosition(pdfDoc.LeftMargin + 5, pdfDoc.Top - 60);
                     pdfDoc.Add(img);
 
-                    if (cbmNCF.Text == "Si")
-                    {
-                        iTextSharp.text.Image img2 = iTextSharp.text.Image.GetInstance(Properties.Resources.sello_acprint, System.Drawing.Imaging.ImageFormat.Png);
-                        img2.ScaleToFit(200, 150);
-                        img2.Alignment = iTextSharp.text.Image.UNDERLYING;
-                        img2.SetAbsolutePosition(pdfDoc.LeftMargin + 250, pdfDoc.Top - 800);
-                        pdfDoc.Add(img2);
-                    }
+                    PdfContentByte cb = writer.DirectContent;
+                    ColumnText ct = new ColumnText(cb);
+                    ct.SetSimpleColumn(new Rectangle(36, 36, 559, 806));
 
                     using (StringReader str = new StringReader(plantilla_html))
                     {
                         XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, str);
+
+                        ct.Go();
+                        float yPosition = ct.YLine;
+                        float footerHeight = 50; // Ajusta esto según el tamaño real del footer
+                        float minYPosition = pdfDoc.BottomMargin + footerHeight;
+
+                        if (yPosition < minYPosition)
+                        {
+                            pdfDoc.NewPage();
+                            ct.SetSimpleColumn(new Rectangle(36, 36, 559, 806));
+                        }
                     }
 
                     pdfDoc.Close();
@@ -413,48 +427,36 @@ namespace Capa_P
                 }
             }
         }
+
         public class Footer : PdfPageEventHelper
         {
             public override void OnEndPage(PdfWriter writer, Document document)
             {
-                // Crear el contenido del footer
-                PdfPTable footer = new PdfPTable(1);
+                PdfPTable footer = new PdfPTable(2);
                 footer.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
                 footer.DefaultCell.Border = 0;
                 footer.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 footer.DefaultCell.VerticalAlignment = Element.ALIGN_MIDDLE;
 
+                string imagePath = Path.GetFullPath(@"..\..\img\firma.png");
+                Image logo = Image.GetInstance(imagePath);
+                logo.ScaleAbsolute(200f, 200f); // Ajusta el tamaño de la imagen si es necesario
+                PdfPCell imageCell = new PdfPCell(logo);
+                imageCell.Border = 0;
+                imageCell.HorizontalAlignment = Element.ALIGN_LEFT;
+                footer.AddCell(imageCell);
 
-                // Crear el texto del footer con formato
-                Phrase phrase = new Phrase();
+                PdfPCell textCell = new PdfPCell(new Phrase("Este es el pie de página"));
+                textCell.Border = 0;
+                textCell.HorizontalAlignment = Element.ALIGN_RIGHT;
+                footer.AddCell(textCell);
 
-
-                phrase.Add(new Chunk("Si usted tiene alguna pregunta sobre esta Orden, por favor, póngase en contacto con nosotros. ", FontFactory.GetFont(FontFactory.HELVETICA, 10))); // Otra línea de texto sin negritas
-                phrase.Add(Chunk.NEWLINE);
-                phrase.Add(new Chunk("                            CONTACTO: (809)-307-2072 / (809)-788-7754)\r\n ", FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 9)));  // Texto en negritas
-
-                // Añadir el texto al footer
-                PdfPCell cell = new PdfPCell();
-                cell.Border = 0;
-                cell.PaddingTop = -15f; // Ajustar el espaciado superior del texto si es necesario
-                cell.HorizontalAlignment = Element.ALIGN_CENTER; // Alinear el texto en el centro
-                cell.VerticalAlignment = Element.ALIGN_MIDDLE;
-
-
-
-                // Añadir el texto al footer
-                cell.AddElement(phrase);
-                footer.AddCell(cell);
-
-                // Posicionar el footer en la parte inferior de la página
-                // Calcular la posición horizontal para el footer
-                float xPosition = document.LeftMargin + 75; // Ajustar el valor según sea necesario
-
-                // Posicionar el footer en la parte inferior de la página, más a la izquierda
-                footer.WriteSelectedRows(0, -1, xPosition, document.BottomMargin, writer.DirectContent);
-
+                float xPosition = document.LeftMargin;
+                float yPosition = document.BottomMargin - 15; // Ajusta la posición vertical si es necesario
+                footer.WriteSelectedRows(0, -1, xPosition, yPosition + 50, writer.DirectContent);
             }
         }
+
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {

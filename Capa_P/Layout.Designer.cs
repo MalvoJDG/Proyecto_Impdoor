@@ -438,6 +438,7 @@
             this.btnNCF.TextMarginLeft = 0;
             this.btnNCF.TextPadding = new System.Windows.Forms.Padding(56, 4, 0, 2);
             this.btnNCF.UseDefaultRadiusAndThickness = true;
+            this.btnNCF.Click += new System.EventHandler(this.btnNCF_Click);
             // 
             // btnFacturas
             // 

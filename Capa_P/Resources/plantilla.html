@@ -15,11 +15,11 @@
                 font-size: 11px;
             }
 
-       .no-border {
+        .no-border {
             border: none;
             padding: 5px;
             font-size: 11px;
-       }
+        }
 
         table.subtotals {
             width: 100%;
@@ -50,6 +50,34 @@
         .entrada {
             margin-right: 50px; /* Margen derecho para separar la entrada y la salida */
         }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .notes-container {
+            text-align: left;
+            margin: 0 auto;
+            max-width: 400px;
+        }
+
+        .notes {
+            font-size: 8px;
+            text-align: left;
+            padding-left: 0;
+        }
+
+            .notes ol {
+                padding-left: 20px;
+                margin: 0;
+            }
+
+            .notes li {
+                line-height: 1.2;
+                margin-bottom: 5px;
+            }
     </style>
 </head>
 <body>
@@ -145,7 +173,7 @@
                             <td>20</td>
                             <td>19.8</td>
                             <td>40000</td>
-                        </!--tr-->
+                        </tr-->
                         @Lista
                     </tbody>
                 </table>
@@ -172,7 +200,10 @@
                             <td align="left">
                                 <strong>Precios no incluyen:</strong>
                                 <ul>
-                                    <li>@Llavines, manillas o cerraduras. PAGOS vía: Depósito a Cuenta. Transferencia Bancaria y Cheque Certificado.</li>
+                                    @PrecioNOIn
+                                    <ol>
+                                        @Condicion
+                                    </ol>
                                 </ul>
                             </td>
                             <td style="width: 35%;"><strong>ITBIS:</strong> @Impuestos</td>
@@ -202,29 +233,24 @@
             </tr>
         </tbody>
     </table>
-    <table>
-        <tr>
-            <td colspan="3">
-                <table style="width: 100%;">
-                    <tr>
-                        <td style="width: 50%; font-size: 10px; text-align: left;"><strong>AUTORIZADO POR:</strong></td>
-                        <td style="width: 50%; font-size: 10px; text-align: right;"><strong>RECIBIDO POR:</strong></td>
-                    </tr>
-                    <tr>
-                        <td colspan="1" style="font-size: 10px; padding: 0;">
-                            <hr style="border: none; border-top: 1px solid black; margin: 0; padding: 0;"></hr>
-                        </td>
-                        <td colspan="1" style="font-size: 10px; padding: 0; text-align: right;">
-                            <hr style="border: none; border-top: 1px solid black; margin: 0; padding: 0;"></hr>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-    </table>
     <!-->
         <img src="../img/proyecto1.png" alt="Imagen de la factura"></img>
-    </!--> 
+    <!-->
     @img
+    <div class="notes-container">
+        <h6>Notas:</h6>
+        <ol class="notes">
+            <li>Esta cotización es válida por 15 días.</li>
+            <li>La aprobación de esta cotización se considera una orden de compra provisional y los valores expresados.</li>
+            <li>La aprobación y firma de esta cotización aprueba los precios y las características de los productos en ella detallados.</li>
+            <li>No se hacen devoluciones en efectivo a menos que sean autorizadas por la administración general.</li>
+            <li>Usted deberá hacer el pago del 70% de su orden con la firma de esta cotización.</li>
+            <li>Usted se compromete a saldar su cuenta antes de concluir su trabajo, de lo contrario no se le entregara el producto.</li>
+            <li>Cualquier solicitud de reembolso se gestionara a través de una nota de crédito.</li>
+            <li>Desinstalación de puertas existente: $500 pesos por puerta.</li>
+            <li>Es necesario tener luz en la propiedad. En caso de que no la tenga, podemos suministrarla con un costo adicional.</li>
+            <li>Quitamos zócalos para poder poner las jambas si los tiene.</li>
+        </ol>
+    </div>
 </body>
 </html>

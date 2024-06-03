@@ -282,6 +282,12 @@
     <Compile Include="Layout.Designer.cs">
       <DependentUpon>Layout.cs</DependentUpon>
     </Compile>
+    <Compile Include="NCF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NCF.Designer.cs">
+      <DependentUpon>NCF.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ventas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layout.resx">
       <DependentUpon>Layout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NCF.resx">
+      <DependentUpon>NCF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ventas.resx">
       <DependentUpon>Ventas.cs</DependentUpon>
@@ -346,6 +355,7 @@
     <None Include="Resources\logo impdoor.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\firma.png" />
     <Content Include="img\proyecto1.png" />
   </ItemGroup>
   <ItemGroup>

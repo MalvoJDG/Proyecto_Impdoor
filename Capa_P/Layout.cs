@@ -59,5 +59,10 @@ namespace Capa_P
         {
             abrirformhija(new Clientes());
         }
+
+        private void btnNCF_Click(object sender, EventArgs e)
+        {
+            abrirformhija(new NCF());
+        }
     }
 }
