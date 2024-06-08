@@ -4,6 +4,7 @@ using System.Data;
 
 public class Tipo_Madera : ClsEstandar
 {
+    public int Precio { get; set; }
 
     private clsManejador m = new clsManejador();
 

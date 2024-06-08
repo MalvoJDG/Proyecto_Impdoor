@@ -5,29 +5,23 @@ using System.Data;
 public class Precios
 {
     public int Id { get; set; }
+    public int Tipo_Madera_id { get; set; }
+    public float Ancho { get; set; }
+    public float Largo { get; set; }
     public float Precio { get; set; }
-    public int Producto_id { get; set; }
-    public int Material_id { get; set; }
-    public int Tipo_Madera { get; set; }
-    public int Apanelado_id { get; set; }
-    public int Jambas_id { get; set; }
-    public int Size_id { get; set; }
 
     private clsManejador m = new clsManejador();
 
 
     // Traer Precio
-    public DataTable ObtenerPrecioProducto()
+    public DataTable ObtenerPrecioPuerta()
     {
         List<clsParametros> parametros = new List<clsParametros>();
-        parametros.Add(new clsParametros("producto_id", Producto_id));
-        parametros.Add(new clsParametros("material_id", Material_id));
-        parametros.Add(new clsParametros("tipo_madera_id", Tipo_Madera));
-        parametros.Add(new clsParametros("apanelado_id", Apanelado_id));
-        parametros.Add(new clsParametros("jambas_id", Jambas_id));
-        parametros.Add(new clsParametros("size_id", Size_id));
+        parametros.Add(new clsParametros("p_Tipo_madera_id", Tipo_Madera_id));
+        parametros.Add(new clsParametros("p_Ancho", Ancho));
+        parametros.Add(new clsParametros("p_Largo", Largo));
 
-        return m.consultas("ObtenerPrecioProducto", parametros);
+        return m.consultas("ObtenerPrecioPuerta", parametros);
     }
 
     /* public string GuardarUsuario()

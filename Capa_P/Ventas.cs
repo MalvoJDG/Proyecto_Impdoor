@@ -1,11 +1,11 @@
-﻿using iTextSharp.text;
+﻿using iTextSharp.awt.geom;
+using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
 using System;
 using System.Data;
 using System.Globalization;
 using System.IO;
-using System.Runtime.Remoting.Channels;
 using System.Windows.Forms;
 
 
@@ -17,16 +17,11 @@ namespace Capa_P
         Productos productos = new Productos();
         Materiales materiales = new Materiales();
         Tipo_Madera tipo_Madera = new Tipo_Madera();
-        Apanelados apanelados = new Apanelados();
-        Jambas jambas = new Jambas();
-        Size size = new Size();
 
         int id_producto = 0;
         int id_Material = 0;
         int id_Madera = 0;
-        int id_Apanelado = 0;
-        int id_Size = 0;
-        int id_Jambas = 0;
+        int cantidad = 0;
 
         public Ventas()
         {
@@ -35,9 +30,6 @@ namespace Capa_P
             CargarProductos();
             CargarMateriales();
             CargarMadera();
-            cargarApanelado();
-            cargarSize();
-            cargarJambas();
         }
 
         private void Ventas_Load(object sender, EventArgs e)
@@ -59,7 +51,6 @@ namespace Capa_P
             cbmMaterial.DisplayMember = "Nombre";
         }
 
-
         public void CargarMadera()
         {
             DataTable dt = tipo_Madera.ListadoMadera();
@@ -67,27 +58,6 @@ namespace Capa_P
             cbmMadera.DisplayMember = "Nombre";
         }
 
-        public void cargarApanelado()
-        {
-            DataTable dt = apanelados.ListadoApanelado();
-            cbmApanelado.DataSource = dt;
-            cbmApanelado.DisplayMember = "Nombre";
-        }
-
-        public void cargarJambas()
-        {
-            DataTable dt = jambas.ObtenerListadoJambas();
-            cbmJambas.DataSource = dt;
-            cbmJambas.DisplayMember = "Nombre";
-        }
-
-        public void cargarSize()
-        {
-            DataTable dt = size.ListadoSizes();
-            cbmSize.DataSource = dt;
-            cbmSize.DisplayMember = "Medida";
-
-        }
         private void cbmProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbmProducto.ValueMember = "id";
@@ -118,39 +88,138 @@ namespace Capa_P
                 id_Madera = Convert.ToInt32(cbmMadera.SelectedValue);
             }
         }
-
-        private void cbmApanelado_SelectedIndexChanged(object sender, EventArgs e)
+        public void SeleccionApanelado()
         {
-            cbmApanelado.ValueMember = "id";
-            // Obtener el valor seleccionado
-            if (cbmApanelado.SelectedValue != null)
+            // Verifica si el tipo de puerta es "Semisólida" o "Apanelada"
+            if (cbmTipoPuerta.Text == "Semisolida" || cbmTipoPuerta.Text == "Apanelada")
             {
-                id_Apanelado = Convert.ToInt32(cbmApanelado.SelectedValue);
+                double incrementoApanelado = 0;
 
+                // Aplica un incremento específico dependiendo del material seleccionado
+                switch (cbmApanelado.Text)
+                {
+                    case "Plywood":
+                        incrementoApanelado = 0.1; // Ejemplo: un incremento del 15%
+                        break;
+                    case "Madera":
+                        incrementoApanelado = 0.20; // Ejemplo: un incremento del 20%
+                        break;
+                    case "Cristal":
+                        incrementoApanelado = 0.45; // Ejemplo: un incremento del 25%
+                        break;
+                    default:
+                        break;
+                }
+
+                // Calcula el precio total con el incremento del apanelado
+                double totalConApanelado = precioAjustado * (1 + incrementoApanelado);
+
+                // Actualiza el precio ajustado con el apanelado
+                precioAjustado = totalConApanelado;
+
+                // Actualiza el precio total en el formulario
+                lblTotalln.Text = totalConApanelado.ToString("N2");
             }
         }
 
-        private void cbmJambas_SelectedIndexChanged(object sender, EventArgs e)
+
+        private double porcentajeIncrementoTipoPuerta = 0; // Variable para almacenar el porcentaje de incremento del tipo de puerta
+
+        public void SeleccionTipoPuerta()
         {
-            cbmJambas.ValueMember = "id";
-            // Obtener el valor seleccionado
-            if (cbmJambas.SelectedValue != null)
+            if (double.TryParse(lblTotalln.Text, out double total))
             {
-                id_Jambas = Convert.ToInt32(cbmJambas.SelectedValue);
+                switch (cbmTipoPuerta.Text)
+                {
+                    case "Apanelada":
+                        porcentajeIncrementoTipoPuerta = 0.08; // Ejemplo: un incremento del 10%
+                        break;
+
+                    case "Semisolida":
+                        porcentajeIncrementoTipoPuerta = 0.30; // Ejemplo: un incremento del 20%
+                        break;
+
+                    case "Maciza":
+                        porcentajeIncrementoTipoPuerta = 0.80; // Ejemplo: un incremento del 30%
+                        break;
+
+                    case "Chapada":
+                        porcentajeIncrementoTipoPuerta = 0.25; // Ejemplo: un incremento del 15%
+                        break;
+
+                    default:
+                        porcentajeIncrementoTipoPuerta = 0; // Sin incremento
+                        break;
+                }
+
+                total = precioBase * (1 + porcentajeIncrementoTipoPuerta); // Calcula el precio total con el incremento
+                lblTotalln.Text = total.ToString("N2");
+                precioAjustado = total; // Actualiza el precio ajustado
             }
         }
 
-        private void cbmSize_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        private bool calculoDoblesRealizado = false; // Variable para controlar si el cálculo para "Dobles" ya se realizó
+        private double precioBase = 0; // Variable para almacenar el precio base
+        private double precioAjustado = 0; // Variable para almacenar el precio ajustado con las jambas
 
-            cbmSize.ValueMember = "id";
-            // Obtener el valor seleccionado
-            if (cbmSize.SelectedValue != null)
+        public void SeleccionJambas()
+        {
+            if (double.TryParse(lblTotalln.Text, out double total))
             {
-                id_Size = Convert.ToInt32(cbmSize.SelectedValue);
+                switch (cbmJambas.Text)
+                {
+                    case "Frontales":
+                        // Restablece el precio ajustado y permite nuevos cálculos de "Dobles"
+                        lblTotalln.Text = precioAjustado.ToString("N2");
+                        calculoDoblesRealizado = false;
+                        break;
+
+                    case "Dobles":
+                        // Solo ejecuta el cálculo si no se ha realizado anteriormente desde la última selección de "Dobles"
+                        if (!calculoDoblesRealizado)
+                        {
+                            double incrementoJambas = precioBase * 0.20; // Incremento del 20% para jambas
+                            total = precioAjustado + incrementoJambas; // Suma el incremento al precio ajustado
+                            lblTotalln.Text = total.ToString("N2");
+                            calculoDoblesRealizado = true; // Marca que el cálculo se ha realizado
+                        }
+                        else
+                        {
+                            lblTotalln.Text = precioAjustado.ToString("N2");
+                        }
+                        break;
+
+                    default:
+                        // Manejo para otras opciones si es necesario
+                        break;
+                }
             }
         }
 
+        public void SeleccionTerminacion()
+        {
+            if (double.TryParse(lblTotalln.Text, out double total))
+            {
+                switch (cbmTerminacion.Text)
+                {
+                    case "Lacado natural":
+                        double incrementoLacadoNatural = precioBase * 0.15; // Incremento del 15% para lacado natural
+                        total = precioAjustado + incrementoLacadoNatural; // Suma el incremento al precio ajustado
+                        lblTotalln.Text = total.ToString("N2");
+                        break;
+
+                    case "Color":
+                        double incrementoColor = precioBase * 0.20; // Incremento del 20% para color
+                        total = precioAjustado + incrementoColor; // Suma el incremento al precio ajustado
+                        lblTotalln.Text = total.ToString("N2");
+                        break;
+
+                    default:
+                        // Manejo para otras opciones si es necesario
+                        break;
+                }
+            }
+        }
 
         public void Calcular()
         {
@@ -158,33 +227,52 @@ namespace Capa_P
             Precios precios = new Precios();
 
             // Asignar valores a las propiedades de la clase
-            precios.Producto_id = id_producto;
-            precios.Material_id = id_Material;
-            precios.Tipo_Madera = id_Madera;
-            precios.Apanelado_id = id_Apanelado;
-            precios.Jambas_id = id_Jambas;
-            precios.Size_id = id_Size;
+            precios.Tipo_Madera_id = id_Madera;
+
+            if (float.TryParse(txtAncho.Text, out float ancho) && float.TryParse(txtLargo.Text, out float largo))
+            {
+                // Si se pudo convertir correctamente, asigna el valor a precios.Ancho
+                precios.Ancho = ancho;
+                precios.Largo = largo;
+            }
 
             // Ejecutar el procedimiento almacenado y obtener el resultado en un DataTable
-            DataTable resultado = precios.ObtenerPrecioProducto();
+            DataTable resultado = precios.ObtenerPrecioPuerta();
 
             try
             {
-
-
                 // Verificar si hay filas en el resultado
                 if (resultado.Rows.Count > 0)
                 {
                     // Obtener el precio de la primera fila (asumiendo que solo esperas un resultado)
                     float precio = Convert.ToSingle(resultado.Rows[0]["Precio"]);
-                    int cantidad = int.Parse(txtCantidad.Text);
+                    cantidad = int.Parse(txtCantidad.Text);
                     precio = precio * cantidad;
                     double impuesto = precio * 0.18;
 
                     lblitbis.Text = impuesto.ToString("N2", CultureInfo.InvariantCulture);
 
                     // Asignar el precio al TextBox
-                    lblTotalln.Text = precio.ToString("N2", CultureInfo.InvariantCulture);
+                    precioBase = precio; // Asignar a la variable de precio base
+                    lblTotalln.Text = precioBase.ToString("N2", CultureInfo.InvariantCulture);
+                    lblactualtotal.Text = precioBase.ToString("N2", CultureInfo.InvariantCulture);
+
+                    // Resetea el precio ajustado y la bandera de cálculo
+                    precioAjustado = precioBase;
+                    calculoDoblesRealizado = false;
+
+                    
+
+                    // Aplicar selección de tipo de puerta después de calcular el precio base
+                    SeleccionTipoPuerta();
+
+                    SeleccionApanelado();
+
+                    // Aplicar selección de terminación después de ajustar por el tipo de puerta
+                    SeleccionTerminacion();
+
+                    // Aplicar selección de jambas después de ajustar por la terminación
+                    SeleccionJambas();
                 }
                 else
                 {
@@ -193,10 +281,11 @@ namespace Capa_P
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo obtener el precio, revise los valores ingresados","error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("No se pudo obtener el precio, revise los valores ingresados", "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
+
+
 
         private void bunifuButton21_Click(object sender, EventArgs e)
         {
@@ -205,31 +294,31 @@ namespace Capa_P
 
 
 
-        private void Insertar()
-        {
-            int xRows = dtaVentas.Rows.Add(); // Añade una nueva fila y obtiene el índice de la fila agregada
-            double Totalln = double.Parse(lblTotalln.Text);
-            double Itbis = double.Parse(lblitbis.Text);
-            dtaVentas.Rows[xRows].Cells[0].Value = txtServicio.Text;
-            dtaVentas.Rows[xRows].Cells[1].Value = cbmProducto.Text;
-            dtaVentas.Rows[xRows].Cells[2].Value = cbmMaterial.Text;
-            dtaVentas.Rows[xRows].Cells[3].Value = cbmMadera.Text;
-            dtaVentas.Rows[xRows].Cells[4].Value = cbmApanelado.Text;
-            dtaVentas.Rows[xRows].Cells[5].Value = cbmJambas.Text;
-            dtaVentas.Rows[xRows].Cells[6].Value = cbmSize.Text;
-            dtaVentas.Rows[xRows].Cells[7].Value = txtCantidad.Text;
+        /*   private void Insertar()
+           {
+               int xRows = dtaVentas.Rows.Add(); // Añade una nueva fila y obtiene el índice de la fila agregada
+               double Totalln = double.Parse(lblTotalln.Text);
+               double Itbis = double.Parse(lblitbis.Text);
+               dtaVentas.Rows[xRows].Cells[0].Value = txtServicio.Text;
+               dtaVentas.Rows[xRows].Cells[1].Value = cbmProducto.Text;
+               dtaVentas.Rows[xRows].Cells[2].Value = cbmMaterial.Text;
+               dtaVentas.Rows[xRows].Cells[3].Value = cbmMadera.Text;
+               dtaVentas.Rows[xRows].Cells[4].Value = cbmApanelado.Text;
+               dtaVentas.Rows[xRows].Cells[5].Value = cbmJambas.Text;
+               dtaVentas.Rows[xRows].Cells[6].Value = cbmSize.Text;
+               dtaVentas.Rows[xRows].Cells[7].Value = txtCantidad.Text;
 
-            if (cbmImpuesto.Text == "Si")
-            {
-                dtaVentas.Rows[xRows].Cells[8].Value = Itbis.ToString("N2");
-                dtaVentas.Rows[xRows].Cells[9].Value = Totalln.ToString("N2");
-            }
-            else
-            {
-                dtaVentas.Rows[xRows].Cells[8].Value = 0;
-                dtaVentas.Rows[xRows].Cells[9].Value = Totalln.ToString("N2");
-            }
-        }
+               if (cbmImpuesto.Text == "Si")
+               {
+                   dtaVentas.Rows[xRows].Cells[8].Value = Itbis.ToString("N2");
+                   dtaVentas.Rows[xRows].Cells[9].Value = Totalln.ToString("N2");
+               }
+               else
+               {
+                   dtaVentas.Rows[xRows].Cells[8].Value = 0;
+                   dtaVentas.Rows[xRows].Cells[9].Value = Totalln.ToString("N2");
+               }
+           }*/
 
         private void TotalTot()
         {
@@ -286,7 +375,7 @@ namespace Capa_P
 
         private void btnIns_Click(object sender, EventArgs e)
         {
-            Insertar();
+            // Insertar();
             TotalTot();
         }
 
@@ -468,26 +557,73 @@ namespace Capa_P
             Calcular();
         }
 
-        private void Limpiar()
-        {
-            cbmMadera.SelectedIndex = -1;
-            cbmJambas.SelectedIndex = -1;
-            cbmApanelado.SelectedIndex = -1;
-            cbmSize.SelectedIndex = -1;
-            txtServicio.Clear();
-            lblTotalln.Text = "";
-            txtCantidad.Clear();
-            txtInstalacion.Clear();
-        }
+        /*  private void Limpiar()
+          {
+              cbmMadera.SelectedIndex = -1;
+              cbmJambas.SelectedIndex = -1;
+              cbmApanelado.SelectedIndex = -1;
+              cbmSize.SelectedIndex = -1;
+              txtServicio.Clear();
+              lblTotalln.Text = "";
+              txtCantidad.Clear();
+              txtInstalacion.Clear();
+          }*/
+
         private void btnLimpiarD_Click(object sender, EventArgs e)
         {
-            Limpiar();
+            //Limpiar();
         }
 
         private void Ventas_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
+
+        private bool posicionesIntercambiadas = false; // Bandera para controlar si las posiciones ya han sido intercambiadas
+
+        private void cbmTipoPuerta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            System.Drawing.Point ubicacionCbmJamba = cbmJambas.Location;
+            System.Drawing.Point ubicacionCbmApanelado = cbmApanelado.Location;
+            System.Drawing.Point ubicacionTituloJamba = lblJambas.Location;
+            System.Drawing.Point ubicacionTituloApanelado = lblApanelado.Location;
+
+            if (cbmTipoPuerta.Text == "Semisolida" || cbmTipoPuerta.Text == "Apanelada")
+            {
+                lblApanelado.Visible = true;
+                cbmApanelado.Visible = true;
+
+
+                // Si las posiciones fueron intercambiadas previamente, restablece las ubicaciones
+                if (posicionesIntercambiadas)
+                {
+                    cbmJambas.Location = ubicacionCbmApanelado;
+                    cbmApanelado.Location = ubicacionCbmJamba;
+                    lblJambas.Location = ubicacionTituloApanelado;
+                    lblApanelado.Location = ubicacionTituloJamba;
+
+                    posicionesIntercambiadas = false; // Restablece la bandera
+                }
+            }
+            else
+            {
+                lblApanelado.Visible = false;
+                cbmApanelado.Visible = false;
+
+                // Si las posiciones no han sido intercambiadas, hazlo
+                if (!posicionesIntercambiadas)
+                {
+                    // Intercambia las ubicaciones
+                    cbmJambas.Location = ubicacionCbmApanelado;
+                    cbmApanelado.Location = ubicacionCbmJamba;
+                    lblJambas.Location = ubicacionTituloApanelado;
+                    lblApanelado.Location = ubicacionTituloJamba;
+
+                    posicionesIntercambiadas = true; // Marca que las posiciones han sido intercambiadas
+                }
+            }
+        }
+
     }
 
 }

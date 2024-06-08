@@ -49,7 +49,7 @@ namespace Capa_P
         {
             existent = false;
             String msj = "";
-           
+
 
 
             try
@@ -79,16 +79,16 @@ namespace Capa_P
                 if (!string.IsNullOrEmpty(cl.Nombre))//si el campo nombre esta vacio no permite ingresar datos
 
                 {
-                    
+
 
 
 
                     msj = cl.RegistrarClientes();
 
-                        MessageBox.Show(msj);
+                    MessageBox.Show(msj);
 
-                    
-                   
+
+
                 }
                 else
                 {
@@ -127,7 +127,7 @@ namespace Capa_P
             }
 
 
-            
+
 
 
         }
@@ -248,7 +248,7 @@ namespace Capa_P
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -290,7 +290,7 @@ namespace Capa_P
 
 
         public void exportaraexcel(DataGridView tabla)
-        
+
         {
             // Crear un nuevo libro de Excel
             using (var workbook = new XLWorkbook())
@@ -348,15 +348,15 @@ namespace Capa_P
 
             if (existent == true)
             {
-               DialogResult result = MessageBox.Show("¿Deseas continuar?", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                DialogResult result = MessageBox.Show("¿Deseas continuar?", "Confirmación", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.OK)
                 {
                     existent = false;
                     Limpiar();
                 }
             }
-           
-            
+
+
         }
     }
 

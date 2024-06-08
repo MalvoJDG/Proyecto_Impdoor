@@ -95,14 +95,11 @@
   <ItemGroup>
     <Compile Include="EntityProve\ClienteFr.cs" />
     <Compile Include="EntityProve\Clientes.cs" />
-    <Compile Include="Entity\Apanelados.cs" />
     <Compile Include="Entity\ClsEstandar.cs" />
-    <Compile Include="Entity\Jambas.cs" />
     <Compile Include="Entity\Materiales.cs" />
     <Compile Include="Entity\Precios.cs" />
     <Compile Include="Entity\Productos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entity\Size.cs" />
     <Compile Include="Entity\Tipo_Madera.cs" />
   </ItemGroup>
   <ItemGroup>
