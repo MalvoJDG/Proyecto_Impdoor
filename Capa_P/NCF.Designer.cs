@@ -66,9 +66,10 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(585, 377);
+            this.pictureBox1.Location = new System.Drawing.Point(439, 306);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(23, 20);
+            this.pictureBox1.Size = new System.Drawing.Size(17, 16);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 114;
             this.pictureBox1.TabStop = false;
@@ -92,7 +93,8 @@
             this.bunifuVScrollBar2.BorderThickness = 2;
             this.bunifuVScrollBar2.DurationBeforeShrink = 2000;
             this.bunifuVScrollBar2.LargeChange = 17;
-            this.bunifuVScrollBar2.Location = new System.Drawing.Point(1245, 503);
+            this.bunifuVScrollBar2.Location = new System.Drawing.Point(934, 409);
+            this.bunifuVScrollBar2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bunifuVScrollBar2.Maximum = 100;
             this.bunifuVScrollBar2.Minimum = 0;
             this.bunifuVScrollBar2.MinimumThumbLength = 18;
@@ -103,11 +105,11 @@
             this.bunifuVScrollBar2.ScrollBarBorderColor = System.Drawing.Color.Silver;
             this.bunifuVScrollBar2.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.bunifuVScrollBar2.ShrinkSizeLimit = 3;
-            this.bunifuVScrollBar2.Size = new System.Drawing.Size(30, 189);
+            this.bunifuVScrollBar2.Size = new System.Drawing.Size(22, 154);
             this.bunifuVScrollBar2.SmallChange = 1;
             this.bunifuVScrollBar2.TabIndex = 113;
             this.bunifuVScrollBar2.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.bunifuVScrollBar2.ThumbLength = 31;
+            this.bunifuVScrollBar2.ThumbLength = 25;
             this.bunifuVScrollBar2.ThumbMargin = 1;
             this.bunifuVScrollBar2.ThumbStyle = Bunifu.UI.WinForms.BunifuVScrollBar.ThumbStyles.Inset;
             this.bunifuVScrollBar2.Value = 0;
@@ -167,13 +169,14 @@
             this.dtaFiscal.HeaderBackColor = System.Drawing.Color.DodgerBlue;
             this.dtaFiscal.HeaderBgColor = System.Drawing.Color.Empty;
             this.dtaFiscal.HeaderForeColor = System.Drawing.Color.White;
-            this.dtaFiscal.Location = new System.Drawing.Point(113, 454);
+            this.dtaFiscal.Location = new System.Drawing.Point(85, 369);
+            this.dtaFiscal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtaFiscal.Name = "dtaFiscal";
             this.dtaFiscal.ReadOnly = true;
             this.dtaFiscal.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
@@ -182,7 +185,7 @@
             this.dtaFiscal.RowHeadersVisible = false;
             this.dtaFiscal.RowHeadersWidth = 51;
             this.dtaFiscal.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Poppins", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
@@ -190,9 +193,11 @@
             this.dtaFiscal.RowTemplate.Height = 40;
             this.dtaFiscal.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dtaFiscal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtaFiscal.Size = new System.Drawing.Size(1126, 238);
+            this.dtaFiscal.Size = new System.Drawing.Size(844, 193);
             this.dtaFiscal.TabIndex = 112;
             this.dtaFiscal.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.dtaFiscal.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtaFiscal_CellMouseClick);
+            this.dtaFiscal.SelectionChanged += new System.EventHandler(this.dtaFiscal_SelectionChanged);
             // 
             // bunifuTextBox1
             // 
@@ -213,7 +218,7 @@
             this.bunifuTextBox1.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.bunifuTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.bunifuTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bunifuTextBox1.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuTextBox1.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuTextBox1.DefaultText = "";
             this.bunifuTextBox1.FillColor = System.Drawing.Color.White;
             this.bunifuTextBox1.HideSelection = true;
@@ -223,7 +228,8 @@
             this.bunifuTextBox1.IconRight = null;
             this.bunifuTextBox1.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.bunifuTextBox1.Lines = new string[0];
-            this.bunifuTextBox1.Location = new System.Drawing.Point(245, 364);
+            this.bunifuTextBox1.Location = new System.Drawing.Point(184, 296);
+            this.bunifuTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bunifuTextBox1.MaxLength = 32767;
             this.bunifuTextBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.bunifuTextBox1.Modified = false;
@@ -249,7 +255,7 @@
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifuTextBox1.OnIdleState = stateProperties4;
-            this.bunifuTextBox1.Padding = new System.Windows.Forms.Padding(3);
+            this.bunifuTextBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bunifuTextBox1.PasswordChar = '\0';
             this.bunifuTextBox1.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.bunifuTextBox1.PlaceholderText = "Buscar";
@@ -259,7 +265,7 @@
             this.bunifuTextBox1.SelectionLength = 0;
             this.bunifuTextBox1.SelectionStart = 0;
             this.bunifuTextBox1.ShortcutsEnabled = true;
-            this.bunifuTextBox1.Size = new System.Drawing.Size(381, 45);
+            this.bunifuTextBox1.Size = new System.Drawing.Size(286, 37);
             this.bunifuTextBox1.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.bunifuTextBox1.TabIndex = 111;
             this.bunifuTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -299,7 +305,7 @@
             this.btnEditar.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnEditar.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnEditar.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Disabled;
-            this.btnEditar.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditar.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -317,7 +323,8 @@
             this.btnEditar.IdleIconLeftImage = null;
             this.btnEditar.IdleIconRightImage = null;
             this.btnEditar.IndicateFocus = false;
-            this.btnEditar.Location = new System.Drawing.Point(658, 377);
+            this.btnEditar.Location = new System.Drawing.Point(494, 306);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnEditar.OnDisabledState.BorderRadius = 20;
@@ -351,13 +358,14 @@
             this.btnEditar.OnPressedState.ForeColor = System.Drawing.Color.DimGray;
             this.btnEditar.OnPressedState.IconLeftImage = null;
             this.btnEditar.OnPressedState.IconRightImage = null;
-            this.btnEditar.Size = new System.Drawing.Size(127, 32);
+            this.btnEditar.Size = new System.Drawing.Size(95, 26);
             this.btnEditar.TabIndex = 110;
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnEditar.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnEditar.TextMarginLeft = 0;
             this.btnEditar.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnEditar.UseDefaultRadiusAndThickness = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnborrar
             // 
@@ -388,7 +396,7 @@
             this.btnborrar.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnborrar.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnborrar.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Disabled;
-            this.btnborrar.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnborrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnborrar.ForeColor = System.Drawing.Color.White;
             this.btnborrar.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnborrar.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -406,7 +414,8 @@
             this.btnborrar.IdleIconLeftImage = null;
             this.btnborrar.IdleIconRightImage = null;
             this.btnborrar.IndicateFocus = false;
-            this.btnborrar.Location = new System.Drawing.Point(841, 377);
+            this.btnborrar.Location = new System.Drawing.Point(631, 306);
+            this.btnborrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnborrar.Name = "btnborrar";
             this.btnborrar.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnborrar.OnDisabledState.BorderRadius = 20;
@@ -440,13 +449,14 @@
             this.btnborrar.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnborrar.OnPressedState.IconLeftImage = null;
             this.btnborrar.OnPressedState.IconRightImage = null;
-            this.btnborrar.Size = new System.Drawing.Size(119, 32);
+            this.btnborrar.Size = new System.Drawing.Size(89, 26);
             this.btnborrar.TabIndex = 109;
             this.btnborrar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnborrar.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnborrar.TextMarginLeft = 0;
             this.btnborrar.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnborrar.UseDefaultRadiusAndThickness = true;
+            this.btnborrar.Click += new System.EventHandler(this.btnborrar_Click);
             // 
             // btnlimpiar
             // 
@@ -477,7 +487,7 @@
             this.btnlimpiar.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnlimpiar.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnlimpiar.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Disabled;
-            this.btnlimpiar.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnlimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlimpiar.ForeColor = System.Drawing.Color.DimGray;
             this.btnlimpiar.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnlimpiar.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -495,7 +505,8 @@
             this.btnlimpiar.IdleIconLeftImage = null;
             this.btnlimpiar.IdleIconRightImage = null;
             this.btnlimpiar.IndicateFocus = false;
-            this.btnlimpiar.Location = new System.Drawing.Point(658, 334);
+            this.btnlimpiar.Location = new System.Drawing.Point(494, 271);
+            this.btnlimpiar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnlimpiar.OnDisabledState.BorderRadius = 20;
@@ -529,7 +540,7 @@
             this.btnlimpiar.OnPressedState.ForeColor = System.Drawing.Color.DimGray;
             this.btnlimpiar.OnPressedState.IconLeftImage = null;
             this.btnlimpiar.OnPressedState.IconRightImage = null;
-            this.btnlimpiar.Size = new System.Drawing.Size(127, 32);
+            this.btnlimpiar.Size = new System.Drawing.Size(95, 26);
             this.btnlimpiar.TabIndex = 108;
             this.btnlimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnlimpiar.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -566,7 +577,7 @@
             this.btnGuardarClienteR.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnGuardarClienteR.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnGuardarClienteR.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Disabled;
-            this.btnGuardarClienteR.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarClienteR.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarClienteR.ForeColor = System.Drawing.Color.White;
             this.btnGuardarClienteR.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardarClienteR.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -584,7 +595,8 @@
             this.btnGuardarClienteR.IdleIconLeftImage = null;
             this.btnGuardarClienteR.IdleIconRightImage = null;
             this.btnGuardarClienteR.IndicateFocus = false;
-            this.btnGuardarClienteR.Location = new System.Drawing.Point(648, 104);
+            this.btnGuardarClienteR.Location = new System.Drawing.Point(486, 84);
+            this.btnGuardarClienteR.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnGuardarClienteR.Name = "btnGuardarClienteR";
             this.btnGuardarClienteR.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnGuardarClienteR.OnDisabledState.BorderRadius = 20;
@@ -618,13 +630,14 @@
             this.btnGuardarClienteR.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnGuardarClienteR.OnPressedState.IconLeftImage = null;
             this.btnGuardarClienteR.OnPressedState.IconRightImage = null;
-            this.btnGuardarClienteR.Size = new System.Drawing.Size(142, 40);
+            this.btnGuardarClienteR.Size = new System.Drawing.Size(106, 32);
             this.btnGuardarClienteR.TabIndex = 107;
             this.btnGuardarClienteR.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnGuardarClienteR.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnGuardarClienteR.TextMarginLeft = 0;
             this.btnGuardarClienteR.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnGuardarClienteR.UseDefaultRadiusAndThickness = true;
+            this.btnGuardarClienteR.Click += new System.EventHandler(this.btnGuardarClienteR_Click);
             // 
             // txtNumerosCreditoFiscal
             // 
@@ -645,7 +658,7 @@
             this.txtNumerosCreditoFiscal.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtNumerosCreditoFiscal.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtNumerosCreditoFiscal.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNumerosCreditoFiscal.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumerosCreditoFiscal.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumerosCreditoFiscal.DefaultText = "";
             this.txtNumerosCreditoFiscal.FillColor = System.Drawing.Color.White;
             this.txtNumerosCreditoFiscal.HideSelection = true;
@@ -655,7 +668,8 @@
             this.txtNumerosCreditoFiscal.IconRight = null;
             this.txtNumerosCreditoFiscal.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNumerosCreditoFiscal.Lines = new string[0];
-            this.txtNumerosCreditoFiscal.Location = new System.Drawing.Point(245, 104);
+            this.txtNumerosCreditoFiscal.Location = new System.Drawing.Point(184, 84);
+            this.txtNumerosCreditoFiscal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNumerosCreditoFiscal.MaxLength = 32767;
             this.txtNumerosCreditoFiscal.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtNumerosCreditoFiscal.Modified = false;
@@ -681,7 +695,7 @@
             stateProperties8.ForeColor = System.Drawing.Color.Empty;
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtNumerosCreditoFiscal.OnIdleState = stateProperties8;
-            this.txtNumerosCreditoFiscal.Padding = new System.Windows.Forms.Padding(3);
+            this.txtNumerosCreditoFiscal.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNumerosCreditoFiscal.PasswordChar = '\0';
             this.txtNumerosCreditoFiscal.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtNumerosCreditoFiscal.PlaceholderText = "NCF B0100000262";
@@ -691,7 +705,7 @@
             this.txtNumerosCreditoFiscal.SelectionLength = 0;
             this.txtNumerosCreditoFiscal.SelectionStart = 0;
             this.txtNumerosCreditoFiscal.ShortcutsEnabled = true;
-            this.txtNumerosCreditoFiscal.Size = new System.Drawing.Size(381, 204);
+            this.txtNumerosCreditoFiscal.Size = new System.Drawing.Size(286, 166);
             this.txtNumerosCreditoFiscal.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtNumerosCreditoFiscal.TabIndex = 106;
             this.txtNumerosCreditoFiscal.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -704,11 +718,12 @@
             // 
             // lblNombre
             // 
-            this.lblNombre.Font = new System.Drawing.Font("Poppins", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.lblNombre.Location = new System.Drawing.Point(111, 104);
+            this.lblNombre.Location = new System.Drawing.Point(83, 84);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(128, 40);
+            this.lblNombre.Size = new System.Drawing.Size(96, 32);
             this.lblNombre.TabIndex = 105;
             this.lblNombre.Text = "Código";
             // 
@@ -718,12 +733,13 @@
             this.bunifuLabel2.AutoEllipsis = false;
             this.bunifuLabel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel2.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel2.Font = new System.Drawing.Font("Poppins", 16.2F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.bunifuLabel2.Location = new System.Drawing.Point(113, 29);
+            this.bunifuLabel2.Location = new System.Drawing.Point(85, 24);
+            this.bunifuLabel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bunifuLabel2.Name = "bunifuLabel2";
             this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel2.Size = new System.Drawing.Size(190, 48);
+            this.bunifuLabel2.Size = new System.Drawing.Size(147, 26);
             this.bunifuLabel2.TabIndex = 104;
             this.bunifuLabel2.Text = "Crédito Fiscal ";
             this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -735,18 +751,19 @@
             this.lblId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblId.Location = new System.Drawing.Point(841, 52);
+            this.lblId.Location = new System.Drawing.Point(631, 42);
+            this.lblId.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(140, 25);
+            this.lblId.Size = new System.Drawing.Size(106, 21);
             this.lblId.TabIndex = 103;
             this.lblId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblId.Visible = false;
             // 
             // NCF
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1604, 739);
+            this.ClientSize = new System.Drawing.Size(1203, 600);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.bunifuVScrollBar2);
             this.Controls.Add(this.dtaFiscal);
@@ -760,6 +777,7 @@
             this.Controls.Add(this.bunifuLabel2);
             this.Controls.Add(this.lblId);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "NCF";
             this.Text = "NCF";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
