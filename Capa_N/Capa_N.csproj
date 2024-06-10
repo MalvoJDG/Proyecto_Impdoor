@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="EntityProve\ClienteFr.cs" />
     <Compile Include="EntityProve\Clientes.cs" />
+    <Compile Include="EntityProve\NCf.cs" />
     <Compile Include="Entity\ClsEstandar.cs" />
     <Compile Include="Entity\Materiales.cs" />
     <Compile Include="Entity\Precios.cs" />
@@ -109,6 +110,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
