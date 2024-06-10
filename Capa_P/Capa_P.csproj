@@ -355,8 +355,10 @@
     <None Include="Resources\logo impdoor.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\datosfooter.png" />
     <Content Include="img\firma.png" />
     <Content Include="img\proyecto1.png" />
+    <Content Include="img\sello_solo_impdoor.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">

@@ -57,7 +57,7 @@ namespace Capa_P
             cbmMadera.DataSource = dt;
             cbmMadera.DisplayMember = "Nombre";
         }
-
+        
         private void cbmProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbmProducto.ValueMember = "id";
@@ -294,7 +294,7 @@ namespace Capa_P
 
 
 
-        /*   private void Insertar()
+           private void Insertar()
            {
                int xRows = dtaVentas.Rows.Add(); // Añade una nueva fila y obtiene el índice de la fila agregada
                double Totalln = double.Parse(lblTotalln.Text);
@@ -305,7 +305,7 @@ namespace Capa_P
                dtaVentas.Rows[xRows].Cells[3].Value = cbmMadera.Text;
                dtaVentas.Rows[xRows].Cells[4].Value = cbmApanelado.Text;
                dtaVentas.Rows[xRows].Cells[5].Value = cbmJambas.Text;
-               dtaVentas.Rows[xRows].Cells[6].Value = cbmSize.Text;
+               dtaVentas.Rows[xRows].Cells[6].Value = $"{txtAncho.Text} + X + {txtLargo.Text}";
                dtaVentas.Rows[xRows].Cells[7].Value = txtCantidad.Text;
 
                if (cbmImpuesto.Text == "Si")
@@ -318,7 +318,7 @@ namespace Capa_P
                    dtaVentas.Rows[xRows].Cells[8].Value = 0;
                    dtaVentas.Rows[xRows].Cells[9].Value = Totalln.ToString("N2");
                }
-           }*/
+           }
 
         private void TotalTot()
         {
@@ -375,7 +375,7 @@ namespace Capa_P
 
         private void btnIns_Click(object sender, EventArgs e)
         {
-            // Insertar();
+            Insertar();
             TotalTot();
         }
 
@@ -477,7 +477,7 @@ namespace Capa_P
             {
                 using (FileStream stream = new FileStream(save.FileName, FileMode.Create))
                 {
-                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 50); // Ajusta el margen inferior
+                    Document pdfDoc = new Document(PageSize.A4, 25, 25, 25, 130); // Ajusta el margen inferior
                     PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
 
                     writer.PageEvent = new Footer();
@@ -521,35 +521,60 @@ namespace Capa_P
         {
             public override void OnEndPage(PdfWriter writer, Document document)
             {
-                PdfPTable footer = new PdfPTable(2);
+                PdfPTable footer = new PdfPTable(3); // Cambia a 3 columnas
                 footer.TotalWidth = document.PageSize.Width - document.LeftMargin - document.RightMargin;
                 footer.DefaultCell.Border = 0;
                 footer.DefaultCell.HorizontalAlignment = Element.ALIGN_CENTER;
                 footer.DefaultCell.VerticalAlignment = Element.ALIGN_MIDDLE;
+                footer.WidthPercentage = 100; // Asegura que la tabla ocupe el ancho completo
 
-                string imagePath = Path.GetFullPath(@"..\..\img\firma.png");
-                Image logo = Image.GetInstance(imagePath);
-                logo.ScaleAbsolute(200f, 200f); // Ajusta el tamaño de la imagen si es necesario
-                PdfPCell imageCell = new PdfPCell(logo);
-                imageCell.Border = 0;
-                imageCell.HorizontalAlignment = Element.ALIGN_LEFT;
-                footer.AddCell(imageCell);
+                // Primera imagen
+                string imagePath1 = Path.GetFullPath(@"..\..\img\sello_solo_impdoor.png");
+                Image logo1 = Image.GetInstance(imagePath1);
+                logo1.ScaleAbsolute(450f, 180f); // Ajusta el tamaño de la imagen si es necesario (ancho x alto)
+                PdfPCell imageCell1 = new PdfPCell(logo1);
+                imageCell1.Border = 0;
+                imageCell1.HorizontalAlignment = Element.ALIGN_LEFT;
+                imageCell1.VerticalAlignment = Element.ALIGN_MIDDLE;
+                imageCell1.PaddingLeft = -100f; // Ajuste horizontal de la primera imagen
+                footer.AddCell(imageCell1);
 
-                PdfPCell textCell = new PdfPCell(new Phrase("Este es el pie de página"));
-                textCell.Border = 0;
-                textCell.HorizontalAlignment = Element.ALIGN_RIGHT;
-                footer.AddCell(textCell);
+                // Celda vacía en el medio para separar las dos imágenes
+                PdfPCell emptyCell = new PdfPCell();
+                emptyCell.Border = 0;
+                footer.AddCell(emptyCell);
+
+                // Segunda imagen
+                string imagePath2 = Path.GetFullPath(@"..\..\img\datosfooter.png"); // Ruta de la segunda imagen
+                Image logo2 = Image.GetInstance(imagePath2);
+                logo2.ScaleAbsolute(220f, 100f); // Ajusta el tamaño de la segunda imagen si es necesario (ancho x alto)
+                PdfPCell imageCell2 = new PdfPCell(logo2);
+                imageCell2.Border = 0;
+                imageCell2.HorizontalAlignment = Element.ALIGN_RIGHT;
+                imageCell2.VerticalAlignment = Element.ALIGN_MIDDLE;
+                imageCell2.PaddingRight = -10f; // Ajuste horizontal de la segunda imagen
+                footer.AddCell(imageCell2);
 
                 float xPosition = document.LeftMargin;
-                float yPosition = document.BottomMargin - 15; // Ajusta la posición vertical si es necesario
-                footer.WriteSelectedRows(0, -1, xPosition, yPosition + 50, writer.DirectContent);
+
+                // Ajuste de la posición vertical de la primera imagen (un poco más arriba)
+                float yPosition1 = document.BottomMargin + 35 + 10; // Ajuste vertical para la primera imagen
+                footer.WriteSelectedRows(0, -1, xPosition, yPosition1, writer.DirectContent);
+
+                // Ajuste de la posición vertical de la segunda imagen (un poco más abajo)
+                float yPosition2 = document.BottomMargin + 35 - 20; // Ajuste vertical para la segunda imagen
+                footer.WriteSelectedRows(1, -1, xPosition, yPosition2, writer.DirectContent);
             }
+
+
         }
+
 
 
         private void btnImprimir_Click(object sender, EventArgs e)
         {
             imprimir();
+            // comentario para probar push
         }
 
         private void txtCantidad_Leave(object sender, EventArgs e)
