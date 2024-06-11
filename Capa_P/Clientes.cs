@@ -175,8 +175,7 @@ namespace Capa_P
 
         private void Clientes_Load(object sender, EventArgs e)
         {
-            int totalFilas = dtaClientes.RowCount;
-            bunifuVScrollBar2.Maximum = totalFilas;
+            
 
             
 
