@@ -360,6 +360,7 @@
   <ItemGroup>
     <Content Include="img\datosfooter.png" />
     <Content Include="img\firma.png" />
+    <Content Include="img\impdoor_logo.png" />
     <Content Include="img\proyecto1.png" />
     <Content Include="img\sello_solo_impdoor.png" />
   </ItemGroup>
