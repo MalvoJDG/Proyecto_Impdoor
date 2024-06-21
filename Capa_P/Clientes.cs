@@ -1,7 +1,11 @@
-﻿using Capa_N.EntityProv;
+﻿using Bunifu.Framework.UI;
+using Bunifu.UI.WinForms;
+using Bunifu.Utils;
+using Capa_N.EntityProv;
 using ClosedXML.Excel;
 using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -14,6 +18,7 @@ namespace Capa_P
         // Instanciar las clases que se vayan a utiliar
         public Cliente cl = new Cliente();
         bool existent = false;
+        
 
         private void Limpiar()
         {
@@ -28,8 +33,8 @@ namespace Capa_P
         {
             InitializeComponent();
             CargarClinete();
-        }
-
+           
+        }   
         private void CargarClinete()
         {
             // Llamar la clase y el metodo
@@ -104,6 +109,7 @@ namespace Capa_P
             }
 
             CargarClinete();
+            Limpiar();
 
 
         }
@@ -169,6 +175,9 @@ namespace Capa_P
 
         private void Clientes_Load(object sender, EventArgs e)
         {
+            
+
+            
 
         }
 
@@ -277,9 +286,29 @@ namespace Capa_P
 
         private void bunifuVScrollBar2_Scroll(object sender, Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs e)
         {
+            // Obtener la posición actual del scrollbar
+            int scrollValue = e.Value;
+
+            // Calcular la posición de la primera fila visible en el BunifuCustomDataGrid
+            int primeraFilaVisible = scrollValue;
+
+            // Verificar si la primera fila visible es menor que cero
+            if (primeraFilaVisible < 0)
+            {
+                primeraFilaVisible = 0;
+            }
+
+            // Verificar si la primera fila visible excede el rango de filas visibles
+            if (primeraFilaVisible >= dtaClientes.RowCount)
+            {
+                primeraFilaVisible = dtaClientes.RowCount - 1;
+            }
+
+            // Actualizar la vista del BunifuCustomDataGrid para mostrar las filas visibles
+            dtaClientes.FirstDisplayedScrollingRowIndex = primeraFilaVisible;
+            dtaClientes.Refresh();
 
         }
-
 
         private void bunifuButton21_Click(object sender, EventArgs e)
         {

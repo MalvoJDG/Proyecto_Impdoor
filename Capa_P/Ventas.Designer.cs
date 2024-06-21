@@ -243,11 +243,12 @@
             // 
             // lblAviso
             // 
-            this.lblAviso.Font = new System.Drawing.Font("Poppins", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAviso.ForeColor = System.Drawing.Color.Red;
-            this.lblAviso.Location = new System.Drawing.Point(378, 96);
+            this.lblAviso.Location = new System.Drawing.Point(284, 78);
+            this.lblAviso.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAviso.Name = "lblAviso";
-            this.lblAviso.Size = new System.Drawing.Size(206, 22);
+            this.lblAviso.Size = new System.Drawing.Size(154, 18);
             this.lblAviso.TabIndex = 172;
             this.lblAviso.Text = "Añadir solo en version final";
             this.lblAviso.Visible = false;
@@ -281,7 +282,7 @@
             this.btnCargar.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnCargar.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnCargar.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Hover;
-            this.btnCargar.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCargar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCargar.ForeColor = System.Drawing.Color.White;
             this.btnCargar.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCargar.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -333,7 +334,7 @@
             this.btnCargar.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnCargar.OnPressedState.IconLeftImage = null;
             this.btnCargar.OnPressedState.IconRightImage = null;
-            this.btnCargar.Size = new System.Drawing.Size(127, 31);
+            this.btnCargar.Size = new System.Drawing.Size(95, 25);
             this.btnCargar.TabIndex = 171;
             this.btnCargar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnCargar.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -344,11 +345,12 @@
             // 
             // label14
             // 
-            this.label14.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.label14.Location = new System.Drawing.Point(915, 64);
+            this.label14.Location = new System.Drawing.Point(686, 52);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(120, 29);
+            this.label14.Size = new System.Drawing.Size(90, 24);
             this.label14.TabIndex = 170;
             this.label14.Text = "Cargar F.";
             this.label14.Visible = false;
@@ -373,7 +375,7 @@
             this.cbmCargarFac.FillDropDown = true;
             this.cbmCargarFac.FillIndicator = false;
             this.cbmCargarFac.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbmCargarFac.Font = new System.Drawing.Font("Poppins", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbmCargarFac.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbmCargarFac.ForeColor = System.Drawing.Color.Black;
             this.cbmCargarFac.FormattingEnabled = true;
             this.cbmCargarFac.Icon = null;
@@ -392,9 +394,10 @@
             "No",
             "Si"});
             this.cbmCargarFac.ItemTopMargin = 3;
-            this.cbmCargarFac.Location = new System.Drawing.Point(917, 95);
+            this.cbmCargarFac.Location = new System.Drawing.Point(688, 77);
+            this.cbmCargarFac.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbmCargarFac.Name = "cbmCargarFac";
-            this.cbmCargarFac.Size = new System.Drawing.Size(86, 23);
+            this.cbmCargarFac.Size = new System.Drawing.Size(66, 23);
             this.cbmCargarFac.TabIndex = 169;
             this.cbmCargarFac.Text = null;
             this.cbmCargarFac.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
@@ -462,7 +465,7 @@
             this.dtaFacturas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Poppins", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
@@ -471,25 +474,25 @@
             this.dtaFacturas.RowHeadersVisible = false;
             this.dtaFacturas.RowHeadersWidth = 51;
             this.dtaFacturas.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Poppins", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             this.dtaFacturas.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtaFacturas.RowTemplate.Height = 40;
             this.dtaFacturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtaFacturas.Size = new System.Drawing.Size(483, 139);
+            this.dtaFacturas.Size = new System.Drawing.Size(362, 113);
             this.dtaFacturas.TabIndex = 168;
             this.dtaFacturas.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
             this.dtaFacturas.Visible = false;
             // 
             // label13
             // 
-            this.label13.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label13.Location = new System.Drawing.Point(760, 444);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(148, 25);
+            this.label13.Size = new System.Drawing.Size(111, 20);
             this.label13.TabIndex = 167;
             this.label13.Text = "Instalacion";
             this.label13.Visible = false;
@@ -513,7 +516,7 @@
             this.txtInstalacion.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtInstalacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtInstalacion.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtInstalacion.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInstalacion.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInstalacion.DefaultText = "";
             this.txtInstalacion.FillColor = System.Drawing.Color.White;
             this.txtInstalacion.HideSelection = true;
@@ -549,7 +552,7 @@
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtInstalacion.OnIdleState = stateProperties4;
-            this.txtInstalacion.Padding = new System.Windows.Forms.Padding(3);
+            this.txtInstalacion.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtInstalacion.PasswordChar = '\0';
             this.txtInstalacion.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtInstalacion.PlaceholderText = "";
@@ -559,7 +562,7 @@
             this.txtInstalacion.SelectionLength = 0;
             this.txtInstalacion.SelectionStart = 0;
             this.txtInstalacion.ShortcutsEnabled = true;
-            this.txtInstalacion.Size = new System.Drawing.Size(132, 30);
+            this.txtInstalacion.Size = new System.Drawing.Size(99, 24);
             this.txtInstalacion.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtInstalacion.TabIndex = 166;
             this.txtInstalacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -579,7 +582,7 @@
             this.lblRnc.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblRnc.Location = new System.Drawing.Point(667, 720);
             this.lblRnc.Name = "lblRnc";
-            this.lblRnc.Size = new System.Drawing.Size(245, 25);
+            this.lblRnc.Size = new System.Drawing.Size(184, 21);
             this.lblRnc.TabIndex = 165;
             this.lblRnc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblRnc.Visible = false;
@@ -593,20 +596,22 @@
             this.bunifuPanel4.BorderRadius = 10;
             this.bunifuPanel4.BorderThickness = 1;
             this.bunifuPanel4.Controls.Add(this.lbltipe);
-            this.bunifuPanel4.Location = new System.Drawing.Point(125, 80);
+            this.bunifuPanel4.Location = new System.Drawing.Point(94, 65);
+            this.bunifuPanel4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bunifuPanel4.Name = "bunifuPanel4";
             this.bunifuPanel4.ShowBorders = true;
-            this.bunifuPanel4.Size = new System.Drawing.Size(144, 26);
+            this.bunifuPanel4.Size = new System.Drawing.Size(108, 21);
             this.bunifuPanel4.TabIndex = 163;
             // 
             // lbltipe
             // 
             this.lbltipe.BackColor = System.Drawing.Color.Transparent;
-            this.lbltipe.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbltipe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbltipe.ForeColor = System.Drawing.Color.White;
-            this.lbltipe.Location = new System.Drawing.Point(16, 1);
+            this.lbltipe.Location = new System.Drawing.Point(12, 1);
+            this.lbltipe.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbltipe.Name = "lbltipe";
-            this.lbltipe.Size = new System.Drawing.Size(111, 25);
+            this.lbltipe.Size = new System.Drawing.Size(83, 20);
             this.lbltipe.TabIndex = 109;
             this.lbltipe.Text = "Factura";
             // 
@@ -617,10 +622,11 @@
             this.swtipe.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.swtipe.CheckedSwitchColor = System.Drawing.Color.White;
             this.swtipe.CheckedSwitchStyle = Bunifu.UI.WinForms.BunifuToggleSwitch2.SwitchStyles.Fill;
-            this.swtipe.Location = new System.Drawing.Point(53, 81);
+            this.swtipe.Location = new System.Drawing.Point(40, 66);
+            this.swtipe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.swtipe.Name = "swtipe";
             this.swtipe.OutlineThickness = 2;
-            this.swtipe.Size = new System.Drawing.Size(66, 22);
+            this.swtipe.Size = new System.Drawing.Size(50, 18);
             this.swtipe.TabIndex = 164;
             this.swtipe.UncheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(189)))), ((int)(((byte)(189)))), ((int)(((byte)(189)))));
             this.swtipe.UncheckedSwitchColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
@@ -646,7 +652,7 @@
             this.cbmPago.FillDropDown = true;
             this.cbmPago.FillIndicator = false;
             this.cbmPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbmPago.Font = new System.Drawing.Font("Poppins", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbmPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbmPago.ForeColor = System.Drawing.Color.Black;
             this.cbmPago.FormattingEnabled = true;
             this.cbmPago.Icon = null;
@@ -667,7 +673,7 @@
             this.cbmPago.ItemTopMargin = 3;
             this.cbmPago.Location = new System.Drawing.Point(926, 468);
             this.cbmPago.Name = "cbmPago";
-            this.cbmPago.Size = new System.Drawing.Size(132, 25);
+            this.cbmPago.Size = new System.Drawing.Size(100, 25);
             this.cbmPago.TabIndex = 132;
             this.cbmPago.Text = null;
             this.cbmPago.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
@@ -675,11 +681,11 @@
             // 
             // label12
             // 
-            this.label12.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label12.Location = new System.Drawing.Point(929, 440);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(83, 31);
+            this.label12.Size = new System.Drawing.Size(62, 25);
             this.label12.TabIndex = 160;
             this.label12.Text = "Pago";
             // 
@@ -712,7 +718,7 @@
             this.btnIns.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnIns.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnIns.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Hover;
-            this.btnIns.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIns.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIns.ForeColor = System.Drawing.Color.White;
             this.btnIns.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIns.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -764,7 +770,7 @@
             this.btnIns.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnIns.OnPressedState.IconLeftImage = null;
             this.btnIns.OnPressedState.IconRightImage = null;
-            this.btnIns.Size = new System.Drawing.Size(127, 31);
+            this.btnIns.Size = new System.Drawing.Size(95, 25);
             this.btnIns.TabIndex = 131;
             this.btnIns.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnIns.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -792,7 +798,7 @@
             this.lblTotalln.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.lblTotalln.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.lblTotalln.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblTotalln.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalln.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotalln.DefaultText = "";
             this.lblTotalln.FillColor = System.Drawing.Color.White;
             this.lblTotalln.HideSelection = true;
@@ -828,7 +834,7 @@
             stateProperties8.ForeColor = System.Drawing.Color.Empty;
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.lblTotalln.OnIdleState = stateProperties8;
-            this.lblTotalln.Padding = new System.Windows.Forms.Padding(3);
+            this.lblTotalln.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lblTotalln.PasswordChar = '\0';
             this.lblTotalln.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.lblTotalln.PlaceholderText = "";
@@ -838,7 +844,7 @@
             this.lblTotalln.SelectionLength = 0;
             this.lblTotalln.SelectionStart = 0;
             this.lblTotalln.ShortcutsEnabled = true;
-            this.lblTotalln.Size = new System.Drawing.Size(140, 30);
+            this.lblTotalln.Size = new System.Drawing.Size(105, 24);
             this.lblTotalln.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.lblTotalln.TabIndex = 130;
             this.lblTotalln.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -851,11 +857,11 @@
             // 
             // label6
             // 
-            this.label6.Font = new System.Drawing.Font("Poppins", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label6.Location = new System.Drawing.Point(365, 472);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(20, 27);
+            this.label6.Size = new System.Drawing.Size(15, 22);
             this.label6.TabIndex = 159;
             this.label6.Text = "=";
             // 
@@ -878,7 +884,7 @@
             this.txtCantidad.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtCantidad.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtCantidad.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCantidad.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCantidad.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidad.DefaultText = "";
             this.txtCantidad.FillColor = System.Drawing.Color.White;
             this.txtCantidad.HideSelection = true;
@@ -914,7 +920,7 @@
             stateProperties12.ForeColor = System.Drawing.Color.Empty;
             stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtCantidad.OnIdleState = stateProperties12;
-            this.txtCantidad.Padding = new System.Windows.Forms.Padding(3);
+            this.txtCantidad.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCantidad.PasswordChar = '\0';
             this.txtCantidad.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtCantidad.PlaceholderText = "";
@@ -924,7 +930,7 @@
             this.txtCantidad.SelectionLength = 0;
             this.txtCantidad.SelectionStart = 0;
             this.txtCantidad.ShortcutsEnabled = true;
-            this.txtCantidad.Size = new System.Drawing.Size(117, 30);
+            this.txtCantidad.Size = new System.Drawing.Size(88, 24);
             this.txtCantidad.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtCantidad.TabIndex = 127;
             this.txtCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -938,11 +944,11 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label2.Location = new System.Drawing.Point(242, 440);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(118, 25);
+            this.label2.Size = new System.Drawing.Size(88, 20);
             this.label2.TabIndex = 157;
             this.label2.Text = "Cantidad";
             // 
@@ -966,7 +972,7 @@
             this.cbmProducto.FillDropDown = true;
             this.cbmProducto.FillIndicator = false;
             this.cbmProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbmProducto.Font = new System.Drawing.Font("Poppins", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbmProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbmProducto.ForeColor = System.Drawing.Color.Black;
             this.cbmProducto.FormattingEnabled = true;
             this.cbmProducto.Icon = null;
@@ -984,7 +990,7 @@
             this.cbmProducto.ItemTopMargin = 3;
             this.cbmProducto.Location = new System.Drawing.Point(599, 329);
             this.cbmProducto.Name = "cbmProducto";
-            this.cbmProducto.Size = new System.Drawing.Size(143, 23);
+            this.cbmProducto.Size = new System.Drawing.Size(108, 23);
             this.cbmProducto.TabIndex = 125;
             this.cbmProducto.Text = null;
             this.cbmProducto.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
@@ -993,11 +999,11 @@
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label3.Location = new System.Drawing.Point(600, 298);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(123, 32);
+            this.label3.Size = new System.Drawing.Size(92, 26);
             this.label3.TabIndex = 153;
             this.label3.Text = "Productos";
             // 
@@ -1030,7 +1036,7 @@
             this.btnBuscarCliente.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnBuscarCliente.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnBuscarCliente.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Hover;
-            this.btnBuscarCliente.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarCliente.ForeColor = System.Drawing.Color.White;
             this.btnBuscarCliente.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscarCliente.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -1048,7 +1054,8 @@
             this.btnBuscarCliente.IdleIconLeftImage = null;
             this.btnBuscarCliente.IdleIconRightImage = null;
             this.btnBuscarCliente.IndicateFocus = false;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(417, 192);
+            this.btnBuscarCliente.Location = new System.Drawing.Point(313, 156);
+            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnBuscarCliente.OnDisabledState.BorderRadius = 20;
@@ -1082,7 +1089,7 @@
             this.btnBuscarCliente.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnBuscarCliente.OnPressedState.IconLeftImage = null;
             this.btnBuscarCliente.OnPressedState.IconRightImage = null;
-            this.btnBuscarCliente.Size = new System.Drawing.Size(127, 31);
+            this.btnBuscarCliente.Size = new System.Drawing.Size(95, 25);
             this.btnBuscarCliente.TabIndex = 151;
             this.btnBuscarCliente.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnBuscarCliente.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1111,7 +1118,7 @@
             this.cbmImpuesto.FillDropDown = true;
             this.cbmImpuesto.FillIndicator = false;
             this.cbmImpuesto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbmImpuesto.Font = new System.Drawing.Font("Poppins", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbmImpuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbmImpuesto.ForeColor = System.Drawing.Color.Black;
             this.cbmImpuesto.FormattingEnabled = true;
             this.cbmImpuesto.Icon = null;
@@ -1130,9 +1137,10 @@
             "Si",
             "No"});
             this.cbmImpuesto.ItemTopMargin = 3;
-            this.cbmImpuesto.Location = new System.Drawing.Point(598, 130);
+            this.cbmImpuesto.Location = new System.Drawing.Point(448, 106);
+            this.cbmImpuesto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cbmImpuesto.Name = "cbmImpuesto";
-            this.cbmImpuesto.Size = new System.Drawing.Size(77, 25);
+            this.cbmImpuesto.Size = new System.Drawing.Size(59, 25);
             this.cbmImpuesto.TabIndex = 150;
             this.cbmImpuesto.Text = null;
             this.cbmImpuesto.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
@@ -1140,11 +1148,12 @@
             // 
             // label9
             // 
-            this.label9.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.label9.Location = new System.Drawing.Point(598, 96);
+            this.label9.Location = new System.Drawing.Point(448, 78);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(123, 32);
+            this.label9.Size = new System.Drawing.Size(92, 26);
             this.label9.TabIndex = 149;
             this.label9.Text = "Impuesto";
             // 
@@ -1167,7 +1176,7 @@
             this.lblNCF.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.lblNCF.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.lblNCF.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblNCF.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNCF.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNCF.DefaultText = "";
             this.lblNCF.FillColor = System.Drawing.Color.White;
             this.lblNCF.HideSelection = true;
@@ -1177,166 +1186,171 @@
             this.lblNCF.IconRight = null;
             this.lblNCF.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.lblNCF.Lines = new string[0];
-            this.lblNCF.Location = new System.Drawing.Point(363, 131);
+            this.lblNCF.Location = new System.Drawing.Point(272, 106);
+            this.lblNCF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lblNCF.MaxLength = 32767;
             this.lblNCF.MinimumSize = new System.Drawing.Size(1, 1);
             this.lblNCF.Modified = false;
             this.lblNCF.Multiline = false;
             this.lblNCF.Name = "lblNCF";
-            stateProperties13.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties13.FillColor = System.Drawing.Color.Empty;
-            stateProperties13.ForeColor = System.Drawing.Color.Empty;
-            stateProperties13.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.lblNCF.OnActiveState = stateProperties13;
-            stateProperties14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties14.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties14.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.lblNCF.OnDisabledState = stateProperties14;
-            stateProperties15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties15.FillColor = System.Drawing.Color.Empty;
-            stateProperties15.ForeColor = System.Drawing.Color.Empty;
-            stateProperties15.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.lblNCF.OnHoverState = stateProperties15;
-            stateProperties16.BorderColor = System.Drawing.Color.Transparent;
-            stateProperties16.FillColor = System.Drawing.Color.White;
-            stateProperties16.ForeColor = System.Drawing.Color.Empty;
-            stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.lblNCF.OnIdleState = stateProperties16;
-            this.lblNCF.Padding = new System.Windows.Forms.Padding(3);
-            this.lblNCF.PasswordChar = '\0';
-            this.lblNCF.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.lblNCF.PlaceholderText = "";
-            this.lblNCF.ReadOnly = true;
-            this.lblNCF.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.lblNCF.SelectedText = "";
-            this.lblNCF.SelectionLength = 0;
-            this.lblNCF.SelectionStart = 0;
-            this.lblNCF.ShortcutsEnabled = true;
-            this.lblNCF.Size = new System.Drawing.Size(221, 30);
-            this.lblNCF.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.lblNCF.TabIndex = 148;
-            this.lblNCF.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.lblNCF.TextMarginBottom = 0;
-            this.lblNCF.TextMarginLeft = 3;
-            this.lblNCF.TextMarginTop = 1;
-            this.lblNCF.TextPlaceholder = "";
-            this.lblNCF.UseSystemPasswordChar = false;
-            this.lblNCF.WordWrap = true;
-            // 
-            // lbl10
-            // 
-            this.lbl10.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.lbl10.Location = new System.Drawing.Point(282, 99);
-            this.lbl10.Name = "lbl10";
-            this.lbl10.Size = new System.Drawing.Size(75, 25);
-            this.lbl10.TabIndex = 147;
-            this.lbl10.Text = "NCF";
-            // 
-            // cbmNCF
-            // 
-            this.cbmNCF.BackColor = System.Drawing.Color.Transparent;
-            this.cbmNCF.BackgroundColor = System.Drawing.Color.White;
-            this.cbmNCF.BorderColor = System.Drawing.Color.Transparent;
-            this.cbmNCF.BorderRadius = 10;
-            this.cbmNCF.Color = System.Drawing.Color.Transparent;
-            this.cbmNCF.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
-            this.cbmNCF.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cbmNCF.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cbmNCF.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cbmNCF.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.cbmNCF.DisabledIndicatorColor = System.Drawing.Color.DarkGray;
-            this.cbmNCF.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbmNCF.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
-            this.cbmNCF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbmNCF.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.cbmNCF.FillDropDown = true;
-            this.cbmNCF.FillIndicator = false;
-            this.cbmNCF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbmNCF.Font = new System.Drawing.Font("Poppins", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbmNCF.ForeColor = System.Drawing.Color.Black;
-            this.cbmNCF.FormattingEnabled = true;
-            this.cbmNCF.Icon = null;
-            this.cbmNCF.IndicatorAlignment = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.cbmNCF.IndicatorColor = System.Drawing.Color.DarkGray;
-            this.cbmNCF.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.cbmNCF.IndicatorThickness = 2;
-            this.cbmNCF.IsDropdownOpened = false;
-            this.cbmNCF.ItemBackColor = System.Drawing.Color.White;
-            this.cbmNCF.ItemBorderColor = System.Drawing.Color.White;
-            this.cbmNCF.ItemForeColor = System.Drawing.Color.Black;
-            this.cbmNCF.ItemHeight = 19;
-            this.cbmNCF.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
-            this.cbmNCF.ItemHighLightForeColor = System.Drawing.Color.White;
-            this.cbmNCF.Items.AddRange(new object[] {
-            "No",
-            "Si"});
-            this.cbmNCF.ItemTopMargin = 3;
-            this.cbmNCF.Location = new System.Drawing.Point(275, 131);
-            this.cbmNCF.Name = "cbmNCF";
-            this.cbmNCF.Size = new System.Drawing.Size(77, 25);
-            this.cbmNCF.TabIndex = 146;
-            this.cbmNCF.Text = null;
-            this.cbmNCF.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.cbmNCF.TextLeftMargin = 5;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.AcceptsReturn = false;
-            this.txtNombre.AcceptsTab = false;
-            this.txtNombre.AnimationSpeed = 200;
-            this.txtNombre.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtNombre.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtNombre.AutoSizeHeight = true;
-            this.txtNombre.BackColor = System.Drawing.Color.Transparent;
-            this.txtNombre.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtNombre.BackgroundImage")));
-            this.txtNombre.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.txtNombre.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtNombre.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.txtNombre.BorderColorIdle = System.Drawing.Color.Transparent;
-            this.txtNombre.BorderRadius = 20;
-            this.txtNombre.BorderThickness = 1;
-            this.txtNombre.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
-            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombre.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.DefaultText = "";
-            this.txtNombre.FillColor = System.Drawing.Color.White;
-            this.txtNombre.HideSelection = true;
-            this.txtNombre.IconLeft = null;
-            this.txtNombre.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombre.IconPadding = 10;
-            this.txtNombre.IconRight = null;
-            this.txtNombre.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtNombre.Lines = new string[0];
-            this.txtNombre.Location = new System.Drawing.Point(46, 193);
-            this.txtNombre.MaxLength = 32767;
-            this.txtNombre.MinimumSize = new System.Drawing.Size(1, 1);
-            this.txtNombre.Modified = false;
-            this.txtNombre.Multiline = false;
-            this.txtNombre.Name = "txtNombre";
-            stateProperties17.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties17.FillColor = System.Drawing.Color.Empty;
-            stateProperties17.ForeColor = System.Drawing.Color.Empty;
-            stateProperties17.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtNombre.OnActiveState = stateProperties17;
-            stateProperties18.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties18.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties18.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.txtNombre.OnDisabledState = stateProperties18;
-            stateProperties19.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties19.FillColor = System.Drawing.Color.Empty;
-            stateProperties19.ForeColor = System.Drawing.Color.Empty;
-            stateProperties19.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtNombre.OnHoverState = stateProperties19;
-            stateProperties20.BorderColor = System.Drawing.Color.Transparent;
-            stateProperties20.FillColor = System.Drawing.Color.White;
-            stateProperties20.ForeColor = System.Drawing.Color.Empty;
-            stateProperties20.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtNombre.OnIdleState = stateProperties20;
-            this.txtNombre.Padding = new System.Windows.Forms.Padding(3);
+stateProperties13.BorderColor = System.Drawing.Color.DodgerBlue;
+stateProperties13.FillColor = System.Drawing.Color.Empty;
+stateProperties13.ForeColor = System.Drawing.Color.Empty;
+stateProperties13.PlaceholderForeColor = System.Drawing.Color.Empty;
+this.lblNCF.OnActiveState = stateProperties13;
+stateProperties14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+stateProperties14.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+stateProperties14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+stateProperties14.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+this.lblNCF.OnDisabledState = stateProperties14;
+stateProperties15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+stateProperties15.FillColor = System.Drawing.Color.Empty;
+stateProperties15.ForeColor = System.Drawing.Color.Empty;
+stateProperties15.PlaceholderForeColor = System.Drawing.Color.Empty;
+this.lblNCF.OnHoverState = stateProperties15;
+stateProperties16.BorderColor = System.Drawing.Color.Transparent;
+stateProperties16.FillColor = System.Drawing.Color.White;
+stateProperties16.ForeColor = System.Drawing.Color.Empty;
+stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
+this.lblNCF.OnIdleState = stateProperties16;
+this.lblNCF.Padding = new System.Windows.Forms.Padding(3);
+this.lblNCF.PasswordChar = '\0';
+this.lblNCF.PlaceholderForeColor = System.Drawing.Color.Silver;
+this.lblNCF.PlaceholderText = "";
+this.lblNCF.ReadOnly = true;
+this.lblNCF.ScrollBars = System.Windows.Forms.ScrollBars.None;
+this.lblNCF.SelectedText = "";
+this.lblNCF.SelectionLength = 0;
+this.lblNCF.SelectionStart = 0;
+this.lblNCF.ShortcutsEnabled = true;
+this.lblNCF.Size = new System.Drawing.Size(166, 24);
+this.lblNCF.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+this.lblNCF.TabIndex = 148;
+this.lblNCF.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+this.lblNCF.TextMarginBottom = 0;
+this.lblNCF.TextMarginLeft = 3;
+this.lblNCF.TextMarginTop = 1;
+this.lblNCF.TextPlaceholder = "";
+this.lblNCF.UseSystemPasswordChar = false;
+this.lblNCF.WordWrap = true;
+// 
+// lbl10
+// 
+this.lbl10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+this.lbl10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
+this.lbl10.Location = new System.Drawing.Point(212, 80);
+this.lbl10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+this.lbl10.Name = "lbl10";
+this.lbl10.Size = new System.Drawing.Size(56, 20);
+this.lbl10.TabIndex = 147;
+this.lbl10.Text = "NCF";
+// 
+// cbmNCF
+// 
+this.cbmNCF.BackColor = System.Drawing.Color.Transparent;
+this.cbmNCF.BackgroundColor = System.Drawing.Color.White;
+this.cbmNCF.BorderColor = System.Drawing.Color.Transparent;
+this.cbmNCF.BorderRadius = 10;
+this.cbmNCF.Color = System.Drawing.Color.Transparent;
+this.cbmNCF.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+this.cbmNCF.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+this.cbmNCF.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+this.cbmNCF.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+this.cbmNCF.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+this.cbmNCF.DisabledIndicatorColor = System.Drawing.Color.DarkGray;
+this.cbmNCF.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+this.cbmNCF.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
+this.cbmNCF.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+this.cbmNCF.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+this.cbmNCF.FillDropDown = true;
+this.cbmNCF.FillIndicator = false;
+this.cbmNCF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+this.cbmNCF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+this.cbmNCF.ForeColor = System.Drawing.Color.Black;
+this.cbmNCF.FormattingEnabled = true;
+this.cbmNCF.Icon = null;
+this.cbmNCF.IndicatorAlignment = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+this.cbmNCF.IndicatorColor = System.Drawing.Color.DarkGray;
+this.cbmNCF.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+this.cbmNCF.IndicatorThickness = 2;
+this.cbmNCF.IsDropdownOpened = false;
+this.cbmNCF.ItemBackColor = System.Drawing.Color.White;
+this.cbmNCF.ItemBorderColor = System.Drawing.Color.White;
+this.cbmNCF.ItemForeColor = System.Drawing.Color.Black;
+this.cbmNCF.ItemHeight = 19;
+this.cbmNCF.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
+this.cbmNCF.ItemHighLightForeColor = System.Drawing.Color.White;
+this.cbmNCF.Items.AddRange(new object[] {
+"No",
+"Si"});
+this.cbmNCF.ItemTopMargin = 3;
+this.cbmNCF.Location = new System.Drawing.Point(206, 106);
+this.cbmNCF.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+this.cbmNCF.Name = "cbmNCF";
+this.cbmNCF.Size = new System.Drawing.Size(59, 25);
+this.cbmNCF.TabIndex = 146;
+this.cbmNCF.Text = null;
+this.cbmNCF.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+this.cbmNCF.TextLeftMargin = 5;
+// 
+// txtNombre
+// 
+this.txtNombre.AcceptsReturn = false;
+this.txtNombre.AcceptsTab = false;
+this.txtNombre.AnimationSpeed = 200;
+this.txtNombre.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+this.txtNombre.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+this.txtNombre.AutoSizeHeight = true;
+this.txtNombre.BackColor = System.Drawing.Color.Transparent;
+this.txtNombre.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtNombre.BackgroundImage")));
+this.txtNombre.BorderColorActive = System.Drawing.Color.DodgerBlue;
+this.txtNombre.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+this.txtNombre.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+this.txtNombre.BorderColorIdle = System.Drawing.Color.Transparent;
+this.txtNombre.BorderRadius = 20;
+this.txtNombre.BorderThickness = 1;
+this.txtNombre.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
+this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+this.txtNombre.Cursor = System.Windows.Forms.Cursors.IBeam;
+this.txtNombre.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+this.txtNombre.DefaultText = "";
+this.txtNombre.FillColor = System.Drawing.Color.White;
+this.txtNombre.HideSelection = true;
+this.txtNombre.IconLeft = null;
+this.txtNombre.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+this.txtNombre.IconPadding = 10;
+this.txtNombre.IconRight = null;
+this.txtNombre.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+this.txtNombre.Lines = new string[0];
+this.txtNombre.Location = new System.Drawing.Point(34, 157);
+this.txtNombre.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+this.txtNombre.MaxLength = 32767;
+this.txtNombre.MinimumSize = new System.Drawing.Size(1, 1);
+this.txtNombre.Modified = false;
+this.txtNombre.Multiline = false;
+this.txtNombre.Name = "txtNombre";
+stateProperties17.BorderColor = System.Drawing.Color.DodgerBlue;
+stateProperties17.FillColor = System.Drawing.Color.Empty;
+stateProperties17.ForeColor = System.Drawing.Color.Empty;
+stateProperties17.PlaceholderForeColor = System.Drawing.Color.Empty;
+this.txtNombre.OnActiveState = stateProperties17;
+stateProperties18.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+stateProperties18.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+stateProperties18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+stateProperties18.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+this.txtNombre.OnDisabledState = stateProperties18;
+stateProperties19.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+stateProperties19.FillColor = System.Drawing.Color.Empty;
+stateProperties19.ForeColor = System.Drawing.Color.Empty;
+stateProperties19.PlaceholderForeColor = System.Drawing.Color.Empty;
+this.txtNombre.OnHoverState = stateProperties19;
+stateProperties20.BorderColor = System.Drawing.Color.Transparent;
+stateProperties20.FillColor = System.Drawing.Color.White;
+stateProperties20.ForeColor = System.Drawing.Color.Empty;
+stateProperties20.PlaceholderForeColor = System.Drawing.Color.Empty;
+this.txtNombre.OnIdleState = stateProperties20;
+this.txtNombre.Padding = new System.Windows.Forms.Padding(3);
+
             this.txtNombre.PasswordChar = '\0';
             this.txtNombre.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtNombre.PlaceholderText = "";
@@ -1346,7 +1360,7 @@
             this.txtNombre.SelectionLength = 0;
             this.txtNombre.SelectionStart = 0;
             this.txtNombre.ShortcutsEnabled = true;
-            this.txtNombre.Size = new System.Drawing.Size(365, 30);
+            this.txtNombre.Size = new System.Drawing.Size(274, 24);
             this.txtNombre.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtNombre.TabIndex = 124;
             this.txtNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1359,11 +1373,12 @@
             // 
             // lblNombre
             // 
-            this.lblNombre.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.lblNombre.Location = new System.Drawing.Point(47, 163);
+            this.lblNombre.Location = new System.Drawing.Point(35, 132);
+            this.lblNombre.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(105, 25);
+            this.lblNombre.Size = new System.Drawing.Size(79, 20);
             this.lblNombre.TabIndex = 145;
             this.lblNombre.Text = "Nombre";
             // 
@@ -1386,7 +1401,7 @@
             this.lblFac.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.lblFac.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.lblFac.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblFac.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFac.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFac.DefaultText = "";
             this.lblFac.FillColor = System.Drawing.Color.White;
             this.lblFac.HideSelection = true;
@@ -1396,7 +1411,8 @@
             this.lblFac.IconRight = null;
             this.lblFac.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.lblFac.Lines = new string[0];
-            this.lblFac.Location = new System.Drawing.Point(46, 131);
+            this.lblFac.Location = new System.Drawing.Point(34, 106);
+            this.lblFac.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lblFac.MaxLength = 32767;
             this.lblFac.MinimumSize = new System.Drawing.Size(1, 1);
             this.lblFac.Modified = false;
@@ -1423,6 +1439,7 @@
             stateProperties24.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.lblFac.OnIdleState = stateProperties24;
             this.lblFac.Padding = new System.Windows.Forms.Padding(3);
+
             this.lblFac.PasswordChar = '\0';
             this.lblFac.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.lblFac.PlaceholderText = "";
@@ -1432,7 +1449,7 @@
             this.lblFac.SelectionLength = 0;
             this.lblFac.SelectionStart = 0;
             this.lblFac.ShortcutsEnabled = true;
-            this.lblFac.Size = new System.Drawing.Size(221, 30);
+            this.lblFac.Size = new System.Drawing.Size(166, 24);
             this.lblFac.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.lblFac.TabIndex = 144;
             this.lblFac.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1445,11 +1462,12 @@
             // 
             // label10
             // 
-            this.label10.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.label10.Location = new System.Drawing.Point(50, 103);
+            this.label10.Location = new System.Drawing.Point(38, 84);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(105, 25);
+            this.label10.Size = new System.Drawing.Size(79, 20);
             this.label10.TabIndex = 143;
             this.label10.Text = "Factura";
             // 
@@ -1459,12 +1477,13 @@
             this.bunifuLabel2.AutoEllipsis = false;
             this.bunifuLabel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.bunifuLabel2.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel2.Font = new System.Drawing.Font("Poppins", 16.2F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.bunifuLabel2.Location = new System.Drawing.Point(48, 26);
+            this.bunifuLabel2.Location = new System.Drawing.Point(36, 21);
+            this.bunifuLabel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.bunifuLabel2.Name = "bunifuLabel2";
             this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel2.Size = new System.Drawing.Size(99, 48);
+            this.bunifuLabel2.Size = new System.Drawing.Size(74, 26);
             this.bunifuLabel2.TabIndex = 142;
             this.bunifuLabel2.Text = "Ventas";
             this.bunifuLabel2.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
@@ -1473,11 +1492,12 @@
             // lblFecha
             // 
             this.lblFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.lblFecha.Font = new System.Drawing.Font("Poppins", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFecha.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(31)))));
-            this.lblFecha.Location = new System.Drawing.Point(962, 48);
+            this.lblFecha.Location = new System.Drawing.Point(722, 39);
+            this.lblFecha.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFecha.Name = "lblFecha";
-            this.lblFecha.Size = new System.Drawing.Size(329, 39);
+            this.lblFecha.Size = new System.Drawing.Size(247, 32);
             this.lblFecha.TabIndex = 141;
             this.lblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1488,7 +1508,7 @@
             this.lblImpuesto.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblImpuesto.Location = new System.Drawing.Point(178, 752);
             this.lblImpuesto.Name = "lblImpuesto";
-            this.lblImpuesto.Size = new System.Drawing.Size(179, 26);
+            this.lblImpuesto.Size = new System.Drawing.Size(134, 21);
             this.lblImpuesto.TabIndex = 140;
             this.lblImpuesto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1500,7 +1520,7 @@
             this.lblitbis.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblitbis.Location = new System.Drawing.Point(460, 719);
             this.lblitbis.Name = "lblitbis";
-            this.lblitbis.Size = new System.Drawing.Size(140, 25);
+            this.lblitbis.Size = new System.Drawing.Size(106, 21);
             this.lblitbis.TabIndex = 139;
             this.lblitbis.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblitbis.Visible = false;
@@ -1512,16 +1532,17 @@
             this.lblSubTotal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblSubTotal.Location = new System.Drawing.Point(179, 719);
             this.lblSubTotal.Name = "lblSubTotal";
-            this.lblSubTotal.Size = new System.Drawing.Size(179, 26);
+            this.lblSubTotal.Size = new System.Drawing.Size(134, 21);
             this.lblSubTotal.TabIndex = 138;
             this.lblSubTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnImprimir
             // 
             this.btnImprimir.Image = ((System.Drawing.Image)(resources.GetObject("btnImprimir.Image")));
-            this.btnImprimir.Location = new System.Drawing.Point(1152, 9);
+            this.btnImprimir.Location = new System.Drawing.Point(864, 7);
+            this.btnImprimir.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnImprimir.Name = "btnImprimir";
-            this.btnImprimir.Size = new System.Drawing.Size(32, 30);
+            this.btnImprimir.Size = new System.Drawing.Size(24, 24);
             this.btnImprimir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnImprimir.TabIndex = 137;
             this.btnImprimir.TabStop = false;
@@ -1530,9 +1551,10 @@
             // btnguardar
             // 
             this.btnguardar.Image = ((System.Drawing.Image)(resources.GetObject("btnguardar.Image")));
-            this.btnguardar.Location = new System.Drawing.Point(1105, 7);
+            this.btnguardar.Location = new System.Drawing.Point(829, 6);
+            this.btnguardar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Size = new System.Drawing.Size(32, 30);
+            this.btnguardar.Size = new System.Drawing.Size(24, 24);
             this.btnguardar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnguardar.TabIndex = 136;
             this.btnguardar.TabStop = false;
@@ -1541,9 +1563,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(393, 64);
+            this.label1.Location = new System.Drawing.Point(295, 52);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 16);
+            this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 133;
             // 
             // bunifuPanel1
@@ -1558,17 +1581,18 @@
             this.bunifuPanel1.Location = new System.Drawing.Point(24, 719);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(173, 26);
+            this.bunifuPanel1.Size = new System.Drawing.Size(130, 21);
             this.bunifuPanel1.TabIndex = 161;
             // 
             // label15
             // 
             this.label15.BackColor = System.Drawing.Color.Transparent;
-            this.label15.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(30, 1);
+            this.label15.Location = new System.Drawing.Point(22, 1);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(118, 25);
+            this.label15.Size = new System.Drawing.Size(88, 20);
             this.label15.TabIndex = 109;
             this.label15.Text = "SubTotal";
             // 
@@ -1584,17 +1608,18 @@
             this.bunifuPanel2.Location = new System.Drawing.Point(24, 752);
             this.bunifuPanel2.Name = "bunifuPanel2";
             this.bunifuPanel2.ShowBorders = true;
-            this.bunifuPanel2.Size = new System.Drawing.Size(173, 26);
+            this.bunifuPanel2.Size = new System.Drawing.Size(130, 21);
             this.bunifuPanel2.TabIndex = 162;
             // 
             // label8
             // 
             this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(30, 1);
+            this.label8.Location = new System.Drawing.Point(22, 1);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(118, 25);
+            this.label8.Size = new System.Drawing.Size(88, 20);
             this.label8.TabIndex = 109;
             this.label8.Text = "Impuesto";
             // 
@@ -1607,7 +1632,7 @@
             this.lblId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblId.Location = new System.Drawing.Point(300, 3078);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(140, 25);
+            this.lblId.Size = new System.Drawing.Size(106, 21);
             this.lblId.TabIndex = 175;
             this.lblId.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblId.Visible = false;
@@ -1618,11 +1643,11 @@
             this.btnLimpiarT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.btnLimpiarT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiarT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiarT.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarT.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarT.Location = new System.Drawing.Point(853, 3092);
             this.btnLimpiarT.Name = "btnLimpiarT";
-            this.btnLimpiarT.Size = new System.Drawing.Size(200, 34);
+            this.btnLimpiarT.Size = new System.Drawing.Size(150, 28);
             this.btnLimpiarT.TabIndex = 174;
             this.btnLimpiarT.Text = "Limpiar Todo";
             this.btnLimpiarT.UseVisualStyleBackColor = false;
@@ -1633,11 +1658,11 @@
             this.btnLimpiarD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.btnLimpiarD.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLimpiarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiarD.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarD.ForeColor = System.Drawing.Color.White;
             this.btnLimpiarD.Location = new System.Drawing.Point(663, 3092);
             this.btnLimpiarD.Name = "btnLimpiarD";
-            this.btnLimpiarD.Size = new System.Drawing.Size(200, 34);
+            this.btnLimpiarD.Size = new System.Drawing.Size(150, 28);
             this.btnLimpiarD.TabIndex = 173;
             this.btnLimpiarD.Text = "Limpiar Detalle";
             this.btnLimpiarD.UseVisualStyleBackColor = false;
@@ -1650,7 +1675,7 @@
             this.lblTotal.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblTotal.Location = new System.Drawing.Point(178, 788);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(179, 26);
+            this.lblTotal.Size = new System.Drawing.Size(134, 21);
             this.lblTotal.TabIndex = 176;
             this.lblTotal.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -1666,17 +1691,18 @@
             this.bunifuPanel3.Location = new System.Drawing.Point(24, 787);
             this.bunifuPanel3.Name = "bunifuPanel3";
             this.bunifuPanel3.ShowBorders = true;
-            this.bunifuPanel3.Size = new System.Drawing.Size(173, 26);
+            this.bunifuPanel3.Size = new System.Drawing.Size(130, 21);
             this.bunifuPanel3.TabIndex = 177;
             // 
             // label11
             // 
             this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(30, 1);
+            this.label11.Location = new System.Drawing.Point(22, 1);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(118, 25);
+            this.label11.Size = new System.Drawing.Size(88, 20);
             this.label11.TabIndex = 109;
             this.label11.Text = "Total";
             // 
@@ -1700,7 +1726,7 @@
             this.cbmMaterial.FillDropDown = true;
             this.cbmMaterial.FillIndicator = false;
             this.cbmMaterial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbmMaterial.Font = new System.Drawing.Font("Poppins", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbmMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbmMaterial.ForeColor = System.Drawing.Color.Black;
             this.cbmMaterial.FormattingEnabled = true;
             this.cbmMaterial.Icon = null;
@@ -1718,7 +1744,7 @@
             this.cbmMaterial.ItemTopMargin = 3;
             this.cbmMaterial.Location = new System.Drawing.Point(766, 328);
             this.cbmMaterial.Name = "cbmMaterial";
-            this.cbmMaterial.Size = new System.Drawing.Size(125, 23);
+            this.cbmMaterial.Size = new System.Drawing.Size(95, 23);
             this.cbmMaterial.TabIndex = 178;
             this.cbmMaterial.Text = null;
             this.cbmMaterial.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
@@ -1727,11 +1753,11 @@
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label4.Location = new System.Drawing.Point(768, 297);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(123, 32);
+            this.label4.Size = new System.Drawing.Size(92, 26);
             this.label4.TabIndex = 179;
             this.label4.Text = "Material";
             // 
@@ -1755,7 +1781,7 @@
             this.cbmMadera.FillDropDown = true;
             this.cbmMadera.FillIndicator = false;
             this.cbmMadera.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbmMadera.Font = new System.Drawing.Font("Poppins", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbmMadera.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbmMadera.ForeColor = System.Drawing.Color.Black;
             this.cbmMadera.FormattingEnabled = true;
             this.cbmMadera.Icon = null;
@@ -1782,11 +1808,11 @@
             // 
             // label16
             // 
-            this.label16.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label16.Location = new System.Drawing.Point(50, 367);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(123, 32);
+            this.label16.Size = new System.Drawing.Size(92, 26);
             this.label16.TabIndex = 181;
             this.label16.Text = "Madera";
             // 
@@ -1819,7 +1845,7 @@
             this.bunifuButton21.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.bunifuButton21.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.bunifuButton21.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Hover;
-            this.bunifuButton21.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuButton21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bunifuButton21.ForeColor = System.Drawing.Color.White;
             this.bunifuButton21.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.bunifuButton21.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -1871,7 +1897,7 @@
             this.bunifuButton21.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.bunifuButton21.OnPressedState.IconLeftImage = null;
             this.bunifuButton21.OnPressedState.IconRightImage = null;
-            this.bunifuButton21.Size = new System.Drawing.Size(127, 31);
+            this.bunifuButton21.Size = new System.Drawing.Size(95, 25);
             this.bunifuButton21.TabIndex = 186;
             this.bunifuButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.bunifuButton21.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1899,7 +1925,7 @@
             this.txtServicio.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtServicio.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtServicio.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtServicio.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtServicio.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtServicio.DefaultText = "";
             this.txtServicio.FillColor = System.Drawing.Color.White;
             this.txtServicio.HideSelection = true;
@@ -1945,7 +1971,7 @@
             this.txtServicio.SelectionLength = 0;
             this.txtServicio.SelectionStart = 0;
             this.txtServicio.ShortcutsEnabled = true;
-            this.txtServicio.Size = new System.Drawing.Size(295, 30);
+            this.txtServicio.Size = new System.Drawing.Size(221, 24);
             this.txtServicio.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtServicio.TabIndex = 189;
             this.txtServicio.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1958,11 +1984,11 @@
             // 
             // label5
             // 
-            this.label5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label5.Location = new System.Drawing.Point(286, 301);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(142, 42);
+            this.label5.Size = new System.Drawing.Size(106, 34);
             this.label5.TabIndex = 190;
             this.label5.Text = "Descripcion";
             // 
@@ -2047,7 +2073,7 @@
             this.dtaVentas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
@@ -2067,7 +2093,7 @@
             this.Total_Linea});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Poppins", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
@@ -2082,14 +2108,14 @@
             this.dtaVentas.RowHeadersVisible = false;
             this.dtaVentas.RowHeadersWidth = 51;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.dtaVentas.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dtaVentas.RowTemplate.Height = 24;
             this.dtaVentas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtaVentas.Size = new System.Drawing.Size(1191, 187);
+            this.dtaVentas.Size = new System.Drawing.Size(893, 152);
             this.dtaVentas.TabIndex = 135;
             // 
             // txtPrecioIncluye
@@ -2111,7 +2137,7 @@
             this.txtPrecioIncluye.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtPrecioIncluye.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtPrecioIncluye.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPrecioIncluye.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioIncluye.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecioIncluye.DefaultText = "";
             this.txtPrecioIncluye.FillColor = System.Drawing.Color.White;
             this.txtPrecioIncluye.HideSelection = true;
@@ -2148,6 +2174,7 @@
             stateProperties32.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtPrecioIncluye.OnIdleState = stateProperties32;
             this.txtPrecioIncluye.Padding = new System.Windows.Forms.Padding(3);
+
             this.txtPrecioIncluye.PasswordChar = '\0';
             this.txtPrecioIncluye.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtPrecioIncluye.PlaceholderText = "";
@@ -2157,7 +2184,7 @@
             this.txtPrecioIncluye.SelectionLength = 0;
             this.txtPrecioIncluye.SelectionStart = 0;
             this.txtPrecioIncluye.ShortcutsEnabled = true;
-            this.txtPrecioIncluye.Size = new System.Drawing.Size(381, 204);
+            this.txtPrecioIncluye.Size = new System.Drawing.Size(286, 166);
             this.txtPrecioIncluye.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtPrecioIncluye.TabIndex = 192;
             this.txtPrecioIncluye.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -2187,7 +2214,7 @@
             this.txtCondicion.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtCondicion.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtCondicion.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCondicion.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCondicion.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCondicion.DefaultText = "";
             this.txtCondicion.FillColor = System.Drawing.Color.White;
             this.txtCondicion.HideSelection = true;
@@ -2233,7 +2260,7 @@
             this.txtCondicion.SelectionLength = 0;
             this.txtCondicion.SelectionStart = 0;
             this.txtCondicion.ShortcutsEnabled = true;
-            this.txtCondicion.Size = new System.Drawing.Size(381, 204);
+            this.txtCondicion.Size = new System.Drawing.Size(286, 166);
             this.txtCondicion.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtCondicion.TabIndex = 193;
             this.txtCondicion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -2263,7 +2290,7 @@
             this.txtPrecioNoIncluye.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtPrecioNoIncluye.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtPrecioNoIncluye.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPrecioNoIncluye.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioNoIncluye.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecioNoIncluye.DefaultText = "";
             this.txtPrecioNoIncluye.FillColor = System.Drawing.Color.White;
             this.txtPrecioNoIncluye.HideSelection = true;
@@ -2309,7 +2336,7 @@
             this.txtPrecioNoIncluye.SelectionLength = 0;
             this.txtPrecioNoIncluye.SelectionStart = 0;
             this.txtPrecioNoIncluye.ShortcutsEnabled = true;
-            this.txtPrecioNoIncluye.Size = new System.Drawing.Size(381, 204);
+            this.txtPrecioNoIncluye.Size = new System.Drawing.Size(286, 166);
             this.txtPrecioNoIncluye.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtPrecioNoIncluye.TabIndex = 194;
             this.txtPrecioNoIncluye.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -2339,7 +2366,7 @@
             this.txtLargo.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtLargo.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtLargo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtLargo.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLargo.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLargo.DefaultText = "";
             this.txtLargo.FillColor = System.Drawing.Color.White;
             this.txtLargo.HideSelection = true;
@@ -2355,6 +2382,7 @@
             this.txtLargo.Modified = false;
             this.txtLargo.Multiline = false;
             this.txtLargo.Name = "txtLargo";
+
             stateProperties41.BorderColor = System.Drawing.Color.DodgerBlue;
             stateProperties41.FillColor = System.Drawing.Color.Empty;
             stateProperties41.ForeColor = System.Drawing.Color.Empty;
@@ -2385,7 +2413,7 @@
             this.txtLargo.SelectionLength = 0;
             this.txtLargo.SelectionStart = 0;
             this.txtLargo.ShortcutsEnabled = true;
-            this.txtLargo.Size = new System.Drawing.Size(70, 30);
+            this.txtLargo.Size = new System.Drawing.Size(52, 24);
             this.txtLargo.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtLargo.TabIndex = 196;
             this.txtLargo.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -2415,7 +2443,7 @@
             this.txtAncho.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtAncho.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtAncho.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtAncho.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAncho.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAncho.DefaultText = "";
             this.txtAncho.FillColor = System.Drawing.Color.White;
             this.txtAncho.HideSelection = true;
@@ -2461,7 +2489,7 @@
             this.txtAncho.SelectionLength = 0;
             this.txtAncho.SelectionStart = 0;
             this.txtAncho.ShortcutsEnabled = true;
-            this.txtAncho.Size = new System.Drawing.Size(70, 30);
+            this.txtAncho.Size = new System.Drawing.Size(52, 24);
             this.txtAncho.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtAncho.TabIndex = 195;
             this.txtAncho.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -2474,21 +2502,21 @@
             // 
             // label7
             // 
-            this.label7.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label7.Location = new System.Drawing.Point(828, 369);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(118, 25);
+            this.label7.Size = new System.Drawing.Size(88, 20);
             this.label7.TabIndex = 198;
             this.label7.Text = "Medidas";
             // 
             // label17
             // 
-            this.label17.Font = new System.Drawing.Font("Poppins", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label17.Location = new System.Drawing.Point(901, 400);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(20, 27);
+            this.label17.Size = new System.Drawing.Size(15, 22);
             this.label17.TabIndex = 197;
             this.label17.Text = "X";
             // 
@@ -2512,7 +2540,7 @@
             this.cbmJambas.FillDropDown = true;
             this.cbmJambas.FillIndicator = false;
             this.cbmJambas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbmJambas.Font = new System.Drawing.Font("Poppins", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbmJambas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbmJambas.ForeColor = System.Drawing.Color.Black;
             this.cbmJambas.FormattingEnabled = true;
             this.cbmJambas.Icon = null;
@@ -2533,7 +2561,7 @@
             this.cbmJambas.ItemTopMargin = 3;
             this.cbmJambas.Location = new System.Drawing.Point(623, 397);
             this.cbmJambas.Name = "cbmJambas";
-            this.cbmJambas.Size = new System.Drawing.Size(177, 23);
+            this.cbmJambas.Size = new System.Drawing.Size(134, 23);
             this.cbmJambas.TabIndex = 199;
             this.cbmJambas.Text = null;
             this.cbmJambas.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
@@ -2541,11 +2569,11 @@
             // 
             // lblJambas
             // 
-            this.lblJambas.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblJambas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblJambas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.lblJambas.Location = new System.Drawing.Point(625, 366);
             this.lblJambas.Name = "lblJambas";
-            this.lblJambas.Size = new System.Drawing.Size(123, 32);
+            this.lblJambas.Size = new System.Drawing.Size(92, 26);
             this.lblJambas.TabIndex = 200;
             this.lblJambas.Text = "Jambas";
             // 
@@ -2568,7 +2596,7 @@
             this.lblactualtotal.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.lblactualtotal.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.lblactualtotal.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.lblactualtotal.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblactualtotal.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblactualtotal.DefaultText = "";
             this.lblactualtotal.FillColor = System.Drawing.Color.White;
             this.lblactualtotal.HideSelection = true;
@@ -2614,7 +2642,7 @@
             this.lblactualtotal.SelectionLength = 0;
             this.lblactualtotal.SelectionStart = 0;
             this.lblactualtotal.ShortcutsEnabled = true;
-            this.lblactualtotal.Size = new System.Drawing.Size(140, 30);
+            this.lblactualtotal.Size = new System.Drawing.Size(105, 24);
             this.lblactualtotal.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.lblactualtotal.TabIndex = 201;
             this.lblactualtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -2645,7 +2673,7 @@
             this.cbmTipoPuerta.FillDropDown = true;
             this.cbmTipoPuerta.FillIndicator = false;
             this.cbmTipoPuerta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbmTipoPuerta.Font = new System.Drawing.Font("Poppins", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbmTipoPuerta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbmTipoPuerta.ForeColor = System.Drawing.Color.Black;
             this.cbmTipoPuerta.FormattingEnabled = true;
             this.cbmTipoPuerta.Icon = null;
@@ -2668,7 +2696,7 @@
             this.cbmTipoPuerta.ItemTopMargin = 3;
             this.cbmTipoPuerta.Location = new System.Drawing.Point(241, 397);
             this.cbmTipoPuerta.Name = "cbmTipoPuerta";
-            this.cbmTipoPuerta.Size = new System.Drawing.Size(177, 23);
+            this.cbmTipoPuerta.Size = new System.Drawing.Size(134, 23);
             this.cbmTipoPuerta.TabIndex = 202;
             this.cbmTipoPuerta.Text = null;
             this.cbmTipoPuerta.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
@@ -2677,11 +2705,11 @@
             // 
             // label19
             // 
-            this.label19.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label19.Location = new System.Drawing.Point(243, 366);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(123, 32);
+            this.label19.Size = new System.Drawing.Size(92, 26);
             this.label19.TabIndex = 203;
             this.label19.Text = "Tipo";
             // 
@@ -2705,7 +2733,7 @@
             this.cbmApanelado.FillDropDown = true;
             this.cbmApanelado.FillIndicator = false;
             this.cbmApanelado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbmApanelado.Font = new System.Drawing.Font("Poppins", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbmApanelado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbmApanelado.ForeColor = System.Drawing.Color.Black;
             this.cbmApanelado.FormattingEnabled = true;
             this.cbmApanelado.Icon = null;
@@ -2727,7 +2755,7 @@
             this.cbmApanelado.ItemTopMargin = 3;
             this.cbmApanelado.Location = new System.Drawing.Point(430, 397);
             this.cbmApanelado.Name = "cbmApanelado";
-            this.cbmApanelado.Size = new System.Drawing.Size(177, 23);
+            this.cbmApanelado.Size = new System.Drawing.Size(134, 23);
             this.cbmApanelado.TabIndex = 204;
             this.cbmApanelado.Text = null;
             this.cbmApanelado.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
@@ -2735,11 +2763,11 @@
             // 
             // lblApanelado
             // 
-            this.lblApanelado.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApanelado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApanelado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.lblApanelado.Location = new System.Drawing.Point(432, 366);
             this.lblApanelado.Name = "lblApanelado";
-            this.lblApanelado.Size = new System.Drawing.Size(143, 32);
+            this.lblApanelado.Size = new System.Drawing.Size(107, 26);
             this.lblApanelado.TabIndex = 205;
             this.lblApanelado.Text = "Apanelado";
             // 
@@ -2763,7 +2791,7 @@
             this.cbmTerminacion.FillDropDown = true;
             this.cbmTerminacion.FillIndicator = false;
             this.cbmTerminacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbmTerminacion.Font = new System.Drawing.Font("Poppins", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbmTerminacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbmTerminacion.ForeColor = System.Drawing.Color.Black;
             this.cbmTerminacion.FormattingEnabled = true;
             this.cbmTerminacion.Icon = null;
@@ -2784,7 +2812,7 @@
             this.cbmTerminacion.ItemTopMargin = 3;
             this.cbmTerminacion.Location = new System.Drawing.Point(46, 470);
             this.cbmTerminacion.Name = "cbmTerminacion";
-            this.cbmTerminacion.Size = new System.Drawing.Size(177, 23);
+            this.cbmTerminacion.Size = new System.Drawing.Size(134, 23);
             this.cbmTerminacion.TabIndex = 206;
             this.cbmTerminacion.Text = null;
             this.cbmTerminacion.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
@@ -2792,11 +2820,11 @@
             // 
             // label18
             // 
-            this.label18.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label18.Location = new System.Drawing.Point(48, 439);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(159, 32);
+            this.label18.Size = new System.Drawing.Size(119, 26);
             this.label18.TabIndex = 207;
             this.label18.Text = "Terminacion";
             // 
@@ -3638,7 +3666,7 @@
             // 
             // Ventas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1751, 739);
@@ -3733,6 +3761,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label23);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Ventas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

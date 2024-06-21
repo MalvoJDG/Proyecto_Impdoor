@@ -67,7 +67,7 @@
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(439, 306);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(17, 16);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -94,7 +94,7 @@
             this.bunifuVScrollBar2.DurationBeforeShrink = 2000;
             this.bunifuVScrollBar2.LargeChange = 17;
             this.bunifuVScrollBar2.Location = new System.Drawing.Point(934, 409);
-            this.bunifuVScrollBar2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuVScrollBar2.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuVScrollBar2.Maximum = 100;
             this.bunifuVScrollBar2.Minimum = 0;
             this.bunifuVScrollBar2.MinimumThumbLength = 18;
@@ -113,6 +113,7 @@
             this.bunifuVScrollBar2.ThumbMargin = 1;
             this.bunifuVScrollBar2.ThumbStyle = Bunifu.UI.WinForms.BunifuVScrollBar.ThumbStyles.Inset;
             this.bunifuVScrollBar2.Value = 0;
+            this.bunifuVScrollBar2.Scroll += new System.EventHandler<Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs>(this.bunifuVScrollBar2_Scroll);
             // 
             // dtaFiscal
             // 
@@ -170,7 +171,7 @@
             this.dtaFiscal.HeaderBgColor = System.Drawing.Color.Empty;
             this.dtaFiscal.HeaderForeColor = System.Drawing.Color.White;
             this.dtaFiscal.Location = new System.Drawing.Point(85, 369);
-            this.dtaFiscal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dtaFiscal.Margin = new System.Windows.Forms.Padding(2);
             this.dtaFiscal.Name = "dtaFiscal";
             this.dtaFiscal.ReadOnly = true;
             this.dtaFiscal.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -229,7 +230,7 @@
             this.bunifuTextBox1.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.bunifuTextBox1.Lines = new string[0];
             this.bunifuTextBox1.Location = new System.Drawing.Point(184, 296);
-            this.bunifuTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuTextBox1.MaxLength = 32767;
             this.bunifuTextBox1.MinimumSize = new System.Drawing.Size(1, 1);
             this.bunifuTextBox1.Modified = false;
@@ -255,7 +256,7 @@
             stateProperties4.ForeColor = System.Drawing.Color.Empty;
             stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.bunifuTextBox1.OnIdleState = stateProperties4;
-            this.bunifuTextBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuTextBox1.Padding = new System.Windows.Forms.Padding(2);
             this.bunifuTextBox1.PasswordChar = '\0';
             this.bunifuTextBox1.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.bunifuTextBox1.PlaceholderText = "Buscar";
@@ -324,7 +325,7 @@
             this.btnEditar.IdleIconRightImage = null;
             this.btnEditar.IndicateFocus = false;
             this.btnEditar.Location = new System.Drawing.Point(494, 306);
-            this.btnEditar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnEditar.OnDisabledState.BorderRadius = 20;
@@ -415,7 +416,7 @@
             this.btnborrar.IdleIconRightImage = null;
             this.btnborrar.IndicateFocus = false;
             this.btnborrar.Location = new System.Drawing.Point(631, 306);
-            this.btnborrar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnborrar.Margin = new System.Windows.Forms.Padding(2);
             this.btnborrar.Name = "btnborrar";
             this.btnborrar.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnborrar.OnDisabledState.BorderRadius = 20;
@@ -506,7 +507,7 @@
             this.btnlimpiar.IdleIconRightImage = null;
             this.btnlimpiar.IndicateFocus = false;
             this.btnlimpiar.Location = new System.Drawing.Point(494, 271);
-            this.btnlimpiar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnlimpiar.Margin = new System.Windows.Forms.Padding(2);
             this.btnlimpiar.Name = "btnlimpiar";
             this.btnlimpiar.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnlimpiar.OnDisabledState.BorderRadius = 20;
@@ -596,7 +597,7 @@
             this.btnGuardarClienteR.IdleIconRightImage = null;
             this.btnGuardarClienteR.IndicateFocus = false;
             this.btnGuardarClienteR.Location = new System.Drawing.Point(486, 84);
-            this.btnGuardarClienteR.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGuardarClienteR.Margin = new System.Windows.Forms.Padding(2);
             this.btnGuardarClienteR.Name = "btnGuardarClienteR";
             this.btnGuardarClienteR.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnGuardarClienteR.OnDisabledState.BorderRadius = 20;
@@ -669,7 +670,7 @@
             this.txtNumerosCreditoFiscal.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtNumerosCreditoFiscal.Lines = new string[0];
             this.txtNumerosCreditoFiscal.Location = new System.Drawing.Point(184, 84);
-            this.txtNumerosCreditoFiscal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNumerosCreditoFiscal.Margin = new System.Windows.Forms.Padding(2);
             this.txtNumerosCreditoFiscal.MaxLength = 32767;
             this.txtNumerosCreditoFiscal.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtNumerosCreditoFiscal.Modified = false;
@@ -695,7 +696,7 @@
             stateProperties8.ForeColor = System.Drawing.Color.Empty;
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txtNumerosCreditoFiscal.OnIdleState = stateProperties8;
-            this.txtNumerosCreditoFiscal.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNumerosCreditoFiscal.Padding = new System.Windows.Forms.Padding(2);
             this.txtNumerosCreditoFiscal.PasswordChar = '\0';
             this.txtNumerosCreditoFiscal.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.txtNumerosCreditoFiscal.PlaceholderText = "NCF B0100000262";
@@ -736,7 +737,7 @@
             this.bunifuLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold);
             this.bunifuLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.bunifuLabel2.Location = new System.Drawing.Point(85, 24);
-            this.bunifuLabel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bunifuLabel2.Margin = new System.Windows.Forms.Padding(2);
             this.bunifuLabel2.Name = "bunifuLabel2";
             this.bunifuLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.bunifuLabel2.Size = new System.Drawing.Size(147, 26);
@@ -777,7 +778,7 @@
             this.Controls.Add(this.bunifuLabel2);
             this.Controls.Add(this.lblId);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NCF";
             this.Text = "NCF";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -195,6 +195,32 @@ namespace Capa_P
                 }
             }
         }
+
+        //Lo que esta dentro de este bloque de codigo funciona con todos los Scrollbar
+        private void bunifuVScrollBar2_Scroll(object sender, Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs e)
+        {
+            // Obtener la posición actual del scrollbar
+            int scrollValue = e.Value;
+
+            // Calcular la posición de la primera fila visible en el BunifuCustomDataGrid
+            int primeraFilaVisible = scrollValue;
+
+            // Verificar si la primera fila visible es menor que cero
+            if (primeraFilaVisible < 0)
+            {
+                primeraFilaVisible = 0;
+            }
+
+            // Verificar si la primera fila visible excede el rango de filas visibles
+            if (primeraFilaVisible >= dtaFiscal.RowCount)
+            {
+                primeraFilaVisible = dtaFiscal.RowCount - 1;
+            }
+
+            // Actualizar la vista del BunifuCustomDataGrid para mostrar las filas visibles
+            dtaFiscal.FirstDisplayedScrollingRowIndex = primeraFilaVisible;
+            dtaFiscal.Refresh();
+        }
     }
 
 }
