@@ -60,6 +60,24 @@ namespace Capa_N.EntityProv
             return m.consultas("ListadoCliente", null);
         }
 
+        public void BuscarCliente(string nombreBusqueda)
+        {
+            List<clsParametros> list = new List<clsParametros>();
+            list.Add(new clsParametros("p_nombre", nombreBusqueda));
+
+            DataTable dt = m.consultas("BuscarClientes", list);
+
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                Nombre = row["Nombre"].ToString();
+                Rnc = row["Rnc"].ToString();
+                Correo = row["Correo"].ToString();
+                Telefono = row["Telefono"].ToString();
+                Direccion = row["Direccion"].ToString();
+            }
+        }
+
 
         public string borrarCliente(string Id)
         {
