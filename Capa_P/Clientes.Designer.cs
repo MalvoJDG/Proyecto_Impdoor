@@ -394,6 +394,7 @@
             this.txtFiltro.TextPlaceholder = "Buscar";
             this.txtFiltro.UseSystemPasswordChar = false;
             this.txtFiltro.WordWrap = true;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // btnGuardarClienteR
             // 

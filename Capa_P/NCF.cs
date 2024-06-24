@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 
 namespace Capa_P
@@ -12,6 +13,7 @@ namespace Capa_P
         {
             InitializeComponent();
             CargarNCF();
+            txtFiltroNCF.TextChanged += new EventHandler(bunifuTextBox1_TextChanged);
         }
 
         private void Limpiar()
@@ -220,6 +222,13 @@ namespace Capa_P
             // Actualizar la vista del BunifuCustomDataGrid para mostrar las filas visibles
             dtaFiscal.FirstDisplayedScrollingRowIndex = primeraFilaVisible;
             dtaFiscal.Refresh();
+        }
+
+        private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            string filterText = txtFiltroNCF.Text;
+
+            (dtaFiscal.DataSource as DataTable).DefaultView.RowFilter = string.Format("Codigo LIKE '%{0}%'", filterText);
         }
     }
 
