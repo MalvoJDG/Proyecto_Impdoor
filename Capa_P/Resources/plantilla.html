@@ -134,15 +134,15 @@
                                     </tr>
                                     <tr>
                                         <td align="left"><strong>DIRRECCION:</strong> @Direccion</td>
-                                        <td><strong>EMAIL:</strong>@Email</td>
+                                        <td><strong>EMAIL:</strong> @Email</td>
                                     </tr>
                                     <tr>
-                                        <td align="left"><strong>CONTACTO:</strong> @Cliente</td>
+                                        <td align="left"><strong>CONTACTO:</strong> @Contacto</td>
                                         <td><strong>PROYECTO:</strong> @Proyecto</td>
                                     </tr>
                                     <tr>
                                         <td align="left">
-                                            <strong>ENTRADA:</strong> <span class="entrada">@ENTRADA</span>
+                                            <strong>ENTRADA:</strong> <span class="entrada"> @ENTRADA</span>
                                             <strong>SALIDA:</strong> @Salida
                                         </td>
                                         <td><strong>ENTREGADA:</strong> @Entregada</td>
@@ -180,59 +180,87 @@
             </td>
         </tr>
     </table>
-    <table class="no-border" style="width: 100%; margin-top:10px;">
-        <thead style="background-color: #26576D; color: white;">
-        </thead>
-        <tbody>
-            <tr>
-                <td colspan="2">
-                    <table class="border" style="width: 100%;">
-                        <tr>
-                            <td align="left">
-                                <strong>Precios incluyen:</strong>
-                                <ul>
-                                    @PrecioIn
-                                </ul>
-                            </td>
-                            <td><strong>SUB-TOTAL:</strong> @SubTotal</td>
-                        </tr>
-                        <tr>
-                            <td align="left">
-                                <strong>Precios no incluyen:</strong>
-                                <ul>
-                                    @PrecioNOIn
-                                    <ol>
-                                        @Condicion
-                                    </ol>
-                                </ul>
-                            </td>
-                            <td style="width: 35%;"><strong>ITBIS:</strong> @Impuestos</td>
-                        </tr>
-                        @compn
-                        <tr>
-                            <td style="border: 0px !important;"></td>
-                            <td><strong>TRANSPORTE:</strong> @TRANSPORTE</td>
-                        </tr>
-                        <tr>
-                            <td style="border: 0px !important;"></td>
-                            <td><strong>Total a Pagar:</strong> @Impuestos</td>
-                        </tr>
-                        <tr>
-                            <td align="left">
-                                <strong>TIEMPO DE ENTREGA:</strong> @TIEMPOENTREGA
-                            </td>
-                            <td><strong>Dollar:</strong> @US</td>
-                        </tr>
-                        <tr>
-                            <td align="left">
-                                <strong>Vigencia de cotizacion:</strong> @vigencia
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </tbody>
+    <table class="no-border" style="width: 100%;">
+        <tr>
+            <td>
+                <table class="border" style="width: 100%;">
+                    <tr>
+                        <td style="width: 50%; padding: 10px; border-right: 1px solid black;">
+                            <strong>Precios incluyen:</strong>
+                            <ul>
+                                @PrecioIn
+                            </ul>
+                        </td>
+                        <td style="width: 50%; padding: 10px;">
+                            <strong>Precios no incluyen:</strong>
+                            <ul>
+                                @PrecioNOIn
+                                <ol>
+                                    @Condicion
+                                </ol>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table class="border" style="width: 100%;">
+                    <tr>
+                        <td style="width: 50%; padding: 10px; border-right: 1px solid black; font-size: 13px;">
+                            <strong>Sub-Total:</strong>
+                        </td>
+                        <td style="width: 50%; padding: 10px; text-align: right; font-size: 15px;">
+                            <strong>@SubTotal</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%; padding: 10px; border-right: 1px solid black; font-size: 13px;">
+                            <strong>ITBIS:</strong>
+                        </td>
+                        <td style="width: 50%; padding: 10px; text-align: right; font-size: 15px;">
+                            <strong>@Impuestos</strong>
+                        </td>
+                    </tr>
+                    @compn
+                    <tr>
+                        <td style="width: 50%; padding: 10px; border-right: 1px solid black; font-size: 13px;">
+                            <strong>Transporte:</strong>
+                        </td>
+                        <td style="width: 50%; padding: 10px; text-align: right; font-size: 13px;">
+                            <strong>@TRANSPORTE</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%; padding: 10px; border-right: 1px solid black; font-size: 13px;">
+                            <strong>Total a Pagar:</strong>
+                        </td>
+                        <td style="width: 50%; padding: 10px; text-align: right; font-size: 13px;">
+                           <strong> @Total</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%; padding: 10px; border-right: 1px solid black; font-size: 13px;">
+                            <strong>Tiempo de Entrega:</strong>
+                        </td>
+                        <td style="width: 50%; padding: 10px; text-align: right; font-size: 13px;">
+                            <strong> @TIEMPOENTREGA</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%; padding: 10px; border-right: 1px solid black; font-size: 13px; color: cornflowerblue; ">
+                            <strong>Vigencia de Cotización:</strong>
+                        </td>
+                        <td style="width: 50%; padding: 10px; color: cornflowerblue; font-size: 13px; text-align: right;">
+                            <strong>@vigencia</strong>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
     </table>
+            
     <!-->
         <img src="../img/proyecto1.png" alt="Imagen de la factura"></img>
     <!-->
