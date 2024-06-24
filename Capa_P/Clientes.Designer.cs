@@ -844,6 +844,7 @@
             this.txtTelefono.TextPlaceholder = "";
             this.txtTelefono.UseSystemPasswordChar = false;
             this.txtTelefono.WordWrap = true;
+            this.txtTelefono.TextChange += new System.EventHandler(this.txtTelefono_TextChange);
             // 
             // label4
             // 

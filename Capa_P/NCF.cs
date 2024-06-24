@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Data;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Capa_P
@@ -77,6 +79,46 @@ namespace Capa_P
             Limpiar();
 
 
+        }
+        public void exportaraexcel(DataGridView tabla)
+        {
+            // Crear un nuevo libro de Excel
+            using (var workbook = new XLWorkbook())
+            {
+                // Crear una nueva hoja de trabajo
+                var worksheet = workbook.Worksheets.Add("Sheet1");
+
+                // Agregar encabezados
+                for (int i = 1; i <= tabla.Columns.Count; i++)
+                {
+                    worksheet.Cell(1, i).Value = tabla.Columns[i - 1].HeaderText;
+                }
+
+                // Agregar datos
+                for (int i = 0; i < tabla.Rows.Count; i++)
+                {
+                    for (int j = 0; j < tabla.Columns.Count; j++)
+                    {
+                        worksheet.Cell(i + 2, j + 1).Value = tabla.Rows[i].Cells[j].Value?.ToString();
+                    }
+                }
+
+                // Mostrar el diálogo de guardado
+                var saveFileDialog = new SaveFileDialog
+                {
+                    Filter = "Excel Workbook|*.xlsx",
+                    Title = "Save an Excel File"
+                };
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    // Guardar el archivo
+                    using (var stream = new FileStream(saveFileDialog.FileName, FileMode.Create, FileAccess.Write))
+                    {
+                        workbook.SaveAs(stream);
+                    }
+                    MessageBox.Show("Export successful");
+                }
+            }
         }
 
         private void btnGuardarClienteR_Click(object sender, EventArgs e)
@@ -229,6 +271,16 @@ namespace Capa_P
             string filterText = txtFiltroNCF.Text;
 
             (dtaFiscal.DataSource as DataTable).DefaultView.RowFilter = string.Format("Codigo LIKE '%{0}%'", filterText);
+        }
+
+        private void bunifuButton21_Click(object sender, EventArgs e)
+        {
+            exportaraexcel(dtaFiscal);  
+        }
+
+        private void btnlimpiar_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 

@@ -6,6 +6,8 @@ using ClosedXML.Excel;
 using System;
 using System.Data;
 using System.IO;
+using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -52,12 +54,7 @@ namespace Capa_P
 
             try
             {
-                // Validar que los campos de teléfono y RNC contengan solo números si no están vacíos
-                if (!string.IsNullOrEmpty(txtTelefono.Text) && !Regex.IsMatch(txtTelefono.Text, @"^\d+$"))
-                {
-                    MessageBox.Show("El campo Teléfono solo debe contener números.");
-                    return;
-                }
+                
 
                 if (!string.IsNullOrEmpty(txtRnc.Text) && !Regex.IsMatch(txtRnc.Text, @"^\d+$"))
                 {
@@ -296,6 +293,41 @@ namespace Capa_P
         {
             
             MessageBox.Show("Label6 fue clickeado.");
+        }
+
+        private void txtTelefono_TextChange(object sender, EventArgs e)
+        {
+            
+                /// Verificar si el texto tiene menos de 10 caracteres para evitar errores al acceder a índices fuera del rango
+                if (txtTelefono.TextLength < 10)
+                {
+                    return;
+                }
+
+                // Eliminar guiones existentes para evitar duplicados
+                string textoLimpio = txtTelefono.Text.Replace("-", "");
+
+                // Verificar si el texto limpio tiene más de 10 caracteres
+                if (textoLimpio.Length > 10)
+                {
+                    // Si tiene más de 10 caracteres, truncarlo a 10 caracteres
+                    textoLimpio = textoLimpio.Substring(0, 10);
+                }
+
+                // Construir el número con guiones en las posiciones adecuadas
+                StringBuilder numeroConGuiones = new StringBuilder();
+                numeroConGuiones.Append(textoLimpio.Substring(0, 3)); // Primeros 3 dígitos
+                numeroConGuiones.Append("-");
+                numeroConGuiones.Append(textoLimpio.Substring(3, 3)); // Siguientes 3 dígitos
+                numeroConGuiones.Append("-");
+                numeroConGuiones.Append(textoLimpio.Substring(6)); // Últimos 4 dígitos
+
+                // Mostrar el número con guiones en el TextBox
+                txtTelefono.Text = numeroConGuiones.ToString();
+
+                // Colocar el cursor al final del texto para mantener la posición correcta mientras se escribe
+                txtTelefono.SelectionStart = txtTelefono.TextLength;
+            
         }
     }
 }
