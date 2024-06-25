@@ -551,6 +551,13 @@ namespace Capa_P
                 }
                 plantilla_html = plantilla_html.Replace("@PrecioNOIn", precioNoIN);
 
+                string condicion = string.Empty;
+                foreach (string linea in txtCondicion.Lines)
+                {
+                    condicion += "<li>" + linea + "</li>";
+                }
+                plantilla_html = plantilla_html.Replace("@Condicion", condicion);
+
                 string Imagenes = string.Empty;
                 for (int i = 0; i < listBox1.Items.Count; i++)
                 {

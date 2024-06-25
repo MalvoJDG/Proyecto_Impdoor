@@ -117,20 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ac_print_2_estelar" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ac print 2 estelar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="bunifuVScrollBar2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB0AAAC+CAYAAADJGwRPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAHLSURBVHhe7ZyxahtRFAW3dOnSZUqXLv0JLlOmTOnSpUv9
+        VUoJJJBAICEQ0h8oCNSn3Ly70WITpsuoynkwoPsY7bD7Abf7fKbT6WPje2Mi8tp4viY+Tru8n81mPxr9
+        Ddm2zuM12XXtYgjO5/N+s9n0h8NBY7vd9ovFYgwfW/iu3vJpDJ5Op/5yueicz+d+tVoN4db7WtG3Gna7
+        Hf7B4ng8jtFJRSc11Kcg2aKen+jNSBRli0RRtkgUZYtEUbZIFGWLRFG2SBRli0RRtkgUZYtEUbZIFGWL
+        RFG2SBRli0RRtkgUZYtEUbZIFGWLRFG2SBRli0RRtkgUZYtEUbZIFGWLRFG2SBRli0RRtkgUZYtEUbZI
+        FGWLRFG2SBRli0RRtkgUZYtEUbZIFGWLRFG2SBRli0RRtkgUZYtEUbZIFGWLRFG2SBRli0RRtkgUZYtE
+        UbZIFGWLRFG2SBRli0RRtkgUZYtEUbZIFGWLRFG2SBRli0RRtkgUZYtEUbb4f6PvNez3e5Qt/l5c+VLD
+        crlE2aL2jV6jrxW9a8PPuliv18NnMKk3rIWk9fzGr9Z7GDagth/PY/iGVPDbEBxPu7hv1DJYWhL7r7w3
+        vvwpdd1vPtDD0svrkD8AAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="Ficha_Fabricacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Ficha_Fabricacion.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="btnGuardarClienteR.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAI0AAAAnCAYAAAAy2cstAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGWSURBVHhe7dyhUgMxEMbxk0gkw93NRuJKEzqDg0dAIiuR
+        lZV9CySPgUQikUgkEomEbC4ztGUPWMv9d+anksbcN7m9ziTNbyWSTlpJl73EZS9pg/8qLvU5H8vitD56
+        f+VFVl2YP/chfWBa2pBeNEgiFwc1Dj+X7iz5h4/7C2F6dNNoJZ7XaNhVtqgwf7cWwIRJWteI7FbpXQgM
+        Rmi/U6PyVXmAVxJG5Q3lVWR2WOMyNL3WRGBbbpDvamSapnTLxiRgm7YvZbfR73JrAmDpJF01nZxdW4OA
+        Sb+k6GfgImmTQ5M25iBgITRwIzRwIzRwIzRwIzRwIzRwIzRwIzRwIzRwIzRwIzRwIzRwIzRwIzRwIzRw
+        IzRwq6FZm4OAZQhNXJqDgEVDo2d1zUHAoAcRGr0ZoA3pzZoA7BOZhXJYrgvx1poA7IpPJTBaIosjPatr
+        TwSG05XfLjzSk3PWZKAYu26E1xRG3NeI2DVcbERjjOGVNLrD7Jf2OH2YP1gLYRr+dHWaVfp5lZN2o3/o
+        YCriSm9FqxEwqmk+AXeUlSvqWHSPAAAAAElFTkSuQmCC
+</value>
   </data>
-  <data name="logo_impdoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\logo impdoor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="plantilla" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\plantilla.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="sello_acprint" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sello acprint.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="bunifuLabel2.BaseStylesheet" xml:space="preserve">
+    <value>#bunifu-label { padding: 0px; font-family: 'Microsoft Sans Serif'; font-size: 16.2pt; width: 100%; height: 100%; font-style: normal; font-weight: bold; text-decoration: none; color: rgb(29, 32, 51); text-align: left; }</value>
   </data>
 </root>
