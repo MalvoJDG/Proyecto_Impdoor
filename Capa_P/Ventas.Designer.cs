@@ -2907,7 +2907,7 @@
             this.btnImagen.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.btnImagen.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
             this.btnImagen.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Hover;
-            this.btnImagen.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnImagen.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImagen.ForeColor = System.Drawing.Color.White;
             this.btnImagen.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImagen.IconLeftCursor = System.Windows.Forms.Cursors.Default;
@@ -2972,12 +2972,12 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label20.Location = new System.Drawing.Point(1286, 981);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(94, 36);
+            this.label20.Size = new System.Drawing.Size(63, 20);
             this.label20.TabIndex = 209;
             this.label20.Text = "Imagen";
             // 
@@ -2999,36 +2999,36 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label21.Location = new System.Drawing.Point(888, 985);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(140, 36);
+            this.label21.Size = new System.Drawing.Size(96, 20);
             this.label21.TabIndex = 211;
             this.label21.Text = "Condiciones";
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label22.Location = new System.Drawing.Point(463, 991);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(183, 36);
+            this.label22.Size = new System.Drawing.Size(127, 20);
             this.label22.TabIndex = 212;
             this.label22.Text = "Precio no incluye";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label23.Location = new System.Drawing.Point(36, 1001);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(152, 36);
+            this.label23.Size = new System.Drawing.Size(105, 20);
             this.label23.TabIndex = 213;
             this.label23.Text = "Precio incluye";
             // 
@@ -3051,7 +3051,7 @@
             this.txtCorreo.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtCorreo.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtCorreo.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCorreo.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCorreo.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorreo.DefaultText = "";
             this.txtCorreo.FillColor = System.Drawing.Color.White;
             this.txtCorreo.HideSelection = true;
@@ -3111,7 +3111,7 @@
             // 
             // label24
             // 
-            this.label24.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label24.Location = new System.Drawing.Point(561, 183);
             this.label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3139,7 +3139,7 @@
             this.txtTelefono.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtTelefono.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtTelefono.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.DefaultText = "";
             this.txtTelefono.FillColor = System.Drawing.Color.White;
             this.txtTelefono.HideSelection = true;
@@ -3199,7 +3199,7 @@
             // 
             // label25
             // 
-            this.label25.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label25.Location = new System.Drawing.Point(946, 179);
             this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3227,7 +3227,7 @@
             this.txtRnc.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtRnc.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtRnc.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtRnc.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRnc.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRnc.DefaultText = "";
             this.txtRnc.FillColor = System.Drawing.Color.White;
             this.txtRnc.HideSelection = true;
@@ -3287,7 +3287,7 @@
             // 
             // label26
             // 
-            this.label26.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label26.Location = new System.Drawing.Point(1182, 179);
             this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3298,7 +3298,7 @@
             // 
             // label27
             // 
-            this.label27.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label27.Location = new System.Drawing.Point(49, 256);
             this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3326,7 +3326,7 @@
             this.txtDireccion.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtDireccion.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtDireccion.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.DefaultText = "";
             this.txtDireccion.FillColor = System.Drawing.Color.White;
             this.txtDireccion.HideSelection = true;
@@ -3403,7 +3403,7 @@
             this.txtProyecto.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtProyecto.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtProyecto.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtProyecto.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProyecto.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProyecto.DefaultText = "";
             this.txtProyecto.FillColor = System.Drawing.Color.White;
             this.txtProyecto.HideSelection = true;
@@ -3463,7 +3463,7 @@
             // 
             // label28
             // 
-            this.label28.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label28.Location = new System.Drawing.Point(363, 256);
             this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3491,7 +3491,7 @@
             this.txtEntrada.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtEntrada.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtEntrada.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtEntrada.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEntrada.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEntrada.DefaultText = "";
             this.txtEntrada.FillColor = System.Drawing.Color.White;
             this.txtEntrada.HideSelection = true;
@@ -3551,7 +3551,7 @@
             // 
             // label29
             // 
-            this.label29.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label29.Location = new System.Drawing.Point(629, 256);
             this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3579,7 +3579,7 @@
             this.txtSalida.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtSalida.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtSalida.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSalida.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSalida.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSalida.DefaultText = "";
             this.txtSalida.FillColor = System.Drawing.Color.White;
             this.txtSalida.HideSelection = true;
@@ -3639,7 +3639,7 @@
             // 
             // label30
             // 
-            this.label30.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label30.Location = new System.Drawing.Point(898, 256);
             this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
@@ -3667,7 +3667,7 @@
             this.txtEntrega.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
             this.txtEntrega.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtEntrega.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtEntrega.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEntrega.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEntrega.DefaultText = "";
             this.txtEntrega.FillColor = System.Drawing.Color.White;
             this.txtEntrega.HideSelection = true;
@@ -3727,7 +3727,7 @@
             // 
             // label31
             // 
-            this.label31.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.label31.Location = new System.Drawing.Point(55, 334);
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);

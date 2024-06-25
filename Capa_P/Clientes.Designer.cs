@@ -394,6 +394,7 @@
             this.txtFiltro.TextPlaceholder = "Buscar";
             this.txtFiltro.UseSystemPasswordChar = false;
             this.txtFiltro.WordWrap = true;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // btnGuardarClienteR
             // 
@@ -841,7 +842,7 @@
             this.txtTelefono.TextPlaceholder = "";
             this.txtTelefono.UseSystemPasswordChar = false;
             this.txtTelefono.WordWrap = true;
-            this.txtTelefono.TextChanged += new System.EventHandler(this.txtTelefono_TextChanged);
+            this.txtTelefono.TextChange += new System.EventHandler(this.txtTelefono_TextChange);
             // 
             // label4
             // 
