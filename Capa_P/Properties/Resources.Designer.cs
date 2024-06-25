@@ -71,6 +71,27 @@ namespace Capa_P.Properties {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a using System;
+        ///using System.Collections.Generic;
+        ///using System.Linq;
+        ///using System.Text;
+        ///using System.Threading.Tasks;
+        ///
+        ///namespace Capa_P.Resources
+        ///{
+        ///    class Ficha_Fabricacion
+        ///    {
+        ///    }
+        ///}
+        ///.
+        /// </summary>
+        internal static string Ficha_Fabricacion {
+            get {
+                return ResourceManager.GetString("Ficha_Fabricacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap logo_impdoor {
@@ -88,22 +109,23 @@ namespace Capa_P.Properties {
         ///    &lt;style&gt;
         ///        table.border {
         ///            border-collapse: collapse;
+        ///            font-size: 13px;
         ///            width: 100%;
         ///        }
         ///
         ///            table.border th, table.border td {
         ///                padding: 5px;
         ///                border: 1px solid black;
+        ///                font-size: 11px;
         ///            }
         ///
-        ///        table.subtotals {
-        ///            width: 100%;
-        ///            border-collapse: collapse;
-        ///            border: 0;
+        ///        .no-border {
+        ///            border: none;
+        ///            padding: 5px;
+        ///            font-size: 11px;
         ///        }
         ///
-        ///            table.subtotals td {
-        ///                border [resto de la cadena truncado]&quot;;.
+        ///    [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string plantilla {
             get {

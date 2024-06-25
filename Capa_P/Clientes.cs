@@ -181,6 +181,7 @@ namespace Capa_P
             txtRnc.Text = dtaClientes.CurrentRow.Cells["Rnc"].Value.ToString();
             txtCliente_CorreoR.Text = dtaClientes.CurrentRow.Cells["Correo"].Value.ToString();
             txtDireccion.Text = dtaClientes.CurrentRow.Cells["Direccion"].Value.ToString();
+            txtTelefono.Text = dtaClientes.CurrentRow.Cells["Telefono"].Value.ToString();
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

@@ -1,0 +1,390 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 20px;
+            font-size: 10px;
+            width: 100%;
+        }
+
+        .container-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: none;
+            margin: 20px;
+            table-layout: fixed;
+            /* Asegura que las tablas ocupen el ancho especificado */
+        }
+
+            .container-table td {
+                vertical-align: top;
+                /* Alineación vertical en la parte superior */
+                padding: 5px;
+                /* Ajusta el espaciado interno según sea necesario */
+            }
+
+        .main-table,
+        .description-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            /* Espacio entre las tablas */
+        }
+
+            .main-table th,
+            .main-table td,
+            .description-table th,
+            .description-table td {
+                border: 1px solid #000;
+                padding: 8px;
+                text-align: left;
+            }
+
+        th {
+            background-color: #0074a2;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .header-merge {
+            background-color: #0074a2;
+            color: white;
+            text-align: center;
+        }
+
+        .product-description {
+            display: block;
+            width: 100%;
+            overflow: hidden;
+        }
+
+            .product-description table {
+                width: 100%;
+            }
+
+            .product-description th,
+            .product-description td {
+                border: 1px solid #000;
+            }
+
+        .header-table td {
+            border: none;
+            padding: 5px;
+        }
+
+        .info-table td {
+            padding: 2px 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 8px;
+        }
+
+        .main-table {
+            font-size: 8px;
+            /* Reducir el tamaño de fuente */
+            line-height: 0.2;
+            /* Reducir el espaciado entre líneas si es necesario */
+        }
+
+            .main-table td {
+                padding: 1px;
+                /* Reducir el padding interno */
+            }
+    </style>
+</head>
+
+<body>
+    <table class="header-table" style="border: none;">
+        <tr>
+            <td style="width: 70%;">
+            </td>
+            <td style="width: 30%;">
+                <table class="info-table">
+                    <tr>
+                        <td><strong>NOMBRE:</strong> ROSA GARCIA</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CONTACTO:</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>DIRECCIÓN:</strong> AZUA</td>
+                    </tr>
+                    <tr>
+                        <td><strong>NO. DE COTIZACIÓN:</strong> 02860</td>
+                    </tr>
+                    <tr>
+                        <td><strong>FECHA DE ENTRADA:</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>FECHA DE SALIDA:</strong></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <table class="container-table">
+        <tr>
+            <td style="width: 40%;">
+                <table class="main-table" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th class="header-merge" tyle="width: 0%;">TIPO DE PRODUCTO</th>
+                            <th class="header-merge" colspan="2">CANTIDAD</th>
+                        </tr>
+                        <tr>
+                            <th class="header-merge" colspan="3">1-)PUERTAS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>JEQUITIBA</td>
+                            <td>a</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>ROBLE AFRICANO</td>
+                            <td></td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>ROBLE ANDINO</td>
+                            <td></td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>ROBLE BRASILEÑO</td>
+                            <td></td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>ROBILLO</td>
+                            <td></td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>CAOBA</td>
+                            <td></td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>ANDIROBA</td>
+                            <td></td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>CEDRO</td>
+                            <td></td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>PINO</td>
+                            <td></td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>ACACIA</td>
+                            <td></td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>APANELADA</td>
+                            <td></td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>MACISA APANELADA</td>
+                            <td></td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>POLIMETALICAS</td>
+                            <td></td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <td>SEGURIDAD</td>
+                            <td></td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <th class="header-merge" colspan="3">2-)COCINAS</th>
+                        </tr>
+                        <tr>
+                            <td>COCINAS MODULARES</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>COCINAS MADERA</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>TOPES / ENCIMERAS</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>GRANITO</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>MARMOL</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="header-merge" colspan="3">3-)VENTANAS</th>
+                        </tr>
+                        <tr>
+                            <td>VENTANAS CORREDIZAS</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>VENTANAS P65</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>VENTANAS P92</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>VENTANAS P40</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>VENTANAS IMPORTADAS</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>VENTANAS SALAMONICAS</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>VENTANAS BALCONERAS</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>VENTANAS PROYECTADAS</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>VARANDAS</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>ESCALERAS</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>PASAMANOS ESCALERAS</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <th class="header-merge" colspan="3">4-)PISOS</th>
+                        </tr>
+                        <tr>
+                            <td>PORCELAMICOS</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>CERAMICA</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>REVESTIMIENTO</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+            <td style="width: 60%;">
+                <table class="description-table" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th class="header-merge" colspan="3">DESCRIPCION DEL PRODCTO</th>
+                        </tr>
+                        <tr>
+                            <th style="width: 35%;">ARTÍCULO / DESCRIPCIÓN</th>
+                            <th>MEDIDAS</th>
+                            <th>CANT.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                SUMINISTRO PUERTA JEQUITIBA MADERA SOLIDA TIPO: BATIENTES, MACIZA DE 1.5PUL DE
+                                ESPESOR, JAMBAS DOBLES Y CUBRE MOCHETAS, ECHAPADO EN MDF HIDROFUGO LACADO NEGRO,
+                                SEGÚN IMAGEN
+                            </td>
+                            <td>36 PUL X 7 PIE</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>INSTALACION</td>
+                            <td></td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                SUMINISTRO PUERTA JEQUITIBA MADERA SOLIDA TIPO: BATIENTES, MACIZA DE 1.5PUL DE
+                                ESPESOR, JAMBAS DOBLES Y CUBRE MOCHETAS, SEGÚN IMAGEN , PAÑO FIJO. CON SECCIONES
+                                DORADA
+                            </td>
+                            <td>52 PUL X 7 PIE</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>INSTALACION</td>
+                            <td></td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                SUMINISTRO PUERTA JEQUITIBA MADERA SOLIDA TIPO: BATIENTES, MACIZA DE 1.5PUL DE
+                                ESPESOR, JAMBAS DOBLES Y CUBRE MOCHETAS, SEGÚN IMAGEN, SIN SECCIONES DORADA
+                            </td>
+                            <td>36 PUL X 7 PIE</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>INSTALACION</td>
+                            <td></td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>LACADO NEGRO</td>
+                            <td></td>
+                            <td>2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>

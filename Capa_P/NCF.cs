@@ -1,7 +1,5 @@
-﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using System;
-using System.Data;
-using System.IO;
 using System.Windows.Forms;
 
 namespace Capa_P
@@ -30,43 +28,46 @@ namespace Capa_P
             dtaFiscal.ClearSelection();
         }
 
-        private void GuardarNCF()
+        private void GuardarSeparado()
+        {
+            // Obtener los números de crédito fiscal ingresados por el usuario
+            string[] numerosCreditoFiscal = txtNumerosCreditoFiscal.Text.Split(new char[] { '\n', ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+            // Guardar los números de crédito fiscal en la base de datos
+            GuardarNCF(numerosCreditoFiscal);
+
+            // Limpiar el cuadro de texto después de guardar los números
+            txtNumerosCreditoFiscal.Clear();
+
+            MessageBox.Show("Números de crédito fiscal guardados exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void GuardarNCF(string[] numerosCreditoFiscal)
         {
             existent = false;
             String msj = "";
 
-
-
             try
             {
-
-                ncf.Codigo = txtNumerosCreditoFiscal.Text;
-
-
-
-
-
-
-
-                if (!string.IsNullOrEmpty(ncf.Codigo))//si el campo ncf esta vacio no permite ingresar datos
-
+                foreach (string numero in numerosCreditoFiscal)
                 {
+                    ncf.Codigo = numero;
+
+                    if (!string.IsNullOrEmpty(ncf.Codigo))//si el campo ncf esta vacio no permite ingresar datos
+                    {
 
 
 
 
-                    msj = ncf.RegistrarNCF();
+                        msj = ncf.RegistrarNCF();
 
-                    MessageBox.Show(msj);
+                        MessageBox.Show(msj);
 
 
 
+                    }
                 }
-                else
-                {
                     MessageBox.Show("Termine de completar los campos Requeridos");
-                }
-
             }
             catch (Exception ex)
             {
@@ -74,11 +75,8 @@ namespace Capa_P
                 MessageBox.Show(ex.Message);
 
             }
-
             CargarNCF();
             Limpiar();
-
-
         }
         public void exportaraexcel(DataGridView tabla)
         {
@@ -125,7 +123,7 @@ namespace Capa_P
         {
             if (existent == false)
             {
-                GuardarNCF();
+                GuardarSeparado();
             }
 
             else
