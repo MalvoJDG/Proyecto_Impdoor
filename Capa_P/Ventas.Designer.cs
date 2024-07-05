@@ -1249,7 +1249,7 @@
             this.lblNCF.PasswordChar = '\0';
             this.lblNCF.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.lblNCF.PlaceholderText = "";
-            this.lblNCF.ReadOnly = true;
+            this.lblNCF.ReadOnly = false;
             this.lblNCF.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.lblNCF.SelectedText = "";
             this.lblNCF.SelectionLength = 0;
@@ -1323,6 +1323,7 @@
             this.cbmNCF.Text = null;
             this.cbmNCF.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
             this.cbmNCF.TextLeftMargin = 5;
+            this.cbmNCF.SelectedIndexChanged += new System.EventHandler(this.cbmNCF_SelectedIndexChanged);
             // 
             // txtNombre
             // 
@@ -1587,6 +1588,7 @@
             this.btnguardar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnguardar.TabIndex = 136;
             this.btnguardar.TabStop = false;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // label1
             // 
@@ -1658,7 +1660,7 @@
             this.lblId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblId.Location = new System.Drawing.Point(312, 6189);
+            this.lblId.Location = new System.Drawing.Point(268, 7009);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(141, 25);
@@ -1674,7 +1676,7 @@
             this.btnLimpiarT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarT.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarT.Location = new System.Drawing.Point(1027, 6207);
+            this.btnLimpiarT.Location = new System.Drawing.Point(983, 7027);
             this.btnLimpiarT.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarT.Name = "btnLimpiarT";
             this.btnLimpiarT.Size = new System.Drawing.Size(200, 34);
@@ -1690,7 +1692,7 @@
             this.btnLimpiarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarD.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarD.Location = new System.Drawing.Point(774, 6207);
+            this.btnLimpiarD.Location = new System.Drawing.Point(730, 7027);
             this.btnLimpiarD.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarD.Name = "btnLimpiarD";
             this.btnLimpiarD.Size = new System.Drawing.Size(200, 34);
@@ -2977,7 +2979,7 @@
             this.label20.Location = new System.Drawing.Point(1286, 981);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(63, 20);
+            this.label20.Size = new System.Drawing.Size(77, 25);
             this.label20.TabIndex = 209;
             this.label20.Text = "Imagen";
             // 
@@ -3004,7 +3006,7 @@
             this.label21.Location = new System.Drawing.Point(888, 985);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(96, 20);
+            this.label21.Size = new System.Drawing.Size(121, 25);
             this.label21.TabIndex = 211;
             this.label21.Text = "Condiciones";
             // 
@@ -3016,7 +3018,7 @@
             this.label22.Location = new System.Drawing.Point(463, 991);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(127, 20);
+            this.label22.Size = new System.Drawing.Size(160, 25);
             this.label22.TabIndex = 212;
             this.label22.Text = "Precio no incluye";
             // 
@@ -3028,7 +3030,7 @@
             this.label23.Location = new System.Drawing.Point(36, 1001);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(105, 20);
+            this.label23.Size = new System.Drawing.Size(133, 25);
             this.label23.TabIndex = 213;
             this.label23.Text = "Precio incluye";
             // 

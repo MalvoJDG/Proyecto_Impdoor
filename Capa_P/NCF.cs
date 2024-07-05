@@ -1,12 +1,15 @@
+using ClosedXML.Excel;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using System;
+using System.Data;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Capa_P
 {
     public partial class NCF : Form
     {
-        public NCf ncf = new NCf();
+        public ncf ncf = new ncf();
 
         bool existent = false;
         public NCF()
@@ -56,18 +59,15 @@ namespace Capa_P
                     if (!string.IsNullOrEmpty(ncf.Codigo))//si el campo ncf esta vacio no permite ingresar datos
                     {
 
-
-
-
                         msj = ncf.RegistrarNCF();
 
-                        MessageBox.Show(msj);
-
-
-
+                    }
+                    else
+                    {
+                        MessageBox.Show("Termine de completar los campos Requeridos");
                     }
                 }
-                    MessageBox.Show("Termine de completar los campos Requeridos");
+                MessageBox.Show(msj);
             }
             catch (Exception ex)
             {
@@ -114,7 +114,7 @@ namespace Capa_P
                     {
                         workbook.SaveAs(stream);
                     }
-                    MessageBox.Show("Export successful");
+                    MessageBox.Show("Exportado con exito");
                 }
             }
         }

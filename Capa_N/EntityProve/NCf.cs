@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-public class NCf
+public class ncf
 {
     /* Ver como le aplicamos la POO
      * (nota mental)poner todos los store prosedure en ingles o en español
@@ -54,6 +54,12 @@ public class NCf
     public DataTable ListadoNCF()
     {
 
+        return m.consultas("ListadoNcf", null);
+
+    }
+
+    public DataTable SecuenciaFiscal()
+    {
         return m.consultas("ListadoNcf", null);
 
     }

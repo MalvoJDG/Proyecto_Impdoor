@@ -94,8 +94,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityProve\Clientes.cs" />
-    <Compile Include="EntityProve\NCf.cs" />
+    <Compile Include="EntityProve\ncf.cs" />
     <Compile Include="Entity\ClsEstandar.cs" />
+    <Compile Include="Entity\FacturaDetalle.cs" />
+    <Compile Include="Entity\FacturaHeader.cs" />
     <Compile Include="Entity\Materiales.cs" />
     <Compile Include="Entity\Precios.cs" />
     <Compile Include="Entity\Productos.cs" />

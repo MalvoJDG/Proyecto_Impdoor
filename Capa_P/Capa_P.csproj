@@ -90,6 +90,9 @@
     <Reference Include="Google.Protobuf, Version=3.25.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.25.1\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.61.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.61\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="Irony, Version=1.0.11.0, Culture=neutral, PublicKeyToken=ca48ace7223ead47, processorArchitecture=MSIL">
       <HintPath>..\packages\Irony.NetCore.1.0.11\lib\net461\Irony.dll</HintPath>
     </Reference>
@@ -285,6 +288,12 @@
     <Compile Include="Fabricacion.Designer.cs">
       <DependentUpon>Fabricacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Facturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Facturas.Designer.cs">
+      <DependentUpon>Facturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layout.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -313,6 +322,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Fabricacion.resx">
       <DependentUpon>Fabricacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Facturas.resx">
+      <DependentUpon>Facturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layout.resx">
       <DependentUpon>Layout.cs</DependentUpon>
@@ -367,8 +379,10 @@
     <None Include="Resources\logo impdoor.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Externo\Materiales.txt" />
     <Content Include="img\datosfooter.png" />
     <Content Include="img\firma.png" />
+    <Content Include="img\flecha-abajo-derecha.png" />
     <Content Include="img\impdoor_logo.png" />
     <Content Include="img\proyecto1.png" />
     <Content Include="img\sello_solo_impdoor.png" />

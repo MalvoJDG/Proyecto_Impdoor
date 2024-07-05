@@ -1,4 +1,5 @@
-﻿using Capa_N.EntityProv;
+﻿using Capa_N.Entity;
+using Capa_N.EntityProv;
 using DocumentFormat.OpenXml.Drawing.Charts;
 using iTextSharp.awt.geom;
 using iTextSharp.text;
@@ -8,6 +9,7 @@ using System;
 using System.Data;
 using System.Globalization;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 
@@ -16,10 +18,14 @@ namespace Capa_P
 
     public partial class Ventas : Form
     {
+       
         Productos productos = new Productos();
         Materiales materiales = new Materiales();
         Tipo_Madera tipo_Madera = new Tipo_Madera();
+        FacturaHeader facturaH = new FacturaHeader();
+        FacturaDetalle facturaD = new FacturaDetalle();
         Cliente cl = new Cliente();
+        ncf ncf = new ncf();
 
         int id_producto = 0;
         int id_Material = 0;
@@ -35,11 +41,14 @@ namespace Capa_P
             CargarProductos();
             CargarMateriales();
             CargarMadera();
+            SecuenciaFiscal();
+            lblNCF.Visible = false;
         }
 
         private void Ventas_Load(object sender, EventArgs e)
         {
             cbmImpuesto.Text = "Si";
+            cbmNCF.Text = "No";
         }
 
         public void CargarProductos()
@@ -294,14 +303,21 @@ namespace Capa_P
             }
             else
             {
-                cantidad = int.Parse(txtCantidad.Text);
-                preciou = float.Parse(txtInstalacion.Text);
+                try
+                {
+                    cantidad = int.Parse(txtCantidad.Text);
+                    preciou = float.Parse(txtInstalacion.Text);
 
-                double total = cantidad * preciou;
-                lblTotalln.Text = total.ToString("N2", CultureInfo.InvariantCulture);
-                double impuesto = total * 0.18;
+                    double total = cantidad * preciou;
+                    lblTotalln.Text = total.ToString("N2", CultureInfo.InvariantCulture);
+                    double impuesto = total * 0.18;
 
-                lblitbis.Text = impuesto.ToString("N2", CultureInfo.InvariantCulture);
+                    lblitbis.Text = impuesto.ToString("N2", CultureInfo.InvariantCulture);
+                }
+                catch
+                {
+                    MessageBox.Show("Dee asiganar un precio unitario a la instalacion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
             }
             
@@ -881,7 +897,123 @@ namespace Capa_P
         {
 
         }
+
+        private void GuardarHeaderFactura()
+        {
+            String msj = "";
+
+            try
+            {
+
+                facturaH.Factura = lblFac.Text;
+                facturaH.SubTotal = float.Parse(lblSubTotal.Text);
+                facturaH.ITBIS = float.Parse(lblImpuesto.Text);
+                facturaH.Total = float.Parse(lblTotal.Text);
+                facturaH.Credito_Fiscal = lblNCF.Text;
+                facturaH.Estado_Pago = "Pendiente";
+                facturaH.Cliente = txtNombre.Text;
+                facturaH.Rnc = txtRnc.Text;
+
+
+                    msj = facturaH.GuardarFacturaHeader();
+                    MessageBox.Show(msj);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void GuardarDetalleFactura()
+        {
+            String msj = "";
+
+            try
+            {
+
+                foreach (DataGridViewRow Row in dtaVentas.Rows)
+                {
+                    facturaD.Factura = lblFac.Text;
+                    facturaD.Producto = Row.Cells["Producto"].Value.ToString();
+                    facturaD.Descripcion = Row.Cells["Descripcion"].Value.ToString();
+                    facturaD.Material = Row.Cells["Material"].Value.ToString();
+                    facturaD.Madera = Row.Cells["Madera"].Value.ToString();
+                    facturaD.Apanelado = Row.Cells["Apanelado"].Value.ToString();
+                    facturaD.Jambas = Row.Cells["Jamba"].Value.ToString();
+                    facturaD.Size = Row.Cells["Sizes"].Value.ToString();
+                    facturaD.Cantidad = int.Parse(Row.Cells["Canti"].Value.ToString());
+                    facturaD.PrecioUnit = float.Parse(Row.Cells["PrecioUnidad"].Value.ToString());
+                    facturaD.ITBIS = float.Parse(Row.Cells["ITBIS"].Value.ToString());
+                    facturaD.Total = float.Parse(Row.Cells["Total_Linea"].Value.ToString());
+
+                    msj = facturaD.GuardarFacturaDetalle();
+
+                }
+
+                
+                MessageBox.Show(msj);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+            GuardarHeaderFactura();
+            GuardarDetalleFactura();
+        }
+
+        private void SecuenciaFiscal()
+        {
+            try
+            {
+                // Llamar al método que ejecuta el procedimiento almacenado y devuelve un DataTable
+                System.Data.DataTable dt = ncf.SecuenciaFiscal();
+
+                // Verificar si se obtuvo algún resultado del procedimiento almacenado
+                if (dt.Rows.Count > 0)
+                {
+                    // Obtener el valor del primer campo (suponiendo que sea un único valor)
+                    string ncfDisponible = dt.Rows[0]["Codigo"].ToString(); // Reemplaza "NCF" con el nombre real de la columna
+
+                    // Asignar el valor al Text del Label (suponiendo que tienes un Label llamado lblNCF)
+                    lblNCF.Text = ncfDisponible;
+                }
+                else
+                {
+                    MessageBox.Show("No se encontraron resultados.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el NCF disponible: " + ex.Message);
+            }
+        }
+
+        private void cbmNCF_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OcultarNCF();
+        }
+
+        private void OcultarNCF()
+        {
+            if (cbmNCF.SelectedIndex == 0)
+            {
+                lblNCF.Visible = false;
+                lblAviso.Visible = false;
+                
+            }
+            else
+            {
+                lblNCF.Visible = true;
+                lblAviso.Visible = true;
+                
+            }
+        }
     }
 
-    // Pa poder hacer merge
 }

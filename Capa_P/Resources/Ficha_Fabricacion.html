@@ -18,12 +18,53 @@
             /* Asegura que las tablas ocupen el ancho especificado */
         }
 
-            .container-table td {
-                vertical-align: top;
-                /* Alineación vertical en la parte superior */
-                padding: 5px;
-                /* Ajusta el espaciado interno según sea necesario */
+        .container {
+            width: 80%;
+            border: 1px solid black;
+            padding: 20px;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+
+        .header {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #26576D; /* Azul oscuro */
+        }
+
+        .Tabla-Adicional {
+            width: 100%;
+            border-collapse: collapse;
+            color: #1a5276; /* Azul oscuro */
+            margin-top: 20px; /* Espacio superior */
+        }
+
+            .Tabla-Adicional th,
+            .Tabla-Adicional td {
+                border: 1px solid black;
+                padding: 10px;
+                text-align: left;
+                font-weight: bold;
             }
+
+        .note {
+            margin-top: 20px;
+            border-top: 1px solid black;
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        .centertext {
+            text-align: center;
+        }
+
+        .container-table td {
+            vertical-align: top;
+            /* Alineación vertical en la parte superior */
+            padding: 5px;
+            /* Ajusta el espaciado interno según sea necesario */
+        }
 
         .main-table,
         .description-table {
@@ -55,6 +96,9 @@
             background-color: #0074a2;
             color: white;
             text-align: center;
+            font-size: 10px;
+            font-family: 'Times New Roman', Times, serif;
+            border: none;
         }
 
         .product-description {
@@ -72,14 +116,15 @@
                 border: 1px solid #000;
             }
 
-        .header-table td {
+        .info-table {
             border: none;
-            padding: 5px;
         }
 
-        .info-table td {
-            padding: 2px 5px;
-        }
+            .info-table th,
+            .info-table td {
+                border: none;
+                padding: 2px 5px;
+            }
 
         table {
             width: 100%;
@@ -96,35 +141,59 @@
 
             .main-table td {
                 padding: 1px;
+                align-items: center;
+                font-weight: bold;
+                font-size: 10px;
                 /* Reducir el padding interno */
             }
+
+        .first-table td {
+            font-size: 10px;
+            padding: 3px;
+        }
+
+        .right-align {
+            margin-left: auto;
+            margin-right: 0;
+            width: 60%;
+        }
     </style>
 </head>
 
 <body>
-    <table class="header-table" style="border: none;">
+    <table class="first-table" style="width: 100%;" border="0">
         <tr>
-            <td style="width: 70%;">
-            </td>
-            <td style="width: 30%;">
-                <table class="info-table">
+            <td style="width: 45%;"></td>
+            <td style="width: 55%;" align="center">
+                <h1 style="font-family: 'Times New Roman', Times, serif"><strong>FICHA DE FABRICACION</strong></h1>
+                <table border="1">
                     <tr>
-                        <td><strong>NOMBRE:</strong> ROSA GARCIA</td>
+                        <th class="header-merge" style="font-size: 12px; padding: 2px; background-color: #26576D;">INFORMACION DEL CLIENTE</th>
                     </tr>
                     <tr>
-                        <td><strong>CONTACTO:</strong></td>
+                        <td>
+                            <strong>NOMBRE: </strong>
+                        </td>
                     </tr>
                     <tr>
-                        <td><strong>DIRECCIÓN:</strong> AZUA</td>
+                        <td>
+                            <strong>CONTACTO: </strong>
+                        </td>
                     </tr>
                     <tr>
-                        <td><strong>NO. DE COTIZACIÓN:</strong> 02860</td>
+                        <td>
+                            <strong>NO.DE COTIZACION: </strong>
+                        </td>
                     </tr>
                     <tr>
-                        <td><strong>FECHA DE ENTRADA:</strong></td>
+                        <td>
+                            <strong>FECHA DE ENTRADA: </strong>
+                        </td>
                     </tr>
                     <tr>
-                        <td><strong>FECHA DE SALIDA:</strong></td>
+                        <td>
+                            <strong>FECHA DE SALIDA:</strong>
+                        </td>
                     </tr>
                 </table>
             </td>
@@ -136,8 +205,8 @@
                 <table class="main-table" style="width: 100%;">
                     <thead>
                         <tr>
-                            <th class="header-merge" tyle="width: 0%;">TIPO DE PRODUCTO</th>
-                            <th class="header-merge" colspan="2">CANTIDAD</th>
+                            <th class="header-merge" colspan="2" style="background-color: #26576D;">TIPO DE PRODUCTO</th>
+                            <th class="header-merge" style="background-color: #26576D;">CANTIDAD</th>
                         </tr>
                         <tr>
                             <th class="header-merge" colspan="3">1-)PUERTAS</th>
@@ -145,178 +214,178 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>JEQUITIBA</td>
-                            <td>a</td>
-                            <td>3</td>
+                            <td><strong>JEQUITIBA</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>ROBLE AFRICANO</td>
-                            <td></td>
-                            <td>3</td>
+                            <td><strong>ROBLE AFRICANO</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>ROBLE ANDINO</td>
-                            <td></td>
-                            <td>3</td>
+                            <td><strong>ROBLE ANDINO</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>ROBLE BRASILEÑO</td>
-                            <td></td>
-                            <td>3</td>
+                            <td><strong>ROBLE BRASILEÑO</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>ROBILLO</td>
-                            <td></td>
-                            <td>3</td>
+                            <td><strong>ROBILLO</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>CAOBA</td>
-                            <td></td>
-                            <td>3</td>
+                            <td><strong>CAOBA</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>ANDIROBA</td>
-                            <td></td>
-                            <td>3</td>
+                            <td><strong>ANDIROBA</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>CEDRO</td>
-                            <td></td>
-                            <td>3</td>
+                            <td><strong>CEDRO</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>PINO</td>
-                            <td></td>
-                            <td>3</td>
+                            <td><strong>PINO</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>ACACIA</td>
-                            <td></td>
-                            <td>3</td>
+                            <td><strong>ACACIA</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>APANELADA</td>
-                            <td></td>
-                            <td>3</td>
+                            <td><strong>APANELADA</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>MACISA APANELADA</td>
-                            <td></td>
-                            <td>3</td>
+                            <td><strong>MACISA APANELADA</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>POLIMETALICAS</td>
-                            <td></td>
-                            <td>3</td>
+                            <td><strong>POLIMETALICAS</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>SEGURIDAD</td>
-                            <td></td>
-                            <td>3</td>
+                            <td><strong>SEGURIDAD</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
                             <th class="header-merge" colspan="3">2-)COCINAS</th>
                         </tr>
                         <tr>
-                            <td>COCINAS MODULARES</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>COCINAS MODULARES</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>COCINAS MADERA</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>COCINAS MADERA</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>TOPES / ENCIMERAS</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>TOPES / ENCIMERAS</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>GRANITO</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>GRANITO</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>MARMOL</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>MARMOL</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
                             <th class="header-merge" colspan="3">3-)VENTANAS</th>
                         </tr>
                         <tr>
-                            <td>VENTANAS CORREDIZAS</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>VENTANAS CORREDIZAS</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>VENTANAS P65</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>VENTANAS P65</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>VENTANAS P92</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>VENTANAS P92</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>VENTANAS P40</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>VENTANAS P40</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>VENTANAS IMPORTADAS</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>VENTANAS IMPORTADAS</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>VENTANAS SALAMONICAS</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>VENTANAS SALAMONICAS</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>VENTANAS BALCONERAS</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>VENTANAS BALCONERAS</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>VENTANAS PROYECTADAS</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>VENTANAS PROYECTADAS</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>VARANDAS</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>VARANDAS</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>ESCALERAS</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>ESCALERAS</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>PASAMANOS ESCALERAS</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>PASAMANOS ESCALERAS</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
                             <th class="header-merge" colspan="3">4-)PISOS</th>
                         </tr>
                         <tr>
-                            <td>PORCELAMICOS</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>PORCELAMICOS</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>CERAMICA</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>CERAMICA</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                         <tr>
-                            <td>REVESTIMIENTO</td>
-                            <td></td>
-                            <td></td>
+                            <td><strong>REVESTIMIENTO</strong></td>
+                            <td style="text-align: center;"></td>
+                            <td style="text-align: center;"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -325,7 +394,7 @@
                 <table class="description-table" style="width: 100%;">
                     <thead>
                         <tr>
-                            <th class="header-merge" colspan="3">DESCRIPCION DEL PRODCTO</th>
+                            <th class="header-merge" colspan="3" style="background-color: #26576D;">DESCRIPCION DEL PRODCTO</th>
                         </tr>
                         <tr>
                             <th style="width: 35%;">ARTÍCULO / DESCRIPCIÓN</th>
@@ -334,57 +403,91 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                SUMINISTRO PUERTA JEQUITIBA MADERA SOLIDA TIPO: BATIENTES, MACIZA DE 1.5PUL DE
-                                ESPESOR, JAMBAS DOBLES Y CUBRE MOCHETAS, ECHAPADO EN MDF HIDROFUGO LACADO NEGRO,
-                                SEGÚN IMAGEN
-                            </td>
-                            <td>36 PUL X 7 PIE</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>INSTALACION</td>
-                            <td></td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                SUMINISTRO PUERTA JEQUITIBA MADERA SOLIDA TIPO: BATIENTES, MACIZA DE 1.5PUL DE
-                                ESPESOR, JAMBAS DOBLES Y CUBRE MOCHETAS, SEGÚN IMAGEN , PAÑO FIJO. CON SECCIONES
-                                DORADA
-                            </td>
-                            <td>52 PUL X 7 PIE</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>INSTALACION</td>
-                            <td></td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                SUMINISTRO PUERTA JEQUITIBA MADERA SOLIDA TIPO: BATIENTES, MACIZA DE 1.5PUL DE
-                                ESPESOR, JAMBAS DOBLES Y CUBRE MOCHETAS, SEGÚN IMAGEN, SIN SECCIONES DORADA
-                            </td>
-                            <td>36 PUL X 7 PIE</td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>INSTALACION</td>
-                            <td></td>
-                            <td>1</td>
-                        </tr>
-                        <tr>
-                            <td>LACADO NEGRO</td>
-                            <td></td>
-                            <td>2</td>
-                        </tr>
+                        @Lista
                     </tbody>
                 </table>
             </td>
         </tr>
     </table>
+    <div class="container">
+        <table border="1">
+            <tr>
+                <td>
+                    <table class="Tabla-Adicional">
+                        <tr>
+                            <th class="header-merge" colspan="4" style="text-align:center;">SERVICIOS ADICIONALES</th>
+                        </tr>
+                        <tr>
+                            <td>CASA/ APTO:</td>
+                            <td colspan="3">________________________________</td>
+                        </tr>
+                        <tr>
+                            <td>ESCALERA:</td>
+                            <td>SI ___</td>
+                            <td>NO ___</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>NIVEL:</td>
+                            <td colspan="3">________________________________</td>
+                        </tr>
+                        <tr>
+                            <td>ASENSOR:</td>
+                            <td>SI ___</td>
+                            <td>NO ___</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>VIVIENDA OCUPADA O VACIA:</td>
+                            <td colspan="3">________________________________</td>
+                        </tr>
+                        <tr>
+                            <td>ELECTRICIDAD:</td>
+                            <td>SI ___</td>
+                            <td>NO ___</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>DESINTALACION DE PUERTAS EXISTENTE:</td>
+                            <td>SI ___</td>
+                            <td>NO ___</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>CANTIDAD:</td>
+                            <td colspan="3">________________________________</td>
+                        </tr>
+                        <tr>
+                            <td>INSTALACION DE LLAVIN PARA PUERTA PRINCIPAL:</td>
+                            <td>SI ___</td>
+                            <td>NO ___</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>DESINTALACION DE ZOCALOS:</td>
+                            <td>SI ___</td>
+                            <td>NO ___</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>HORARIO DE TRABAJO:</td>
+                            <td colspan="3">________________________________</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <table class="note">
+            <tr>
+                <td>
+                    <strong>OJO:</strong>
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 100px;"></td>
+            </tr>
+        </table>
+    </div>
 </body>
 
 </html>

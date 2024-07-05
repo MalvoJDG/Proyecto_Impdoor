@@ -256,7 +256,7 @@ namespace Capa_P
                     {
                         workbook.SaveAs(stream);
                     }
-                    MessageBox.Show("Export successful");
+                    MessageBox.Show("Exportado con exito");
                 }
             }
         }

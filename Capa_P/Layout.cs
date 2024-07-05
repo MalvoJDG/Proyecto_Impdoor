@@ -69,5 +69,17 @@ namespace Capa_P
         {
             abrirformhija(new Fabricacion());
         }
+
+        private void btnFacturas_Click(object sender, EventArgs e)
+        {
+            abrirformhija(new Facturas());
+        }   
+
+        private void Responsie()
+        {
+             
+        }
+
+
     }
 }
