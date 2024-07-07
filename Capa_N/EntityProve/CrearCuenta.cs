@@ -15,7 +15,7 @@ namespace Capa_N.EntityProve
         public string Contraseña { get; set; }
         public string ConContraseña { get; set; }
         public int RoleId { get; set; }
-        public string Imagen { get; set; }
+        public byte [] Imagen { get; set; }
 
         clsManejador m = new clsManejador();
 
