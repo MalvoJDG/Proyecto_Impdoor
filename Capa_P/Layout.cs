@@ -80,6 +80,9 @@ namespace Capa_P
              
         }
 
-
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            abrirformhija(new CrearCuenta());
+        }
     }
 }
