@@ -34,6 +34,7 @@ namespace Dashboard
         {
             this.manejadorBD = manejadorBD;
             IngresosList = new List<Ingresos>();
+            //pegate
         }
 
         private void ConsultarNumeroClientes()
