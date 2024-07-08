@@ -149,6 +149,13 @@ namespace Capa_P
 
                 string plantilla_html = Properties.Resources.Ficha_Fabricacion.ToString();
 
+                plantilla_html = plantilla_html.Replace("@Nombre", txtCliente_NombreR.Text);
+                plantilla_html = plantilla_html.Replace("@Contacto", txtTelefono.Text);
+                plantilla_html = plantilla_html.Replace("@Direccion", txtDireccion.Text);
+                plantilla_html = plantilla_html.Replace("@No.Coti", dtaFacturas.CurrentRow.Cells[0].Value.ToString());
+                plantilla_html = plantilla_html.Replace("@FechaEntrada", txtDireccion.Text);
+                plantilla_html = plantilla_html.Replace("@FechaSalida", dtaFacturas.CurrentRow.Cells[0].Value.ToString());
+
                 // Lógica para reemplazar las cantidades en el HTML
                 HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
                 doc.LoadHtml(plantilla_html);
@@ -164,16 +171,12 @@ namespace Capa_P
                             HtmlNode signoNode = row.SelectSingleNode("td[2]");
                             if (signoNode != null)
                             {
-                                signoNode.InnerHtml = "<span style='font-weight: bold; font-size: 14px; display: block; text-align: center;'>X</span>";
-
+                                signoNode.InnerHtml = "<span style='font-weight: bold; font-size: 12px; display: block; text-align: center;'>X</span>";
 
                                 HtmlNode cantidadNode = row.SelectSingleNode("td[3]");
                                 if (cantidadNode != null)
                                 {
-                                    // Verificación: Imprimir antes y después
-                                    MessageBox.Show($"Material: {material}, Cantidad antes: {cantidadNode.InnerHtml}");
                                     cantidadNode.InnerHtml = materialesSeleccionados[material].ToString();
-                                    MessageBox.Show($"Material: {material}, Cantidad después: {cantidadNode.InnerHtml}");
                                 }
                             }
                         }
@@ -194,17 +197,42 @@ namespace Capa_P
                 }
                 plantilla_html = plantilla_html.Replace("@Lista", filas);
 
+                // Reemplazar el marcador de posición con las imágenes
+                string Imagenes = string.Empty;
+                if (listBox1.Items.Count > 0)
+                {
+                    
+              
+                    for (int i = 0; i < listBox1.Items.Count; i++)
+                    {
+                        string imagen = listBox1.Items[i].ToString();
+                        Imagenes += $"<tr><td><table style='margin-top: 50pt;'><tr><td><div style='page-break-after: always; text-align: center; margin-top: 20pt;'><img src='{imagen}' style='vertical-align: middle; width: 400px height: 500px;' /></div></td></tr></table></td></tr>";
+                    }
+                }
+                else
+                {
+                    Imagenes = $"<tr><td></td></tr>";
+                }
+                plantilla_html = plantilla_html.Replace("@ImagenesExtra", Imagenes);
+
+
+                // Ruta de la imagen de la firma
+                string imagePath = Path.GetFullPath(@"..\..\img\firma.png");
+                string imagenHtml = $"<img src='file:///{imagePath.Replace('\\', '/')}' alt='Imagen de la factura' style='max-width:100%; height:auto; display:block; margin:auto;' />";
+                plantilla_html = plantilla_html.Replace("@img", imagenHtml);
+
                 if (save.ShowDialog() == DialogResult.OK)
                 {
                     using (FileStream stream = new FileStream(save.FileName, FileMode.Create))
                     {
-                        Document pdfDoc = new Document(PageSize.A4, 25, 25, 15, 25);
+                        Document pdfDoc = new Document(PageSize.A4, 25, 25, 15, 20);
                         PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+
+                        pdfDoc.Open();
 
                         CustomHeader header = new CustomHeader(); // Crear instancia del header personalizado
                         writer.PageEvent = header; // Asignar el evento del header personalizado
 
-                        pdfDoc.Open();
                         pdfDoc.Add(new Phrase(""));
 
                         PdfContentByte cb = writer.DirectContent;
@@ -229,6 +257,7 @@ namespace Capa_P
                 MessageBox.Show("Error al imprimir la factura: " + ex.Message);
             }
         }
+
 
 
 
@@ -269,7 +298,7 @@ namespace Capa_P
                 }
                 else
                 {
-                    logoHeader.ScaleToFit(125f, 35);
+                    logoHeader.ScaleToFit(155f, 45);
                     PdfPCell imageCellHeader = new PdfPCell(logoHeader);
                     imageCellHeader.Border = 0;
                     imageCellHeader.HorizontalAlignment = Element.ALIGN_LEFT;
@@ -321,6 +350,26 @@ namespace Capa_P
             // Actualizar la vista del BunifuCustomDataGrid para mostrar las filas visibles
             dtaFacturas.FirstDisplayedScrollingRowIndex = primeraFilaVisible;
             dtaFacturas.Refresh();
+        }
+
+        private void AbrirDialogo()
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
+
+
+                // Añadir cada nombre de archivo al ListBox
+                foreach (string fileName in openFileDialog1.FileNames)
+                {
+                    listBox1.Items.Add(fileName);
+                }
+            }
+        }
+
+        private void btnImagen_Click(object sender, EventArgs e)
+        {
+            AbrirDialogo();
         }
     }
 }

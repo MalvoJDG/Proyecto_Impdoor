@@ -105,13 +105,13 @@
             <td style="width: 45%;">
                 <table class="border" style="width: 100%;">
                     <tr>
-                        <td align="center" style="font-size: 12px;">ASESOR CLIENTE: @Asesor</td>
+                        <td align="center" style="font-size: 12px;"><strong>ASESOR CLIENTE: @Asesor</strong></td>
                     </tr>
                     <tr>
-                        <td align="center" style="font-size: 14px;">Nro: @NumFac</td>
+                        <td align="center" style="font-size: 14px;"><strong>COTIZACION NO. @NumFac</strong></td>
                     </tr>
                     <tr>
-                        <td align="center" style="font-size: 14px;">@Fecha</td>
+                        <td align="center" style="font-size: 14px;"><strong>@Fecha</strong></td>
                     </tr>
                 </table>
             </td>
@@ -129,23 +129,23 @@
                             <td colspan="2">
                                 <table class="border" style="width: 100%;">
                                     <tr>
-                                        <td align="left"><strong>CLIENTE:</strong> @Cliente</td>
-                                        <td><strong>Rnc:</strong> @Rnc</td>
+                                        <td align="left"><strong>CLIENTE: @Cliente</strong> </td>
+                                        <td><strong>Rnc: @Rnc</strong></td>
                                     </tr>
                                     <tr>
-                                        <td align="left"><strong>DIRRECCION:</strong> @Direccion</td>
-                                        <td><strong>EMAIL:</strong> @Email</td>
+                                        <td align="left"><strong>DIRRECCION: @Direccion</strong> </td>
+                                        <td><strong>EMAIL: @Email</strong></td>
                                     </tr>
                                     <tr>
-                                        <td align="left"><strong>CONTACTO:</strong> @Contacto</td>
-                                        <td><strong>PROYECTO:</strong> @Proyecto</td>
+                                        <td align="left"><strong>CONTACTO: @Contacto</strong></td>
+                                        <td><strong>PROYECTO: @Proyecto</strong></td>
                                     </tr>
                                     <tr>
                                         <td align="left">
-                                            <strong>ENTRADA:</strong> <span class="entrada"> @ENTRADA</span>
-                                            <strong>SALIDA:</strong> @Salida
+                                            <strong>ENTRADA:</strong> <span class="entrada"><strong> @ENTRADA</strong></span>
+                                            <strong>SALIDA: @Salida</strong> 
                                         </td>
-                                        <td><strong>ENTREGADA:</strong> @Entregada</td>
+                                        <td><strong>ENTREGADA: @Entregada</strong> </td>
                                     </tr>
                                 </table>
                             </td>
@@ -156,7 +156,9 @@
         </tr>
         <tr>
             <td colspan="3">
-                <span style="margin-left:300px;">puerta roble</span>
+                <div style="text-align: center; margin-top: 20px; color: cornflowerblue;">
+                    @Titulo
+                </div>
                 <table class="border" style="width: 100%;">
                     <thead style="background-color: #26576D; color: white;">
                         <tr>
@@ -169,11 +171,11 @@
                     </thead>
                     <tbody>
                         <!--tr>
-                            <td>2 fulano</td>
-                            <td>20</td>
-                            <td>19.8</td>
-                            <td>40000</td>
-                        </tr-->
+                <td>2 fulano</td>
+                <td>20</td>
+                <td>19.8</td>
+                <td>40000</td>
+            </tr-->
                         @Lista
                     </tbody>
                 </table>
@@ -283,6 +285,8 @@
             <li>Quitamos zócalos para poder poner las jambas si los tiene.</li>
         </ol>
     </div>
-    @imagenesExtra
+    <table>
+        @ImagenesExtra
+    </table>
 </body>
 </html>

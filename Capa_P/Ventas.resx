@@ -629,7 +629,33 @@
         TnAby/JzKsMwYuR08/PMBPh9s9kXsDkiRzR3jUoAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="txtAsesor.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAN0AAAAeCAYAAACouBsAAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGASURBVHhe7dwhU8MwGMbxykkkcrJyErmPMImcRCIn9y0m
+        +RhIJBKJRCKRqLQ8b/re5QqlV0aSm/j/7t7rkaRxzyUtSxsAF6jv+1a1Ve1VR4qiRmW5sHxsPDLn67ru
+        PoTwqskALKC8vOliQVx5jJbRDa1ufrZJAPydLVZatG48UvM0fq8bPodbAfzTwaM1TQNshSNwQF5bj9hP
+        bCmB/JSrd12uPGaJvTQZhgDITcF78KglarS3LgAK8Me2tNrpj03sAVDSziMXt5a33gignPQmk+c5oIqj
+        Ry5uL+0/6ADKInRAZYQOqIzQAZUROqAyQgdUNgrdYWgDUNAodHbyFUBZKXR22M4bARRiv/zyyMWVbhVC
+        +Bi6ABSy9sgNFLqTdwDITPl68aglar9Whx22A5CRH+uZ/lKYOnZxFICc5r+TwjYTyEd5evRozdNY+yIY
+        L1aAM/mWcn6F+0432DPeU5wBwGLKzfJvXk7RHGtNcKer/VSMoqhfyg+Dtx4dAJehab4AG04ErCr69XQA
+        AAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="txtTitulo.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAQQAAAAeCAYAAADKMmBDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGISURBVHhe7d2hUsNAEMbxyEoksjKyEtlHqERWIpGVfYtK
+        HgOJRCKRSCQSdQnfXnbuppAJBZfs/zezk+ld7txuc0e4NgDwJ33ft4qtYq84EgQxm7CctdzdeDr/X9d1
+        9ymlV00GYOaUy2+6WJFYeYpfRgNaDX62SQAsi33J68v+xtN9mu7fa8DnMBTAgh087cfpBnsyoBgAcWw9
+        /X9imQDEopx/1+XKS0BlG4jDLQAiUVF48DJQqdF2IAEE49sE9SlBHza5B0BUOy8Heblw640AYqp/cWD/
+        AAjv6OUgLxns7SUAcVEQABQUBAAFBQFAQUEAUFAQABRnBeEwtAEI6qwg2KkqAOKqBcEOS/BGAAHZ28pe
+        DvITwiql9DF0AQho7eVgoIJw8g4AgSj3X7wMVGq/VocdlgAgCP/X5/ETmdWxy3cBiGL6XEWWDkAMyvVH
+        T/tputdOXmaTEVggXyZMPxl8pwG2p/CUZwCwCMrpy3+TYYzmWGuCO13t9WaCIGYYfghS62kNAL9pmi8B
+        pt3a9xtltQAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>43</value>
+    <value>30</value>
   </metadata>
 </root>

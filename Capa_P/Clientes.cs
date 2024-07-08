@@ -54,14 +54,6 @@ namespace Capa_P
 
             try
             {
-                
-
-                if (!string.IsNullOrEmpty(txtRnc.Text) && !Regex.IsMatch(txtRnc.Text, @"^\d+$"))
-                {
-                    MessageBox.Show("El campo RNC solo debe contener números.");
-                    return;
-                }
-
                 cl.Nombre = txtCliente_NombreR.Text;
                 cl.Rnc = txtRnc.Text;
                 cl.Correo = txtCliente_CorreoR.Text;
@@ -133,19 +125,6 @@ namespace Capa_P
 
         public void EditarCliente()
         {
-            // Validar que los campos de teléfono y RNC contengan solo números si no están vacíos
-            if (!string.IsNullOrEmpty(txtTelefono.Text) && !Regex.IsMatch(txtTelefono.Text, @"^\d+$"))
-            {
-                MessageBox.Show("El campo Teléfono solo debe contener números.");
-                return;
-            }
-
-            if (!string.IsNullOrEmpty(txtRnc.Text) && !Regex.IsMatch(txtRnc.Text, @"^\d+$"))
-            {
-                MessageBox.Show("El campo RNC solo debe contener números.");
-                return;
-            }
-
             try
             {
                 if (!string.IsNullOrEmpty(cl.Id))
