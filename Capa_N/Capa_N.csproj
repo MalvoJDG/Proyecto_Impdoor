@@ -97,6 +97,7 @@
     <Compile Include="EntityProve\CrearCuenta.cs" />
     <Compile Include="EntityProve\ncf.cs" />
     <Compile Include="Entity\ClsEstandar.cs" />
+    <Compile Include="Entity\Dashboard.cs" />
     <Compile Include="Entity\FacturaDetalle.cs" />
     <Compile Include="Entity\FacturaHeader.cs" />
     <Compile Include="Entity\Materiales.cs" />
