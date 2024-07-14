@@ -68,5 +68,33 @@ namespace Capa_N.Entity
 
             return m.consultas("BuscarHeaderFacturasCliente", parametros);
         }
+
+        public String EliminarFacturas()
+        {
+            String msj = "";
+            List<clsParametros> list = new List<clsParametros>();
+
+            try
+            {
+                list.Add(new clsParametros("P_factura", Factura));
+
+
+                list.Add(new clsParametros("p_mensaje", MySqlDbType.VarChar, 100));
+
+                m.EjecutarSp("DeleteFactura", list);
+
+
+                msj = list[1].valor.ToString();
+
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return msj;
+        }
+
     }
 }

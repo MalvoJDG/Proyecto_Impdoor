@@ -10,7 +10,7 @@ namespace Capa_P
         public Layout()
         {
             InitializeComponent();
-            abrirformhija(new Ventas());
+            abrirformhija(new Dashboard());
 
         }
 
@@ -67,7 +67,7 @@ namespace Capa_P
 
         private void btnFabricacion_Click(object sender, EventArgs e)
         {
-            abrirformhija(new Fabricacion());
+            
         }
 
         private void btnFacturas_Click(object sender, EventArgs e)
@@ -83,6 +83,11 @@ namespace Capa_P
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             abrirformhija(new CrearCuenta());
+        }
+
+        private void btnMateriales_Click(object sender, EventArgs e)
+        {
+            abrirformhija(new Fabricacion());
         }
     }
 }

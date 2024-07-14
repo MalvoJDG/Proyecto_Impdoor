@@ -266,9 +266,36 @@ namespace Capa_P
 
         private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
         {
-            string filterText = txtFiltroNCF.Text;
+            if (txtFiltroNCF.Text != "")
+            {
+                dtaFiscal.CurrentCell = null;
+                foreach (DataGridViewRow row in dtaFiscal.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        row.Visible = false;
+                    }
+                }
 
-            (dtaFiscal.DataSource as DataTable).DefaultView.RowFilter = string.Format("Codigo LIKE '%{0}%'", filterText);
+                foreach (DataGridViewRow row in dtaFiscal.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            if (cell.Value != null && cell.Value.ToString().ToUpper().IndexOf(txtFiltroNCF.Text.ToUpper()) >= 0)
+                            {
+                                row.Visible = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                CargarNCF();
+            }
         }
 
         private void bunifuButton21_Click(object sender, EventArgs e)

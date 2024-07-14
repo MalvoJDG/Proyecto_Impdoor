@@ -262,11 +262,37 @@ namespace Capa_P
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
-            // Obtener el texto del filtro
-            string filterText = txtFiltro.Text;
 
-            // Filtrar el DataGridView basado en el texto ingresado
-            (dtaClientes.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nombre LIKE '%{0}%'", filterText);
+            if (txtFiltro.Text != "")
+            {
+                dtaClientes.CurrentCell = null;
+                foreach (DataGridViewRow row in dtaClientes.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        row.Visible = false;
+                    }
+                }
+
+                foreach (DataGridViewRow row in dtaClientes.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            if (cell.Value != null && cell.Value.ToString().ToUpper().IndexOf(txtFiltro.Text.ToUpper()) >= 0)
+                            {
+                                row.Visible = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                CargarClinete();
+            }
         }
 
         private void label6_Click(object sender, EventArgs e)

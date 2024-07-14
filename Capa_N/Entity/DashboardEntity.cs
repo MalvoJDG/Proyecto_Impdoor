@@ -6,7 +6,7 @@ using System.Data;
 using System.Globalization;
 using System.Linq;
 
-namespace Dashboard
+namespace DashboardEntity
 {
     public struct Ingresos
     {
@@ -14,7 +14,7 @@ namespace Dashboard
         public float Total { get; set; }
     }
 
-    public class Dashboard
+    public class DashboardEntity
     {
         private clsManejador manejadorBD;
         private DateTime StartDate;
@@ -30,7 +30,7 @@ namespace Dashboard
         public float Deber { get; private set; }
         public float IngresosTotales { get; private set; }
 
-        public Dashboard(clsManejador manejadorBD)
+        public DashboardEntity(clsManejador manejadorBD)
         {
             this.manejadorBD = manejadorBD;
             IngresosList = new List<Ingresos>();
@@ -39,7 +39,7 @@ namespace Dashboard
         private void ConsultarNumeroClientes()
         {
             List<clsParametros> parametros = new List<clsParametros>();
-            DataTable resultado = manejadorBD.consultas("NUMEROCLIENTES", parametros);
+            DataTable resultado = manejadorBD.consultas("ObtenerTotalClientes", parametros);
 
             if (resultado.Rows.Count > 0 && resultado.Rows[0][0] != DBNull.Value)
             {
@@ -51,14 +51,33 @@ namespace Dashboard
             }
         }
 
-        private int ContarFacturas(string estadoPago)
+        private int ContarFacturasPagadas()
+        {
+            List<clsParametros> parametros = new List<clsParametros>
+            {
+                new clsParametros("@fromDate", StartDate.Date),
+                new clsParametros("@ToDate", EndDate.Date)
+            };
+            DataTable resultado = manejadorBD.consultas("FacturasPagadas", parametros);
+
+            if (resultado.Rows.Count > 0 && resultado.Rows[0][0] != DBNull.Value)
+            {
+                return Convert.ToInt32(resultado.Rows[0][0]);
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        private int ContarFacturasPendientes()
         {
             List<clsParametros> parametros = new List<clsParametros>
             {
                 new clsParametros("@fromDate", StartDate),
                 new clsParametros("@ToDate", EndDate)
             };
-            DataTable resultado = manejadorBD.consultas("CONTARFACTURAS", parametros);
+            DataTable resultado = manejadorBD.consultas("Facturas_Pagar", parametros);
 
             if (resultado.Rows.Count > 0 && resultado.Rows[0][0] != DBNull.Value)
             {
@@ -72,22 +91,33 @@ namespace Dashboard
 
         private float ObtenerTotal(string estadoPago)
         {
-            List<clsParametros> parametros = new List<clsParametros>
+            try
             {
-                new clsParametros("@fromDate", StartDate),
-                new clsParametros("@ToDate", EndDate)
-            };
-            DataTable resultado = manejadorBD.consultas("OBTENERTOTAL", parametros);
+                List<clsParametros> parametros = new List<clsParametros>
+        {
+            new clsParametros("@fromDate", StartDate),  // Asegúrate de usar .Date para solo la parte de fecha sin la parte de tiempo
+            new clsParametros("@ToDate", EndDate)
+        };
 
-            if (resultado.Rows.Count > 0 && resultado.Rows[0][0] != DBNull.Value)
-            {
-                return Convert.ToSingle(resultado.Rows[0][0]);
+                DataTable resultado = manejadorBD.consultas("ObtenerTotalPorPagar", parametros);
+
+                if (resultado.Rows.Count > 0 && resultado.Rows[0]["TotalPorPagar"] != DBNull.Value)
+                {
+                    return Convert.ToSingle(resultado.Rows[0]["TotalPorPagar"]);
+                }
+                else
+                {
+                    return 0;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return 0;
+                // Maneja cualquier excepción aquí, por ejemplo, registra el error o lanza una excepción personalizada
+                Console.WriteLine("Error al obtener total por pagar: " + ex.Message);
+                throw;
             }
         }
+
 
         private void ConsultarIngresos()
         {
@@ -96,7 +126,7 @@ namespace Dashboard
                 new clsParametros("@fromDate", StartDate),
                 new clsParametros("@ToDate", EndDate)
             };
-            DataTable resultado = manejadorBD.consultas("CONSULTARINGRESOS", parametros);
+            DataTable resultado = manejadorBD.consultas("ObtenerTotalFacturas", parametros);
 
             IngresosList.Clear();
             IngresosTotales = 0;
@@ -104,7 +134,7 @@ namespace Dashboard
             foreach (DataRow row in resultado.Rows)
             {
                 DateTime fecha = Convert.ToDateTime(row["Fecha_Emision"]);
-                float total = Convert.ToSingle(row["Total"]);
+                float total = Convert.ToSingle(row["TotalFacturas"]);
 
                 IngresosList.Add(new Ingresos
                 {
@@ -128,8 +158,8 @@ namespace Dashboard
                 this.NumberDays = (EndDate - StartDate).Days;
 
                 ConsultarNumeroClientes();
-                Facturas = ContarFacturas("Pagada");
-                Facturas_Pagar = ContarFacturas("Pendiente");
+                Facturas = ContarFacturasPagadas();
+                Facturas_Pagar = ContarFacturasPendientes();
                 Deber = ObtenerTotal("Pendiente");
                 ConsultarIngresos();
 

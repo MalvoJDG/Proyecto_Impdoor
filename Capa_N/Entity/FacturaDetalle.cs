@@ -73,5 +73,13 @@ namespace Capa_N.Entity
 
             return m.consultas("BuscarDfacturaOrden", parametros);
         }
+
+        public DataTable Historial()
+        {
+            List<clsParametros> parametros = new List<clsParametros>();
+            parametros.Add(new clsParametros("p_Factura", Factura));
+
+            return m.consultas("SeleccionarDFactura", parametros);
+        }
     }
 }

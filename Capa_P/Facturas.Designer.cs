@@ -142,6 +142,7 @@
             this.btnBorrar.TextMarginLeft = 0;
             this.btnBorrar.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnBorrar.UseDefaultRadiusAndThickness = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // pictureBox1
             // 
@@ -378,6 +379,7 @@
             this.btnVolver.TextMarginLeft = 0;
             this.btnVolver.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnVolver.UseDefaultRadiusAndThickness = true;
+            this.btnVolver.Click += new System.EventHandler(this.btnVolver_Click);
             // 
             // txtFiltro
             // 
@@ -454,6 +456,7 @@
             this.txtFiltro.TextPlaceholder = "Buscar";
             this.txtFiltro.UseSystemPasswordChar = false;
             this.txtFiltro.WordWrap = true;
+            this.txtFiltro.TextChanged += new System.EventHandler(this.txtFiltro_TextChanged);
             // 
             // bunifuVScrollBar2
             // 
@@ -493,6 +496,7 @@
             this.bunifuVScrollBar2.ThumbMargin = 1;
             this.bunifuVScrollBar2.ThumbStyle = Bunifu.UI.WinForms.BunifuVScrollBar.ThumbStyles.Inset;
             this.bunifuVScrollBar2.Value = 0;
+            this.bunifuVScrollBar2.Scroll += new System.EventHandler<Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs>(this.bunifuVScrollBar2_Scroll);
             // 
             // dtaFactura
             // 
@@ -575,6 +579,7 @@
             this.dtaFactura.Size = new System.Drawing.Size(1101, 445);
             this.dtaFactura.TabIndex = 107;
             this.dtaFactura.Theme = Bunifu.UI.WinForms.BunifuDataGridView.PresetThemes.Light;
+            this.dtaFactura.DoubleClick += new System.EventHandler(this.dtaFactura_DoubleClick);
             // 
             // bunifuLabel3
             // 
@@ -587,9 +592,9 @@
             this.bunifuLabel3.Location = new System.Drawing.Point(40, 55);
             this.bunifuLabel3.Name = "bunifuLabel3";
             this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel3.Size = new System.Drawing.Size(123, 48);
+            this.bunifuLabel3.Size = new System.Drawing.Size(117, 48);
             this.bunifuLabel3.TabIndex = 106;
-            this.bunifuLabel3.Text = "Facturas";
+            this.bunifuLabel3.Text = "Historial";
             this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel3.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 

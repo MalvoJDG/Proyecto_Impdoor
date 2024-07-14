@@ -41,9 +41,6 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             this.bunifuPanel5 = new Bunifu.UI.WinForms.BunifuPanel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.bunifuPanel8 = new Bunifu.UI.WinForms.BunifuPanel();
-            this.lblMaterial = new Bunifu.UI.WinForms.BunifuLabel();
-            this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
             this.bunifuPanel4 = new Bunifu.UI.WinForms.BunifuPanel();
             this.bunifuLabel4 = new Bunifu.UI.WinForms.BunifuLabel();
             this.lblClientes = new Bunifu.UI.WinForms.BunifuLabel();
@@ -73,7 +70,6 @@
             this.EndDate = new Bunifu.UI.WinForms.BunifuDatePicker();
             this.bunifuPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.bunifuPanel8.SuspendLayout();
             this.bunifuPanel4.SuspendLayout();
             this.bunifuPanel3.SuspendLayout();
             this.bunifuPanel2.SuspendLayout();
@@ -91,10 +87,10 @@
             this.bunifuPanel5.BorderRadius = 20;
             this.bunifuPanel5.BorderThickness = 1;
             this.bunifuPanel5.Controls.Add(this.chart1);
-            this.bunifuPanel5.Location = new System.Drawing.Point(207, 280);
+            this.bunifuPanel5.Location = new System.Drawing.Point(169, 260);
             this.bunifuPanel5.Name = "bunifuPanel5";
             this.bunifuPanel5.ShowBorders = true;
-            this.bunifuPanel5.Size = new System.Drawing.Size(926, 427);
+            this.bunifuPanel5.Size = new System.Drawing.Size(978, 427);
             this.bunifuPanel5.TabIndex = 33;
             // 
             // chart1
@@ -136,7 +132,7 @@
             series1.MarkerSize = 6;
             series1.Name = "Ingresos Totales";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(907, 389);
+            this.chart1.Size = new System.Drawing.Size(929, 389);
             this.chart1.TabIndex = 0;
             this.chart1.Text = "chart1";
             title1.Alignment = System.Drawing.ContentAlignment.TopLeft;
@@ -145,55 +141,6 @@
             title1.Name = "Ingresos";
             title1.Text = "Ingresos";
             this.chart1.Titles.Add(title1);
-            // 
-            // bunifuPanel8
-            // 
-            this.bunifuPanel8.BackgroundColor = System.Drawing.Color.White;
-            this.bunifuPanel8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuPanel8.BackgroundImage")));
-            this.bunifuPanel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.bunifuPanel8.BorderColor = System.Drawing.Color.Transparent;
-            this.bunifuPanel8.BorderRadius = 20;
-            this.bunifuPanel8.BorderThickness = 1;
-            this.bunifuPanel8.Controls.Add(this.lblMaterial);
-            this.bunifuPanel8.Controls.Add(this.bunifuLabel3);
-            this.bunifuPanel8.Location = new System.Drawing.Point(26, 385);
-            this.bunifuPanel8.Name = "bunifuPanel8";
-            this.bunifuPanel8.ShowBorders = true;
-            this.bunifuPanel8.Size = new System.Drawing.Size(145, 89);
-            this.bunifuPanel8.TabIndex = 31;
-            // 
-            // lblMaterial
-            // 
-            this.lblMaterial.AllowParentOverrides = false;
-            this.lblMaterial.AutoEllipsis = false;
-            this.lblMaterial.CursorType = null;
-            this.lblMaterial.Font = new System.Drawing.Font("Poppins", 13.2F, System.Drawing.FontStyle.Bold);
-            this.lblMaterial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.lblMaterial.Location = new System.Drawing.Point(19, 41);
-            this.lblMaterial.Name = "lblMaterial";
-            this.lblMaterial.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.lblMaterial.Size = new System.Drawing.Size(22, 39);
-            this.lblMaterial.TabIndex = 4;
-            this.lblMaterial.Text = "18";
-            this.lblMaterial.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.lblMaterial.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
-            // 
-            // bunifuLabel3
-            // 
-            this.bunifuLabel3.AllowParentOverrides = false;
-            this.bunifuLabel3.AutoEllipsis = false;
-            this.bunifuLabel3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel3.CursorType = System.Windows.Forms.Cursors.Default;
-            this.bunifuLabel3.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuLabel3.ForeColor = System.Drawing.Color.Gray;
-            this.bunifuLabel3.Location = new System.Drawing.Point(15, 14);
-            this.bunifuLabel3.Name = "bunifuLabel3";
-            this.bunifuLabel3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.bunifuLabel3.Size = new System.Drawing.Size(88, 30);
-            this.bunifuLabel3.TabIndex = 0;
-            this.bunifuLabel3.Text = "Materiales";
-            this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
-            this.bunifuLabel3.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
             // bunifuPanel4
             // 
@@ -205,10 +152,10 @@
             this.bunifuPanel4.BorderThickness = 1;
             this.bunifuPanel4.Controls.Add(this.bunifuLabel4);
             this.bunifuPanel4.Controls.Add(this.lblClientes);
-            this.bunifuPanel4.Location = new System.Drawing.Point(26, 280);
+            this.bunifuPanel4.Location = new System.Drawing.Point(30, 260);
             this.bunifuPanel4.Name = "bunifuPanel4";
             this.bunifuPanel4.ShowBorders = true;
-            this.bunifuPanel4.Size = new System.Drawing.Size(145, 89);
+            this.bunifuPanel4.Size = new System.Drawing.Size(133, 89);
             this.bunifuPanel4.TabIndex = 28;
             // 
             // bunifuLabel4
@@ -254,10 +201,10 @@
             this.bunifuPanel3.BorderThickness = 1;
             this.bunifuPanel3.Controls.Add(this.lblTotalNeto);
             this.bunifuPanel3.Controls.Add(this.bunifuLabel5);
-            this.bunifuPanel3.Location = new System.Drawing.Point(908, 156);
+            this.bunifuPanel3.Location = new System.Drawing.Point(894, 156);
             this.bunifuPanel3.Name = "bunifuPanel3";
             this.bunifuPanel3.ShowBorders = true;
-            this.bunifuPanel3.Size = new System.Drawing.Size(262, 89);
+            this.bunifuPanel3.Size = new System.Drawing.Size(253, 89);
             this.bunifuPanel3.TabIndex = 34;
             // 
             // lblTotalNeto
@@ -303,10 +250,10 @@
             this.bunifuPanel2.BorderThickness = 1;
             this.bunifuPanel2.Controls.Add(this.lblTotalIngreso);
             this.bunifuPanel2.Controls.Add(this.bunifuLabel11);
-            this.bunifuPanel2.Location = new System.Drawing.Point(632, 156);
+            this.bunifuPanel2.Location = new System.Drawing.Point(635, 156);
             this.bunifuPanel2.Name = "bunifuPanel2";
             this.bunifuPanel2.ShowBorders = true;
-            this.bunifuPanel2.Size = new System.Drawing.Size(262, 89);
+            this.bunifuPanel2.Size = new System.Drawing.Size(252, 89);
             this.bunifuPanel2.TabIndex = 32;
             // 
             // lblTotalIngreso
@@ -352,10 +299,10 @@
             this.bunifuPanel7.BorderThickness = 1;
             this.bunifuPanel7.Controls.Add(this.lblFacturaPendiente);
             this.bunifuPanel7.Controls.Add(this.bunifuLabel12);
-            this.bunifuPanel7.Location = new System.Drawing.Point(407, 156);
+            this.bunifuPanel7.Location = new System.Drawing.Point(406, 156);
             this.bunifuPanel7.Name = "bunifuPanel7";
             this.bunifuPanel7.ShowBorders = true;
-            this.bunifuPanel7.Size = new System.Drawing.Size(214, 89);
+            this.bunifuPanel7.Size = new System.Drawing.Size(223, 89);
             this.bunifuPanel7.TabIndex = 29;
             // 
             // lblFacturaPendiente
@@ -404,7 +351,7 @@
             this.bunifuPanel6.Location = new System.Drawing.Point(26, 156);
             this.bunifuPanel6.Name = "bunifuPanel6";
             this.bunifuPanel6.ShowBorders = true;
-            this.bunifuPanel6.Size = new System.Drawing.Size(214, 89);
+            this.bunifuPanel6.Size = new System.Drawing.Size(237, 89);
             this.bunifuPanel6.TabIndex = 30;
             // 
             // lblDeber
@@ -463,7 +410,7 @@
             this.StartDate.Location = new System.Drawing.Point(30, 101);
             this.StartDate.MinimumSize = new System.Drawing.Size(4, 32);
             this.StartDate.Name = "StartDate";
-            this.StartDate.Size = new System.Drawing.Size(130, 32);
+            this.StartDate.Size = new System.Drawing.Size(151, 32);
             this.StartDate.TabIndex = 37;
             this.StartDate.Value = new System.DateTime(2024, 3, 18, 14, 16, 0, 0);
             // 
@@ -494,10 +441,10 @@
             this.bunifuPanel1.BorderThickness = 1;
             this.bunifuPanel1.Controls.Add(this.lblFacturas);
             this.bunifuPanel1.Controls.Add(this.bunifuLabel1);
-            this.bunifuPanel1.Location = new System.Drawing.Point(251, 156);
+            this.bunifuPanel1.Location = new System.Drawing.Point(269, 156);
             this.bunifuPanel1.Name = "bunifuPanel1";
             this.bunifuPanel1.ShowBorders = true;
-            this.bunifuPanel1.Size = new System.Drawing.Size(145, 89);
+            this.bunifuPanel1.Size = new System.Drawing.Size(131, 89);
             this.bunifuPanel1.TabIndex = 27;
             // 
             // lblFacturas
@@ -580,7 +527,7 @@
             this.btnOk.IdleIconLeftImage = null;
             this.btnOk.IdleIconRightImage = null;
             this.btnOk.IndicateFocus = true;
-            this.btnOk.Location = new System.Drawing.Point(498, 97);
+            this.btnOk.Location = new System.Drawing.Point(435, 101);
             this.btnOk.Name = "btnOk";
             this.btnOk.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnOk.OnDisabledState.BorderRadius = 20;
@@ -614,13 +561,14 @@
             this.btnOk.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnOk.OnPressedState.IconLeftImage = null;
             this.btnOk.OnPressedState.IconRightImage = null;
-            this.btnOk.Size = new System.Drawing.Size(52, 32);
+            this.btnOk.Size = new System.Drawing.Size(65, 32);
             this.btnOk.TabIndex = 26;
             this.btnOk.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnOk.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnOk.TextMarginLeft = 0;
             this.btnOk.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnOk.UseDefaultRadiusAndThickness = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click_1);
             // 
             // btnManual
             // 
@@ -669,7 +617,7 @@
             this.btnManual.IdleIconLeftImage = null;
             this.btnManual.IdleIconRightImage = null;
             this.btnManual.IndicateFocus = true;
-            this.btnManual.Location = new System.Drawing.Point(561, 97);
+            this.btnManual.Location = new System.Drawing.Point(506, 101);
             this.btnManual.Name = "btnManual";
             this.btnManual.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnManual.OnDisabledState.BorderRadius = 25;
@@ -703,13 +651,14 @@
             this.btnManual.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnManual.OnPressedState.IconLeftImage = null;
             this.btnManual.OnPressedState.IconRightImage = null;
-            this.btnManual.Size = new System.Drawing.Size(121, 32);
+            this.btnManual.Size = new System.Drawing.Size(135, 32);
             this.btnManual.TabIndex = 25;
             this.btnManual.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnManual.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnManual.TextMarginLeft = 0;
             this.btnManual.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnManual.UseDefaultRadiusAndThickness = true;
+            this.btnManual.Click += new System.EventHandler(this.btnManual_Click_1);
             // 
             // btnHoy
             // 
@@ -758,7 +707,7 @@
             this.btnHoy.IdleIconLeftImage = null;
             this.btnHoy.IdleIconRightImage = null;
             this.btnHoy.IndicateFocus = true;
-            this.btnHoy.Location = new System.Drawing.Point(695, 95);
+            this.btnHoy.Location = new System.Drawing.Point(647, 99);
             this.btnHoy.Name = "btnHoy";
             this.btnHoy.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnHoy.OnDisabledState.BorderRadius = 25;
@@ -799,6 +748,7 @@
             this.btnHoy.TextMarginLeft = 0;
             this.btnHoy.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnHoy.UseDefaultRadiusAndThickness = true;
+            this.btnHoy.Click += new System.EventHandler(this.btnHoy_Click);
             // 
             // btn7days
             // 
@@ -847,7 +797,7 @@
             this.btn7days.IdleIconLeftImage = null;
             this.btn7days.IdleIconRightImage = null;
             this.btn7days.IndicateFocus = true;
-            this.btn7days.Location = new System.Drawing.Point(806, 97);
+            this.btn7days.Location = new System.Drawing.Point(751, 101);
             this.btn7days.Name = "btn7days";
             this.btn7days.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btn7days.OnDisabledState.BorderRadius = 25;
@@ -881,13 +831,14 @@
             this.btn7days.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btn7days.OnPressedState.IconLeftImage = null;
             this.btn7days.OnPressedState.IconRightImage = null;
-            this.btn7days.Size = new System.Drawing.Size(128, 32);
+            this.btn7days.Size = new System.Drawing.Size(139, 32);
             this.btn7days.TabIndex = 23;
             this.btn7days.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn7days.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn7days.TextMarginLeft = 0;
             this.btn7days.TextPadding = new System.Windows.Forms.Padding(0);
             this.btn7days.UseDefaultRadiusAndThickness = true;
+            this.btn7days.Click += new System.EventHandler(this.btn7days_Click);
             // 
             // btn30day
             // 
@@ -936,7 +887,7 @@
             this.btn30day.IdleIconLeftImage = null;
             this.btn30day.IdleIconRightImage = null;
             this.btn30day.IndicateFocus = true;
-            this.btn30day.Location = new System.Drawing.Point(947, 97);
+            this.btn30day.Location = new System.Drawing.Point(896, 101);
             this.btn30day.Name = "btn30day";
             this.btn30day.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btn30day.OnDisabledState.BorderRadius = 25;
@@ -970,13 +921,14 @@
             this.btn30day.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btn30day.OnPressedState.IconLeftImage = null;
             this.btn30day.OnPressedState.IconRightImage = null;
-            this.btn30day.Size = new System.Drawing.Size(128, 32);
+            this.btn30day.Size = new System.Drawing.Size(147, 32);
             this.btn30day.TabIndex = 22;
             this.btn30day.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn30day.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn30day.TextMarginLeft = 0;
             this.btn30day.TextPadding = new System.Windows.Forms.Padding(0);
             this.btn30day.UseDefaultRadiusAndThickness = true;
+            this.btn30day.Click += new System.EventHandler(this.btn30day_Click);
             // 
             // btnMonth
             // 
@@ -1025,7 +977,7 @@
             this.btnMonth.IdleIconLeftImage = null;
             this.btnMonth.IdleIconRightImage = null;
             this.btnMonth.IndicateFocus = true;
-            this.btnMonth.Location = new System.Drawing.Point(1087, 97);
+            this.btnMonth.Location = new System.Drawing.Point(1049, 101);
             this.btnMonth.Name = "btnMonth";
             this.btnMonth.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnMonth.OnDisabledState.BorderRadius = 25;
@@ -1059,13 +1011,14 @@
             this.btnMonth.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnMonth.OnPressedState.IconLeftImage = null;
             this.btnMonth.OnPressedState.IconRightImage = null;
-            this.btnMonth.Size = new System.Drawing.Size(83, 32);
+            this.btnMonth.Size = new System.Drawing.Size(98, 32);
             this.btnMonth.TabIndex = 21;
             this.btnMonth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnMonth.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnMonth.TextMarginLeft = 0;
             this.btnMonth.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnMonth.UseDefaultRadiusAndThickness = true;
+            this.btnMonth.Click += new System.EventHandler(this.btnMonth_Click);
             // 
             // EndDate
             // 
@@ -1090,7 +1043,7 @@
             this.EndDate.Location = new System.Drawing.Point(217, 101);
             this.EndDate.MinimumSize = new System.Drawing.Size(4, 32);
             this.EndDate.Name = "EndDate";
-            this.EndDate.Size = new System.Drawing.Size(130, 32);
+            this.EndDate.Size = new System.Drawing.Size(151, 32);
             this.EndDate.TabIndex = 20;
             this.EndDate.Value = new System.DateTime(2024, 3, 18, 14, 16, 0, 0);
             // 
@@ -1101,7 +1054,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.ClientSize = new System.Drawing.Size(1626, 786);
             this.Controls.Add(this.bunifuPanel5);
-            this.Controls.Add(this.bunifuPanel8);
             this.Controls.Add(this.bunifuPanel4);
             this.Controls.Add(this.bunifuPanel3);
             this.Controls.Add(this.bunifuPanel2);
@@ -1121,10 +1073,9 @@
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
+            this.Load += new System.EventHandler(this.Dashboard_Load);
             this.bunifuPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            this.bunifuPanel8.ResumeLayout(false);
-            this.bunifuPanel8.PerformLayout();
             this.bunifuPanel4.ResumeLayout(false);
             this.bunifuPanel4.PerformLayout();
             this.bunifuPanel3.ResumeLayout(false);
@@ -1145,9 +1096,6 @@
         #endregion
 
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel5;
-        private Bunifu.UI.WinForms.BunifuPanel bunifuPanel8;
-        private Bunifu.UI.WinForms.BunifuLabel lblMaterial;
-        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel3;
         private Bunifu.UI.WinForms.BunifuPanel bunifuPanel4;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel4;
         private Bunifu.UI.WinForms.BunifuLabel lblClientes;

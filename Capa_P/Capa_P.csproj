@@ -161,6 +161,9 @@
     <Reference Include="MySql.Data, Version=8.4.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.4.0\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
       <HintPath>..\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
@@ -192,6 +195,7 @@
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.IO.Packaging, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.Packaging.6.0.0\lib\net461\System.IO.Packaging.dll</HintPath>
     </Reference>
@@ -377,7 +381,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Capa_P_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -393,6 +396,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Capa_A\Capa_A.csproj">
+      <Project>{2BCDD098-1553-4BAE-9899-63AA2908FB17}</Project>
+      <Name>Capa_A</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Capa_N\Capa_N.csproj">
       <Project>{05d1238e-7520-4f47-a511-705d9b2d2b7b}</Project>
       <Name>Capa_N</Name>
@@ -418,6 +425,7 @@
     <Content Include="img\impdoor_logo.png" />
     <Content Include="img\proyecto1.png" />
     <Content Include="img\sello_solo_impdoor.png" />
+    <None Include="Resources\codenex-desktop-logo.ico" />
     <Content Include="Resources\Ficha_Fabricacion.html" />
   </ItemGroup>
   <ItemGroup>

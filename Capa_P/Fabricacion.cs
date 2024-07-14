@@ -258,12 +258,6 @@ namespace Capa_P
             }
         }
 
-
-
-
-
-
-
         public class CustomHeader : PdfPageEventHelper
         {
             public override void OnEndPage(PdfWriter writer, Document document)
@@ -370,6 +364,40 @@ namespace Capa_P
         private void btnImagen_Click(object sender, EventArgs e)
         {
             AbrirDialogo();
+        }
+
+        private void txtFiltroNCF_TextChanged(object sender, EventArgs e)
+        {
+            if (txtFiltroNCF.Text != "")
+            {
+                dtaFacturas.CurrentCell = null;
+                foreach (DataGridViewRow row in dtaFacturas.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        row.Visible = false;
+                    }
+                }
+
+                foreach (DataGridViewRow row in dtaFacturas.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            if (cell.Value != null && cell.Value.ToString().ToUpper().IndexOf(txtFiltroNCF.Text.ToUpper()) >= 0)
+                            {
+                                row.Visible = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                CargarDetalle();
+            }
         }
     }
 }
