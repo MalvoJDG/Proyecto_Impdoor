@@ -71,19 +71,35 @@ namespace Capa_P.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a using System;
-        ///using System.Collections.Generic;
-        ///using System.Linq;
-        ///using System.Text;
-        ///using System.Threading.Tasks;
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon codenex_desktop_logo {
+            get {
+                object obj = ResourceManager.GetObject("codenex_desktop_logo", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
         ///
-        ///namespace Capa_P.Resources
-        ///{
-        ///    class Ficha_Fabricacion
-        ///    {
-        ///    }
-        ///}
-        ///.
+        ///&lt;head&gt;
+        ///    &lt;script data-dojo-config=&quot;async: 1&quot; src=&quot;//ajax.googleapis.com/ajax/libs/dojo/1.10.4/dojo/dojo.js&quot;&gt;&lt;/script&gt;
+        ///    &lt;style&gt;
+        ///        body {
+        ///            margin: 20px;
+        ///            font-size: 10px;
+        ///            width: 100%;
+        ///        }
+        ///
+        ///        .container-table {
+        ///            width: 100%;
+        ///            border-collapse: collapse;
+        ///            border: none;
+        ///            margin: 20px;
+        ///            table-layout: fixed;
+        ///            /* Asegura que las tablas ocupen el ancho es [resto de la cadena truncado]&quot;;.
         /// </summary>
         internal static string Ficha_Fabricacion {
             get {

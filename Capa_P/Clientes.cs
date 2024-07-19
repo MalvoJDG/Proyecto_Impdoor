@@ -54,14 +54,6 @@ namespace Capa_P
 
             try
             {
-                
-
-                if (!string.IsNullOrEmpty(txtRnc.Text) && !Regex.IsMatch(txtRnc.Text, @"^\d+$"))
-                {
-                    MessageBox.Show("El campo RNC solo debe contener números.");
-                    return;
-                }
-
                 cl.Nombre = txtCliente_NombreR.Text;
                 cl.Rnc = txtRnc.Text;
                 cl.Correo = txtCliente_CorreoR.Text;
@@ -133,19 +125,6 @@ namespace Capa_P
 
         public void EditarCliente()
         {
-            // Validar que los campos de teléfono y RNC contengan solo números si no están vacíos
-            if (!string.IsNullOrEmpty(txtTelefono.Text) && !Regex.IsMatch(txtTelefono.Text, @"^\d+$"))
-            {
-                MessageBox.Show("El campo Teléfono solo debe contener números.");
-                return;
-            }
-
-            if (!string.IsNullOrEmpty(txtRnc.Text) && !Regex.IsMatch(txtRnc.Text, @"^\d+$"))
-            {
-                MessageBox.Show("El campo RNC solo debe contener números.");
-                return;
-            }
-
             try
             {
                 if (!string.IsNullOrEmpty(cl.Id))
@@ -256,7 +235,7 @@ namespace Capa_P
                     {
                         workbook.SaveAs(stream);
                     }
-                    MessageBox.Show("Export successful");
+                    MessageBox.Show("Exportado con exito");
                 }
             }
         }
@@ -283,11 +262,37 @@ namespace Capa_P
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
-            // Obtener el texto del filtro
-            string filterText = txtFiltro.Text;
 
-            // Filtrar el DataGridView basado en el texto ingresado
-            (dtaClientes.DataSource as DataTable).DefaultView.RowFilter = string.Format("Nombre LIKE '%{0}%'", filterText);
+            if (txtFiltro.Text != "")
+            {
+                dtaClientes.CurrentCell = null;
+                foreach (DataGridViewRow row in dtaClientes.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        row.Visible = false;
+                    }
+                }
+
+                foreach (DataGridViewRow row in dtaClientes.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        foreach (DataGridViewCell cell in row.Cells)
+                        {
+                            if (cell.Value != null && cell.Value.ToString().ToUpper().IndexOf(txtFiltro.Text.ToUpper()) >= 0)
+                            {
+                                row.Visible = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                CargarClinete();
+            }
         }
 
         private void label6_Click(object sender, EventArgs e)

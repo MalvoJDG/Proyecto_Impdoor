@@ -1,4 +1,5 @@
-﻿using Capa_N.EntityProv;
+﻿using Capa_N.Entity;
+using Capa_N.EntityProv;
 using DocumentFormat.OpenXml.Drawing.Charts;
 using iTextSharp.awt.geom;
 using iTextSharp.text;
@@ -8,6 +9,7 @@ using System;
 using System.Data;
 using System.Globalization;
 using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 
@@ -16,14 +18,18 @@ namespace Capa_P
 
     public partial class Ventas : Form
     {
+       
         Productos productos = new Productos();
         Materiales materiales = new Materiales();
         Tipo_Madera tipo_Madera = new Tipo_Madera();
+        FacturaHeader facturaH = new FacturaHeader();
+        FacturaDetalle facturaD = new FacturaDetalle();
         Cliente cl = new Cliente();
+        ncf ncf = new ncf();
 
-        int id_producto = 0;
-        int id_Material = 0;
         int id_Madera = 0;
+        int id_Material = 0;
+        int id_producto = 0;
         int cantidad = 0;
         float preciou = 0;
         int pageNumber = 1;
@@ -35,11 +41,14 @@ namespace Capa_P
             CargarProductos();
             CargarMateriales();
             CargarMadera();
+            SecuenciaFiscal();
+            lblNCF.Visible = false;
         }
 
         private void Ventas_Load(object sender, EventArgs e)
         {
             cbmImpuesto.Text = "Si";
+            cbmNCF.Text = "No";
         }
 
         public void CargarProductos()
@@ -228,7 +237,7 @@ namespace Capa_P
 
         public void Calcular()
         {
-            if(cbmProducto.Text != "Instalacion")
+            if (cbmProducto.Text != "Instalacion")
             {
                 // Crear una instancia de tu clase Precios
                 Precios precios = new Precios();
@@ -268,18 +277,20 @@ namespace Capa_P
                         precioAjustado = precioBase;
                         calculoDoblesRealizado = false;
 
-
-
                         // Aplicar selección de tipo de puerta después de calcular el precio base
                         SeleccionTipoPuerta();
 
+                        // Aplicar selección de apanelado después de ajustar por el tipo de puerta
                         SeleccionApanelado();
 
-                        // Aplicar selección de terminación después de ajustar por el tipo de puerta
+                        // Aplicar selección de terminación después de ajustar por el tipo de puerta y apanelado
                         SeleccionTerminacion();
 
                         // Aplicar selección de jambas después de ajustar por la terminación
                         SeleccionJambas();
+
+                        // Aplicar selección de espesor
+                        SeleccionEspesor();
                     }
                     else
                     {
@@ -294,18 +305,50 @@ namespace Capa_P
             }
             else
             {
-                cantidad = int.Parse(txtCantidad.Text);
-                preciou = float.Parse(txtInstalacion.Text);
+                try
+                {
+                    cantidad = int.Parse(txtCantidad.Text);
+                    preciou = float.Parse(txtInstalacion.Text);
 
-                double total = cantidad * preciou;
-                lblTotalln.Text = total.ToString("N2", CultureInfo.InvariantCulture);
-                double impuesto = total * 0.18;
+                    double total = cantidad * preciou;
+                    lblTotalln.Text = total.ToString("N2", CultureInfo.InvariantCulture);
+                    double impuesto = total * 0.18;
 
-                lblitbis.Text = impuesto.ToString("N2", CultureInfo.InvariantCulture);
+                    lblitbis.Text = impuesto.ToString("N2", CultureInfo.InvariantCulture);
+                }
+                catch
+                {
+                    MessageBox.Show("Debe asignar un precio unitario a la instalación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
 
             }
-            
         }
+
+        public void SeleccionEspesor()
+        {
+            if (double.TryParse(lblTotalln.Text, out double total))
+            {
+                switch (cbmEspesor.Text)
+                {
+                    case "1.5Pul":
+                        double incrementoEspesor1p5 = precioBase * 0.10; // Incremento del 10% para espesor de 1.5 pulgadas
+                        precioAjustado += incrementoEspesor1p5; // Suma el incremento al precio ajustado
+                        lblTotalln.Text = precioAjustado.ToString("N2");
+                        break;
+
+                    case "2.0Pul":
+                        double incrementoEspesor2p0 = precioBase * 0.15; // Incremento del 15% para espesor de 2.0 pulgadas
+                        precioAjustado += incrementoEspesor2p0; // Suma el incremento al precio ajustado
+                        lblTotalln.Text = precioAjustado.ToString("N2");
+                        break;
+
+                    default:
+                        // Manejo para otras opciones si es necesario
+                        break;
+                }
+            }
+        }
+
 
 
 
@@ -445,6 +488,10 @@ namespace Capa_P
         {
             Insertar();
             TotalTot();
+            if(txtTransporte.Text.Length > 0)
+            {
+                SumarTransporte();
+            }
         }
 
        
@@ -465,7 +512,14 @@ namespace Capa_P
                 save.Filter = "Archivos PDF (*.pdf)|*.pdf";
 
                 string plantilla_html = Properties.Resources.plantilla.ToString();
-                double transporte = double.Parse(txtTransporte.Text);
+
+                double transporte;
+
+                // Intenta convertir el valor de txtTransporte.Text a double
+                if (!double.TryParse(txtTransporte.Text, out transporte))
+                {
+                    transporte = 0; // Establece un valor predeterminado si la conversión falla
+                }
 
                 // Reemplazos de valores en la plantilla HTML
                 plantilla_html = plantilla_html.Replace("@Cliente", txtNombre.Text);
@@ -477,10 +531,23 @@ namespace Capa_P
                 plantilla_html = plantilla_html.Replace("@ENTRADA", txtEntrada.Text);
                 plantilla_html = plantilla_html.Replace("@Salida", txtSalida.Text);
                 plantilla_html = plantilla_html.Replace("@Entregada", txtEntrega.Text);
-                plantilla_html = plantilla_html.Replace("@TRANSPORTE", "$" + transporte.ToString("N2"));
+
+                // Verifica si hay un valor válido en txtTransporte.Text para reemplazar en la plantilla HTML
+                if (!string.IsNullOrEmpty(txtTransporte.Text))
+                {
+                    plantilla_html = plantilla_html.Replace("@TRANSPORTE", "$" + transporte.ToString("N2"));
+                }
+                else
+                {
+                    plantilla_html = plantilla_html.Replace("@TRANSPORTE", "");
+                }
+
+
                 plantilla_html = plantilla_html.Replace("@TIEMPOENTREGA", txtTiempoEntrega.Text);
                 plantilla_html = plantilla_html.Replace("@vigencia", txtVigencia.Text);
+                plantilla_html = plantilla_html.Replace("@Asesor", txtAsesor.Text);
 
+                plantilla_html = plantilla_html.Replace("@Titulo", txtTitulo.Text);
                 plantilla_html = plantilla_html.Replace("@Fecha", DateTime.Now.ToString("dd/MM/yyyy"));
                 plantilla_html = plantilla_html.Replace("@SubTotal", "$" + lblSubTotal.Text);
                 plantilla_html = plantilla_html.Replace("@Impuestos", "$" + lblImpuesto.Text);
@@ -489,28 +556,8 @@ namespace Capa_P
                 // Reemplazos adicionales dependiendo de las opciones seleccionadas
                 if (swtipe.Checked == true)
                 {
-                    if (cbmNCF.Text == "Si")
-                    {
                         plantilla_html = plantilla_html.Replace("@CONT", lblNCF.Text);
-                        plantilla_html = plantilla_html.Replace("@Factura", "FACTURA VALIDA PARA CREDITO FISCAL");
-                        plantilla_html = plantilla_html.Replace("@NumFac", "FF00001");
-                    }
-                    else
-                    {
-                        plantilla_html = plantilla_html.Replace("NCF:", "");
-                        plantilla_html = plantilla_html.Replace("@CONT", "");
-                        plantilla_html = plantilla_html.Replace("@Factura", "FACTURA");
-                        plantilla_html = plantilla_html.Replace("@NumFac", "F00001");
-                    }
-
-                    if (cbmPago.Text == "Pagada")
-                    {
-                        plantilla_html = plantilla_html.Replace("@Estado", "De contado");
-                    }
-                    else
-                    {
-                        plantilla_html = plantilla_html.Replace("@Estado", "Credito");
-                    }
+                        plantilla_html = plantilla_html.Replace("@NumFac", lblFac.Text);
                 }
                 else
                 {
@@ -559,18 +606,21 @@ namespace Capa_P
                 plantilla_html = plantilla_html.Replace("@Condicion", condicion);
 
                 string Imagenes = string.Empty;
-                for (int i = 0; i < listBox1.Items.Count; i++)
+                if (listBox1.Items.Count > 0)
                 {
-                    string imagen = listBox1.Items[i].ToString();
-                    Imagenes += $"<img src='{imagen}' style='display: block; margin: 25px 25px 75px 195px; width: 400px height: 500px;' />";
 
-                    if (i < listBox1.Items.Count - 1)
+
+                    for (int i = 0; i < listBox1.Items.Count; i++)
                     {
-                        Imagenes += "<div style='page-break-after: always;' ></div>";
+                        string imagen = listBox1.Items[i].ToString();
+                        Imagenes += $"<tr><td><table style='margin-top: 50pt;'><tr><td><div style='page-break-after: always; text-align: center; margin-top: 20pt;'><img src='{imagen}' style='vertical-align: middle; width: 400px height: 500px;' /></div></td></tr></table></td></tr>";
                     }
                 }
-
-                plantilla_html = plantilla_html.Replace("@imagenesExtra", Imagenes);
+                else
+                {
+                    Imagenes = $"<tr><td></td></tr>";
+                }
+                plantilla_html = plantilla_html.Replace("@ImagenesExtra", Imagenes);
 
 
                 // Ruta de la imagen de la firma
@@ -877,11 +927,155 @@ namespace Capa_P
             Calcular();
         }
 
+        private void SumarTransporte()
+        {
+            try
+            {
+                TotalTot();
+                double total = double.Parse(lblTotal.Text);
+                double transporte = double.Parse(txtTransporte.Text);
+                double nuevoTotal = total + transporte;
+                lblTotal.Text = nuevoTotal.ToString("N2");
+
+            }
+            catch(Exception ex)
+            {
+                if(txtTransporte.Text.Length > 0)
+                {
+                    MessageBox.Show($"Erorr al sumar el precio del transporte: {ex.Message} ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                } 
+            }
+        }
+
         private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            SumarTransporte();
+        }
+
+        private void GuardarHeaderFactura()
+        {
+            String msj = "";
+
+            try
+            {
+
+                facturaH.Factura = lblFac.Text;
+                facturaH.SubTotal = float.Parse(lblSubTotal.Text);
+                facturaH.ITBIS = float.Parse(lblImpuesto.Text);
+                facturaH.Total = float.Parse(lblTotal.Text);
+                if(cbmNCF.Text == "Si")
+                {
+                   facturaH.Credito_Fiscal = lblNCF.Text;
+                }
+                facturaH.Estado_Pago = "Pendiente";
+                facturaH.Cliente = txtNombre.Text;
+                facturaH.Rnc = txtRnc.Text;
+
+
+                    msj = facturaH.GuardarFacturaHeader();
+                    MessageBox.Show(msj);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void GuardarDetalleFactura()
+        {
+            String msj = "";
+
+            try
+            {
+
+                foreach (DataGridViewRow Row in dtaVentas.Rows)
+                {
+                    facturaD.Factura = lblFac.Text;
+                    facturaD.Producto = Row.Cells["Producto"].Value?.ToString() ?? string.Empty;
+                    facturaD.Descripcion = Row.Cells["Descripcion"].Value?.ToString() ?? string.Empty;
+                    facturaD.Material = Row.Cells["Material"].Value?.ToString() ?? string.Empty;
+                    facturaD.Madera = Row.Cells["Madera"].Value?.ToString() ?? string.Empty;
+                    facturaD.Apanelado = Row.Cells["Apanelado"].Value?.ToString() ?? string.Empty;
+                    facturaD.Jambas = Row.Cells["Jamba"].Value?.ToString() ?? string.Empty;
+                    facturaD.Size = Row.Cells["Sizes"].Value?.ToString() ?? string.Empty;
+                    facturaD.Cantidad = int.Parse(Row.Cells["Canti"].Value?.ToString());
+                    facturaD.PrecioUnit = float.Parse(Row.Cells["PrecioUnidad"].Value?.ToString());
+                    facturaD.ITBIS = float.Parse(Row.Cells["ITBIS"].Value?.ToString());
+                    facturaD.Total = float.Parse(Row.Cells["Total_Linea"].Value?.ToString());
+
+                    msj = facturaD.GuardarFacturaDetalle();
+                }
+
+
+
+                MessageBox.Show(msj);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+            GuardarHeaderFactura();
+            GuardarDetalleFactura();
+        }
+
+        private void SecuenciaFiscal()
+        {
+            try
+            {
+                // Llamar al método que ejecuta el procedimiento almacenado y devuelve un DataTable
+                System.Data.DataTable dt = ncf.SecuenciaFiscal();
+
+                // Verificar si se obtuvo algún resultado del procedimiento almacenado
+                if (dt.Rows.Count > 0)
+                {
+                    // Obtener el valor del primer campo (suponiendo que sea un único valor)
+                    string ncfDisponible = dt.Rows[0]["Codigo"].ToString(); // Reemplaza "NCF" con el nombre real de la columna
+
+                    // Asignar el valor al Text del Label (suponiendo que tienes un Label llamado lblNCF)
+                    lblNCF.Text = ncfDisponible;
+                }
+                else
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el NCF disponible: " + ex.Message);
+            }
+        }
+
+        private void cbmNCF_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            OcultarNCF();
+        }
+
+        private void OcultarNCF()
+        {
+            if (cbmNCF.SelectedIndex == 0)
+            {
+                lblNCF.Visible = false;
+                lblAviso.Visible = false;
+                
+            }
+            else
+            {
+                lblNCF.Visible = true;
+                lblAviso.Visible = true;
+                
+            }
+        }
+
+        private void cbmImpuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
     }
 
-    // Pa poder hacer merge
 }
