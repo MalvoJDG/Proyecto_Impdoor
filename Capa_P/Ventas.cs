@@ -4,6 +4,7 @@ using DocumentFormat.OpenXml.Drawing.Charts;
 using iTextSharp.awt.geom;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.fonts.cmaps;
 using iTextSharp.tool.xml;
 using System;
 using System.Data;
@@ -71,16 +72,36 @@ namespace Capa_P
             cbmMadera.DataSource = dt;
             cbmMadera.DisplayMember = "Nombre";
         }
-        
+
+        private string textoAnterior = string.Empty;
+
         private void cbmProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Guardar el texto actual de txtServicio antes de cualquier cambio
+            if (cbmProducto.Text != "Instalacion" && txtServicio.Text != "Instalacion")
+            {
+                textoAnterior = txtServicio.Text;
+            }
+
             cbmProducto.ValueMember = "id";
+
             // Obtener el valor seleccionado
             if (cbmProducto.SelectedValue != null)
             {
                 id_producto = Convert.ToInt32(cbmProducto.SelectedValue);
             }
+
+            // Cambiar el texto de txtServicio según la selección en cbmProducto
+            if (cbmProducto.Text == "Instalacion")
+            {
+                txtServicio.Text = "Instalacion";
+            }
+            else
+            {
+                txtServicio.Text = textoAnterior;
+            }
         }
+
 
         private void cbmMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1075,6 +1096,14 @@ namespace Capa_P
         private void cbmImpuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtServicio_TextChange(object sender, EventArgs e)
+        {
+            if(cbmProducto.Text != "Instalacion")
+            {
+                textoAnterior = txtServicio.Text;
+            }
         }
     }
 

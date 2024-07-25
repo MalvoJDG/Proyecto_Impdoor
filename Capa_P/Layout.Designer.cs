@@ -255,7 +255,7 @@
             this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnUsuarios.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnUsuarios.TextMarginLeft = 0;
-            this.btnUsuarios.TextPadding = new System.Windows.Forms.Padding(56, 4, 0, 2);
+            this.btnUsuarios.TextPadding = new System.Windows.Forms.Padding(56, 2, 0, 2);
             this.btnUsuarios.UseDefaultRadiusAndThickness = true;
             this.btnUsuarios.Click += new System.EventHandler(this.btnUsuarios_Click);
             // 
@@ -346,7 +346,7 @@
             this.btnMateriales.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMateriales.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnMateriales.TextMarginLeft = 0;
-            this.btnMateriales.TextPadding = new System.Windows.Forms.Padding(56, 4, 0, 2);
+            this.btnMateriales.TextPadding = new System.Windows.Forms.Padding(56, 2, 0, 2);
             this.btnMateriales.UseDefaultRadiusAndThickness = true;
             this.btnMateriales.Click += new System.EventHandler(this.btnMateriales_Click);
             // 
@@ -437,7 +437,7 @@
             this.btnNCF.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNCF.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnNCF.TextMarginLeft = 0;
-            this.btnNCF.TextPadding = new System.Windows.Forms.Padding(56, 4, 0, 2);
+            this.btnNCF.TextPadding = new System.Windows.Forms.Padding(56, 3, 0, 2);
             this.btnNCF.UseDefaultRadiusAndThickness = true;
             this.btnNCF.Click += new System.EventHandler(this.btnNCF_Click);
             // 
@@ -528,7 +528,7 @@
             this.btnFacturas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFacturas.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnFacturas.TextMarginLeft = 0;
-            this.btnFacturas.TextPadding = new System.Windows.Forms.Padding(56, 4, 0, 2);
+            this.btnFacturas.TextPadding = new System.Windows.Forms.Padding(56, 2, 0, 2);
             this.btnFacturas.UseDefaultRadiusAndThickness = true;
             this.btnFacturas.Click += new System.EventHandler(this.btnFacturas_Click);
             // 
@@ -619,7 +619,7 @@
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnVentas.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnVentas.TextMarginLeft = 0;
-            this.btnVentas.TextPadding = new System.Windows.Forms.Padding(56, 4, 0, 2);
+            this.btnVentas.TextPadding = new System.Windows.Forms.Padding(56, 2, 0, 2);
             this.btnVentas.UseDefaultRadiusAndThickness = true;
             this.btnVentas.Click += new System.EventHandler(this.bunifuButton25_Click);
             // 
@@ -710,7 +710,7 @@
             this.btnCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCliente.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnCliente.TextMarginLeft = 0;
-            this.btnCliente.TextPadding = new System.Windows.Forms.Padding(56, 4, 0, 2);
+            this.btnCliente.TextPadding = new System.Windows.Forms.Padding(56, 2, 0, 2);
             this.btnCliente.UseDefaultRadiusAndThickness = true;
             this.btnCliente.Click += new System.EventHandler(this.btnCliente_Click);
             // 
@@ -801,7 +801,7 @@
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnDashboard.TextMarginLeft = 0;
-            this.btnDashboard.TextPadding = new System.Windows.Forms.Padding(56, 4, 0, 2);
+            this.btnDashboard.TextPadding = new System.Windows.Forms.Padding(56, 2, 0, 2);
             this.btnDashboard.UseDefaultRadiusAndThickness = true;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 

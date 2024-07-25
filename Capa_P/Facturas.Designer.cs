@@ -41,17 +41,27 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
+            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.btnBorrar = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnConfirmar = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
-            this.cbmEstado = new Bunifu.UI.WinForms.BunifuDropdown();
             this.btnVolver = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.txtFiltro = new Bunifu.UI.WinForms.BunifuTextBox();
             this.bunifuVScrollBar2 = new Bunifu.UI.WinForms.BunifuVScrollBar();
             this.dtaFactura = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.bunifuLabel3 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.MontoPanel = new Bunifu.UI.WinForms.BunifuPanel();
+            this.lblPagado = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuLabel1 = new Bunifu.UI.WinForms.BunifuLabel();
+            this.bunifuButton21 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
+            this.Montotxt = new Bunifu.UI.WinForms.BunifuTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtaFactura)).BeginInit();
+            this.MontoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBorrar
@@ -101,7 +111,7 @@
             this.btnBorrar.IdleIconLeftImage = null;
             this.btnBorrar.IdleIconRightImage = null;
             this.btnBorrar.IndicateFocus = false;
-            this.btnBorrar.Location = new System.Drawing.Point(1008, 640);
+            this.btnBorrar.Location = new System.Drawing.Point(791, 641);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnBorrar.OnDisabledState.BorderRadius = 20;
@@ -169,7 +179,7 @@
             this.btnConfirmar.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
             this.btnConfirmar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnConfirmar.BackgroundImage")));
             this.btnConfirmar.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
-            this.btnConfirmar.ButtonText = "Confimar";
+            this.btnConfirmar.ButtonText = "Pagar Factura";
             this.btnConfirmar.ButtonTextMarginLeft = 0;
             this.btnConfirmar.ColorContrastOnClick = 45;
             this.btnConfirmar.ColorContrastOnHover = 45;
@@ -202,7 +212,7 @@
             this.btnConfirmar.IdleIconLeftImage = null;
             this.btnConfirmar.IdleIconRightImage = null;
             this.btnConfirmar.IndicateFocus = false;
-            this.btnConfirmar.Location = new System.Drawing.Point(251, 651);
+            this.btnConfirmar.Location = new System.Drawing.Point(961, 641);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
             this.btnConfirmar.OnDisabledState.BorderRadius = 20;
@@ -236,60 +246,14 @@
             this.btnConfirmar.OnPressedState.ForeColor = System.Drawing.Color.White;
             this.btnConfirmar.OnPressedState.IconLeftImage = null;
             this.btnConfirmar.OnPressedState.IconRightImage = null;
-            this.btnConfirmar.Size = new System.Drawing.Size(161, 30);
+            this.btnConfirmar.Size = new System.Drawing.Size(180, 30);
             this.btnConfirmar.TabIndex = 112;
             this.btnConfirmar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnConfirmar.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
             this.btnConfirmar.TextMarginLeft = 0;
             this.btnConfirmar.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnConfirmar.UseDefaultRadiusAndThickness = true;
-            // 
-            // cbmEstado
-            // 
-            this.cbmEstado.BackColor = System.Drawing.Color.Transparent;
-            this.cbmEstado.BackgroundColor = System.Drawing.Color.White;
-            this.cbmEstado.BorderColor = System.Drawing.Color.Silver;
-            this.cbmEstado.BorderRadius = 10;
-            this.cbmEstado.Color = System.Drawing.Color.Silver;
-            this.cbmEstado.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
-            this.cbmEstado.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cbmEstado.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.cbmEstado.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.cbmEstado.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.cbmEstado.DisabledIndicatorColor = System.Drawing.Color.DarkGray;
-            this.cbmEstado.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbmEstado.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
-            this.cbmEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbmEstado.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.cbmEstado.FillDropDown = true;
-            this.cbmEstado.FillIndicator = false;
-            this.cbmEstado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbmEstado.Font = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbmEstado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.cbmEstado.FormattingEnabled = true;
-            this.cbmEstado.Icon = null;
-            this.cbmEstado.IndicatorAlignment = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.cbmEstado.IndicatorColor = System.Drawing.Color.DarkGray;
-            this.cbmEstado.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
-            this.cbmEstado.IndicatorThickness = 2;
-            this.cbmEstado.IsDropdownOpened = false;
-            this.cbmEstado.ItemBackColor = System.Drawing.Color.White;
-            this.cbmEstado.ItemBorderColor = System.Drawing.Color.White;
-            this.cbmEstado.ItemForeColor = System.Drawing.Color.Black;
-            this.cbmEstado.ItemHeight = 28;
-            this.cbmEstado.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
-            this.cbmEstado.ItemHighLightForeColor = System.Drawing.Color.White;
-            this.cbmEstado.Items.AddRange(new object[] {
-            "Pagada",
-            "Pendiente"});
-            this.cbmEstado.ItemTopMargin = 3;
-            this.cbmEstado.Location = new System.Drawing.Point(40, 649);
-            this.cbmEstado.Name = "cbmEstado";
-            this.cbmEstado.Size = new System.Drawing.Size(190, 34);
-            this.cbmEstado.TabIndex = 111;
-            this.cbmEstado.Text = null;
-            this.cbmEstado.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
-            this.cbmEstado.TextLeftMargin = 5;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // btnVolver
             // 
@@ -598,15 +562,234 @@
             this.bunifuLabel3.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
             this.bunifuLabel3.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
             // 
+            // MontoPanel
+            // 
+            this.MontoPanel.BackgroundColor = System.Drawing.Color.Transparent;
+            this.MontoPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("MontoPanel.BackgroundImage")));
+            this.MontoPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MontoPanel.BorderColor = System.Drawing.Color.Transparent;
+            this.MontoPanel.BorderRadius = 7;
+            this.MontoPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MontoPanel.BorderThickness = 1;
+            this.MontoPanel.Controls.Add(this.lblPagado);
+            this.MontoPanel.Controls.Add(this.bunifuLabel1);
+            this.MontoPanel.Controls.Add(this.bunifuButton21);
+            this.MontoPanel.Controls.Add(this.Montotxt);
+            this.MontoPanel.Location = new System.Drawing.Point(396, 334);
+            this.MontoPanel.Name = "MontoPanel";
+            this.MontoPanel.ShowBorders = true;
+            this.MontoPanel.Size = new System.Drawing.Size(410, 212);
+            this.MontoPanel.TabIndex = 115;
+            this.MontoPanel.Visible = false;
+            // 
+            // lblPagado
+            // 
+            this.lblPagado.AllowParentOverrides = false;
+            this.lblPagado.AutoEllipsis = false;
+            this.lblPagado.Cursor = System.Windows.Forms.Cursors.Default;
+            this.lblPagado.CursorType = System.Windows.Forms.Cursors.Default;
+            this.lblPagado.Font = new System.Drawing.Font("Poppins", 7.8F, System.Drawing.FontStyle.Bold);
+            this.lblPagado.ForeColor = System.Drawing.Color.Red;
+            this.lblPagado.Location = new System.Drawing.Point(127, 172);
+            this.lblPagado.Name = "lblPagado";
+            this.lblPagado.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lblPagado.Size = new System.Drawing.Size(0, 0);
+            this.lblPagado.TabIndex = 117;
+            this.lblPagado.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.lblPagado.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuLabel1
+            // 
+            this.bunifuLabel1.AllowParentOverrides = false;
+            this.bunifuLabel1.AutoEllipsis = false;
+            this.bunifuLabel1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.CursorType = System.Windows.Forms.Cursors.Default;
+            this.bunifuLabel1.Font = new System.Drawing.Font("Poppins", 14F, System.Drawing.FontStyle.Bold);
+            this.bunifuLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
+            this.bunifuLabel1.Location = new System.Drawing.Point(108, 15);
+            this.bunifuLabel1.Name = "bunifuLabel1";
+            this.bunifuLabel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.bunifuLabel1.Size = new System.Drawing.Size(181, 40);
+            this.bunifuLabel1.TabIndex = 116;
+            this.bunifuLabel1.Text = "Ingresar Monto";
+            this.bunifuLabel1.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.bunifuLabel1.TextFormat = Bunifu.UI.WinForms.BunifuLabel.TextFormattingOptions.Default;
+            // 
+            // bunifuButton21
+            // 
+            this.bunifuButton21.AllowAnimations = true;
+            this.bunifuButton21.AllowMouseEffects = true;
+            this.bunifuButton21.AllowToggling = false;
+            this.bunifuButton21.AnimationSpeed = 200;
+            this.bunifuButton21.AutoGenerateColors = false;
+            this.bunifuButton21.AutoRoundBorders = false;
+            this.bunifuButton21.AutoSizeLeftIcon = true;
+            this.bunifuButton21.AutoSizeRightIcon = true;
+            this.bunifuButton21.BackColor = System.Drawing.Color.Transparent;
+            this.bunifuButton21.BackColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
+            this.bunifuButton21.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuButton21.BackgroundImage")));
+            this.bunifuButton21.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
+            this.bunifuButton21.ButtonText = "Confimar";
+            this.bunifuButton21.ButtonTextMarginLeft = 0;
+            this.bunifuButton21.ColorContrastOnClick = 45;
+            this.bunifuButton21.ColorContrastOnHover = 45;
+            this.bunifuButton21.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges4.BottomLeft = true;
+            borderEdges4.BottomRight = true;
+            borderEdges4.TopLeft = true;
+            borderEdges4.TopRight = true;
+            this.bunifuButton21.CustomizableEdges = borderEdges4;
+            this.bunifuButton21.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.bunifuButton21.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.bunifuButton21.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.bunifuButton21.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.bunifuButton21.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Disabled;
+            this.bunifuButton21.Font = new System.Drawing.Font("Poppins", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuButton21.ForeColor = System.Drawing.Color.White;
+            this.bunifuButton21.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.bunifuButton21.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuButton21.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.bunifuButton21.IconMarginLeft = 11;
+            this.bunifuButton21.IconPadding = 10;
+            this.bunifuButton21.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.bunifuButton21.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.bunifuButton21.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.bunifuButton21.IconSize = 25;
+            this.bunifuButton21.IdleBorderColor = System.Drawing.Color.Transparent;
+            this.bunifuButton21.IdleBorderRadius = 20;
+            this.bunifuButton21.IdleBorderThickness = 1;
+            this.bunifuButton21.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
+            this.bunifuButton21.IdleIconLeftImage = null;
+            this.bunifuButton21.IdleIconRightImage = null;
+            this.bunifuButton21.IndicateFocus = false;
+            this.bunifuButton21.Location = new System.Drawing.Point(118, 126);
+            this.bunifuButton21.Name = "bunifuButton21";
+            this.bunifuButton21.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.bunifuButton21.OnDisabledState.BorderRadius = 20;
+            this.bunifuButton21.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
+            this.bunifuButton21.OnDisabledState.BorderThickness = 1;
+            this.bunifuButton21.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.bunifuButton21.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.bunifuButton21.OnDisabledState.IconLeftImage = null;
+            this.bunifuButton21.OnDisabledState.IconRightImage = null;
+            this.bunifuButton21.onHoverState.BorderColor = System.Drawing.Color.White;
+            this.bunifuButton21.onHoverState.BorderRadius = 20;
+            this.bunifuButton21.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
+            this.bunifuButton21.onHoverState.BorderThickness = 1;
+            this.bunifuButton21.onHoverState.FillColor = System.Drawing.Color.White;
+            this.bunifuButton21.onHoverState.ForeColor = System.Drawing.Color.Black;
+            this.bunifuButton21.onHoverState.IconLeftImage = null;
+            this.bunifuButton21.onHoverState.IconRightImage = null;
+            this.bunifuButton21.OnIdleState.BorderColor = System.Drawing.Color.Transparent;
+            this.bunifuButton21.OnIdleState.BorderRadius = 20;
+            this.bunifuButton21.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
+            this.bunifuButton21.OnIdleState.BorderThickness = 1;
+            this.bunifuButton21.OnIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
+            this.bunifuButton21.OnIdleState.ForeColor = System.Drawing.Color.White;
+            this.bunifuButton21.OnIdleState.IconLeftImage = null;
+            this.bunifuButton21.OnIdleState.IconRightImage = null;
+            this.bunifuButton21.OnPressedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
+            this.bunifuButton21.OnPressedState.BorderRadius = 20;
+            this.bunifuButton21.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
+            this.bunifuButton21.OnPressedState.BorderThickness = 1;
+            this.bunifuButton21.OnPressedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
+            this.bunifuButton21.OnPressedState.ForeColor = System.Drawing.Color.White;
+            this.bunifuButton21.OnPressedState.IconLeftImage = null;
+            this.bunifuButton21.OnPressedState.IconRightImage = null;
+            this.bunifuButton21.Size = new System.Drawing.Size(161, 30);
+            this.bunifuButton21.TabIndex = 113;
+            this.bunifuButton21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.bunifuButton21.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.bunifuButton21.TextMarginLeft = 0;
+            this.bunifuButton21.TextPadding = new System.Windows.Forms.Padding(0);
+            this.bunifuButton21.UseDefaultRadiusAndThickness = true;
+            this.bunifuButton21.Click += new System.EventHandler(this.bunifuButton21_Click);
+            // 
+            // Montotxt
+            // 
+            this.Montotxt.AcceptsReturn = false;
+            this.Montotxt.AcceptsTab = false;
+            this.Montotxt.AnimationSpeed = 200;
+            this.Montotxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.Montotxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.Montotxt.AutoSizeHeight = true;
+            this.Montotxt.BackColor = System.Drawing.Color.Transparent;
+            this.Montotxt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Montotxt.BackgroundImage")));
+            this.Montotxt.BorderColorActive = System.Drawing.Color.DodgerBlue;
+            this.Montotxt.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.Montotxt.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            this.Montotxt.BorderColorIdle = System.Drawing.Color.Transparent;
+            this.Montotxt.BorderRadius = 20;
+            this.Montotxt.BorderThickness = 1;
+            this.Montotxt.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
+            this.Montotxt.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.Montotxt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Montotxt.DefaultFont = new System.Drawing.Font("Poppins", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Montotxt.DefaultText = "";
+            this.Montotxt.FillColor = System.Drawing.Color.White;
+            this.Montotxt.HideSelection = true;
+            this.Montotxt.IconLeft = null;
+            this.Montotxt.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+            this.Montotxt.IconPadding = 10;
+            this.Montotxt.IconRight = null;
+            this.Montotxt.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+            this.Montotxt.Lines = new string[0];
+            this.Montotxt.Location = new System.Drawing.Point(44, 71);
+            this.Montotxt.MaxLength = 32767;
+            this.Montotxt.MinimumSize = new System.Drawing.Size(1, 1);
+            this.Montotxt.Modified = false;
+            this.Montotxt.Multiline = false;
+            this.Montotxt.Name = "Montotxt";
+            stateProperties5.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties5.FillColor = System.Drawing.Color.Empty;
+            stateProperties5.ForeColor = System.Drawing.Color.Empty;
+            stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.Montotxt.OnActiveState = stateProperties5;
+            stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties6.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.Montotxt.OnDisabledState = stateProperties6;
+            stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties7.FillColor = System.Drawing.Color.Empty;
+            stateProperties7.ForeColor = System.Drawing.Color.Empty;
+            stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.Montotxt.OnHoverState = stateProperties7;
+            stateProperties8.BorderColor = System.Drawing.Color.Transparent;
+            stateProperties8.FillColor = System.Drawing.Color.White;
+            stateProperties8.ForeColor = System.Drawing.Color.Empty;
+            stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.Montotxt.OnIdleState = stateProperties8;
+            this.Montotxt.Padding = new System.Windows.Forms.Padding(3);
+            this.Montotxt.PasswordChar = '\0';
+            this.Montotxt.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.Montotxt.PlaceholderText = "Monto Pagado";
+            this.Montotxt.ReadOnly = false;
+            this.Montotxt.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.Montotxt.SelectedText = "";
+            this.Montotxt.SelectionLength = 0;
+            this.Montotxt.SelectionStart = 0;
+            this.Montotxt.ShortcutsEnabled = true;
+            this.Montotxt.Size = new System.Drawing.Size(312, 38);
+            this.Montotxt.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
+            this.Montotxt.TabIndex = 110;
+            this.Montotxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.Montotxt.TextMarginBottom = 0;
+            this.Montotxt.TextMarginLeft = 3;
+            this.Montotxt.TextMarginTop = 1;
+            this.Montotxt.TextPlaceholder = "Monto Pagado";
+            this.Montotxt.UseSystemPasswordChar = false;
+            this.Montotxt.WordWrap = true;
+            // 
             // Facturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1214, 739);
+            this.Controls.Add(this.MontoPanel);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnConfirmar);
-            this.Controls.Add(this.cbmEstado);
             this.Controls.Add(this.btnVolver);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.bunifuVScrollBar2);
@@ -618,6 +801,8 @@
             this.Text = "Facturas";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtaFactura)).EndInit();
+            this.MontoPanel.ResumeLayout(false);
+            this.MontoPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -628,11 +813,15 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btnBorrar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btnConfirmar;
-        private Bunifu.UI.WinForms.BunifuDropdown cbmEstado;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btnVolver;
         private Bunifu.UI.WinForms.BunifuTextBox txtFiltro;
         private Bunifu.UI.WinForms.BunifuVScrollBar bunifuVScrollBar2;
         private Bunifu.UI.WinForms.BunifuDataGridView dtaFactura;
         private Bunifu.UI.WinForms.BunifuLabel bunifuLabel3;
+        private Bunifu.UI.WinForms.BunifuPanel MontoPanel;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 bunifuButton21;
+        private Bunifu.UI.WinForms.BunifuTextBox Montotxt;
+        private Bunifu.UI.WinForms.BunifuLabel bunifuLabel1;
+        private Bunifu.UI.WinForms.BunifuLabel lblPagado;
     }
 }

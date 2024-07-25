@@ -28,6 +28,7 @@ namespace DashboardEntity
         public int Facturas_Pagar { get; private set; }
         public float IngresoActual { get; private set; }
         public float Deber { get; private set; }
+        public float Neto { get; private set; }
         public float IngresosTotales { get; private set; }
 
         public DashboardEntity(clsManejador manejadorBD)
@@ -88,6 +89,36 @@ namespace DashboardEntity
                 return 0;
             }
         }
+
+        private float ObtenerPagado()
+        {
+            try
+            {
+                List<clsParametros> parametros = new List<clsParametros>
+        {
+            new clsParametros("@fromDate", StartDate),  // Asegúrate de usar .Date para solo la parte de fecha sin la parte de tiempo
+            new clsParametros("@ToDate", EndDate)
+        };
+
+                DataTable resultado = manejadorBD.consultas("SumarPagado", parametros);
+
+                if (resultado.Rows.Count > 0 && resultado.Rows[0]["TotalPagado"] != DBNull.Value)
+                {
+                    return Convert.ToSingle(resultado.Rows[0]["TotalPagado"]);
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Maneja cualquier excepción aquí, por ejemplo, registra el error o lanza una excepción personalizada
+                Console.WriteLine("Error al obtener total por pagado: " + ex.Message);
+                throw;
+            }
+        }
+
 
         private float ObtenerTotal(string estadoPago)
         {
@@ -162,6 +193,7 @@ namespace DashboardEntity
                 Facturas_Pagar = ContarFacturasPendientes();
                 Deber = ObtenerTotal("Pendiente");
                 ConsultarIngresos();
+                IngresoActual = ObtenerPagado();
 
                 Console.WriteLine("Data actualizada: {0} - {1}", StartDate.ToString(), EndDate.ToString());
                 return true;
