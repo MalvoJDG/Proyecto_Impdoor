@@ -6,6 +6,7 @@ using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -38,6 +39,7 @@ namespace Capa_P
                 DataTable dt = facturaHeader.BuscarPorCliente();
 
                 dtaFacturas.DataSource = dt;
+                btnGuardarClienteR.Visible = false;
             }
             catch (Exception ex)
             {
@@ -58,6 +60,7 @@ namespace Capa_P
                 DataTable dt = facturaDetalle.BuscarPorFactura();
 
                 dtaFacturas.DataSource = dt;
+                btnGuardarClienteR.Visible = true ;
             }
             catch (Exception ex)
             {
@@ -101,13 +104,13 @@ namespace Capa_P
                 save.DefaultExt = "pdf";
                 save.Filter = "Archivos PDF (*.pdf)|*.pdf";
 
-                // Leer palabras clave desde un archivo de texto
+                // Leer palabras clave desde un recurso de texto
                 List<string> materiales = new List<string>();
-                string path = Path.GetFullPath(@"..\..\Externo\Materiales.txt");
 
-                if (File.Exists(path))
+                string materialContent = Properties.Resources.Materiales; // Accede al recurso de texto
+                if (!string.IsNullOrEmpty(materialContent))
                 {
-                    using (StreamReader sr = new StreamReader(path))
+                    using (StringReader sr = new StringReader(materialContent))
                     {
                         string line;
                         while ((line = sr.ReadLine()) != null)
@@ -118,12 +121,13 @@ namespace Capa_P
                 }
                 else
                 {
-                    MessageBox.Show("El archivo de materiales no se encuentra.");
+                    MessageBox.Show("El archivo de materiales no se encuentra en los recursos.");
                     return;
                 }
 
-                // Crear un diccionario de materiales y cantidades
-                Dictionary<string, int> materialesSeleccionados = new Dictionary<string, int>();
+            // Resto del código para generar el PDF
+            // Crear un diccionario de materiales y cantidades
+            Dictionary<string, int> materialesSeleccionados = new Dictionary<string, int>();
 
                 foreach (DataGridViewRow row in dtaFacturas.Rows)
                 {
@@ -216,9 +220,12 @@ namespace Capa_P
                 plantilla_html = plantilla_html.Replace("@ImagenesExtra", Imagenes);
 
 
-                // Ruta de la imagen de la firma
-                string imagePath = Path.GetFullPath(@"..\..\img\firma.png");
-                string imagenHtml = $"<img src='file:///{imagePath.Replace('\\', '/')}' alt='Imagen de la factura' style='max-width:100%; height:auto; display:block; margin:auto;' />";
+                // Guardar la imagen de la firma desde los recursos en una ruta temporal
+                string tempImagePath = Path.Combine(Path.GetTempPath(), "firma.png");
+                Properties.Resources.firma.Save(tempImagePath);
+
+                // Crear el HTML para la imagen
+                string imagenHtml = $"<img src='file:///{tempImagePath.Replace('\\', '/')}' alt='Imagen de la factura' style='max-width:100%; height:auto; display:block; margin:auto;' />";
                 plantilla_html = plantilla_html.Replace("@img", imagenHtml);
 
                 if (save.ShowDialog() == DialogResult.OK)
@@ -268,40 +275,48 @@ namespace Capa_P
                 header.DefaultCell.HorizontalAlignment = Element.ALIGN_LEFT;
                 header.DefaultCell.VerticalAlignment = Element.ALIGN_MIDDLE;
 
-                string imagePathHeader = Path.GetFullPath(@"..\..\img\impdoor_logo.png");
-                if (!File.Exists(imagePathHeader))
+                var logoHeader = Properties.Resources.impdoor_logo; // Accede al recurso de imagen
+                if (logoHeader == null)
                 {
-                    throw new FileNotFoundException($"No se encontró la imagen en la ruta especificada: {imagePathHeader}");
+                    throw new FileNotFoundException("No se encontró la imagen en los recursos del proyecto.");
                 }
 
-                Image logoHeader = Image.GetInstance(imagePathHeader);
+
+                // Convertir la imagen a un MemoryStream
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    logoHeader.Save(ms, ImageFormat.Png);
+                    ms.Seek(0, SeekOrigin.Begin);
+
+                    // Convertir el MemoryStream a una instancia de iTextSharp.text.Image
+                    iTextSharp.text.Image pdfImage = iTextSharp.text.Image.GetInstance(ms.ToArray());
+
+                    // Ajustar la posición del header según el número de página
+                    if (writer.PageNumber == 1)
+                    {
+                        pdfImage.ScaleToFit(200f, 55f);
+                        PdfPCell imageCellHeader = new PdfPCell(pdfImage);
+                        imageCellHeader.Border = 0;
+                        imageCellHeader.HorizontalAlignment = Element.ALIGN_LEFT;
+                        imageCellHeader.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        header.AddCell(imageCellHeader);
+                        float yPosition = document.PageSize.Height - document.TopMargin - 5; // Ajuste según sea necesario
+                        header.WriteSelectedRows(0, -1, document.LeftMargin, yPosition, writer.DirectContent);
+                    }
+                    else
+                    {
+                        pdfImage.ScaleToFit(125f, 35f);
+                        PdfPCell imageCellHeader = new PdfPCell(pdfImage);
+                        imageCellHeader.Border = 0;
+                        imageCellHeader.HorizontalAlignment = Element.ALIGN_LEFT;
+                        imageCellHeader.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        header.AddCell(imageCellHeader);
+                        float yPosition = document.PageSize.Height - document.TopMargin + 45; // Ajuste según sea necesario
+                        header.WriteSelectedRows(0, -1, document.LeftMargin, yPosition, writer.DirectContent);
+                    }
+                }
 
 
-                // Ajustar la posición del header según el número de página
-                if (writer.PageNumber == 1)
-                {
-                    logoHeader.ScaleToFit(200f, 55f);
-                    PdfPCell imageCellHeader = new PdfPCell(logoHeader);
-                    imageCellHeader.Border = 0;
-                    imageCellHeader.HorizontalAlignment = Element.ALIGN_LEFT;
-                    imageCellHeader.VerticalAlignment = Element.ALIGN_MIDDLE;
-                    // Ajuste de posición para la primera página
-                    header.AddCell(imageCellHeader);
-                    float yPosition = document.PageSize.Height - document.TopMargin + 8; // Ajuste según sea necesario
-                    header.WriteSelectedRows(0, -1, document.LeftMargin, yPosition, writer.DirectContent);
-                }
-                else
-                {
-                    logoHeader.ScaleToFit(155f, 45);
-                    PdfPCell imageCellHeader = new PdfPCell(logoHeader);
-                    imageCellHeader.Border = 0;
-                    imageCellHeader.HorizontalAlignment = Element.ALIGN_LEFT;
-                    imageCellHeader.VerticalAlignment = Element.ALIGN_MIDDLE;
-                    // Ajuste de posición para la primera página
-                    header.AddCell(imageCellHeader);
-                    float yPosition = document.PageSize.Height - document.TopMargin + 8; // Ajuste según sea necesario
-                    header.WriteSelectedRows(0, -1, document.LeftMargin, yPosition, writer.DirectContent);
-                }
             }
         }
 
@@ -323,6 +338,11 @@ namespace Capa_P
 
         private void bunifuVScrollBar2_Scroll(object sender, Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs e)
         {
+            if (dtaFacturas.RowCount == 0)
+            {
+                // Si no hay filas, salir del método sin hacer nada
+                return;
+            }
             // Obtener la posición actual del scrollbar
             int scrollValue = e.Value;
 
@@ -398,6 +418,11 @@ namespace Capa_P
             {
                 CargarDetalle();
             }
+        }
+
+        private void txtFechaSalida_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

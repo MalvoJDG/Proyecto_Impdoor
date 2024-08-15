@@ -4,9 +4,11 @@ using DocumentFormat.OpenXml.Drawing.Charts;
 using iTextSharp.awt.geom;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.fonts.cmaps;
 using iTextSharp.tool.xml;
 using System;
 using System.Data;
+using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -71,16 +73,40 @@ namespace Capa_P
             cbmMadera.DataSource = dt;
             cbmMadera.DisplayMember = "Nombre";
         }
-        
+
+        private string textoAnterior = string.Empty;
+
         private void cbmProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Guardar el texto actual de txtServicio antes de cualquier cambio
+            if (cbmProducto.Text != "Instalacion" && txtServicio.Text != "Instalacion")
+            {
+                textoAnterior = txtServicio.Text;
+            }
+
             cbmProducto.ValueMember = "id";
+
             // Obtener el valor seleccionado
             if (cbmProducto.SelectedValue != null)
             {
                 id_producto = Convert.ToInt32(cbmProducto.SelectedValue);
             }
+
+            // Cambiar el texto de txtServicio según la selección en cbmProducto
+            if (cbmProducto.Text == "Instalacion")
+            {
+                txtServicio.Text = "Instalacion";
+                txtInstalacion.Visible = true;
+                label32.Visible = true;
+            }
+            else
+            {
+                txtServicio.Text = textoAnterior;
+                txtInstalacion.Visible = false;
+                label32.Visible = false;
+            }
         }
+
 
         private void cbmMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -554,19 +580,15 @@ namespace Capa_P
                 plantilla_html = plantilla_html.Replace("@Total", "$" + lblTotal.Text);
 
                 // Reemplazos adicionales dependiendo de las opciones seleccionadas
-                if (swtipe.Checked == true)
+                plantilla_html = plantilla_html.Replace("@NumFac", lblFac.Text);
+                if (cbmNCF.Text == "Si")
                 {
-                        plantilla_html = plantilla_html.Replace("@CONT", lblNCF.Text);
-                        plantilla_html = plantilla_html.Replace("@NumFac", lblFac.Text);
+                    plantilla_html = plantilla_html.Replace("@CONT", lblNCF.Text);    
                 }
                 else
                 {
-                    plantilla_html = plantilla_html.Replace("@Factura", "COTIZACION");
-                    plantilla_html = plantilla_html.Replace("NCF:", "");
                     plantilla_html = plantilla_html.Replace("@CONT", "");
-                    plantilla_html = plantilla_html.Replace("Nro:", " ");
-                    plantilla_html = plantilla_html.Replace("@NumFac", " ");
-                    plantilla_html = plantilla_html.Replace("@Estado", "");
+                    plantilla_html = plantilla_html.Replace("NCF:", "");
                 }
 
                 // Agregar filas de la tabla de ventas
@@ -623,9 +645,12 @@ namespace Capa_P
                 plantilla_html = plantilla_html.Replace("@ImagenesExtra", Imagenes);
 
 
-                // Ruta de la imagen de la firma
-                string imagePath = Path.GetFullPath(@"..\..\img\firma.png");
-                string imagenHtml = $"<img src='file:///{imagePath.Replace('\\', '/')}' alt='Imagen de la factura' style='max-width:100%; height:auto; display:block; margin:auto;' />";
+                // Guardar la imagen de la firma desde los recursos en una ruta temporal
+                string tempImagePath = Path.Combine(Path.GetTempPath(), "firma.png");
+                Properties.Resources.firma.Save(tempImagePath);
+
+                // Crear el HTML para la imagen
+                string imagenHtml = $"<img src='file:///{tempImagePath.Replace('\\', '/')}' alt='Imagen de la factura' style='max-width:100%; height:auto; display:block; margin:auto;' />";
                 plantilla_html = plantilla_html.Replace("@img", imagenHtml);
 
 
@@ -693,15 +718,20 @@ namespace Capa_P
                 footer.WidthPercentage = 100; // Asegura que la tabla ocupe el ancho completo
 
                 // Primera imagen
-                string imagePath1 = Path.GetFullPath(@"..\..\img\sello_solo_impdoor.png");
-                Image logo1 = Image.GetInstance(imagePath1);
-                logo1.ScaleAbsolute(350f, 120f); // Ajusta el tamaño de la imagen si es necesario (ancho x alto)
-                PdfPCell imageCell1 = new PdfPCell(logo1);
-                imageCell1.Border = 0;
-                imageCell1.HorizontalAlignment = Element.ALIGN_LEFT;
-                imageCell1.VerticalAlignment = Element.ALIGN_MIDDLE;
-                imageCell1.PaddingLeft = -100f; // Ajuste horizontal de la primera imagen
-                footer.AddCell(imageCell1);
+                var logo1 = Properties.Resources.sello_solo_impdoor; // Accede al recurso de la primera imagen
+                using (MemoryStream ms1 = new MemoryStream())
+                {
+                    logo1.Save(ms1, ImageFormat.Png);
+                    ms1.Seek(0, SeekOrigin.Begin);
+                    iTextSharp.text.Image pdfImage1 = iTextSharp.text.Image.GetInstance(ms1.ToArray());
+                    pdfImage1.ScaleAbsolute(350f, 120f); // Ajusta el tamaño de la imagen si es necesario (ancho x alto)
+                    PdfPCell imageCell1 = new PdfPCell(pdfImage1);
+                    imageCell1.Border = 0;
+                    imageCell1.HorizontalAlignment = Element.ALIGN_LEFT;
+                    imageCell1.VerticalAlignment = Element.ALIGN_MIDDLE;
+                    imageCell1.PaddingLeft = -100f; // Ajuste horizontal de la primera imagen
+                    footer.AddCell(imageCell1);
+                }
 
                 // Celda vacía en el medio para separar las dos imágenes
                 PdfPCell emptyCell = new PdfPCell();
@@ -709,25 +739,26 @@ namespace Capa_P
                 footer.AddCell(emptyCell);
 
                 // Segunda imagen
-                string imagePath2 = Path.GetFullPath(@"..\..\img\datosfooter.png"); // Ruta de la segunda imagen
-                Image logo2 = Image.GetInstance(imagePath2);
-                logo2.ScaleAbsolute(220f, 100f); // Ajusta el tamaño de la segunda imagen si es necesario (ancho x alto)
-                PdfPCell imageCell2 = new PdfPCell(logo2);
-                imageCell2.Border = 0;
-                imageCell2.HorizontalAlignment = Element.ALIGN_RIGHT;
-                imageCell2.VerticalAlignment = Element.ALIGN_MIDDLE;
-                imageCell2.PaddingRight = -10f; // Ajuste horizontal de la segunda imagen
-                footer.AddCell(imageCell2);
+                var logo2 = Properties.Resources.datosfooter; // Accede al recurso de la segunda imagen
+                using (MemoryStream ms2 = new MemoryStream())
+                {
+                    logo2.Save(ms2, ImageFormat.Png);
+                    ms2.Seek(0, SeekOrigin.Begin);
+                    iTextSharp.text.Image pdfImage2 = iTextSharp.text.Image.GetInstance(ms2.ToArray());
+                    pdfImage2.ScaleAbsolute(220f, 100f); // Ajusta el tamaño de la segunda imagen si es necesario (ancho x alto)
+                    PdfPCell imageCell2 = new PdfPCell(pdfImage2);
+                    imageCell2.Border = 0;
+                    imageCell2.HorizontalAlignment = Element.ALIGN_RIGHT;
+                    imageCell2.VerticalAlignment = Element.ALIGN_MIDDLE;
+                    imageCell2.PaddingRight = -10f; // Ajuste horizontal de la segunda imagen
+                    footer.AddCell(imageCell2);
+                }
 
                 float xPosition = document.LeftMargin;
+                float yPosition = document.BottomMargin + 40; // Ajuste vertical para ambas imágenes
 
-                // Ajuste de la posición vertical de la primera imagen
-                float yPosition1 = document.BottomMargin + 40; // Ajuste vertical para la primera imagen
-                footer.WriteSelectedRows(0, 1, xPosition, yPosition1, writer.DirectContent);
-
-                // Ajuste de la posición vertical de la segunda imagen
-                float yPosition2 = document.BottomMargin + 40; // Ajuste vertical para la segunda imagen
-                footer.WriteSelectedRows(2, 3, xPosition, yPosition2, writer.DirectContent);
+                // Escribir el footer en la posición especificada
+                footer.WriteSelectedRows(0, -1, xPosition, yPosition, writer.DirectContent);
             }
         }
 
@@ -742,39 +773,45 @@ namespace Capa_P
                 header.DefaultCell.HorizontalAlignment = Element.ALIGN_LEFT;
                 header.DefaultCell.VerticalAlignment = Element.ALIGN_MIDDLE;
 
-                string imagePathHeader = Path.GetFullPath(@"..\..\img\impdoor_logo.png");
-                if (!File.Exists(imagePathHeader))
+                var logoHeader = Properties.Resources.impdoor_logo; // Accede al recurso de imagen
+                if (logoHeader == null)
                 {
-                    throw new FileNotFoundException($"No se encontró la imagen en la ruta especificada: {imagePathHeader}");
+                    throw new FileNotFoundException("No se encontró la imagen en los recursos del proyecto.");
                 }
 
-                Image logoHeader = Image.GetInstance(imagePathHeader);
-                
 
-                // Ajustar la posición del header según el número de página
-                if (writer.PageNumber == 1)
+                // Convertir la imagen a un MemoryStream
+                using (MemoryStream ms = new MemoryStream())
                 {
-                    logoHeader.ScaleToFit(200f, 50f);
-                    PdfPCell imageCellHeader = new PdfPCell(logoHeader);
-                    imageCellHeader.Border = 0;
-                    imageCellHeader.HorizontalAlignment = Element.ALIGN_LEFT;
-                    imageCellHeader.VerticalAlignment = Element.ALIGN_MIDDLE;
-                    // Ajuste de posición para la primera página
-                    header.AddCell(imageCellHeader);
-                    float yPosition = document.PageSize.Height - document.TopMargin - 5; // Ajuste según sea necesario
-                    header.WriteSelectedRows(0, -1, document.LeftMargin, yPosition, writer.DirectContent);
-                }
-                else
-                {
-                    logoHeader.ScaleToFit(125f, 35);
-                    PdfPCell imageCellHeader = new PdfPCell(logoHeader);
-                    imageCellHeader.Border = 0;
-                    imageCellHeader.HorizontalAlignment = Element.ALIGN_LEFT;
-                    imageCellHeader.VerticalAlignment = Element.ALIGN_MIDDLE;
-                    // Ajuste de posición para la primera página
-                    header.AddCell(imageCellHeader);
-                    float yPosition = document.PageSize.Height - document.TopMargin + 45; // Ajuste según sea necesario
-                    header.WriteSelectedRows(0, -1, document.LeftMargin, yPosition, writer.DirectContent);
+                    logoHeader.Save(ms, ImageFormat.Png);
+                    ms.Seek(0, SeekOrigin.Begin);
+
+                    // Convertir el MemoryStream a una instancia de iTextSharp.text.Image
+                    iTextSharp.text.Image pdfImage = iTextSharp.text.Image.GetInstance(ms.ToArray());
+
+                    // Ajustar la posición del header según el número de página
+                    if (writer.PageNumber == 1)
+                    {
+                        pdfImage.ScaleToFit(200f, 50f);
+                        PdfPCell imageCellHeader = new PdfPCell(pdfImage);
+                        imageCellHeader.Border = 0;
+                        imageCellHeader.HorizontalAlignment = Element.ALIGN_LEFT;
+                        imageCellHeader.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        header.AddCell(imageCellHeader);
+                        float yPosition = document.PageSize.Height - document.TopMargin - 5; // Ajuste según sea necesario
+                        header.WriteSelectedRows(0, -1, document.LeftMargin, yPosition, writer.DirectContent);
+                    }
+                    else
+                    {
+                        pdfImage.ScaleToFit(125f, 35f);
+                        PdfPCell imageCellHeader = new PdfPCell(pdfImage);
+                        imageCellHeader.Border = 0;
+                        imageCellHeader.HorizontalAlignment = Element.ALIGN_LEFT;
+                        imageCellHeader.VerticalAlignment = Element.ALIGN_MIDDLE;
+                        header.AddCell(imageCellHeader);
+                        float yPosition = document.PageSize.Height - document.TopMargin + 45; // Ajuste según sea necesario
+                        header.WriteSelectedRows(0, -1, document.LeftMargin, yPosition, writer.DirectContent);
+                    }
                 }
             }
         }
@@ -956,6 +993,12 @@ namespace Capa_P
         {
             String msj = "";
 
+            if (lblFac.Text == string.Empty)
+            {
+                MessageBox.Show("La cotizacion debe tener un codigo identificador");
+                return;
+            }
+
             try
             {
 
@@ -1006,10 +1049,6 @@ namespace Capa_P
 
                     msj = facturaD.GuardarFacturaDetalle();
                 }
-
-
-
-                MessageBox.Show(msj);
 
             }
             catch (Exception ex)
@@ -1075,6 +1114,14 @@ namespace Capa_P
         private void cbmImpuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtServicio_TextChange(object sender, EventArgs e)
+        {
+            if(cbmProducto.Text != "Instalacion")
+            {
+                textoAnterior = txtServicio.Text;
+            }
         }
     }
 

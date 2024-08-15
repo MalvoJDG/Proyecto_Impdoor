@@ -305,7 +305,7 @@ namespace Capa_P
 
         private void btnlimpiar_Click(object sender, EventArgs e)
         {
-            
+            Limpiar();
         }
     }
 

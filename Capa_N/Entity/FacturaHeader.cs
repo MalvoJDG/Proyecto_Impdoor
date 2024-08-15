@@ -18,6 +18,7 @@ namespace Capa_N.Entity
         public string Estado_Pago { get; set; }
         public string Cliente { get; set; }
         public string Rnc { get; set; }
+        public float Pagado { get; set; }
 
         clsManejador m = new clsManejador();
 
@@ -56,10 +57,40 @@ namespace Capa_N.Entity
             return msj;
         }
 
+        public String ActualizarPago()
+        {
+            String msj = "";
+            List<clsParametros> list = new List<clsParametros>();
+
+            try
+            {
+                list.Add(new clsParametros("p_Factura", Factura));
+                list.Add(new clsParametros("P_Estado", Estado_Pago));
+                list.Add(new clsParametros("p_Pagado", Pagado));
+
+                list.Add(new clsParametros("p_Mensaje", MySqlDbType.VarChar, 100));
+
+                m.EjecutarSp("ActualizarPagado", list);
+
+
+                msj = list[3].valor.ToString();
+
+            }
+
+            catch (Exception ex)
+            {
+                msj = "Error updating payment: " + ex.Message;
+            }
+
+            return msj;
+        }
+
         public DataTable ListadoFacturaHeader()
         {
             return m.consultas("SeleccionarFacturas", null);
         }
+
+
 
         public DataTable BuscarPorCliente()
         {
@@ -77,7 +108,7 @@ namespace Capa_N.Entity
             try
             {
                 list.Add(new clsParametros("P_factura", Factura));
-
+                
 
                 list.Add(new clsParametros("p_mensaje", MySqlDbType.VarChar, 100));
 

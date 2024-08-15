@@ -81,6 +81,16 @@ namespace Capa_P.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap datosfooter {
+            get {
+                object obj = ResourceManager.GetObject("datosfooter", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a &lt;!DOCTYPE html&gt;
         ///&lt;html&gt;
         ///
@@ -110,10 +120,72 @@ namespace Capa_P.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap firma {
+            get {
+                object obj = ResourceManager.GetObject("firma", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap impdoor_logo {
+            get {
+                object obj = ResourceManager.GetObject("impdoor_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_impdoor {
             get {
                 object obj = ResourceManager.GetObject("logo_impdoor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Jequitiba
+        ///ROBLE AFRICANO
+        ///ROBLE ANDINO
+        ///ROBLE BRASILEÑO
+        ///ROBILLO
+        ///CAOBA
+        ///ANDIROBA
+        ///CEDRO
+        ///PINO
+        ///ACACIA
+        ///APANELADA
+        ///MACISA APANELADA
+        ///POLIMETALICAS
+        ///SEGURIDAD
+        ///COCINAS MODULARES
+        ///COCINAS MADERA
+        ///TOPES / ENCIMERAS
+        ///GRANITO
+        ///MARMOL
+        ///VENTANAS CORREDIZAS
+        ///VENTANAS P65
+        ///VENTANAS P92
+        ///VENTANAS P40
+        ///VENTANAS IMPORTADAS
+        ///VENTANAS SALAMONICAS
+        ///VENTANAS BALCONERAS
+        ///VENTANAS PROYECTADAS
+        ///VARANDAS
+        ///ESCALERAS
+        ///PASAMANOS ESCALERAS
+        ///PORCELAMICOS
+        ///CERAMICA
+        ///REVESTIMIENTO
+        ///.
+        /// </summary>
+        internal static string Materiales {
+            get {
+                return ResourceManager.GetString("Materiales", resourceCulture);
             }
         }
         
@@ -155,6 +227,16 @@ namespace Capa_P.Properties {
         internal static System.Drawing.Bitmap sello_acprint {
             get {
                 object obj = ResourceManager.GetObject("sello_acprint", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sello_solo_impdoor {
+            get {
+                object obj = ResourceManager.GetObject("sello_solo_impdoor", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
