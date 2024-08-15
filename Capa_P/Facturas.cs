@@ -229,5 +229,11 @@ namespace Capa_P
                 }
             }
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            MontoPanel.Visible = false;
+            Montotxt.Clear();
+        }
     }
 }

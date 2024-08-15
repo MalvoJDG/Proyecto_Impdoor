@@ -547,7 +547,7 @@
             this.txtInstalacion.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtInstalacion.Lines = new string[] {
         "1"};
-            this.txtInstalacion.Location = new System.Drawing.Point(760, 529);
+            this.txtInstalacion.Location = new System.Drawing.Point(1057, 449);
             this.txtInstalacion.Margin = new System.Windows.Forms.Padding(4);
             this.txtInstalacion.MaxLength = 32767;
             this.txtInstalacion.MinimumSize = new System.Drawing.Size(1, 1);
@@ -593,6 +593,7 @@
             this.txtInstalacion.TextMarginTop = 1;
             this.txtInstalacion.TextPlaceholder = "";
             this.txtInstalacion.UseSystemPasswordChar = false;
+            this.txtInstalacion.Visible = false;
             this.txtInstalacion.WordWrap = true;
             this.txtInstalacion.Leave += new System.EventHandler(this.txtInstalacion_Leave);
             // 
@@ -807,7 +808,7 @@
             this.lblTotalln.PasswordChar = '\0';
             this.lblTotalln.PlaceholderForeColor = System.Drawing.Color.Silver;
             this.lblTotalln.PlaceholderText = "";
-            this.lblTotalln.ReadOnly = true;
+            this.lblTotalln.ReadOnly = false;
             this.lblTotalln.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.lblTotalln.SelectedText = "";
             this.lblTotalln.SelectionLength = 0;
@@ -1112,7 +1113,7 @@
             "Si",
             "No"});
             this.cbmImpuesto.ItemTopMargin = 3;
-            this.cbmImpuesto.Location = new System.Drawing.Point(593, 118);
+            this.cbmImpuesto.Location = new System.Drawing.Point(593, 120);
             this.cbmImpuesto.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cbmImpuesto.Name = "cbmImpuesto";
             this.cbmImpuesto.Size = new System.Drawing.Size(84, 25);
@@ -1126,7 +1127,7 @@
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.label9.Location = new System.Drawing.Point(593, 92);
+            this.label9.Location = new System.Drawing.Point(593, 94);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(102, 32);
             this.label9.TabIndex = 149;
@@ -1603,7 +1604,7 @@
             this.lblId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblId.Location = new System.Drawing.Point(158, 9264);
+            this.lblId.Location = new System.Drawing.Point(114, 10084);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(141, 25);
@@ -1619,7 +1620,7 @@
             this.btnLimpiarT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarT.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarT.Location = new System.Drawing.Point(873, 9282);
+            this.btnLimpiarT.Location = new System.Drawing.Point(829, 10102);
             this.btnLimpiarT.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarT.Name = "btnLimpiarT";
             this.btnLimpiarT.Size = new System.Drawing.Size(200, 34);
@@ -1635,7 +1636,7 @@
             this.btnLimpiarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarD.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarD.Location = new System.Drawing.Point(620, 9282);
+            this.btnLimpiarD.Location = new System.Drawing.Point(576, 10102);
             this.btnLimpiarD.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarD.Name = "btnLimpiarD";
             this.btnLimpiarD.Size = new System.Drawing.Size(200, 34);
@@ -1844,7 +1845,7 @@
             this.bunifuButton21.IdleIconLeftImage = null;
             this.bunifuButton21.IdleIconRightImage = null;
             this.bunifuButton21.IndicateFocus = false;
-            this.bunifuButton21.Location = new System.Drawing.Point(1063, 447);
+            this.bunifuButton21.Location = new System.Drawing.Point(779, 527);
             this.bunifuButton21.Margin = new System.Windows.Forms.Padding(4);
             this.bunifuButton21.Name = "bunifuButton21";
             this.bunifuButton21.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
@@ -3690,12 +3691,13 @@
             // 
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.label32.Location = new System.Drawing.Point(765, 504);
+            this.label32.Location = new System.Drawing.Point(1062, 424);
             this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(132, 25);
             this.label32.TabIndex = 231;
             this.label32.Text = "Precio Unit.";
+            this.label32.Visible = false;
             // 
             // label33
             // 

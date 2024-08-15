@@ -297,6 +297,7 @@
             this.btnGuardarClienteR.TextMarginLeft = 0;
             this.btnGuardarClienteR.TextPadding = new System.Windows.Forms.Padding(0);
             this.btnGuardarClienteR.UseDefaultRadiusAndThickness = true;
+            this.btnGuardarClienteR.Visible = false;
             this.btnGuardarClienteR.Click += new System.EventHandler(this.btnGuardarClienteR_Click);
             // 
             // bunifuLabel2
@@ -903,7 +904,7 @@
             this.txtFechaSalida.IconRight = null;
             this.txtFechaSalida.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtFechaSalida.Lines = new string[0];
-            this.txtFechaSalida.Location = new System.Drawing.Point(416, 270);
+            this.txtFechaSalida.Location = new System.Drawing.Point(413, 270);
             this.txtFechaSalida.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtFechaSalida.MaxLength = 32767;
             this.txtFechaSalida.MinimumSize = new System.Drawing.Size(1, 1);
@@ -950,6 +951,7 @@
             this.txtFechaSalida.TextPlaceholder = "";
             this.txtFechaSalida.UseSystemPasswordChar = false;
             this.txtFechaSalida.WordWrap = true;
+            this.txtFechaSalida.TextChanged += new System.EventHandler(this.txtFechaSalida_TextChanged);
             // 
             // label2
             // 

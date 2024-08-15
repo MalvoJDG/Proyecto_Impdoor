@@ -17,13 +17,14 @@ namespace Capa_P
         {
             InitializeComponent();
             crearCuentas = new CrearCuentas(); // Crear una instancia de la clase CrearCuentas
+            CheckAndUpdateApp();
         }
 
 
         private void CheckAndUpdateApp()
         {
             WebClient webClient = new WebClient();
-
+ 
             try
             {
                 string latestVersionUrl = "https://api.github.com/repos/MalvoJDG/Proyecto_Impdoor/releases/latest";
@@ -42,8 +43,8 @@ namespace Capa_P
                         string downloadUrl = release.assets[0].browser_download_url; // URL de descarga del archivo
 
                         string tempPath = Path.GetTempPath();
-                        string zipPath = Path.Combine(tempPath, "SetupImpdoor.zip");
-                        string extractPath = Path.Combine(tempPath, "SetupImpdoor");
+                        string zipPath = Path.Combine(tempPath, "ImpdoorSetup.zip");
+                        string extractPath = Path.Combine(tempPath, "ImpdoorSetup");
 
                         // Eliminar archivos temporales anteriores si existen
                         if (File.Exists(zipPath))
@@ -58,21 +59,21 @@ namespace Capa_P
                         // Extraer el archivo ZIP
                         ZipFile.ExtractToDirectory(zipPath, extractPath);
 
-                        // Obtener el nombre del archivo MSI
-                        string[] msiFiles = Directory.GetFiles(extractPath, "*.msi");
-                        if (msiFiles.Length > 0)
+                        // Obtener el nombre del archivo EXE
+                        string[] exeFiles = Directory.GetFiles(extractPath, "*.exe");
+                        if (exeFiles.Length > 0)
                         {
-                            string msiPath = msiFiles[0];
+                            string exePath = exeFiles[0];
 
                             // Ejecutar el instalador
-                            Process.Start(msiPath);
+                            Process.Start(exePath);
 
                             // Cerrar la aplicación actual
                             Application.Exit();
                         }
                         else
                         {
-                            MessageBox.Show("El archivo MSI no se encontró en la carpeta de extracción.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("El archivo EXE no se encontró en la carpeta de extracción.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -86,6 +87,7 @@ namespace Capa_P
                 webClient.Dispose();
             }
         }
+
 
         private bool IsNewerVersion(string latestVersion, string currentVersion)
         {
@@ -130,7 +132,6 @@ namespace Capa_P
 
                     if (mensaje == "Inicio de sesión exitoso.")
                     {
-                        MessageBox.Show("Credenciales correctas.");
                         // Ocultar el formulario actual
                         this.Hide();
 

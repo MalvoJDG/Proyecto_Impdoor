@@ -124,16 +124,31 @@
   <data name="codenex_desktop_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\codenex-desktop-logo.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="datosfooter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\datosfooter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Ficha_Fabricacion" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ficha_Fabricacion.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="firma" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\firma.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="impdoor_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\impdoor_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="logo_impdoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo impdoor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Materiales" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Externo\Materiales.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="plantilla" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\plantilla.html;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="sello_acprint" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sello acprint.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sello_solo_impdoor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\img\sello_solo_impdoor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

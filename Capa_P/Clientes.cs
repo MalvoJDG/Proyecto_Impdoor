@@ -335,5 +335,10 @@ namespace Capa_P
                 txtTelefono.SelectionStart = txtTelefono.TextLength;
             
         }
+
+        private void btnlimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
     }
 }
