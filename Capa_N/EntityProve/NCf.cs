@@ -13,7 +13,7 @@ public class ncf
      * (nota mental)poner todos los store prosedure en ingles o en español
      * estoy sufriendo esquizofrenia
     */
-    public string Id { get; set; }
+    public string Id { get; set; } //esta vaina se repite demasiado hay que reducirlo
 
     public string Codigo { get; set; }
 
@@ -124,6 +124,36 @@ public class ncf
         return msj;
 
     }
+   
+    public string AsignarNCF(string IdFactura)
+    {
+        string msj = "";
+        List<clsParametros> list = new List<clsParametros>();
+
+        try
+        {
+            // Parámetros de entrada
+            list.Add(new clsParametros("p_IdFactura", IdFactura));
+
+            // Parámetros de salida
+            list.Add(new clsParametros("p_Mensaje", MySqlDbType.VarChar, 100));
+
+            // Ejecutar el Stored Procedure
+            m.EjecutarSp("AsignarNCF", list);
+
+            // Obtener el mensaje de salida
+            msj = list[1].valor.ToString();
+        }
+        catch (Exception ex)
+        {
+            // Manejar la excepción según sea necesario
+            throw ex;
+        }
+
+        return msj;
+    }
+
+   
 
 
 
