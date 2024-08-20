@@ -24,6 +24,8 @@ namespace Capa_P
             PPanel.Visible = false;
             NcfFacPanel.Visible = false;
             dtaNcfFac.AllowUserToAddRows = false;
+            lblTotalPagado.Visible = false;
+            lblTotalPendiente.Visible = false;
         }
 
         private void cargarHeader()
@@ -240,26 +242,28 @@ namespace Capa_P
         {
             try
             {
-                // Verificar que haya una fila seleccionada
-                if (dtaFactura.CurrentRow != null)
+                string nombreCliente = txtBuscadorFacturas.Text.Trim();
+
+                if (!string.IsNullOrEmpty(nombreCliente))
                 {
-                    // Obtener el ID del cliente o factura de la fila seleccionada
-                    string nombreCliente = dtaFactura.CurrentRow.Cells[6].Value.ToString();
-
-                    lblCliente.Text = $"Cliente: {nombreCliente}";
-
-                    // Cargar las facturas del cliente seleccionado usando la clase ncf
+                    
                     DataTable dt = facturaDetalle.MostrarFacturasPorCliente(nombreCliente);
 
-                    // Asignar el DataTable al DataGridView del panel ncfFactura
-                    dtaNcfFac.DataSource = dt;
-
-                    // Mostrar el panel ncfFactura
-                    NcfFacPanel.Visible = true;
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        dtaNcfFac.DataSource = dt;
+                        NcfFacPanel.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontraron facturas para el cliente ingresado.");
+                        dtaNcfFac.DataSource = null;
+                        NcfFacPanel.Visible = false;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Por favor, selecciona un cliente.");
+                    MessageBox.Show("Por favor, ingresa un nombre de cliente válido.");
                 }
             }
             catch (Exception ex)
@@ -271,65 +275,7 @@ namespace Capa_P
         private void MostrarPagosCliente()
         {
 
-            try
-            {
-                // Verificar que haya una fila seleccionada
-                if (dtaFactura.CurrentRow != null)
-                {
-                    // Obtener el nombre del cliente de la fila seleccionada
-                    string nombreCliente = dtaFactura.CurrentRow.Cells[6].Value.ToString();
-
-                    // Mostrar el nombre del cliente en el lblCliente
-                    lblCliente.Text = $"Cliente: {nombreCliente}";
-
-                    // Cargar las facturas del cliente seleccionado
-                    DataTable dt = facturaDetalle.MostrarPagosPorCliente(nombreCliente);
-
-                    // Asignar el DataTable al DataGridView
-                    dtaPCliente.DataSource = dt;
-
-                    // Calcular los totales desde el DataGridView
-                    float totalPagado = 0;
-                    float totalPendiente = 0;
-
-                    foreach (DataGridViewRow row in dtaPCliente.Rows)
-                    {
-                        if (row.IsNewRow) continue;
-
-                        float total = 0;
-                        float pagado = 0;
-
-                        // Obtener valores de las columnas, manejando posibles errores de conversión
-                        if (float.TryParse(row.Cells["Total"].Value?.ToString(), out total))
-                        {
-                            // Obtener el valor de la columna "Pagado"
-                            if (float.TryParse(row.Cells["Pagado"].Value?.ToString(), out pagado))
-                            {
-                                totalPagado += pagado;
-                                // Ajustar el total pendiente para que no sea negativo
-                                float pendiente = total - pagado;
-                                totalPendiente += (pendiente > 0) ? pendiente : 0;
-                            }
-                        }
-                    }
-
-                    // Mostrar el panel PPanel
-                    PPanel.Visible = true;
-                    NcfFacPanel.Visible = false; // Asegúrate de ocultar el otro panel
-
-                    // Mostrar los totales en las etiquetas
-                    lblTotalPagado.Text = $"Total Pagado: {totalPagado:C}";
-                    lblTotalPendiente.Text = $"Total Pendiente: {totalPendiente:C}";
-                }
-                else
-                {
-                    MessageBox.Show("Por favor, selecciona un cliente.");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al mostrar las facturas del cliente: {ex.Message}");
-            }
+           
         }
         private void dtaFactura_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -386,15 +332,8 @@ namespace Capa_P
 
         private void bunifuButton22_Click(object sender, EventArgs e)
         {
-            try
-            {
-                    MostrarFacturasCliente();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al mostrar el nombre del cliente: {ex.Message}");
-            }
 
+            NcfFacPanel.Visible = true;
         }
         //esto se repite en clientes y ncf debo cambiarlo
         public void exportaraexcel(DataGridView tabla)
@@ -470,13 +409,150 @@ namespace Capa_P
 
         private void btnVerPagos_Click(object sender, EventArgs e)
         {
+            PPanel.Visible = true;
+        }
+
+        private void dtaNcfFac_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txtBuscadorFacturas_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+     
+
+
+        private void BuscarFacturas()
+        {
             try
             {
-                MostrarPagosCliente();
+                string nombreCliente = txtBuscadorFacturas.Text.Trim();
+
+                if (!string.IsNullOrEmpty(nombreCliente))
+                {
+                    DataTable dt = facturaDetalle.MostrarFacturasPorCliente(nombreCliente);
+
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        dtaNcfFac.DataSource = dt;
+                        NcfFacPanel.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontraron facturas para el cliente ingresado.");
+                        dtaNcfFac.DataSource = null;
+                       
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingresa un nombre de cliente válido.");
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al mostrar el nombre del cliente: {ex.Message}");
+                MessageBox.Show($"Error al mostrar las facturas del cliente: {ex.Message}");
+            }
+        }
+        private void BuscarPagos()
+        {
+            try
+            {
+                // Obtener el nombre del cliente de la fila seleccionada
+                string nombreCliente = txtBuscadorPagos.Text.Trim();
+
+                if (!string.IsNullOrEmpty(nombreCliente))
+                {
+                    // Cargar las facturas del cliente seleccionado
+                    DataTable dt = facturaDetalle.MostrarPagosPorCliente(nombreCliente);
+
+                    // Verificar si el DataTable contiene filas
+                    if (dt.Rows.Count == 0)
+                    {
+                        // No se encontraron datos para el nombre del cliente
+                        MessageBox.Show("El nombre del cliente no se encuentra en los registros.");
+                        // Limpiar el DataGridView y ocultar los totales
+                        dtaPCliente.DataSource = null;
+                        
+                        lblTotalPagado.Visible = false;
+                        lblTotalPendiente.Visible = false;
+                        return; // Salir del método
+                    }
+
+                    // Asignar el DataTable al DataGridView
+                    dtaPCliente.DataSource = dt;
+
+                    // Calcular los totales desde el DataGridView
+                    float totalPagado = 0;
+                    float totalPendiente = 0;
+
+                    foreach (DataGridViewRow row in dtaPCliente.Rows)
+                    {
+                        if (row.IsNewRow) continue;
+
+                        float total = 0;
+                        float pagado = 0;
+
+                        // Obtener valores de las columnas, manejando posibles errores de conversión
+                        if (float.TryParse(row.Cells["Total"].Value?.ToString(), out total) &&
+                            float.TryParse(row.Cells["Pagado"].Value?.ToString(), out pagado))
+                        {
+                            totalPagado += pagado;
+                            float pendiente = total - pagado;
+                            totalPendiente += (pendiente > 0) ? pendiente : 0;
+                        }
+                    }
+
+                    // Mostrar el panel PPanel
+                    PPanel.Visible = true;
+                    NcfFacPanel.Visible = false; // Asegúrate de ocultar el otro panel
+
+                    // Mostrar los totales en las etiquetas
+                    lblTotalPagado.Text = $"Total Pagado: {totalPagado:C}";
+                    lblTotalPendiente.Text = $"Total Pendiente: {totalPendiente:C}";
+                    lblTotalPendiente.Visible = true;
+                    lblTotalPagado.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingresa un nombre de cliente válido.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al mostrar las facturas del cliente: {ex.Message}");
+            }
+
+        }
+        private void txtBuscadorFacturas_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Evita que el sonido "ding" se reproduzca al presionar Enter
+                e.SuppressKeyPress = true;
+
+                // Llama al método de búsqueda
+                BuscarFacturas();
+            }
+        }
+
+        private void lblClienteP_Click(object sender, EventArgs e)
+        {
+                 
+        }
+
+        private void txtBuscadorPagos_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                // Evita que el sonido "ding" se reproduzca al presionar Enter
+                e.SuppressKeyPress = true;
+
+                // Llama al método de búsqueda
+                BuscarPagos();
             }
         }
     }
