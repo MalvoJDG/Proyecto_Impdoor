@@ -476,7 +476,7 @@ namespace Capa_P
                         MessageBox.Show("El nombre del cliente no se encuentra en los registros.");
                         // Limpiar el DataGridView y ocultar los totales
                         dtaPCliente.DataSource = null;
-                        
+                        PPanel.Visible = false;
                         lblTotalPagado.Visible = false;
                         lblTotalPendiente.Visible = false;
                         return; // Salir del método
@@ -484,6 +484,9 @@ namespace Capa_P
 
                     // Asignar el DataTable al DataGridView
                     dtaPCliente.DataSource = dt;
+
+                    // Desactivar la fila de nueva entrada
+                    dtaPCliente.AllowUserToAddRows = false;
 
                     // Calcular los totales desde el DataGridView
                     float totalPagado = 0;
@@ -525,6 +528,7 @@ namespace Capa_P
             {
                 MessageBox.Show($"Error al mostrar las facturas del cliente: {ex.Message}");
             }
+
 
         }
         private void txtBuscadorFacturas_KeyDown(object sender, KeyEventArgs e)
