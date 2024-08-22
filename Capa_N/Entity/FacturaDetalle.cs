@@ -107,7 +107,7 @@ namespace Capa_N.Entity
                 list.Add(new clsParametros("p_NombreCliente", nombreCliente));
 
                 // Ejecutar el stored procedure y obtener un DataTable
-                return m.consultas("mostrarPagosPorCliente", list);
+                return m.consultas("MostrarPagosPorCliente", list);
             }
             catch (Exception ex)
             {

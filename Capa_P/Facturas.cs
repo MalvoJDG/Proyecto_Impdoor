@@ -21,7 +21,7 @@ namespace Capa_P
         {
             InitializeComponent();
             cargarHeader();
-            PPanel.Visible = false;
+            PagPanel.Visible = false;
             NcfFacPanel.Visible = false;
             dtaNcfFac.AllowUserToAddRows = false;
             lblTotalPagado.Visible = false;
@@ -332,8 +332,9 @@ namespace Capa_P
 
         private void bunifuButton22_Click(object sender, EventArgs e)
         {
-
+            PagPanel.Visible = false;
             NcfFacPanel.Visible = true;
+           
         }
         //esto se repite en clientes y ncf debo cambiarlo
         public void exportaraexcel(DataGridView tabla)
@@ -403,13 +404,15 @@ namespace Capa_P
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            PPanel.Visible = false;
+            PagPanel.Visible = false;
             cargarHeader();
         }
 
         private void btnVerPagos_Click(object sender, EventArgs e)
         {
-            PPanel.Visible = true;
+            NcfFacPanel.Visible = false;
+            PagPanel.Visible = true;
+            PagPanel.BringToFront();
         }
 
         private void dtaNcfFac_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -419,7 +422,7 @@ namespace Capa_P
 
         private void txtBuscadorFacturas_TextChanged(object sender, EventArgs e)
         {
-            
+           
         }
 
      
@@ -439,12 +442,15 @@ namespace Capa_P
                     {
                         dtaNcfFac.DataSource = dt;
                         NcfFacPanel.Visible = true;
+
+                        
                     }
                     else
                     {
                         MessageBox.Show("No se encontraron facturas para el cliente ingresado.");
                         dtaNcfFac.DataSource = null;
-                       
+
+                        
                     }
                 }
                 else
@@ -476,7 +482,7 @@ namespace Capa_P
                         MessageBox.Show("El nombre del cliente no se encuentra en los registros.");
                         // Limpiar el DataGridView y ocultar los totales
                         dtaPCliente.DataSource = null;
-                        PPanel.Visible = false;
+                        PagPanel.Visible = false;
                         lblTotalPagado.Visible = false;
                         lblTotalPendiente.Visible = false;
                         return; // Salir del método
@@ -510,7 +516,7 @@ namespace Capa_P
                     }
 
                     // Mostrar el panel PPanel
-                    PPanel.Visible = true;
+                    PagPanel.Visible = true;
                     NcfFacPanel.Visible = false; // Asegúrate de ocultar el otro panel
 
                     // Mostrar los totales en las etiquetas
@@ -558,6 +564,15 @@ namespace Capa_P
                 // Llama al método de búsqueda
                 BuscarPagos();
             }
+        }
+
+        private void bunifuLabel4_Click_2(object sender, EventArgs e)
+        {
+      }
+
+        private void PPanel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
