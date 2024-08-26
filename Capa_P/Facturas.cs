@@ -424,6 +424,7 @@ namespace Capa_P
         private void btnVerPagos_Click(object sender, EventArgs e)
         {
             NcfFacPanel.Visible = false;
+            PagPanel.Location = new System.Drawing.Point(21,34);
             PagPanel.Visible = true;
             PagPanel.BringToFront();
         }
