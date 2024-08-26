@@ -288,7 +288,20 @@ namespace Capa_P
             {
                 if (dtaFactura.CurrentRow != null)
                 {
+                    // Obtener el valor de la columna Credito_Fiscal
+                    var creditoFiscal = dtaFactura.CurrentRow.Cells["NCF"].Value;
+
+                    // Verificar si la columna Credito_Fiscal ya tiene un valor
+                    if (creditoFiscal != null && !string.IsNullOrWhiteSpace(creditoFiscal.ToString()))
+                    {
+                        MessageBox.Show("ya tiene un valor asignado. No se puede agregar un nuevo NCF.");
+                        return; // Salir del método si la columna ya tiene un valor
+                    }
+
+                    // Obtener el ID de la factura
                     string idFactura = dtaFactura.CurrentRow.Cells[0].Value.ToString();
+
+                    // Llamar al método AsignarNCF
                     string mensaje = ncf.AsignarNCF(idFactura);
                     MessageBox.Show(mensaje);
                     cargarHeader();

@@ -124,7 +124,7 @@ public class ncf
         return msj;
 
     }
-   
+
     public string AsignarNCF(string IdFactura)
     {
         string msj = "";
@@ -153,7 +153,8 @@ public class ncf
         return msj;
     }
 
-   
+
+
 
 
 
