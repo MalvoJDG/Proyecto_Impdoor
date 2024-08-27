@@ -449,6 +449,10 @@ namespace Capa_P
 
                 if (!string.IsNullOrEmpty(nombreCliente))
                 {
+                    if (dtaNcfFac.Columns["Cliente"] != null)
+                    {
+                        dtaNcfFac.Columns["Cliente"].Visible = false;
+                    }
 
                     DataTable dt = facturaDetalle.MostrarFacturasPorCliente(nombreCliente);
 
@@ -505,6 +509,12 @@ namespace Capa_P
                     // Desactivar la fila de nueva entrada
                     dtaPCliente.AllowUserToAddRows = false;
 
+                    // Ocultar la columna "Cliente"
+                    if (dtaPCliente.Columns["Cliente"] != null)
+                    {
+                        dtaPCliente.Columns["Cliente"].Visible = false;
+                    }
+
                     // Calcular los totales desde el DataGridView
                     float totalPagado = 0;
                     float totalPendiente = 0;
@@ -526,7 +536,7 @@ namespace Capa_P
                         }
                     }
 
-                    // Mostrar el panel PPanel
+                    // Mostrar el panel PagPanel
                     PagPanel.Visible = true;
                     NcfFacPanel.Visible = false; // Asegúrate de ocultar el otro panel
 
