@@ -243,6 +243,7 @@ namespace Capa_P
         {
             try
             {
+
                 string nombreCliente = txtBuscadorFacturas.Text.Trim();
 
                 if (!string.IsNullOrEmpty(nombreCliente))
@@ -274,11 +275,7 @@ namespace Capa_P
         }
 
 
-        private void MostrarPagosCliente()
-        {
-
-
-        }
+       
         private void dtaFactura_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -560,6 +557,7 @@ namespace Capa_P
 
                 // Llama al método de búsqueda
                 BuscarFacturas();
+                AutocompletarBuscador();
             }
         }
 
@@ -572,6 +570,12 @@ namespace Capa_P
         {
             if (e.KeyCode == Keys.Enter)
             {
+                // Oculta la primera columna
+                if (dtaPCliente.Columns.Count > 0)
+                {
+                    dtaPCliente.Columns[0].Visible = false;
+                }
+
                 // Evita que el sonido "ding" se reproduzca al presionar Enter
                 e.SuppressKeyPress = true;
 
@@ -581,7 +585,6 @@ namespace Capa_P
                 // Autocompletar el TextBox con el texto encontrado
                 AutocompletarBuscador();
             }
-
         }
 
         private void bunifuLabel4_Click_2(object sender, EventArgs e)
@@ -594,7 +597,7 @@ namespace Capa_P
         }
         private void AutocompletarBuscador()
         {
-            // Verifica si hay filas en el DataGridView
+            // Verifica si hay filas en el DataGridView dtaPCliente
             if (dtaPCliente.Rows.Count > 0)
             {
                 // Toma el primer valor de la primera fila
@@ -604,6 +607,19 @@ namespace Capa_P
                 if (!string.IsNullOrEmpty(primerValor))
                 {
                     txtBuscadorPagos.Text = primerValor;
+                }
+            }
+
+            // Verifica si hay filas en el DataGridView dtaNcfFac
+            if (dtaNcfFac.Rows.Count > 0)
+            {
+                // Toma el segundo valor de la primera fila (esto se refiere a la segunda celda)
+                string segundoValor = dtaNcfFac.Rows[0].Cells[0].Value?.ToString(); // Cambia el índice según la celda que necesitas
+
+                // Establece el valor en el TextBox
+                if (!string.IsNullOrEmpty(segundoValor))
+                {
+                    txtBuscadorFacturas.Text = segundoValor; // Asume que tienes un TextBox llamado txtBuscadorNcf para el segundo valor
                 }
             }
         }
