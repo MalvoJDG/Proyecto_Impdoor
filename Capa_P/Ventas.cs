@@ -1128,6 +1128,11 @@ namespace Capa_P
         {
 
         }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

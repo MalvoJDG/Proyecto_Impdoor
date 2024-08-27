@@ -26,6 +26,7 @@ namespace Capa_P
             dtaNcfFac.AllowUserToAddRows = false;
             lblTotalPagado.Visible = false;
             lblTotalPendiente.Visible = false;
+            dtaPCliente.CellFormatting += dtaPCliente_CellFormatting;
         }
 
         private void cargarHeader()
@@ -246,7 +247,7 @@ namespace Capa_P
 
                 if (!string.IsNullOrEmpty(nombreCliente))
                 {
-                    
+
                     DataTable dt = facturaDetalle.MostrarFacturasPorCliente(nombreCliente);
 
                     if (dt != null && dt.Rows.Count > 0)
@@ -272,14 +273,15 @@ namespace Capa_P
             }
         }
 
+
         private void MostrarPagosCliente()
         {
 
-           
+
         }
         private void dtaFactura_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-         
+
         }
 
         private void AsignarFacturas_Click(object sender, EventArgs e)
@@ -319,17 +321,17 @@ namespace Capa_P
 
         private void MontoPanel_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void bunifuLabel4_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void dtaNcfFac_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -347,7 +349,7 @@ namespace Capa_P
         {
             PagPanel.Visible = false;
             NcfFacPanel.Visible = true;
-           
+
         }
         //esto se repite en clientes y ncf debo cambiarlo
         public void exportaraexcel(DataGridView tabla)
@@ -424,7 +426,7 @@ namespace Capa_P
         private void btnVerPagos_Click(object sender, EventArgs e)
         {
             NcfFacPanel.Visible = false;
-            PagPanel.Location = new System.Drawing.Point(21,34);
+            PagPanel.Location = new System.Drawing.Point(21, 34);
             PagPanel.Visible = true;
             PagPanel.BringToFront();
         }
@@ -436,10 +438,10 @@ namespace Capa_P
 
         private void txtBuscadorFacturas_TextChanged(object sender, EventArgs e)
         {
-           
+
         }
 
-     
+
 
 
         private void BuscarFacturas()
@@ -450,21 +452,19 @@ namespace Capa_P
 
                 if (!string.IsNullOrEmpty(nombreCliente))
                 {
+
                     DataTable dt = facturaDetalle.MostrarFacturasPorCliente(nombreCliente);
 
                     if (dt != null && dt.Rows.Count > 0)
                     {
                         dtaNcfFac.DataSource = dt;
                         NcfFacPanel.Visible = true;
-
-                        
                     }
                     else
                     {
                         MessageBox.Show("No se encontraron facturas para el cliente ingresado.");
                         dtaNcfFac.DataSource = null;
-
-                        
+                        NcfFacPanel.Visible = false;
                     }
                 }
                 else
@@ -565,7 +565,7 @@ namespace Capa_P
 
         private void lblClienteP_Click(object sender, EventArgs e)
         {
-                 
+
         }
 
         private void txtBuscadorPagos_KeyDown(object sender, KeyEventArgs e)
@@ -577,16 +577,62 @@ namespace Capa_P
 
                 // Llama al método de búsqueda
                 BuscarPagos();
+
+                // Autocompletar el TextBox con el texto encontrado
+                AutocompletarBuscador();
             }
+
         }
 
         private void bunifuLabel4_Click_2(object sender, EventArgs e)
         {
-      }
+        }
 
         private void PPanel_Click(object sender, EventArgs e)
         {
 
+        }
+        private void AutocompletarBuscador()
+        {
+            // Verifica si hay filas en el DataGridView
+            if (dtaPCliente.Rows.Count > 0)
+            {
+                // Toma el primer valor de la primera fila
+                string primerValor = dtaPCliente.Rows[0].Cells[0].Value?.ToString();
+
+                // Establece el valor en el TextBox
+                if (!string.IsNullOrEmpty(primerValor))
+                {
+                    txtBuscadorPagos.Text = primerValor;
+                }
+            }
+        }
+
+        private void dtaPCliente_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Verifica si la columna es de interés
+            if (dtaPCliente.Columns[e.ColumnIndex].Name == "Total" ||
+                dtaPCliente.Columns[e.ColumnIndex].Name == "Pagado" ||
+                dtaPCliente.Columns[e.ColumnIndex].Name == "Pendiente")
+            {
+                if (e.Value != null)
+                {
+                    // Intentar convertir el valor a un número float
+                    if (float.TryParse(e.Value.ToString(), out float number))
+                    {
+                        // Para la columna "Pendiente", eliminar el signo negativo
+                        if (dtaPCliente.Columns[e.ColumnIndex].Name == "Pendiente")
+                        {
+                            e.Value = Math.Abs(number).ToString("N2");
+                        }
+                        else
+                        {
+                            e.Value = number.ToString("N2");
+                        }
+                        e.FormattingApplied = true;
+                    }
+                }
+            }
         }
     }
 }
