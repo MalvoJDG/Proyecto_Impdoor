@@ -52,7 +52,7 @@
     <StartupObject>Capa_P.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>251C6F6727AE0F3245376F8F4EBF47B15E1D5A33</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>CDDB84FF745496C4F55F00862A9EAF943C8E3202</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>Capa_P_TemporaryKey.pfx</ManifestKeyFile>
@@ -381,6 +381,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Capa_P_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -311,7 +311,7 @@ namespace Capa_P
                         imageCellHeader.HorizontalAlignment = Element.ALIGN_LEFT;
                         imageCellHeader.VerticalAlignment = Element.ALIGN_MIDDLE;
                         header.AddCell(imageCellHeader);
-                        float yPosition = document.PageSize.Height - document.TopMargin + 45; // Ajuste según sea necesario
+                        float yPosition = document.PageSize.Height - document.TopMargin + 5; // Ajuste según sea necesario
                         header.WriteSelectedRows(0, -1, document.LeftMargin, yPosition, writer.DirectContent);
                     }
                 }

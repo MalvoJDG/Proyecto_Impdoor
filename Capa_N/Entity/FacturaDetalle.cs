@@ -81,5 +81,40 @@ namespace Capa_N.Entity
 
             return m.consultas("SeleccionarDFactura", parametros);
         }
+
+        public DataTable MostrarFacturasPorCliente(string nombreCliente)
+        {
+            List<clsParametros> list = new List<clsParametros>();
+
+            try
+            {
+                list.Add(new clsParametros("p_NombreCliente", nombreCliente));
+
+                return m.consultas("MostrarFacturaPorCliente", list);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable MostrarPagosPorCliente(string nombreCliente)
+        {
+            List<clsParametros> list = new List<clsParametros>();
+
+            try
+            {
+                // Agregar el parámetro del nombre del cliente
+                list.Add(new clsParametros("p_NombreCliente", nombreCliente));
+
+                // Ejecutar el stored procedure y obtener un DataTable
+                return m.consultas("MostrarPagosPorCliente", list);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
+    
 }
+

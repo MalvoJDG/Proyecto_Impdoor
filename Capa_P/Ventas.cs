@@ -1123,6 +1123,16 @@ namespace Capa_P
                 textoAnterior = txtServicio.Text;
             }
         }
+
+        private void lblNCF_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

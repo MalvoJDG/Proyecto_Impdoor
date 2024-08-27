@@ -198,7 +198,6 @@ namespace Capa_P
         {
             exportaraexcel(dtaClientes);
         }
-
         public void exportaraexcel(DataGridView tabla)
         {
             // Crear un nuevo libro de Excel
@@ -239,6 +238,7 @@ namespace Capa_P
                 }
             }
         }
+
 
         // Este metodo es para validar que el numero solo tenga 10 digitos
         public static bool EsNumeroDeTelefonoValido(string telefono)
