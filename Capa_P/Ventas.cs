@@ -105,6 +105,18 @@ namespace Capa_P
                 txtInstalacion.Visible = false;
                 label32.Visible = false;
             }
+
+            if(cbmProducto.Text == "Closet")
+            {
+                label19.Visible = false;
+                cbmTipoPuerta.Visible = false;
+                lblApanelado.Visible = false;
+                cbmApanelado.Visible = false;
+                lblTorre.Location = new System.Drawing.Point(44, 337);
+                txtTorre.Location = new System.Drawing.Point(44, 360);
+                lblPuertas.Location = new System.Drawing.Point(155, 337);
+                txtPuertas.Location = new System.Drawing.Point(155, 360);
+            }
         }
 
 
@@ -270,6 +282,8 @@ namespace Capa_P
 
                 // Asignar valores a las propiedades de la clase
                 precios.Tipo_Madera_id = id_Madera;
+                precios.Tipo_Material_id = id_Material;
+                precios.Producto_id = id_producto;
 
                 if (float.TryParse(txtAncho.Text, out float ancho) && float.TryParse(txtLargo.Text, out float largo))
                 {
