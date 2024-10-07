@@ -150,10 +150,6 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties106 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties107 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties108 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties109 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties110 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties111 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
-            Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties112 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             this.lblAviso = new System.Windows.Forms.Label();
             this.btnCargar = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.label14 = new System.Windows.Forms.Label();
@@ -218,9 +214,6 @@
             this.PrecioUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ITBIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total_Linea = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Torres = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Puertas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Maletero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPrecioIncluye = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txtCondicion = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txtPrecioNoIncluye = new Bunifu.UI.WinForms.BunifuTextBox();
@@ -273,10 +266,8 @@
             this.label37 = new System.Windows.Forms.Label();
             this.cbmEspesor = new Bunifu.UI.WinForms.BunifuDropdown();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtPuertas = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txtTorre = new Bunifu.UI.WinForms.BunifuTextBox();
             this.lblTorre = new System.Windows.Forms.Label();
-            this.lblPuertas = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtaFacturas)).BeginInit();
             this.bunifuPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnImprimir)).BeginInit();
@@ -839,6 +830,7 @@
             this.lblTotalln.TextPlaceholder = "";
             this.lblTotalln.UseSystemPasswordChar = false;
             this.lblTotalln.WordWrap = true;
+            this.lblTotalln.TextChanged += new System.EventHandler(this.lblTotalln_TextChanged);
             // 
             // label6
             // 
@@ -1621,7 +1613,7 @@
             this.lblId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblId.Location = new System.Drawing.Point(60, 11107);
+            this.lblId.Location = new System.Drawing.Point(-39, 12943);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(141, 25);
@@ -1637,7 +1629,7 @@
             this.btnLimpiarT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarT.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarT.Location = new System.Drawing.Point(775, 11125);
+            this.btnLimpiarT.Location = new System.Drawing.Point(676, 12961);
             this.btnLimpiarT.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarT.Name = "btnLimpiarT";
             this.btnLimpiarT.Size = new System.Drawing.Size(200, 34);
@@ -1653,7 +1645,7 @@
             this.btnLimpiarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarD.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarD.Location = new System.Drawing.Point(522, 11125);
+            this.btnLimpiarD.Location = new System.Drawing.Point(423, 12961);
             this.btnLimpiarD.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarD.Name = "btnLimpiarD";
             this.btnLimpiarD.Size = new System.Drawing.Size(200, 34);
@@ -2024,10 +2016,7 @@
             this.Canti,
             this.PrecioUnidad,
             this.ITBIS,
-            this.Total_Linea,
-            this.Torres,
-            this.Puertas,
-            this.Maletero});
+            this.Total_Linea});
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2120,24 +2109,6 @@
             this.Total_Linea.HeaderText = "Total";
             this.Total_Linea.MinimumWidth = 6;
             this.Total_Linea.Name = "Total_Linea";
-            // 
-            // Torres
-            // 
-            this.Torres.HeaderText = "Torres";
-            this.Torres.MinimumWidth = 6;
-            this.Torres.Name = "Torres";
-            // 
-            // Puertas
-            // 
-            this.Puertas.HeaderText = "Puertas";
-            this.Puertas.MinimumWidth = 6;
-            this.Puertas.Name = "Puertas";
-            // 
-            // Maletero
-            // 
-            this.Maletero.HeaderText = "Maletero";
-            this.Maletero.MinimumWidth = 6;
-            this.Maletero.Name = "Maletero";
             // 
             // txtPrecioIncluye
             // 
@@ -2843,10 +2814,12 @@
             this.cbmTerminacion.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
             this.cbmTerminacion.ItemHighLightForeColor = System.Drawing.Color.White;
             this.cbmTerminacion.Items.AddRange(new object[] {
+            "",
             "Lacado natural ",
-            "Color"});
+            "Color",
+            "Amaderada"});
             this.cbmTerminacion.ItemTopMargin = 3;
-            this.cbmTerminacion.Location = new System.Drawing.Point(48, 528);
+            this.cbmTerminacion.Location = new System.Drawing.Point(48, 527);
             this.cbmTerminacion.Margin = new System.Windows.Forms.Padding(4);
             this.cbmTerminacion.Name = "cbmTerminacion";
             this.cbmTerminacion.Size = new System.Drawing.Size(177, 23);
@@ -2854,12 +2827,13 @@
             this.cbmTerminacion.Text = null;
             this.cbmTerminacion.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
             this.cbmTerminacion.TextLeftMargin = 5;
+            this.cbmTerminacion.SelectedIndexChanged += new System.EventHandler(this.cbmTerminacion_SelectedIndexChanged);
             // 
             // label18
             // 
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.label18.Location = new System.Drawing.Point(48, 498);
+            this.label18.Location = new System.Drawing.Point(48, 497);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(159, 32);
@@ -4239,84 +4213,6 @@
             this.label12.TabIndex = 243;
             this.label12.Text = "Espesor";
             // 
-            // txtPuertas
-            // 
-            this.txtPuertas.AcceptsReturn = false;
-            this.txtPuertas.AcceptsTab = false;
-            this.txtPuertas.AnimationSpeed = 200;
-            this.txtPuertas.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtPuertas.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtPuertas.AutoSizeHeight = true;
-            this.txtPuertas.BackColor = System.Drawing.Color.Transparent;
-            this.txtPuertas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("txtPuertas.BackgroundImage")));
-            this.txtPuertas.BorderColorActive = System.Drawing.Color.DodgerBlue;
-            this.txtPuertas.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.txtPuertas.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            this.txtPuertas.BorderColorIdle = System.Drawing.Color.Transparent;
-            this.txtPuertas.BorderRadius = 20;
-            this.txtPuertas.BorderThickness = 1;
-            this.txtPuertas.CharacterCase = Bunifu.UI.WinForms.BunifuTextBox.CharacterCases.Normal;
-            this.txtPuertas.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtPuertas.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPuertas.DefaultFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPuertas.DefaultText = "";
-            this.txtPuertas.FillColor = System.Drawing.Color.White;
-            this.txtPuertas.HideSelection = true;
-            this.txtPuertas.IconLeft = null;
-            this.txtPuertas.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPuertas.IconPadding = 10;
-            this.txtPuertas.IconRight = null;
-            this.txtPuertas.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPuertas.Lines = new string[0];
-            this.txtPuertas.Location = new System.Drawing.Point(1074, 530);
-            this.txtPuertas.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPuertas.MaxLength = 32767;
-            this.txtPuertas.MinimumSize = new System.Drawing.Size(1, 1);
-            this.txtPuertas.Modified = false;
-            this.txtPuertas.Multiline = false;
-            this.txtPuertas.Name = "txtPuertas";
-            stateProperties105.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties105.FillColor = System.Drawing.Color.Empty;
-            stateProperties105.ForeColor = System.Drawing.Color.Empty;
-            stateProperties105.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtPuertas.OnActiveState = stateProperties105;
-            stateProperties106.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties106.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties106.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties106.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.txtPuertas.OnDisabledState = stateProperties106;
-            stateProperties107.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties107.FillColor = System.Drawing.Color.Empty;
-            stateProperties107.ForeColor = System.Drawing.Color.Empty;
-            stateProperties107.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtPuertas.OnHoverState = stateProperties107;
-            stateProperties108.BorderColor = System.Drawing.Color.Transparent;
-            stateProperties108.FillColor = System.Drawing.Color.White;
-            stateProperties108.ForeColor = System.Drawing.Color.Empty;
-            stateProperties108.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtPuertas.OnIdleState = stateProperties108;
-            this.txtPuertas.Padding = new System.Windows.Forms.Padding(4);
-            this.txtPuertas.PasswordChar = '\0';
-            this.txtPuertas.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txtPuertas.PlaceholderText = "";
-            this.txtPuertas.ReadOnly = false;
-            this.txtPuertas.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtPuertas.SelectedText = "";
-            this.txtPuertas.SelectionLength = 0;
-            this.txtPuertas.SelectionStart = 0;
-            this.txtPuertas.ShortcutsEnabled = true;
-            this.txtPuertas.Size = new System.Drawing.Size(105, 30);
-            this.txtPuertas.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
-            this.txtPuertas.TabIndex = 245;
-            this.txtPuertas.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtPuertas.TextMarginBottom = 0;
-            this.txtPuertas.TextMarginLeft = 3;
-            this.txtPuertas.TextMarginTop = 1;
-            this.txtPuertas.TextPlaceholder = "";
-            this.txtPuertas.UseSystemPasswordChar = false;
-            this.txtPuertas.Visible = false;
-            this.txtPuertas.WordWrap = true;
-            // 
             // txtTorre
             // 
             this.txtTorre.AcceptsReturn = false;
@@ -4346,33 +4242,33 @@
             this.txtTorre.IconRight = null;
             this.txtTorre.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTorre.Lines = new string[0];
-            this.txtTorre.Location = new System.Drawing.Point(924, 530);
+            this.txtTorre.Location = new System.Drawing.Point(1059, 449);
             this.txtTorre.Margin = new System.Windows.Forms.Padding(4);
             this.txtTorre.MaxLength = 32767;
             this.txtTorre.MinimumSize = new System.Drawing.Size(1, 1);
             this.txtTorre.Modified = false;
             this.txtTorre.Multiline = false;
             this.txtTorre.Name = "txtTorre";
-            stateProperties109.BorderColor = System.Drawing.Color.DodgerBlue;
-            stateProperties109.FillColor = System.Drawing.Color.Empty;
-            stateProperties109.ForeColor = System.Drawing.Color.Empty;
-            stateProperties109.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtTorre.OnActiveState = stateProperties109;
-            stateProperties110.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            stateProperties110.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            stateProperties110.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            stateProperties110.PlaceholderForeColor = System.Drawing.Color.DarkGray;
-            this.txtTorre.OnDisabledState = stateProperties110;
-            stateProperties111.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties111.FillColor = System.Drawing.Color.Empty;
-            stateProperties111.ForeColor = System.Drawing.Color.Empty;
-            stateProperties111.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtTorre.OnHoverState = stateProperties111;
-            stateProperties112.BorderColor = System.Drawing.Color.Transparent;
-            stateProperties112.FillColor = System.Drawing.Color.White;
-            stateProperties112.ForeColor = System.Drawing.Color.Empty;
-            stateProperties112.PlaceholderForeColor = System.Drawing.Color.Empty;
-            this.txtTorre.OnIdleState = stateProperties112;
+            stateProperties105.BorderColor = System.Drawing.Color.DodgerBlue;
+            stateProperties105.FillColor = System.Drawing.Color.Empty;
+            stateProperties105.ForeColor = System.Drawing.Color.Empty;
+            stateProperties105.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtTorre.OnActiveState = stateProperties105;
+            stateProperties106.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            stateProperties106.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            stateProperties106.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            stateProperties106.PlaceholderForeColor = System.Drawing.Color.DarkGray;
+            this.txtTorre.OnDisabledState = stateProperties106;
+            stateProperties107.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties107.FillColor = System.Drawing.Color.Empty;
+            stateProperties107.ForeColor = System.Drawing.Color.Empty;
+            stateProperties107.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtTorre.OnHoverState = stateProperties107;
+            stateProperties108.BorderColor = System.Drawing.Color.Transparent;
+            stateProperties108.FillColor = System.Drawing.Color.White;
+            stateProperties108.ForeColor = System.Drawing.Color.Empty;
+            stateProperties108.PlaceholderForeColor = System.Drawing.Color.Empty;
+            this.txtTorre.OnIdleState = stateProperties108;
             this.txtTorre.Padding = new System.Windows.Forms.Padding(4);
             this.txtTorre.PasswordChar = '\0';
             this.txtTorre.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -4399,7 +4295,7 @@
             // 
             this.lblTorre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTorre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.lblTorre.Location = new System.Drawing.Point(928, 500);
+            this.lblTorre.Location = new System.Drawing.Point(1061, 423);
             this.lblTorre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTorre.Name = "lblTorre";
             this.lblTorre.Size = new System.Drawing.Size(91, 25);
@@ -4407,26 +4303,12 @@
             this.lblTorre.Text = "Torres";
             this.lblTorre.Visible = false;
             // 
-            // lblPuertas
-            // 
-            this.lblPuertas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPuertas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.lblPuertas.Location = new System.Drawing.Point(1077, 500);
-            this.lblPuertas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblPuertas.Name = "lblPuertas";
-            this.lblPuertas.Size = new System.Drawing.Size(91, 25);
-            this.lblPuertas.TabIndex = 248;
-            this.lblPuertas.Text = "Puertas";
-            this.lblPuertas.Visible = false;
-            // 
             // Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1940, 910);
-            this.Controls.Add(this.lblPuertas);
-            this.Controls.Add(this.txtPuertas);
             this.Controls.Add(this.txtTorre);
             this.Controls.Add(this.lblTorre);
             this.Controls.Add(this.cbmEspesor);
@@ -4533,7 +4415,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Ventas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "c";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Ventas_FormClosed);
             this.Load += new System.EventHandler(this.Ventas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtaFacturas)).EndInit();
@@ -4656,10 +4538,8 @@
         private System.Windows.Forms.Label label37;
         private Bunifu.UI.WinForms.BunifuDropdown cbmEspesor;
         private System.Windows.Forms.Label label12;
-        private Bunifu.UI.WinForms.BunifuTextBox txtPuertas;
         private Bunifu.UI.WinForms.BunifuTextBox txtTorre;
         private System.Windows.Forms.Label lblTorre;
-        private System.Windows.Forms.Label lblPuertas;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
         private System.Windows.Forms.DataGridViewTextBoxColumn Material;
@@ -4671,9 +4551,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioUnidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn ITBIS;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total_Linea;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Torres;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Puertas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Maletero;
     }
 }
 

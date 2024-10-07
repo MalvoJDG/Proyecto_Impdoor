@@ -1,7 +1,6 @@
-﻿using System;
+﻿using Capa_A;
+using System;
 using System.Windows.Forms;
-using Capa_A;
-using Capa_N;
 
 namespace Capa_P
 {

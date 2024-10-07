@@ -145,6 +145,6 @@ namespace Capa_N.EntityProv
         }
 
 
-        
+
     }
 }

@@ -38,7 +38,7 @@ namespace Capa_N.Entity
                 list.Add(new clsParametros("p_Estado_Pago", Estado_Pago));
                 list.Add(new clsParametros("p_Cliente", Cliente));
                 list.Add(new clsParametros("p_Rnc", Rnc));
-       
+
 
                 list.Add(new clsParametros("p_Mensaje", MySqlDbType.VarChar, 100));
 
@@ -108,7 +108,7 @@ namespace Capa_N.Entity
             try
             {
                 list.Add(new clsParametros("P_factura", Factura));
-                
+
 
                 list.Add(new clsParametros("p_mensaje", MySqlDbType.VarChar, 100));
 

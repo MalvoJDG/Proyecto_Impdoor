@@ -1,7 +1,5 @@
 using ClosedXML.Excel;
-using DocumentFormat.OpenXml.Office2010.Excel;
 using System;
-using System.Data;
 using System.IO;
 using System.Windows.Forms;
 
@@ -300,7 +298,7 @@ namespace Capa_P
 
         private void bunifuButton21_Click(object sender, EventArgs e)
         {
-            exportaraexcel(dtaFiscal);  
+            exportaraexcel(dtaFiscal);
         }
 
         private void btnlimpiar_Click(object sender, EventArgs e)
