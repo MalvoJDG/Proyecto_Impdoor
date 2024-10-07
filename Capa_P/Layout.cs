@@ -67,17 +67,17 @@ namespace Capa_P
 
         private void btnFabricacion_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnFacturas_Click(object sender, EventArgs e)
         {
             abrirformhija(new Facturas());
-        }   
+        }
 
         private void Responsie()
         {
-             
+
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)

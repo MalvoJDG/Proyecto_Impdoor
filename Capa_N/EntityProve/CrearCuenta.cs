@@ -57,7 +57,7 @@ namespace Capa_N.EntityProve
 
                 m.EjecutarSp("VerificarCredenciales", parametros);
 
-              
+
                 mensaje = parametros[2].valor.ToString();
             }
             catch (Exception ex)

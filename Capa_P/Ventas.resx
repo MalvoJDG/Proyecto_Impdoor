@@ -361,15 +361,6 @@
   <metadata name="Total_Linea.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="Torres.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Puertas.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="Maletero.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <data name="txtPrecioIncluye.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAX0AAADMCAYAAACfmHM1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -662,18 +653,6 @@
         DvITwiql9DF0AQho7eVgoIJw8g4AgSj3X7wMVGq/VocdlgAgCP/X5/ETmdWxy3cBiGL6XEWWDkAMyvVH
         T/tputdOXmaTEVggXyZMPxl8pwG2p/CUZwCwCMrpy3+TYYzmWGuCO13t9WaCIGYYfghS62kNAL9pmi8B
         pt3a9xtltQAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="txtPuertas.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGkAAAAeCAYAAAAvpTBDAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAFlSURBVGhD7dqhbsMwGATgwMLCwcLAwsE+QuFgYWFhYd9i
-        cI8xODg4ODhYWFjkpPfbJ1ndoqja1vp3dZ9kRbNjA5/sZHUauRN937coC5QVyk7lz8Xm0eZzzin+va7r
-        NiGETwwmV4L5/cLFgptw2i+DDi06v9sgchu2GLAoHhnBONy/Qodj6ioFbBnFMNxgK0gBlbdgJD9pi/MB
-        OexxmTKWzF4S0i3iAYJ6YTQZKu0tQ5zgYyevJvwxjy3izZIRxa3uiZXiS37T0/PIrR0jitud/ccr/iik
-        CiikCiikCiikCiikCpyFtE114sxZSHZSKP7kkOywiZXiiP0SxIjiSpqEEA6pSRyZMaIEIT2zQRxAHh+M
-        JkP9AxrssEkK4zHF8JdEaFjGu6S08e8ctO2Vhfl/ZRTjcK99MaQXiRviFje+gr5DB3tGvcUR5Kowz5d/
-        czcEY8wwwBpX++lI5R8LD1tbTrXUq2lOscXnh9XSUt8AAAAASUVORK5CYII=
 </value>
   </data>
   <data name="txtTorre.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Capa_N.EntityProve;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
 using System.Windows.Forms;
-using Capa_N.EntityProve;
-using Newtonsoft.Json.Linq;
 
 namespace Capa_P
 {
@@ -24,7 +24,7 @@ namespace Capa_P
         private void CheckAndUpdateApp()
         {
             WebClient webClient = new WebClient();
- 
+
             try
             {
                 string latestVersionUrl = "https://api.github.com/repos/MalvoJDG/Proyecto_Impdoor/releases/latest";
@@ -34,7 +34,7 @@ namespace Capa_P
                 dynamic release = JObject.Parse(json);
 
                 string latestVersion = release.tag_name;
-                Version currentVersion = new Version("1.0.2"); // Versión actual de tu aplicación
+                Version currentVersion = new Version("1.0.5"); // Versión actual de tu aplicación
 
                 if (new Version(latestVersion) > currentVersion)
                 {

@@ -1,12 +1,8 @@
-﻿using Bunifu.Framework.UI;
-using Bunifu.UI.WinForms;
-using Bunifu.Utils;
-using Capa_N.EntityProv;
+﻿using Capa_N.EntityProv;
 using ClosedXML.Excel;
 using System;
 using System.Data;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -297,43 +293,43 @@ namespace Capa_P
 
         private void label6_Click(object sender, EventArgs e)
         {
-            
+
             MessageBox.Show("Label6 fue clickeado.");
         }
 
         private void txtTelefono_TextChange(object sender, EventArgs e)
         {
-            
-                /// Verificar si el texto tiene menos de 10 caracteres para evitar errores al acceder a índices fuera del rango
-                if (txtTelefono.TextLength < 10)
-                {
-                    return;
-                }
 
-                // Eliminar guiones existentes para evitar duplicados
-                string textoLimpio = txtTelefono.Text.Replace("-", "");
+            /// Verificar si el texto tiene menos de 10 caracteres para evitar errores al acceder a índices fuera del rango
+            if (txtTelefono.TextLength < 10)
+            {
+                return;
+            }
 
-                // Verificar si el texto limpio tiene más de 10 caracteres
-                if (textoLimpio.Length > 10)
-                {
-                    // Si tiene más de 10 caracteres, truncarlo a 10 caracteres
-                    textoLimpio = textoLimpio.Substring(0, 10);
-                }
+            // Eliminar guiones existentes para evitar duplicados
+            string textoLimpio = txtTelefono.Text.Replace("-", "");
 
-                // Construir el número con guiones en las posiciones adecuadas
-                StringBuilder numeroConGuiones = new StringBuilder();
-                numeroConGuiones.Append(textoLimpio.Substring(0, 3)); // Primeros 3 dígitos
-                numeroConGuiones.Append("-");
-                numeroConGuiones.Append(textoLimpio.Substring(3, 3)); // Siguientes 3 dígitos
-                numeroConGuiones.Append("-");
-                numeroConGuiones.Append(textoLimpio.Substring(6)); // Últimos 4 dígitos
+            // Verificar si el texto limpio tiene más de 10 caracteres
+            if (textoLimpio.Length > 10)
+            {
+                // Si tiene más de 10 caracteres, truncarlo a 10 caracteres
+                textoLimpio = textoLimpio.Substring(0, 10);
+            }
 
-                // Mostrar el número con guiones en el TextBox
-                txtTelefono.Text = numeroConGuiones.ToString();
+            // Construir el número con guiones en las posiciones adecuadas
+            StringBuilder numeroConGuiones = new StringBuilder();
+            numeroConGuiones.Append(textoLimpio.Substring(0, 3)); // Primeros 3 dígitos
+            numeroConGuiones.Append("-");
+            numeroConGuiones.Append(textoLimpio.Substring(3, 3)); // Siguientes 3 dígitos
+            numeroConGuiones.Append("-");
+            numeroConGuiones.Append(textoLimpio.Substring(6)); // Últimos 4 dígitos
 
-                // Colocar el cursor al final del texto para mantener la posición correcta mientras se escribe
-                txtTelefono.SelectionStart = txtTelefono.TextLength;
-            
+            // Mostrar el número con guiones en el TextBox
+            txtTelefono.Text = numeroConGuiones.ToString();
+
+            // Colocar el cursor al final del texto para mantener la posición correcta mientras se escribe
+            txtTelefono.SelectionStart = txtTelefono.TextLength;
+
         }
 
         private void btnlimpiar_Click(object sender, EventArgs e)

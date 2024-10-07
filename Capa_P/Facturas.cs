@@ -1,10 +1,6 @@
-﻿using Capa_A;
-using Capa_N.Entity;
+﻿using Capa_N.Entity;
 using ClosedXML.Excel;
-using DocumentFormat.OpenXml.Vml;
-using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Windows.Forms;
@@ -275,7 +271,7 @@ namespace Capa_P
         }
 
 
-       
+
         private void dtaFactura_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

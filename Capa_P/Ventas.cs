@@ -1,17 +1,12 @@
 ﻿using Capa_N.Entity;
 using Capa_N.EntityProv;
-using DocumentFormat.OpenXml.Drawing.Charts;
-using iTextSharp.awt.geom;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
-using iTextSharp.text.pdf.fonts.cmaps;
 using iTextSharp.tool.xml;
 using System;
-using System.Data;
 using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 
@@ -20,7 +15,7 @@ namespace Capa_P
 
     public partial class Ventas : Form
     {
-       
+
         Productos productos = new Productos();
         Materiales materiales = new Materiales();
         Tipo_Madera tipo_Madera = new Tipo_Madera();
@@ -98,25 +93,30 @@ namespace Capa_P
                 txtServicio.Text = "Instalacion";
                 txtInstalacion.Visible = true;
                 label32.Visible = true;
+                lblTorre.Visible = false;
+                txtTorre.Visible = false;
+            }
+            else if(cbmProducto.Text == "Closet")
+            {
+                lblTorre.Visible = true;
+                txtTorre.Visible = true;
+                txtServicio.Text = textoAnterior;
+                cbmJambas.Items.Remove("Dobles");
             }
             else
             {
                 txtServicio.Text = textoAnterior;
                 txtInstalacion.Visible = false;
                 label32.Visible = false;
+                lblTorre.Visible = false;
+                txtTorre.Visible = false;
+                
+                if(cbmJambas.Items.Contains("Dobles") != true)
+                {
+                    cbmJambas.Items.Add("Dobles");
+                }
             }
 
-            if(cbmProducto.Text == "Closet")
-            {
-                label19.Visible = false;
-                cbmTipoPuerta.Visible = false;
-                lblApanelado.Visible = false;
-                cbmApanelado.Visible = false;
-                lblTorre.Location = new System.Drawing.Point(44, 337);
-                txtTorre.Location = new System.Drawing.Point(44, 360);
-                lblPuertas.Location = new System.Drawing.Point(155, 337);
-                txtPuertas.Location = new System.Drawing.Point(155, 360);
-            }
         }
 
 
@@ -192,7 +192,7 @@ namespace Capa_P
                         break;
 
                     case "Maciza":
-                        porcentajeIncrementoTipoPuerta = 0.80; // Ejemplo: un incremento del 30%
+                        porcentajeIncrementoTipoPuerta = 0.53; // Ejemplo: un incremento del 30%
                         break;
 
                     case "Chapada":
@@ -221,24 +221,14 @@ namespace Capa_P
                 switch (cbmJambas.Text)
                 {
                     case "Frontales":
-                        // Restablece el precio ajustado y permite nuevos cálculos de "Dobles"
+                        // No hay incremento, solo restablece el precio ajustado
                         lblTotalln.Text = precioAjustado.ToString("N2");
-                        calculoDoblesRealizado = false;
                         break;
 
                     case "Dobles":
-                        // Solo ejecuta el cálculo si no se ha realizado anteriormente desde la última selección de "Dobles"
-                        if (!calculoDoblesRealizado)
-                        {
-                            double incrementoJambas = precioBase * 0.20; // Incremento del 20% para jambas
-                            total = precioAjustado + incrementoJambas; // Suma el incremento al precio ajustado
-                            lblTotalln.Text = total.ToString("N2");
-                            calculoDoblesRealizado = true; // Marca que el cálculo se ha realizado
-                        }
-                        else
-                        {
-                            lblTotalln.Text = precioAjustado.ToString("N2");
-                        }
+                        double incrementoJambas = precioBase * 0.20; // Incremento del 20% para jambas dobles
+                        precioAjustado += incrementoJambas; // Suma el incremento al precio ajustado
+                        lblTotalln.Text = precioAjustado.ToString("N2");
                         break;
 
                     default:
@@ -247,6 +237,7 @@ namespace Capa_P
                 }
             }
         }
+
 
         public void SeleccionTerminacion()
         {
@@ -263,6 +254,12 @@ namespace Capa_P
                     case "Color":
                         double incrementoColor = precioBase * 0.20; // Incremento del 20% para color
                         precioAjustado += incrementoColor; // Suma el incremento al precio ajustado
+                        lblTotalln.Text = precioAjustado.ToString("N2");
+                        break;
+
+                    case "Amaderada":
+                        double incrementoAmaderado = precioBase * 0.25; // Incremento del 20% para color
+                        precioAjustado += incrementoAmaderado; // Suma el incremento al precio ajustado
                         lblTotalln.Text = precioAjustado.ToString("N2");
                         break;
 
@@ -304,6 +301,19 @@ namespace Capa_P
                         float precio = Convert.ToSingle(resultado.Rows[0]["PrecioAjustado"]);
                         cantidad = int.Parse(txtCantidad.Text);
                         precio = precio * cantidad;
+
+                        // Verificar si el producto es un closet y si hay torres
+                        if (cbmProducto.Text == "Closet")
+                        {
+                            if (!string.IsNullOrEmpty(txtTorre.Text) && int.TryParse(txtTorre.Text, out int torres))
+                            {
+                                // Sumar un porcentaje al precio por cada torre
+                                double porcentajeAumento = 0.80; // Por ejemplo, un 5% de aumento por torre
+                                double aumento = precio * porcentajeAumento * torres;
+                                precio += (float)aumento;
+                            }
+                        }
+
                         double impuesto = precio * 0.18;
 
                         lblitbis.Text = impuesto.ToString("N2", CultureInfo.InvariantCulture);
@@ -327,10 +337,12 @@ namespace Capa_P
                         SeleccionTerminacion();
 
                         // Aplicar selección de jambas después de ajustar por la terminación
-                        SeleccionJambas();
+
 
                         // Aplicar selección de espesor
                         SeleccionEspesor();
+
+                        SeleccionJambas();
                     }
                     else
                     {
@@ -341,7 +353,6 @@ namespace Capa_P
                 {
                     MessageBox.Show($"Error al obtener el precio: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
             }
             else
             {
@@ -394,7 +405,14 @@ namespace Capa_P
 
         private void bunifuButton21_Click(object sender, EventArgs e)
         {
-            Calcular();
+            if (cbmProducto.Text != "Instalacion" && cbmMaterial.Text == "Madera")
+            {
+                Calcular();
+            }
+            else if (cbmProducto.Text == "Closet" && cbmMaterial.Text == "Melamina")
+            {
+                CalcularClosetTorre();
+            }
         }
 
 
@@ -471,6 +489,57 @@ namespace Capa_P
         }
 
 
+        private void CalcularClosetTorre()
+        {
+            double total = 0;
+            string input = txtTorre.Text;
+            int cantidad;
+
+            // Verificar si el valor de torres es un número y obtener la cantidad
+            if (int.TryParse(input, out int torres) && int.TryParse(txtCantidad.Text, out cantidad))
+            {
+                // Si hay torres, calcular el total basado en el número de torres
+                total = torres * 21000 * cantidad;
+                lblTotalln.Text = total.ToString("N2");
+            }
+            else
+            {
+                // Si no se ingresaron torres, calcular el precio por medidas
+                if (float.TryParse(txtAncho.Text, out float ancho) && float.TryParse(txtLargo.Text, out float largo) &&
+                    int.TryParse(txtCantidad.Text, out cantidad))
+                {
+                    // Calcular el total basado en las medidas
+                    total = ancho * largo * 10000; // Ejemplo de precio por área (ajusta según sea necesario)
+                    total *= cantidad; // Multiplicar por la cantidad de closets
+
+                    precioAjustado = total;
+                    precioBase = 10000;
+                    lblTotalln.Text = precioAjustado.ToString("N2");
+
+                    SeleccionTerminacion();
+                    SeleccionJambas();
+                    SeleccionApanelado();
+                    SeleccionEspesor();
+                    SeleccionTipoPuerta();
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, ingresa medidas y cantidad válidas.");
+                    return; // Detener ejecución si no se ingresan valores válidos
+                }
+            }
+
+            // Mostrar el total ajustado en la etiqueta
+
+
+            // Calcular impuesto
+            double impuesto = total * 0.18;
+            lblitbis.Text = impuesto.ToString("N2", CultureInfo.InvariantCulture);
+        }
+
+
         private void TotalTot()
         {
             double xTotal = 0;
@@ -528,13 +597,13 @@ namespace Capa_P
         {
             Insertar();
             TotalTot();
-            if(txtTransporte.Text.Length > 0)
+            if (txtTransporte.Text.Length > 0)
             {
                 SumarTransporte();
             }
         }
 
-       
+
         private void imprimir()
         {
             try
@@ -597,7 +666,7 @@ namespace Capa_P
                 plantilla_html = plantilla_html.Replace("@NumFac", lblFac.Text);
                 if (cbmNCF.Text == "Si")
                 {
-                    plantilla_html = plantilla_html.Replace("@CONT", lblNCF.Text);    
+                    plantilla_html = plantilla_html.Replace("@CONT", lblNCF.Text);
                 }
                 else
                 {
@@ -844,11 +913,15 @@ namespace Capa_P
 
         private void txtCantidad_Leave(object sender, EventArgs e)
         {
-            if(cbmProducto.Text != "Instalacion")
+            if (cbmProducto.Text != "Instalacion" && cbmMaterial.Text == "Madera")
             {
                 Calcular();
             }
-            
+            else if (cbmProducto.Text == "Closet" && cbmMaterial.Text == "Melamina")
+            {
+                CalcularClosetTorre();
+            }
+
         }
 
         /*  private void Limpiar()
@@ -920,7 +993,7 @@ namespace Capa_P
 
         private void AbrirDialogo()
         {
-            if(openFileDialog1.ShowDialog() == DialogResult.OK)
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp";
 
@@ -936,7 +1009,7 @@ namespace Capa_P
         {
             try
             {
-                if(txtNombre.Text != string.Empty)
+                if (txtNombre.Text != string.Empty)
                 {
                     string nombreBusqueda = txtNombre.Text.Trim();
 
@@ -989,12 +1062,12 @@ namespace Capa_P
                 lblTotal.Text = nuevoTotal.ToString("N2");
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                if(txtTransporte.Text.Length > 0)
+                if (txtTransporte.Text.Length > 0)
                 {
                     MessageBox.Show($"Erorr al sumar el precio del transporte: {ex.Message} ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                } 
+                }
             }
         }
 
@@ -1020,17 +1093,17 @@ namespace Capa_P
                 facturaH.SubTotal = float.Parse(lblSubTotal.Text);
                 facturaH.ITBIS = float.Parse(lblImpuesto.Text);
                 facturaH.Total = float.Parse(lblTotal.Text);
-                if(cbmNCF.Text == "Si")
+                if (cbmNCF.Text == "Si")
                 {
-                   facturaH.Credito_Fiscal = lblNCF.Text;
+                    facturaH.Credito_Fiscal = lblNCF.Text;
                 }
                 facturaH.Estado_Pago = "Pendiente";
                 facturaH.Cliente = txtNombre.Text;
                 facturaH.Rnc = txtRnc.Text;
 
 
-                    msj = facturaH.GuardarFacturaHeader();
-                    MessageBox.Show(msj);
+                msj = facturaH.GuardarFacturaHeader();
+                MessageBox.Show(msj);
 
             }
             catch (Exception ex)
@@ -1115,13 +1188,13 @@ namespace Capa_P
             {
                 lblNCF.Visible = false;
                 lblAviso.Visible = false;
-                
+
             }
             else
             {
                 lblNCF.Visible = true;
                 lblAviso.Visible = true;
-                
+
             }
         }
 
@@ -1132,7 +1205,7 @@ namespace Capa_P
 
         private void txtServicio_TextChange(object sender, EventArgs e)
         {
-            if(cbmProducto.Text != "Instalacion")
+            if (cbmProducto.Text != "Instalacion")
             {
                 textoAnterior = txtServicio.Text;
             }
@@ -1144,6 +1217,16 @@ namespace Capa_P
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTotalln_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbmTerminacion_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

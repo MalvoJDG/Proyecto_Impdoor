@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
 using System.Windows.Forms;
 using DataTable = System.Data.DataTable;
 
@@ -53,14 +52,14 @@ namespace Capa_P
             try
             {
                 string factura = dtaFacturas.CurrentRow.Cells[0].Value.ToString();
-                MessageBox.Show($"Factura seleccionada: {factura}"); 
+                MessageBox.Show($"Factura seleccionada: {factura}");
                 facturaDetalle.Factura = factura;
 
 
                 DataTable dt = facturaDetalle.BuscarPorFactura();
 
                 dtaFacturas.DataSource = dt;
-                btnGuardarClienteR.Visible = true ;
+                btnGuardarClienteR.Visible = true;
             }
             catch (Exception ex)
             {
@@ -125,9 +124,9 @@ namespace Capa_P
                     return;
                 }
 
-            // Resto del código para generar el PDF
-            // Crear un diccionario de materiales y cantidades
-            Dictionary<string, int> materialesSeleccionados = new Dictionary<string, int>();
+                // Resto del código para generar el PDF
+                // Crear un diccionario de materiales y cantidades
+                Dictionary<string, int> materialesSeleccionados = new Dictionary<string, int>();
 
                 foreach (DataGridViewRow row in dtaFacturas.Rows)
                 {
@@ -157,8 +156,8 @@ namespace Capa_P
                 plantilla_html = plantilla_html.Replace("@Contacto", txtTelefono.Text);
                 plantilla_html = plantilla_html.Replace("@Direccion", txtDireccion.Text);
                 plantilla_html = plantilla_html.Replace("@No.Coti", dtaFacturas.CurrentRow.Cells[0].Value.ToString());
-                plantilla_html = plantilla_html.Replace("@FechaEntrada", txtDireccion.Text);
-                plantilla_html = plantilla_html.Replace("@FechaSalida", dtaFacturas.CurrentRow.Cells[0].Value.ToString());
+                plantilla_html = plantilla_html.Replace("@FechaEntrada", txtFechaEntrada.Text);
+                plantilla_html = plantilla_html.Replace("@FechaSalida", txtFechaSalida.Text);
 
                 // Lógica para reemplazar las cantidades en el HTML
                 HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
@@ -205,8 +204,8 @@ namespace Capa_P
                 string Imagenes = string.Empty;
                 if (listBox1.Items.Count > 0)
                 {
-                    
-              
+
+
                     for (int i = 0; i < listBox1.Items.Count; i++)
                     {
                         string imagen = listBox1.Items[i].ToString();

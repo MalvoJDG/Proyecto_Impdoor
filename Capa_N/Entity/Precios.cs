@@ -20,7 +20,7 @@ public class Precios
     {
         List<clsParametros> parametros = new List<clsParametros>();
         parametros.Add(new clsParametros("p_Tipo_madera_id", Tipo_Madera_id));
-        parametros.Add(new clsParametros("p_Tipo_material_id", Tipo_Madera_id));
+        parametros.Add(new clsParametros("p_Tipo_material_id", Tipo_Material_id));
         parametros.Add(new clsParametros("p_producto_id", Producto_id));
         parametros.Add(new clsParametros("p_Ancho", Ancho));
         parametros.Add(new clsParametros("p_Largo", Largo));

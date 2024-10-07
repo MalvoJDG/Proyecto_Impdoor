@@ -1,17 +1,8 @@
-﻿using Bunifu.Framework.UI;
-using Capa_N.EntityProve;
-using DocumentFormat.OpenXml.Drawing.Diagrams;
+﻿using Capa_N.EntityProve;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Interop;
 
 namespace Capa_P
 {
