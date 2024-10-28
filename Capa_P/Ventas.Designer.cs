@@ -268,6 +268,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.txtTorre = new Bunifu.UI.WinForms.BunifuTextBox();
             this.lblTorre = new System.Windows.Forms.Label();
+            this.cbmTipo = new Bunifu.UI.WinForms.BunifuDropdown();
+            this.lblTipo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtaFacturas)).BeginInit();
             this.bunifuPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnImprimir)).BeginInit();
@@ -1613,7 +1615,7 @@
             this.lblId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblId.Location = new System.Drawing.Point(-39, 12943);
+            this.lblId.Location = new System.Drawing.Point(-72, 13759);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(141, 25);
@@ -1629,7 +1631,7 @@
             this.btnLimpiarT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarT.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarT.Location = new System.Drawing.Point(676, 12961);
+            this.btnLimpiarT.Location = new System.Drawing.Point(643, 13777);
             this.btnLimpiarT.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarT.Name = "btnLimpiarT";
             this.btnLimpiarT.Size = new System.Drawing.Size(200, 34);
@@ -1645,7 +1647,7 @@
             this.btnLimpiarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarD.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarD.Location = new System.Drawing.Point(423, 12961);
+            this.btnLimpiarD.Location = new System.Drawing.Point(390, 13777);
             this.btnLimpiarD.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarD.Name = "btnLimpiarD";
             this.btnLimpiarD.Size = new System.Drawing.Size(200, 34);
@@ -4303,12 +4305,73 @@
             this.lblTorre.Text = "Torres";
             this.lblTorre.Visible = false;
             // 
+            // cbmTipo
+            // 
+            this.cbmTipo.BackColor = System.Drawing.Color.Transparent;
+            this.cbmTipo.BackgroundColor = System.Drawing.Color.White;
+            this.cbmTipo.BorderColor = System.Drawing.Color.Transparent;
+            this.cbmTipo.BorderRadius = 10;
+            this.cbmTipo.Color = System.Drawing.Color.Transparent;
+            this.cbmTipo.Direction = Bunifu.UI.WinForms.BunifuDropdown.Directions.Down;
+            this.cbmTipo.DisabledBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cbmTipo.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.cbmTipo.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.cbmTipo.DisabledForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.cbmTipo.DisabledIndicatorColor = System.Drawing.Color.DarkGray;
+            this.cbmTipo.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cbmTipo.DropdownBorderThickness = Bunifu.UI.WinForms.BunifuDropdown.BorderThickness.Thin;
+            this.cbmTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbmTipo.DropDownTextAlign = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.cbmTipo.FillDropDown = true;
+            this.cbmTipo.FillIndicator = false;
+            this.cbmTipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbmTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbmTipo.ForeColor = System.Drawing.Color.Black;
+            this.cbmTipo.FormattingEnabled = true;
+            this.cbmTipo.Icon = null;
+            this.cbmTipo.IndicatorAlignment = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.cbmTipo.IndicatorColor = System.Drawing.Color.DarkGray;
+            this.cbmTipo.IndicatorLocation = Bunifu.UI.WinForms.BunifuDropdown.Indicator.Right;
+            this.cbmTipo.IndicatorThickness = 2;
+            this.cbmTipo.IsDropdownOpened = false;
+            this.cbmTipo.ItemBackColor = System.Drawing.Color.White;
+            this.cbmTipo.ItemBorderColor = System.Drawing.Color.White;
+            this.cbmTipo.ItemForeColor = System.Drawing.Color.Black;
+            this.cbmTipo.ItemHeight = 17;
+            this.cbmTipo.ItemHighLightColor = System.Drawing.Color.DodgerBlue;
+            this.cbmTipo.ItemHighLightForeColor = System.Drawing.Color.White;
+            this.cbmTipo.Items.AddRange(new object[] {
+            "Cocina Integral",
+            "Cocina Modular"});
+            this.cbmTipo.ItemTopMargin = 3;
+            this.cbmTipo.Location = new System.Drawing.Point(1287, 366);
+            this.cbmTipo.Margin = new System.Windows.Forms.Padding(4);
+            this.cbmTipo.Name = "cbmTipo";
+            this.cbmTipo.Size = new System.Drawing.Size(143, 23);
+            this.cbmTipo.TabIndex = 248;
+            this.cbmTipo.Text = null;
+            this.cbmTipo.TextAlignment = Bunifu.UI.WinForms.BunifuDropdown.TextAlign.Left;
+            this.cbmTipo.TextLeftMargin = 5;
+            // 
+            // lblTipo
+            // 
+            this.lblTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTipo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
+            this.lblTipo.Location = new System.Drawing.Point(1290, 336);
+            this.lblTipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTipo.Name = "lblTipo";
+            this.lblTipo.Size = new System.Drawing.Size(123, 32);
+            this.lblTipo.TabIndex = 249;
+            this.lblTipo.Text = "Tipo";
+            // 
             // Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1940, 910);
+            this.ClientSize = new System.Drawing.Size(1942, 910);
+            this.Controls.Add(this.cbmTipo);
+            this.Controls.Add(this.lblTipo);
             this.Controls.Add(this.txtTorre);
             this.Controls.Add(this.lblTorre);
             this.Controls.Add(this.cbmEspesor);
@@ -4415,7 +4478,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Ventas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "c";
+            this.Text = " ";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Ventas_FormClosed);
             this.Load += new System.EventHandler(this.Ventas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtaFacturas)).EndInit();
@@ -4551,6 +4614,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioUnidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn ITBIS;
         private System.Windows.Forms.DataGridViewTextBoxColumn Total_Linea;
+        private Bunifu.UI.WinForms.BunifuDropdown cbmTipo;
+        private System.Windows.Forms.Label lblTipo;
     }
 }
 

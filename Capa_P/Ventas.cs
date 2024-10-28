@@ -1,5 +1,6 @@
 ﻿using Capa_N.Entity;
 using Capa_N.EntityProv;
+using DocumentFormat.OpenXml.Vml.Spreadsheet;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
@@ -71,6 +72,12 @@ namespace Capa_P
 
         private string textoAnterior = string.Empty;
 
+        // Variables para guardar las posiciones originales (declarar en la clase)
+        private bool posicionesIntercambiadascbm = false;
+
+        // Bandera para indicar si estamos en el caso "Closet"
+        bool esCloset = false;
+
         private void cbmProducto_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Guardar el texto actual de txtServicio antes de cualquier cambio
@@ -79,6 +86,7 @@ namespace Capa_P
                 textoAnterior = txtServicio.Text;
             }
 
+            // Establecer el ValueMember de cbmProducto
             cbmProducto.ValueMember = "id";
 
             // Obtener el valor seleccionado
@@ -87,38 +95,172 @@ namespace Capa_P
                 id_producto = Convert.ToInt32(cbmProducto.SelectedValue);
             }
 
-            // Cambiar el texto de txtServicio según la selección en cbmProducto
-            if (cbmProducto.Text == "Instalacion")
+            // Cambiar el comportamiento según el texto de cbmProducto
+            switch (cbmProducto.Text)
             {
-                txtServicio.Text = "Instalacion";
-                txtInstalacion.Visible = true;
-                label32.Visible = true;
-                lblTorre.Visible = false;
-                txtTorre.Visible = false;
-            }
-            else if(cbmProducto.Text == "Closet")
-            {
-                lblTorre.Visible = true;
-                txtTorre.Visible = true;
-                txtServicio.Text = textoAnterior;
-                cbmJambas.Items.Remove("Dobles");
-            }
-            else
-            {
-                txtServicio.Text = textoAnterior;
-                txtInstalacion.Visible = false;
-                label32.Visible = false;
-                lblTorre.Visible = false;
-                txtTorre.Visible = false;
-                
-                if(cbmJambas.Items.Contains("Dobles") != true)
-                {
-                    cbmJambas.Items.Add("Dobles");
-                }
-            }
+                case "Cocinas":
+                    // Solo intercambiar posiciones si aún no se ha hecho
+                    if (!posicionesIntercambiadascbm)
+                    {
+                        txtServicio.Text = textoAnterior;
+                        // Mover los controles a la izquierda
+                        txtAncho.Left -= 604;
+                        label17.Left -= 599;
+                        txtLargo.Left -= 594;
+                        label7.Left -= 600;
 
+                        // Intercambiar las posiciones de lblTipo y label4, cbmTipo y cbmMaterial
+                        var lblTipoLocation = lblTipo.Location;
+                        var label4Location = label4.Location;
+                        var cbmTipoLocation = cbmTipo.Location;
+                        var cbmMaterialLocation = cbmMaterial.Location;
+
+                        // Intercambiar las posiciones
+                        lblTipo.Location = label4Location;
+                        label4.Location = lblTipoLocation;
+                        cbmTipo.Location = cbmMaterialLocation;
+                        cbmMaterial.Location = cbmTipoLocation;
+
+                        posicionesIntercambiadascbm = true;
+                    }
+
+                    // Cambiar visibilidad: Material invisible, Tipo visible
+                    label4.Visible = false;
+                    cbmMaterial.Visible = false;
+                    lblTipo.Visible = true;
+                    cbmTipo.Visible = true;
+
+                    // Volver invisible otros controles
+                    label16.Visible = false;
+                    cbmMadera.Visible = false;
+                    label19.Visible = false;
+                    cbmTipoPuerta.Visible = false;
+                    lblApanelado.Visible = false;
+                    cbmApanelado.Visible = false;
+                    lblJambas.Visible = false;
+                    cbmJambas.Visible = false;
+                    label12.Visible = false;
+                    cbmEspesor.Visible = false;
+
+                    //Hacer invisible la casilla de precio unitario por instalacion
+                    label32.Visible = false;
+                    txtInstalacion.Visible = false;
+
+                    //Hacer visible las casillas de torres
+                    lblTorre.Visible = true;
+                    txtTorre.Visible = true;
+
+                    // Hacer invisible las casillas de torres
+                    lblTorre.Visible = false;
+                    txtTorre.Visible = false;
+
+                    break;
+
+                case "Closet":
+
+                    txtServicio.Text = textoAnterior;
+                    // Mostrar controles específicos de Closet
+                    lblTorre.Visible = true;
+                    txtTorre.Visible = true;
+
+                    // Marcar la bandera como true porque estamos en Closet
+                    esCloset = true;
+
+                    // Luego, hacer todo lo que hace el caso de "Puertas"
+                    goto case "Puertas";
+
+                case "Puertas":
+
+                    txtServicio.Text = textoAnterior;
+                    // Solo restaurar posiciones si estaban intercambiadas
+                    if (posicionesIntercambiadascbm)
+                    {
+                        // Mover los controles de vuelta a la derecha
+                        txtAncho.Left += 604;
+                        label17.Left += 599;
+                        txtLargo.Left += 594;
+                        label7.Left += 600;
+
+                        // Restaurar las posiciones originales de lblTipo y label4, cbmTipo y cbmMaterial
+                        var lblTipoLocation = lblTipo.Location;
+                        var label4Location = label4.Location;
+                        var cbmTipoLocation = cbmTipo.Location;
+                        var cbmMaterialLocation = cbmMaterial.Location;
+
+                        // Intercambiar de vuelta las posiciones
+                        label4.Location = lblTipoLocation;
+                        lblTipo.Location = label4Location;
+                        cbmMaterial.Location = cbmTipoLocation;
+                        cbmTipo.Location = cbmMaterialLocation;
+
+                        posicionesIntercambiadascbm = false;
+                    }
+
+                    // Cambiar visibilidad: Material visible, Tipo invisible
+                    label4.Visible = true;
+                    cbmMaterial.Visible = true;
+                    lblTipo.Visible = false;
+                    cbmTipo.Visible = false;
+
+                    // Volver visibles otros controles
+                    label16.Visible = true;
+                    cbmMadera.Visible = true;
+                    label19.Visible = true;
+                    cbmTipoPuerta.Visible = true;
+                    lblApanelado.Visible = true;
+                    cbmApanelado.Visible = true;
+                    lblJambas.Visible = true;
+                    cbmJambas.Visible = true;
+                    label12.Visible = true;
+                    cbmEspesor.Visible = true;
+
+                    // Hacer invisible la casilla de precio unitario por instalación
+                    label32.Visible = false;
+                    txtInstalacion.Visible = false;
+
+                    // Si **NO** es "Closet", hacer invisibles las casillas de torres
+                    if (!esCloset)
+                    {
+                        lblTorre.Visible = false;
+                        txtTorre.Visible = false;
+                    }
+
+                    // Restablecer la bandera
+                    esCloset = false;
+
+                    break;
+
+                case "Instalacion":
+
+                    //Cambiar text
+                    txtServicio.Text = "Instalacion";
+
+                    //Hacer visible la casilla de precio unitario por instalacion
+                    label32.Visible = true;
+                    txtInstalacion.Visible = true;
+
+                    // Hacer invisible las casillas de torres
+                    lblTorre.Visible = false;
+                    txtTorre.Visible = false;
+
+                    break;
+
+                default:
+                    // Restaurar visibilidad y cualquier otro comportamiento si se selecciona otra opción
+                    txtServicio.Text = textoAnterior;
+                    txtInstalacion.Visible = false;
+                    label32.Visible = false;
+                    lblTorre.Visible = false;
+                    txtTorre.Visible = false;
+
+                    if (!cbmJambas.Items.Contains("Dobles"))
+                    {
+                        cbmJambas.Items.Add("Dobles");
+                    }
+                    break;
+            }
         }
-
+        
 
         private void cbmMaterial_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -453,7 +595,7 @@ namespace Capa_P
                     return;
                 }
 
-                if (cbmProducto.Text != "Instalacion")
+                if (cbmProducto.Text == "Puertas" || cbmProducto.Text == "Closet")
                 {
                     dtaVentas.Rows[xRows].Cells[0].Value = txtServicio.Text;
                     dtaVentas.Rows[xRows].Cells[1].Value = cbmProducto.Text;
@@ -461,6 +603,20 @@ namespace Capa_P
                     dtaVentas.Rows[xRows].Cells[3].Value = cbmMadera.Text;
                     dtaVentas.Rows[xRows].Cells[4].Value = cbmApanelado.Text;
                     dtaVentas.Rows[xRows].Cells[5].Value = cbmJambas.Text;
+                    dtaVentas.Rows[xRows].Cells[6].Value = $"{txtAncho.Text} X {txtLargo.Text}";
+                    dtaVentas.Rows[xRows].Cells[7].Value = txtCantidad.Text;
+                    dtaVentas.Rows[xRows].Cells[8].Value = Punidad.ToString("N2");
+                    dtaVentas.Rows[xRows].Cells[9].Value = Itbis.ToString("N2");
+                    dtaVentas.Rows[xRows].Cells[10].Value = Totalln.ToString("N2");
+                }
+                else if(cbmProducto.Text == "Cocinas")
+                {
+                    dtaVentas.Rows[xRows].Cells[0].Value = txtServicio.Text;
+                    dtaVentas.Rows[xRows].Cells[1].Value = cbmTipo.Text;
+                    dtaVentas.Rows[xRows].Cells[2].Value = "";
+                    dtaVentas.Rows[xRows].Cells[3].Value = "";
+                    dtaVentas.Rows[xRows].Cells[4].Value = "";
+                    dtaVentas.Rows[xRows].Cells[5].Value = "";
                     dtaVentas.Rows[xRows].Cells[6].Value = $"{txtAncho.Text} X {txtLargo.Text}";
                     dtaVentas.Rows[xRows].Cells[7].Value = txtCantidad.Text;
                     dtaVentas.Rows[xRows].Cells[8].Value = Punidad.ToString("N2");
@@ -595,6 +751,16 @@ namespace Capa_P
 
         private void btnIns_Click(object sender, EventArgs e)
         {
+            if(cbmProducto.Text == "Cocinas")
+            {
+                double total;
+                if (double.TryParse(lblTotalln.Text, out total))
+                {
+                    // La conversión fue exitosa, puedes usar la variable 'total'
+                    lblitbis.Text = (total * 0.18).ToString("N2"); // Ejemplo: calcular el 18% de ITBIS
+                }
+            }
+
             Insertar();
             TotalTot();
             if (txtTransporte.Text.Length > 0)
@@ -611,7 +777,7 @@ namespace Capa_P
                 SaveFileDialog save = new SaveFileDialog();
                 if (swtipe.Checked == true)
                 {
-                    save.FileName = lblFac.Text + ".pdf";
+                    save.FileName = lblFac.Text + "-" + txtNombre.Text + ".pdf";
                 }
                 else
                 {
@@ -913,7 +1079,7 @@ namespace Capa_P
 
         private void txtCantidad_Leave(object sender, EventArgs e)
         {
-            if (cbmProducto.Text != "Instalacion" && cbmMaterial.Text == "Madera")
+            if (cbmProducto.Text == "Puertas" && cbmMaterial.Text == "Madera" || cbmProducto.Text == "Instalacion")
             {
                 Calcular();
             }
@@ -1048,7 +1214,10 @@ namespace Capa_P
 
         private void txtInstalacion_Leave(object sender, EventArgs e)
         {
-            Calcular();
+            if(txtCantidad.Text != string.Empty)
+            {
+                Calcular();
+            }
         }
 
         private void SumarTransporte()
