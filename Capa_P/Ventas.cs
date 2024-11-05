@@ -281,7 +281,9 @@ namespace Capa_P
             {
                 id_Madera = Convert.ToInt32(cbmMadera.SelectedValue);
             }
+            
         }
+
         public void SeleccionApanelado()
         {
             // Verifica si el tipo de puerta es "Semisólida" o "Apanelada"

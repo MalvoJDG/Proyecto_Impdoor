@@ -118,6 +118,7 @@ namespace Capa_P
                         }
                     }
                 }
+
                 else
                 {
                     MessageBox.Show("El archivo de materiales no se encuentra en los recursos.");
@@ -128,6 +129,19 @@ namespace Capa_P
                 // Crear un diccionario de materiales y cantidades
                 Dictionary<string, int> materialesSeleccionados = new Dictionary<string, int>();
 
+                List<string> prefijos = new List<string> { "CLOSET ", "PUERTA " };
+
+                // Crear un diccionario que almacene los materiales con sus prefijos
+                Dictionary<string, string> materialesConPrefijos = new Dictionary<string, string>();
+                foreach (var material in materiales)
+                {
+                    foreach (var prefijo in prefijos)
+                    {
+                        string materialConPrefijo = prefijo + material;
+                        materialesConPrefijos[materialConPrefijo] = material; // Asocia el material sin prefijo
+                    }
+                }
+
                 foreach (DataGridViewRow row in dtaFacturas.Rows)
                 {
                     string descripcion = row.Cells["Descripcion"].Value.ToString().ToUpper();
@@ -136,6 +150,7 @@ namespace Capa_P
                     // Buscar materiales en la descripción y actualizar el diccionario de cantidades
                     foreach (var material in materiales)
                     {
+                        // Verificar si la descripción contiene el material original o con prefijo
                         if (descripcion.Contains(material))
                         {
                             if (!materialesSeleccionados.ContainsKey(material))
@@ -145,6 +160,22 @@ namespace Capa_P
                             else
                             {
                                 materialesSeleccionados[material] += cantidad;
+                            }
+                        }
+                        // Verificar cada combinación de material con prefijo
+                        foreach (var prefijo in prefijos)
+                        {
+                            string materialConPrefijo = prefijo + material;
+                            if (descripcion.Contains(materialConPrefijo))
+                            {
+                                if (!materialesSeleccionados.ContainsKey(material))
+                                {
+                                    materialesSeleccionados[material] = cantidad;
+                                }
+                                else
+                                {
+                                    materialesSeleccionados[material] += cantidad;
+                                }
                             }
                         }
                     }
@@ -307,7 +338,7 @@ namespace Capa_P
                         pdfImage.ScaleToFit(125f, 35f);
                         PdfPCell imageCellHeader = new PdfPCell(pdfImage);
                         imageCellHeader.Border = 0;
-                        imageCellHeader.HorizontalAlignment = Element.ALIGN_LEFT;
+                        imageCellHeader.HorizontalAlignment = Element.ALIGN_RIGHT;
                         imageCellHeader.VerticalAlignment = Element.ALIGN_MIDDLE;
                         header.AddCell(imageCellHeader);
                         float yPosition = document.PageSize.Height - document.TopMargin + 5; // Ajuste según sea necesario
