@@ -34,7 +34,7 @@ namespace Capa_P
                 dynamic release = JObject.Parse(json);
 
                 string latestVersion = release.tag_name;
-                Version currentVersion = new Version("1.0.7"); // Versión actual de tu aplicación
+                Version currentVersion = new Version("1.1.3"); // Versión actual de tu aplicación
 
                 if (new Version(latestVersion) > currentVersion)
                 {

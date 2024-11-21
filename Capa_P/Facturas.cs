@@ -1,9 +1,14 @@
 ﻿using Capa_N.Entity;
 using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Drawing;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using System;
 using System.Data;
 using System.IO;
+using System.Windows;
 using System.Windows.Forms;
+
 
 namespace Capa_P
 {
@@ -33,6 +38,8 @@ namespace Capa_P
             dtaFactura.DataSource = dt;
             dtaFactura.ClearSelection();
         }
+
+
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
@@ -283,23 +290,44 @@ namespace Capa_P
             {
                 if (dtaFactura.CurrentRow != null)
                 {
-                    // Obtener el valor de la columna Credito_Fiscal
+                    // Obtener el valor de la columna NCF
                     var creditoFiscal = dtaFactura.CurrentRow.Cells["NCF"].Value;
 
-                    // Verificar si la columna Credito_Fiscal ya tiene un valor
+                    // Verificar si la columna NCF ya tiene un valor
                     if (creditoFiscal != null && !string.IsNullOrWhiteSpace(creditoFiscal.ToString()))
                     {
-                        MessageBox.Show("ya tiene un valor asignado. No se puede agregar un nuevo NCF.");
+                        MessageBox.Show("Ya tiene un valor asignado. No se puede agregar un nuevo NCF.");
                         return; // Salir del método si la columna ya tiene un valor
                     }
 
                     // Obtener el ID de la factura
                     string idFactura = dtaFactura.CurrentRow.Cells[0].Value.ToString();
 
-                    // Llamar al método AsignarNCF
-                    string mensaje = ncf.AsignarNCF(idFactura);
-                    MessageBox.Show(mensaje);
-                    cargarHeader();
+                    // 1. Obtener el nuevo NCF sin asignarlo aún
+                    string nuevoNCF;
+                    string mensaje = ncf.ObtenerNuevoNCF(out nuevoNCF); // Método que obtiene el NCF sin asignar
+
+                    if (!string.IsNullOrEmpty(nuevoNCF))
+                    {
+                        // 2. Intentar generar el PDF con el nuevo NCF
+                        bool pdfGenerado = VolverAImprimir(nuevoNCF); // Método que devuelve true si el PDF se generó correctamente
+
+                        // 3. Si el PDF se genera correctamente, asignar el NCF a la factura
+                        if (pdfGenerado)
+                        {
+                            string mensajeAsignacion = ncf.AsignarNCF(idFactura, out nuevoNCF); // Método que asigna el NCF
+                            MessageBox.Show(mensajeAsignacion);
+                            cargarHeader(); // Actualizar la vista
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo generar el PDF, el NCF no ha sido asignado.");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje); // Mensaje de error si no se pudo obtener un NCF
+                    }
                 }
                 else
                 {
@@ -311,6 +339,9 @@ namespace Capa_P
                 MessageBox.Show($"Error al asignar NCF: {ex.Message}");
             }
         }
+
+
+
 
         private void MontoPanel_Click(object sender, EventArgs e)
         {
@@ -655,6 +686,74 @@ namespace Capa_P
                     }
                 }
             }
+        }
+
+        private bool VolverAImprimir(string nuevoNCF)
+        {
+            // Crear un diálogo para seleccionar el archivo PDF
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Filter = "PDF files (*.pdf)|*.pdf",
+                Title = "Selecciona el archivo PDF"
+            };
+
+            // Verificar si el usuario selecciona un archivo
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string selectedPdfPath = openFileDialog.FileName;
+                string outputPdfPath = System.IO.Path.Combine(
+                    System.IO.Path.GetDirectoryName(selectedPdfPath),
+                    "modificado_" + System.IO.Path.GetFileName(selectedPdfPath));
+
+                // Editar el PDF para agregar el texto
+                try
+                {
+                    // Abrir el PDF existente en modo lectura
+                    PdfReader reader = new PdfReader(selectedPdfPath);
+
+                    // Crear un PdfStamper para modificar el PDF
+                    PdfStamper stamper = new PdfStamper(reader, new FileStream(outputPdfPath, FileMode.Create));
+
+                    // Obtener la página donde deseas agregar el texto (1 para la primera página)
+                    PdfContentByte pdfContent = stamper.GetOverContent(1);
+
+                    // Definir la fuente y el tamaño del texto
+                    BaseFont baseFont = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+                    pdfContent.SetFontAndSize(baseFont, 8);
+
+                    // Definir la posición donde se va a agregar el texto
+                    pdfContent.BeginText();
+                    pdfContent.ShowTextAligned(PdfContentByte.ALIGN_LEFT, "NCF:" + nuevoNCF, 300, 715, 0);
+                    pdfContent.EndText();
+
+                    // Cerrar el stamper y el lector
+                    stamper.Close();
+                    reader.Close();
+
+                    MessageBox.Show($"Texto agregado correctamente al PDF. Archivo guardado en: {outputPdfPath}", "Éxito");
+
+                    // Si todo salió bien, retornar true
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al modificar el PDF: {ex.Message}", "Error");
+                    // Si ocurre un error, retornar false
+                    return false;
+                }
+            }
+
+            // Si no se selecciona ningún archivo, retornar false
+            return false;
+        }
+
+
+
+        private void btnVolverimprimir_Click(object sender, EventArgs e)
+        {
+
+            
+            
         }
     }
 }
