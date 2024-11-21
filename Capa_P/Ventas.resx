@@ -667,6 +667,32 @@
         czcEY8wwwBpX++lI5R8LD1tbTrXUq2lOscXnh9XSUt8AAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="btnBorrarLinea.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAH8AAAAfCAYAAADOSRJJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAF+SURBVGhD7ZstTwQxEIYrcWUhJDiQSCQOHGxLAvJct8Ug
+        T568f4G8n3ESiUQikUgkEjptE8Jmjg/HzryTPOZmsua56babqfkpdi/DkfU3Z9alofNxCf435Kn6CsdN
+        4d/D+ji3fXrqfHoHk+WZ/hAHp2Graf0+aqfHB+ZBYKJQE+9chJOmmI+6ZKQ37gFAAC4umuqvUTse4qVD
+        +4Gm/DOw1OsgN/iLvQrbTXvd3HGFQCrDqqk3Jv+Qd4VcEZAIvd5L99N5kCsAsskngGvq+tk4ARRAO3+8
+        77USl7nz6bMglwSygXzFQL5iIF8xkK8YyFcM5CsG8hUD+Yoh+S4u+CSQTZZfBzO5JJBNlk+zXXwSCGdm
+        aLKz69MrkwSCsefhsAxzWDfccQVALI9FPMWeC/s028UUAWGUKZ7xhQ6a7OCKgTA2jW9j+ZeN9XHdVPNR
+        jn7YAIqi3MfY1PHjoD1A18d77kFgWvzqqhYXdBzIq8Bt/QQMpgTNZtItrKaSCWM+AGB/fWEH7LjQAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnAutoDescripcion.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAJ4AAAAfCAYAAAAWaXQGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAGOSURBVHhe7dyhT8QwFMfxSVwZhAQHEonEgYNtJCDPdR0G
+        efLk/RdI/gwkEolEIpFIJPStTQjLG9zBSs33JR9zbaZ+eVt37YqfavvcHpjm6sTUXVs2bgmMkYyErNjD
+        GJ/1yzRubqruqWy6d+AXniWMe8d2I0bq+wodzj0oFwLWJs1r68wexXjpFVpl96ZdAPiT2i1izL5W6HSE
+        DunI81+M22dxe0VqvrG9mAu7GSMXFhLaRGB67W2MXVH4H/wKRJsETEse5/quJ+9ctAlAKn6leyndbjYc
+        AJKSFS7Pd/h/buk7nvzdoQ0CqRA8ZEHwkAXBQxYED1kQPGRB8JAFwUMWBA9ZSPBqt9AHgVR88MIhHm0Q
+        SMUHT/bD64NAMrNCTgGVVfeqDAJJmFO7328ENXV7o00AEnjsQye1U9td2Q+vTAIm0+8+Hh72ll2h2mRg
+        MmNHHLnlIhXTuLsYM7361yssNjCR/qz2WKcbljzzlZW71y4ErGqlz1doJcte3/2uw99qwGrkHI98mSLG
+        SKmi+ACBceU470uN9gAAAABJRU5ErkJggg==
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

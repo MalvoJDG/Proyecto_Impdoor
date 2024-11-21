@@ -32,6 +32,7 @@ namespace Capa_P
         float preciou = 0;
         int pageNumber = 1;
 
+
         public Ventas()
         {
             InitializeComponent();
@@ -271,6 +272,17 @@ namespace Capa_P
             {
                 id_Material = Convert.ToInt32(cbmMaterial.SelectedValue);
             }
+
+            if (cbmMaterial.Text != "Madera")
+            {
+                cbmMadera.Visible = false;
+                label16.Visible = false;
+            }
+            else
+            {
+                cbmMadera.Visible = true;
+                label16.Visible = true;
+            }
         }
 
         private void cbmMadera_SelectedIndexChanged(object sender, EventArgs e)
@@ -301,7 +313,7 @@ namespace Capa_P
                         incrementoApanelado = 0.20; // Ejemplo: un incremento del 20%
                         break;
                     case "Cristal":
-                        incrementoApanelado = 0.45; // Ejemplo: un incremento del 25%
+                        incrementoApanelado = 0.40; // Ejemplo: un incremento del 25%
                         break;
                     default:
                         break;
@@ -336,7 +348,7 @@ namespace Capa_P
                         break;
 
                     case "Maciza":
-                        porcentajeIncrementoTipoPuerta = 0.53; // Ejemplo: un incremento del 30%
+                        porcentajeIncrementoTipoPuerta = 0.45; // Ejemplo: un incremento del 30%
                         break;
 
                     case "Chapada":
@@ -574,8 +586,8 @@ namespace Capa_P
                     return;
                 }
 
-                double Itbis;
-                if (!double.TryParse(lblitbis.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out Itbis))
+                double Itbis = 0;
+                if (cbmImpuesto.Text != "No" && !double.TryParse(lblitbis.Text, NumberStyles.Number, CultureInfo.InvariantCulture, out Itbis))
                 {
                     MessageBox.Show("El campo Itbis no tiene un formato válido.");
                     return;
@@ -597,6 +609,9 @@ namespace Capa_P
                     return;
                 }
 
+                // Si cbmImpuesto.Text es "No", Itbis se establece en 0
+                Itbis = cbmImpuesto.Text == "No" ? 0 : Itbis;
+
                 if (cbmProducto.Text == "Puertas" || cbmProducto.Text == "Closet")
                 {
                     dtaVentas.Rows[xRows].Cells[0].Value = txtServicio.Text;
@@ -608,10 +623,10 @@ namespace Capa_P
                     dtaVentas.Rows[xRows].Cells[6].Value = $"{txtAncho.Text} X {txtLargo.Text}";
                     dtaVentas.Rows[xRows].Cells[7].Value = txtCantidad.Text;
                     dtaVentas.Rows[xRows].Cells[8].Value = Punidad.ToString("N2");
-                    dtaVentas.Rows[xRows].Cells[9].Value = Itbis.ToString("N2");
+                    dtaVentas.Rows[xRows].Cells[9].Value = Itbis.ToString("N2"); // Siempre se inserta 0 si el impuesto es "No"
                     dtaVentas.Rows[xRows].Cells[10].Value = Totalln.ToString("N2");
                 }
-                else if(cbmProducto.Text == "Cocinas")
+                else if (cbmProducto.Text == "Cocinas")
                 {
                     dtaVentas.Rows[xRows].Cells[0].Value = txtServicio.Text;
                     dtaVentas.Rows[xRows].Cells[1].Value = cbmTipo.Text;
@@ -645,6 +660,7 @@ namespace Capa_P
                 MessageBox.Show($"Ocurrió un error: {ex.Message}");
             }
         }
+
 
 
         private void CalcularClosetTorre()
@@ -753,9 +769,14 @@ namespace Capa_P
 
         private void btnIns_Click(object sender, EventArgs e)
         {
-            if(cbmProducto.Text == "Cocinas")
+            double total;
+            if (double.TryParse(lblTotalln.Text, out total))
             {
-                double total;
+                // La conversión fue exitosa, puedes usar la variable 'total'
+                lblitbis.Text = (total * 0.18).ToString("N2"); // Ejemplo: calcular el 18% de ITBIS
+            }
+            if (cbmProducto.Text == "Cocinas")
+            {
                 if (double.TryParse(lblTotalln.Text, out total))
                 {
                     // La conversión fue exitosa, puedes usar la variable 'total'
@@ -1400,6 +1421,144 @@ namespace Capa_P
         private void cbmTerminacion_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private int ContarFilasRelevantes()
+        {
+            int contador = 0;
+
+            // Recorremos las filas del DataGridView
+            foreach (DataGridViewRow row in dtaVentas.Rows)
+            {
+                // Asumiendo que la columna donde se almacena el tipo de producto es la columna 1
+                string producto = row.Cells[0].Value?.ToString() ?? "";
+
+                // Excluir filas que sean solo "Instalación"
+                if (producto != "Instalacion")
+                {
+                    contador++;
+                }
+            }
+
+            return contador;
+        }
+
+
+        private void ActualizarDescripcion()
+        {
+            // Contar filas relevantes
+            int numeroFila = ContarFilasRelevantes() + 1;  // Sumamos 1 porque será el siguiente número
+
+            // Obtener las selecciones actuales de cada ComboBox
+            string tipoProducto = cbmProducto.Text;
+            string Material = cbmMaterial.Text;
+            string tipoMadera = cbmMadera.Text;
+            string espesor = cbmEspesor.SelectedItem?.ToString() ?? "";
+            string jamba = cbmJambas.SelectedItem?.ToString() ?? "";
+            string TipoPuerta = cbmTipoPuerta.SelectedItem?.ToString() ?? "";
+            string apanelado = cbmApanelado.SelectedItem?.ToString() ?? "";
+            string terminacion = cbmTerminacion.SelectedItem?.ToString() ?? "";
+            string tipococina = cbmTipo.SelectedItem?.ToString() ?? "";
+            string descripcion = "";
+
+            // Construir la descripción
+            if (Material == "Madera")
+            {
+                if(tipoProducto == "Puertas")
+                {
+                    descripcion = $"{numeroFila}-Puerta {tipoMadera}";
+                }
+                else if(tipoProducto == "Cocina")
+                {
+                    descripcion = $"{numeroFila}-{tipoProducto} {tipococina}";
+                }
+                else
+                {
+                    descripcion = $"{numeroFila}-{tipoProducto} {tipoMadera}";
+                }
+                
+            }
+            else
+            {
+                if (tipoProducto == "Puertas")
+                {
+                    descripcion = $"{numeroFila}-Puerta {Material}";
+                }
+                else if (tipoProducto == "Cocina")
+                {
+                    descripcion = $"{numeroFila}-{tipoProducto} {tipococina}";
+                }
+                else
+                {
+                    descripcion = $"{numeroFila}-{tipoProducto} {Material}";
+                }
+            }
+            
+
+            if (!string.IsNullOrEmpty(TipoPuerta))
+            {
+                descripcion += $" {TipoPuerta}";
+            }
+
+            if (!string.IsNullOrEmpty(apanelado))
+            {
+                descripcion += $" con  {apanelado}";
+            }
+
+            if (!string.IsNullOrEmpty(jamba))
+            {
+                descripcion += $", jambas {jamba}";
+            }
+
+            if (!string.IsNullOrEmpty(espesor))
+            {
+                descripcion += $", con espesor {espesor}";
+            }
+
+            if (!string.IsNullOrEmpty(terminacion))
+            {
+                descripcion += $", terminacion tipo {terminacion}";
+            }
+
+            txtServicio.Text = descripcion;
+        }
+
+
+        private void BorrarLinea()
+        {
+            if (dtaVentas.SelectedRows.Count > 0)
+            {
+                // Obtener la fila seleccionada
+                DataGridViewRow filaSeleccionada = dtaVentas.SelectedRows[0];
+
+                // Eliminar la fila seleccionada
+                dtaVentas.Rows.Remove(filaSeleccionada);
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una fila para eliminar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnBorrarLinea_Click(object sender, EventArgs e)
+        {
+            BorrarLinea();
+            TotalTot();
+        }
+
+        private void btnAutoDescripcion_Click(object sender, EventArgs e)
+        {
+            ActualizarDescripcion();
+        }
+
+        private void txtCondicion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtaVentas_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            TotalTot();
         }
     }
 
