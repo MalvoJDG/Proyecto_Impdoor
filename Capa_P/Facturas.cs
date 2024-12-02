@@ -39,7 +39,30 @@ namespace Capa_P
             dtaFactura.ClearSelection();
         }
 
+        private void bunifuVScrollBar2_Scroll(object sender, Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs e)
+        {
+            // Obtener la posición actual del scrollbar
+            int scrollValue = e.Value;
 
+            // Calcular la posición de la primera fila visible en el DataGridView
+            int primeraFilaVisible = scrollValue;
+
+            // Verificar si la primera fila visible es menor que cero
+            if (primeraFilaVisible < 0)
+            {
+                primeraFilaVisible = 0;
+            }
+
+            // Verificar si la primera fila visible excede el rango de filas visibles
+            if (primeraFilaVisible >= dtaFactura.RowCount)
+            {
+                primeraFilaVisible = dtaFactura.RowCount - 1;
+            }
+
+            // Actualizar la vista del DataGridView para mostrar las filas visibles
+            dtaFactura.FirstDisplayedScrollingRowIndex = primeraFilaVisible;
+            dtaFactura.Refresh();
+        }
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
@@ -73,31 +96,6 @@ namespace Capa_P
             {
                 cargarHeader();
             }
-        }
-
-        private void bunifuVScrollBar2_Scroll(object sender, Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs e)
-        {
-            // Obtener la posición actual del scrollbar
-            int scrollValue = e.Value;
-
-            // Calcular la posición de la primera fila visible en el DataGridView
-            int primeraFilaVisible = scrollValue;
-
-            // Verificar si la primera fila visible es menor que cero
-            if (primeraFilaVisible < 0)
-            {
-                primeraFilaVisible = 0;
-            }
-
-            // Verificar si la primera fila visible excede el rango de filas visibles
-            if (primeraFilaVisible >= dtaFactura.RowCount)
-            {
-                primeraFilaVisible = dtaFactura.RowCount - 1;
-            }
-
-            // Actualizar la vista del DataGridView para mostrar las filas visibles
-            dtaFactura.FirstDisplayedScrollingRowIndex = primeraFilaVisible;
-            dtaFactura.Refresh();
         }
 
         private void CargarDetalle()

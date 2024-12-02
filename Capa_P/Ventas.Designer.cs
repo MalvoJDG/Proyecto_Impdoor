@@ -205,6 +205,17 @@
             this.txtServicio = new Bunifu.UI.WinForms.BunifuTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dtaVentas = new System.Windows.Forms.DataGridView();
+            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Madera = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apanelado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Jamba = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sizes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Canti = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ITBIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total_Linea = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtPrecioIncluye = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txtCondicion = new Bunifu.UI.WinForms.BunifuTextBox();
             this.txtPrecioNoIncluye = new Bunifu.UI.WinForms.BunifuTextBox();
@@ -263,17 +274,6 @@
             this.lblTipo = new System.Windows.Forms.Label();
             this.btnBorrarLinea = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.btnAutoDescripcion = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Madera = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Apanelado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Jamba = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Sizes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Canti = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ITBIS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total_Linea = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtaFacturas)).BeginInit();
             this.bunifuPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnImprimir)).BeginInit();
@@ -598,7 +598,7 @@
             this.txtInstalacion.SelectionLength = 0;
             this.txtInstalacion.SelectionStart = 1;
             this.txtInstalacion.ShortcutsEnabled = true;
-            this.txtInstalacion.Size = new System.Drawing.Size(163, 30);
+            this.txtInstalacion.Size = new System.Drawing.Size(58, 30);
             this.txtInstalacion.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtInstalacion.TabIndex = 166;
             this.txtInstalacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1362,6 +1362,7 @@
             this.txtNombre.UseSystemPasswordChar = false;
             this.txtNombre.WordWrap = true;
             this.txtNombre.TextChanged += new System.EventHandler(this.txtNombre_TextChanged);
+            this.txtNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtNombre_KeyDown);
             // 
             // lblNombre
             // 
@@ -1621,7 +1622,7 @@
             this.lblId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblId.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.lblId.Location = new System.Drawing.Point(-204, 16411);
+            this.lblId.Location = new System.Drawing.Point(-248, 17219);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(141, 25);
@@ -1637,7 +1638,7 @@
             this.btnLimpiarT.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarT.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarT.Location = new System.Drawing.Point(511, 16429);
+            this.btnLimpiarT.Location = new System.Drawing.Point(467, 17237);
             this.btnLimpiarT.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarT.Name = "btnLimpiarT";
             this.btnLimpiarT.Size = new System.Drawing.Size(200, 34);
@@ -1653,7 +1654,7 @@
             this.btnLimpiarD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLimpiarD.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiarD.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiarD.Location = new System.Drawing.Point(258, 16429);
+            this.btnLimpiarD.Location = new System.Drawing.Point(214, 17237);
             this.btnLimpiarD.Margin = new System.Windows.Forms.Padding(4);
             this.btnLimpiarD.Name = "btnLimpiarD";
             this.btnLimpiarD.Size = new System.Drawing.Size(200, 34);
@@ -2054,6 +2055,72 @@
             this.dtaVentas.Size = new System.Drawing.Size(1396, 247);
             this.dtaVentas.TabIndex = 135;
             this.dtaVentas.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtaVentas_CellLeave);
+            // 
+            // Descripcion
+            // 
+            this.Descripcion.HeaderText = "Desc.";
+            this.Descripcion.MinimumWidth = 6;
+            this.Descripcion.Name = "Descripcion";
+            // 
+            // Producto
+            // 
+            this.Producto.HeaderText = "Prod.";
+            this.Producto.MinimumWidth = 6;
+            this.Producto.Name = "Producto";
+            // 
+            // Material
+            // 
+            this.Material.HeaderText = "Mat.";
+            this.Material.MinimumWidth = 6;
+            this.Material.Name = "Material";
+            // 
+            // Madera
+            // 
+            this.Madera.HeaderText = "Mad.";
+            this.Madera.MinimumWidth = 6;
+            this.Madera.Name = "Madera";
+            // 
+            // Apanelado
+            // 
+            this.Apanelado.HeaderText = "Ap.";
+            this.Apanelado.MinimumWidth = 6;
+            this.Apanelado.Name = "Apanelado";
+            // 
+            // Jamba
+            // 
+            this.Jamba.HeaderText = "Jamb.";
+            this.Jamba.MinimumWidth = 6;
+            this.Jamba.Name = "Jamba";
+            // 
+            // Sizes
+            // 
+            this.Sizes.HeaderText = "Size";
+            this.Sizes.MinimumWidth = 6;
+            this.Sizes.Name = "Sizes";
+            // 
+            // Canti
+            // 
+            this.Canti.HeaderText = "Cant.";
+            this.Canti.MinimumWidth = 6;
+            this.Canti.Name = "Canti";
+            // 
+            // PrecioUnidad
+            // 
+            this.PrecioUnidad.HeaderText = "P.Uni";
+            this.PrecioUnidad.MinimumWidth = 6;
+            this.PrecioUnidad.Name = "PrecioUnidad";
+            // 
+            // ITBIS
+            // 
+            this.ITBIS.HeaderText = "ITBIS";
+            this.ITBIS.MinimumWidth = 6;
+            this.ITBIS.Name = "ITBIS";
+            // 
+            // Total_Linea
+            // 
+            this.Total_Linea.HeaderText = "Valor";
+            this.Total_Linea.MinimumWidth = 6;
+            this.Total_Linea.Name = "Total_Linea";
             // 
             // txtPrecioIncluye
             // 
@@ -3660,7 +3727,7 @@
             this.label32.Location = new System.Drawing.Point(1061, 423);
             this.label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(132, 25);
+            this.label32.Size = new System.Drawing.Size(27, 25);
             this.label32.TabIndex = 231;
             this.label32.Text = "Precio Unit.";
             this.label32.Visible = false;
@@ -4235,7 +4302,7 @@
             this.txtTorre.SelectionLength = 0;
             this.txtTorre.SelectionStart = 0;
             this.txtTorre.ShortcutsEnabled = true;
-            this.txtTorre.Size = new System.Drawing.Size(105, 30);
+            this.txtTorre.Size = new System.Drawing.Size(1, 30);
             this.txtTorre.Style = Bunifu.UI.WinForms.BunifuTextBox._Style.Bunifu;
             this.txtTorre.TabIndex = 244;
             this.txtTorre.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -4256,7 +4323,7 @@
             this.lblTorre.Location = new System.Drawing.Point(1061, 423);
             this.lblTorre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTorre.Name = "lblTorre";
-            this.lblTorre.Size = new System.Drawing.Size(91, 25);
+            this.lblTorre.Size = new System.Drawing.Size(0, 25);
             this.lblTorre.TabIndex = 247;
             this.lblTorre.Text = "Torres";
             this.lblTorre.Visible = false;
@@ -4503,72 +4570,6 @@
             this.btnAutoDescripcion.UseDefaultRadiusAndThickness = true;
             this.btnAutoDescripcion.Click += new System.EventHandler(this.btnAutoDescripcion_Click);
             // 
-            // Descripcion
-            // 
-            this.Descripcion.HeaderText = "Desc.";
-            this.Descripcion.MinimumWidth = 6;
-            this.Descripcion.Name = "Descripcion";
-            // 
-            // Producto
-            // 
-            this.Producto.HeaderText = "Prod.";
-            this.Producto.MinimumWidth = 6;
-            this.Producto.Name = "Producto";
-            // 
-            // Material
-            // 
-            this.Material.HeaderText = "Mat.";
-            this.Material.MinimumWidth = 6;
-            this.Material.Name = "Material";
-            // 
-            // Madera
-            // 
-            this.Madera.HeaderText = "Mad.";
-            this.Madera.MinimumWidth = 6;
-            this.Madera.Name = "Madera";
-            // 
-            // Apanelado
-            // 
-            this.Apanelado.HeaderText = "Ap.";
-            this.Apanelado.MinimumWidth = 6;
-            this.Apanelado.Name = "Apanelado";
-            // 
-            // Jamba
-            // 
-            this.Jamba.HeaderText = "Jamb.";
-            this.Jamba.MinimumWidth = 6;
-            this.Jamba.Name = "Jamba";
-            // 
-            // Sizes
-            // 
-            this.Sizes.HeaderText = "Size";
-            this.Sizes.MinimumWidth = 6;
-            this.Sizes.Name = "Sizes";
-            // 
-            // Canti
-            // 
-            this.Canti.HeaderText = "Cant.";
-            this.Canti.MinimumWidth = 6;
-            this.Canti.Name = "Canti";
-            // 
-            // PrecioUnidad
-            // 
-            this.PrecioUnidad.HeaderText = "P.Uni";
-            this.PrecioUnidad.MinimumWidth = 6;
-            this.PrecioUnidad.Name = "PrecioUnidad";
-            // 
-            // ITBIS
-            // 
-            this.ITBIS.HeaderText = "ITBIS";
-            this.ITBIS.MinimumWidth = 6;
-            this.ITBIS.Name = "ITBIS";
-            // 
-            // Total_Linea
-            // 
-            this.Total_Linea.HeaderText = "Valor";
-            this.Total_Linea.MinimumWidth = 6;
-            this.Total_Linea.Name = "Total_Linea";
-            // 
             // Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
@@ -4682,11 +4683,13 @@
             this.Controls.Add(this.label33);
             this.Controls.Add(this.label9);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Ventas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Ventas_FormClosed);
             this.Load += new System.EventHandler(this.Ventas_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Ventas_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dtaFacturas)).EndInit();
             this.bunifuPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnImprimir)).EndInit();

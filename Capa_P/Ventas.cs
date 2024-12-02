@@ -48,6 +48,7 @@ namespace Capa_P
         {
             cbmImpuesto.Text = "Si";
             cbmNCF.Text = "No";
+            this.Focus();
         }
 
         public void CargarProductos()
@@ -1559,6 +1560,35 @@ namespace Capa_P
         private void dtaVentas_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
             TotalTot();
+        }
+
+        private void Ventas_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Variables para almacenar las posiciones actuales de scroll
+            int currentX = Math.Abs(this.AutoScrollPosition.X);
+            int currentY = Math.Abs(this.AutoScrollPosition.Y);
+
+            // Desplazamiento hacia abajo
+            if (e.KeyCode == Keys.Down)
+            {
+                int newY = currentY + 20; // Ajusta el valor según sea necesario
+                this.AutoScrollPosition = new System.Drawing.Point(-currentX, newY); // Mantiene el X actual
+                e.Handled = true; // Marca el evento como manejado
+            }
+            // Desplazamiento hacia arriba
+            else if (e.KeyCode == Keys.Up)
+            {
+                int newY = currentY - 20; // Ajusta el valor según sea necesario
+                this.AutoScrollPosition = new System.Drawing.Point(-currentX, newY); // Mantiene el X actual
+                e.Handled = true; // Marca el evento como manejado
+            }
+
+        }
+
+        private void txtNombre_KeyDown(object sender, KeyEventArgs e)
+        {
+
+
         }
     }
 

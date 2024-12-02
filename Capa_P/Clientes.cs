@@ -297,6 +297,7 @@ namespace Capa_P
             MessageBox.Show("Label6 fue clickeado.");
         }
 
+
         private void txtTelefono_TextChange(object sender, EventArgs e)
         {
 
