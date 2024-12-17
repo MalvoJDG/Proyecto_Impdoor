@@ -38,9 +38,24 @@ namespace Capa_P
         {
             // Llamar la clase y el metodo
             DataTable dt = cl.ListadoClientes();
-            // Ponerlo como datasource
-            dtaClientes.DataSource = dt;
-            dtaClientes.ClearSelection();
+            try
+            {
+                if (dt != null && dt.Rows.Count > 0)
+                {
+                    dtaClientes.DataSource = dt;
+                    dtaClientes.ClearSelection();
+                }
+                else
+                {
+                    dtaClientes.DataSource = null; // Limpia el DataGridView si no hay datos
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Ocurrio un error al cargar los clientes.{ex}");
+            }
+            
+
         }
 
         private void GuardarCliente()
@@ -94,17 +109,23 @@ namespace Capa_P
 
         private void btnborrar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(cl.Id)) //verifica si la fila seleccionada es nula
+            if (!string.IsNullOrEmpty(cl.Id)) // Verifica si hay un cliente seleccionado
             {
-                string mensaje = cl.borrarCliente(cl.Id);
+                string mensaje = cl.borrarCliente(cl.Id); // Borra el cliente
                 MessageBox.Show(mensaje);
-                CargarClinete(); // Recargar los datos para reflejar los cambios
+
+                // Limpiar la selección antes de recargar
+                dtaClientes.ClearSelection();
+
+                // Recargar los datos actualizados
+                CargarClinete();
             }
             else
             {
                 MessageBox.Show("Por favor, selecciona un registro para eliminar.");
             }
         }
+
 
         private void Clientes_Load(object sender, EventArgs e)
         {

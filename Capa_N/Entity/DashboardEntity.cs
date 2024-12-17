@@ -58,7 +58,7 @@ namespace DashboardEntity
                 new clsParametros("@ToDate", EndDate.Date)
             };
             DataTable resultado = manejadorBD.consultas("FacturasPagadas", parametros);
-
+            Console.WriteLine($"FromDate: {StartDate.Date}, ToDate: {EndDate.Date}");
             if (resultado.Rows.Count > 0 && resultado.Rows[0][0] != DBNull.Value)
             {
                 return Convert.ToInt32(resultado.Rows[0][0]);

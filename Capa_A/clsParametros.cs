@@ -34,6 +34,8 @@ namespace Capa_A
             TipoDato = objTipoDato;
             Tamaño = objTamaño;
             Direccion = ParameterDirection.Output;
+
+
         }
 
 

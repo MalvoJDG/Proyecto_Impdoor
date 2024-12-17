@@ -24,6 +24,7 @@ namespace Capa_P
         FacturaDetalle facturaD = new FacturaDetalle();
         Cliente cl = new Cliente();
         ncf ncf = new ncf();
+        Documento documento = new Documento();
 
         int id_Madera = 0;
         int id_Material = 0;
@@ -49,6 +50,8 @@ namespace Capa_P
             cbmImpuesto.Text = "Si";
             cbmNCF.Text = "No";
             this.Focus();
+            lblMaterialCocina.Visible = false;
+            cbmMaterialCocina.Visible = false;
         }
 
         public void CargarProductos()
@@ -106,10 +109,10 @@ namespace Capa_P
                     {
                         txtServicio.Text = textoAnterior;
                         // Mover los controles a la izquierda
-                        txtAncho.Left -= 604;
-                        label17.Left -= 599;
-                        txtLargo.Left -= 594;
-                        label7.Left -= 600;
+                        txtAncho.Left -= 827;
+                        label17.Left -= 826;
+                        txtLargo.Left -= 822;
+                        label7.Left -= 822;
 
                         // Intercambiar las posiciones de lblTipo y label4, cbmTipo y cbmMaterial
                         var lblTipoLocation = lblTipo.Location;
@@ -123,6 +126,15 @@ namespace Capa_P
                         cbmTipo.Location = cbmMaterialLocation;
                         cbmMaterial.Location = cbmTipoLocation;
 
+                        if(cbmTipo.Text == "Modulares")
+                        {
+                            label16.Visible = false;
+                            cbmMadera.Visible = false;
+
+                            lblMaterialCocina.Visible = true;
+                            cbmMaterialCocina.Visible = true;
+                        }
+
                         posicionesIntercambiadascbm = true;
                     }
 
@@ -131,6 +143,8 @@ namespace Capa_P
                     cbmMaterial.Visible = false;
                     lblTipo.Visible = true;
                     cbmTipo.Visible = true;
+                    lblSegundoTIpo.Visible = false;
+                    cbmSegundoTIpo.Visible = false;
 
                     // Volver invisible otros controles
                     label16.Visible = false;
@@ -174,14 +188,19 @@ namespace Capa_P
                 case "Puertas":
 
                     txtServicio.Text = textoAnterior;
+                    label16.Visible = true;
+                    cbmMadera.Visible = true;
+
+                    lblMaterialCocina.Visible = false;
+                    cbmMaterialCocina.Visible = false;
                     // Solo restaurar posiciones si estaban intercambiadas
                     if (posicionesIntercambiadascbm)
                     {
                         // Mover los controles de vuelta a la derecha
-                        txtAncho.Left += 604;
-                        label17.Left += 599;
-                        txtLargo.Left += 594;
-                        label7.Left += 600;
+                        txtAncho.Left += 827;
+                        label17.Left += 826;
+                        txtLargo.Left += 822;
+                        label7.Left += 822;
 
                         // Restaurar las posiciones originales de lblTipo y label4, cbmTipo y cbmMaterial
                         var lblTipoLocation = lblTipo.Location;
@@ -203,6 +222,8 @@ namespace Capa_P
                     cbmMaterial.Visible = true;
                     lblTipo.Visible = false;
                     cbmTipo.Visible = false;
+                    lblSegundoTIpo.Visible = true;
+                    cbmSegundoTIpo.Visible = true;
 
                     // Volver visibles otros controles
                     label16.Visible = true;
@@ -236,6 +257,20 @@ namespace Capa_P
 
                     //Cambiar text
                     txtServicio.Text = "Instalacion";
+
+                    //Hacer visible la casilla de precio unitario por instalacion
+                    label32.Visible = true;
+                    txtInstalacion.Visible = true;
+
+                    // Hacer invisible las casillas de torres
+                    lblTorre.Visible = false;
+                    txtTorre.Visible = false;
+
+                    break;
+                case "Lacado":
+
+                    //Cambiar text
+                    txtServicio.Text = "Lacado";
 
                     //Hacer visible la casilla de precio unitario por instalacion
                     label32.Visible = true;
@@ -297,38 +332,46 @@ namespace Capa_P
             
         }
 
+
         public void SeleccionApanelado()
         {
-            // Verifica si el tipo de puerta es "Semisólida" o "Apanelada"
-            if (cbmTipoPuerta.Text == "Semisolida" || cbmTipoPuerta.Text == "Apanelada")
-            {
-                double incrementoApanelado = 0;
+            double incrementoTipoPuerta = 0;
 
-                // Aplica un incremento específico dependiendo del material seleccionado
-                switch (cbmApanelado.Text)
-                {
-                    case "Plywood":
-                        incrementoApanelado = 0.1; // Ejemplo: un incremento del 15%
+            // Aplica un incremento específico dependiendo del material seleccionado
+            switch (cbmApanelado.Text)
+            {
+                case "Pivotante":
+                    incrementoTipoPuerta = 0.20; // Ejemplo: incremento del 50%
+                    break;
+                case "Batientes":
+                        incrementoTipoPuerta = 0.30; // Ejemplo: 10% más caro
                         break;
-                    case "Madera":
-                        incrementoApanelado = 0.20; // Ejemplo: un incremento del 20%
+                    case "Corrediza":
+                        incrementoTipoPuerta = 0.20; // Ejemplo: 20% más caro
                         break;
-                    case "Cristal":
-                        incrementoApanelado = 0.40; // Ejemplo: un incremento del 25%
+                    case "Acordeon":
+                        incrementoTipoPuerta = 0.30; // Ejemplo: 30% más caro
+                        break;
+                    case "Plegadiza":
+                        incrementoTipoPuerta = 0.25; // Ejemplo: 25% más caro
+                        break;
+                    case "Granero":
+                        incrementoTipoPuerta = 0.35; // Ejemplo: 15% más caro
                         break;
                     default:
+                        incrementoTipoPuerta = 0; // Sin incremento si no coincide
                         break;
-                }
+            }
 
                 // Calcula el precio total con el incremento del apanelado
-                double totalConApanelado = precioAjustado * (1 + incrementoApanelado);
+                double totalConApanelado = precioAjustado * (1 + incrementoTipoPuerta);
 
                 // Actualiza el precio ajustado con el apanelado
                 precioAjustado = totalConApanelado;
 
                 // Actualiza el precio total en el formulario
                 lblTotalln.Text = totalConApanelado.ToString("N2");
-            }
+            
         }
 
 
@@ -346,6 +389,10 @@ namespace Capa_P
 
                     case "Semisolida":
                         porcentajeIncrementoTipoPuerta = 0.30; // Ejemplo: un incremento del 20%
+                        break;
+
+                    case "Solida":
+                        porcentajeIncrementoTipoPuerta = 0.35; // Ejemplo: un incremento del 20%
                         break;
 
                     case "Maciza":
@@ -426,10 +473,80 @@ namespace Capa_P
                 }
             }
         }
+        
 
-        public void Calcular()
+        public void CalcularPuertaMelamina()
         {
-            if (cbmProducto.Text != "Instalacion")
+                try
+                {
+                    // Valores estándar
+                    float precioBaseEstandar = 13110;
+                    float anchoEstandar = 0.9f;
+                    float altoEstandar = 2.1f;
+
+                    // Leer y validar las entradas
+                    float ancho = float.Parse(txtAncho.Text, CultureInfo.InvariantCulture);
+                    float alto = float.Parse(txtLargo.Text, CultureInfo.InvariantCulture);
+
+                    // Validar medidas estándar y ajustar precio
+                    float precio = precioBaseEstandar;
+
+                    if (ancho > anchoEstandar || alto > altoEstandar)
+                    {
+                        float excesoAncho = Math.Max(0, ancho - anchoEstandar);
+                        float excesoAlto = Math.Max(0, alto - altoEstandar);
+
+                        precio += (excesoAncho * 2000) + (excesoAlto * 2000); // Incremento por cada unidad adicional
+                    }
+                    else if (ancho < anchoEstandar || alto < altoEstandar)
+                    {
+                        float deficitAncho = Math.Max(0, anchoEstandar - ancho);
+                        float deficitAlto = Math.Max(0, altoEstandar - alto);
+
+                        precio -= (deficitAncho * 2000) + (deficitAlto * 2000); // Descuento por cada unidad faltante
+                    }
+
+                    // Validar que el precio no sea negativo
+                    precio = Math.Max(precio, 0);
+
+                    // Leer la cantidad de puertas
+                    int cantidad = int.Parse(txtCantidad.Text);
+                    precio *= cantidad;
+
+                    // Calcular impuesto
+                    double impuesto = precio * 0.18;
+
+                    // Actualizar etiquetas con formato adecuado
+                    lblitbis.Text = impuesto.ToString("N2", CultureInfo.InvariantCulture);
+                    precioBase = precio; // Asignar a la variable de precio base
+                    lblTotalln.Text = precioBase.ToString("N2", CultureInfo.InvariantCulture);
+                    lblactualtotal.Text = precioBase.ToString("N2", CultureInfo.InvariantCulture);
+
+                    // Resetea el precio ajustado y la bandera de cálculo
+                    precioAjustado = precioBase;
+                    calculoDoblesRealizado = false;
+
+                    // Aplicar cálculos adicionales según selección
+                    SeleccionTipoPuerta();
+                    SeleccionApanelado();
+                    SeleccionTerminacion();
+                    SeleccionEspesor();
+                    SeleccionJambas();
+                }
+                catch (FormatException ex)
+                {
+                    MessageBox.Show("Por favor, asegúrate de ingresar valores numéricos válidos en los campos de ancho, alto y cantidad.", "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ocurrió un error inesperado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+        }
+
+
+    public void Calcular()
+        {
+            if (cbmProducto.Text != "Instalacion" && cbmProducto.Text != "Lacado")
             {
                 // Crear una instancia de tu clase Precios
                 Precios precios = new Precios();
@@ -539,7 +656,7 @@ namespace Capa_P
                 switch (cbmEspesor.Text)
                 {
                     case "1.5Pul":
-                        double incrementoEspesor1p5 = precioBase * 0.10; // Incremento del 10% para espesor de 1.5 pulgadas
+                        double incrementoEspesor1p5 = precioBase * 0.07; // Incremento del 10% para espesor de 1.5 pulgadas
                         precioAjustado += incrementoEspesor1p5; // Suma el incremento al precio ajustado
                         lblTotalln.Text = precioAjustado.ToString("N2");
                         break;
@@ -562,9 +679,13 @@ namespace Capa_P
 
         private void bunifuButton21_Click(object sender, EventArgs e)
         {
-            if (cbmProducto.Text != "Instalacion" && cbmMaterial.Text == "Madera")
+            if (cbmProducto.Text == "Puertas" && cbmMaterial.Text == "Madera" || cbmProducto.Text == "Instalacion"|| cbmProducto.Text == "Lacado")
             {
                 Calcular();
+            }
+            if (cbmProducto.Text == "Puertas" && cbmMaterial.Text == "Melamina")
+            {
+                CalcularPuertaMelamina();
             }
             else if (cbmProducto.Text == "Closet" && cbmMaterial.Text == "Melamina")
             {
@@ -618,7 +739,14 @@ namespace Capa_P
                     dtaVentas.Rows[xRows].Cells[0].Value = txtServicio.Text;
                     dtaVentas.Rows[xRows].Cells[1].Value = cbmProducto.Text;
                     dtaVentas.Rows[xRows].Cells[2].Value = cbmMaterial.Text;
-                    dtaVentas.Rows[xRows].Cells[3].Value = cbmMadera.Text;
+                    if(cbmMaterial.Text == "Madera")
+                    {
+                        dtaVentas.Rows[xRows].Cells[3].Value = cbmMadera.Text;
+                    }
+                    else
+                    {
+                        dtaVentas.Rows[xRows].Cells[3].Value = "";
+                    }
                     dtaVentas.Rows[xRows].Cells[4].Value = cbmApanelado.Text;
                     dtaVentas.Rows[xRows].Cells[5].Value = cbmJambas.Text;
                     dtaVentas.Rows[xRows].Cells[6].Value = $"{txtAncho.Text} X {txtLargo.Text}";
@@ -630,7 +758,7 @@ namespace Capa_P
                 else if (cbmProducto.Text == "Cocinas")
                 {
                     dtaVentas.Rows[xRows].Cells[0].Value = txtServicio.Text;
-                    dtaVentas.Rows[xRows].Cells[1].Value = cbmTipo.Text;
+                    dtaVentas.Rows[xRows].Cells[1].Value = cbmProducto.Text;
                     dtaVentas.Rows[xRows].Cells[2].Value = "";
                     dtaVentas.Rows[xRows].Cells[3].Value = "";
                     dtaVentas.Rows[xRows].Cells[4].Value = "";
@@ -787,15 +915,18 @@ namespace Capa_P
 
             Insertar();
             TotalTot();
-            if (txtTransporte.Text.Length > 0)
-            {
-                SumarTransporte();
-            }
+            
+           ActualizarTotales();
+            
+
+
         }
 
 
-        private void imprimir()
+        private string imprimir()
         {
+            string rutaArchivo = "";
+
             try
             {
                 SaveFileDialog save = new SaveFileDialog();
@@ -813,11 +944,17 @@ namespace Capa_P
                 string plantilla_html = Properties.Resources.plantilla.ToString();
 
                 double transporte;
+                double descuento;
 
                 // Intenta convertir el valor de txtTransporte.Text a double
                 if (!double.TryParse(txtTransporte.Text, out transporte))
                 {
                     transporte = 0; // Establece un valor predeterminado si la conversión falla
+                }
+                // Intenta convertir el valor de txtTransporte.Text a double
+                if (!double.TryParse(txtDescuento.Text, out descuento))
+                {
+                    descuento = 0; // Establece un valor predeterminado si la conversión falla
                 }
 
                 // Reemplazos de valores en la plantilla HTML
@@ -839,6 +976,14 @@ namespace Capa_P
                 else
                 {
                     plantilla_html = plantilla_html.Replace("@TRANSPORTE", "");
+                }
+                if (!string.IsNullOrEmpty(txtDescuento.Text))
+                {
+                    plantilla_html = plantilla_html.Replace("@Descuento", "$" + descuento.ToString("N2"));
+                }
+                else
+                {
+                    plantilla_html = plantilla_html.Replace("@Descuento", "");
                 }
 
 
@@ -871,8 +1016,8 @@ namespace Capa_P
                     filas += "<tr>";
                     filas += "<td style='font-size: 12px; width: 53%;'>" + Row.Cells["Descripcion"].Value.ToString() + "</td>";
                     filas += "<td align='center' style='font-size: 13px; font-weight: bold; width: 12%;'>" + Row.Cells["Sizes"].Value.ToString() + "</td>";
-                    filas += "<td align='right' style='font-size: 13px; font-weight: bold; width: 12%;'>" + "$" + Row.Cells["PrecioUnidad"].Value.ToString() + "</td>";
                     filas += "<td align='center' style='width: 8%; font-weight: bold; font-size: 13px;'>" + Row.Cells["Canti"].Value.ToString() + "</td>";
+                    filas += "<td align='right' style='font-size: 13px; font-weight: bold; width: 12%;'>" + "$" + Row.Cells["PrecioUnidad"].Value.ToString() + "</td>";
                     filas += "<td align='right' style='width: 15%; font-weight: bold; font-size: 13px;'>" + "$" + Row.Cells["Total_Linea"].Value.ToString() + "</td>";
                     filas += "</tr>";
                 }
@@ -908,7 +1053,7 @@ namespace Capa_P
                     for (int i = 0; i < listBox1.Items.Count; i++)
                     {
                         string imagen = listBox1.Items[i].ToString();
-                        Imagenes += $"<tr><td><table style='margin-top: 50pt;'><tr><td><div style='page-break-after: always; text-align: center; margin-top: 20pt;'><img src='{imagen}' style='vertical-align: middle; width: 400px height: 500px;' /></div></td></tr></table></td></tr>";
+                        Imagenes += $"<tr><td><table style='margin-top: 50pt;'><tr><td><div style='page-break-after: always; text-align: center; margin-top: 20pt;'><img src='{imagen}' style='vertical-align: middle; width: 400px; height: 500px;' /></div></td></tr></table></td></tr>";
                     }
                 }
                 else
@@ -930,9 +1075,10 @@ namespace Capa_P
 
                 if (save.ShowDialog() == DialogResult.OK)
                 {
+                    rutaArchivo = save.FileName;
                     using (FileStream stream = new FileStream(save.FileName, FileMode.Create))
                     {
-                        Document pdfDoc = new Document(PageSize.A4, 25, 25, 75, 195);
+                        Document pdfDoc = new Document(PageSize.A4, 25, 25, 55, 195);
                         PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
 
 
@@ -967,16 +1113,19 @@ namespace Capa_P
                                 ct.SetSimpleColumn(new Rectangle(36, 36, 559, 806));
                             }
                         }
-
                         pdfDoc.Close();
-                        stream.Close();
+
+                           
                     }
                 }
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al imprimir la factura: " + ex.Message);
             }
+
+            return rutaArchivo;
         }
 
         public class Footer : PdfPageEventHelper
@@ -1071,7 +1220,7 @@ namespace Capa_P
                         imageCellHeader.HorizontalAlignment = Element.ALIGN_LEFT;
                         imageCellHeader.VerticalAlignment = Element.ALIGN_MIDDLE;
                         header.AddCell(imageCellHeader);
-                        float yPosition = document.PageSize.Height - document.TopMargin - 5; // Ajuste según sea necesario
+                        float yPosition = document.PageSize.Height - document.TopMargin - 10; // Ajuste según sea necesario
                         header.WriteSelectedRows(0, -1, document.LeftMargin, yPosition, writer.DirectContent);
                     }
                     else
@@ -1103,9 +1252,13 @@ namespace Capa_P
 
         private void txtCantidad_Leave(object sender, EventArgs e)
         {
-            if (cbmProducto.Text == "Puertas" && cbmMaterial.Text == "Madera" || cbmProducto.Text == "Instalacion")
+            if (cbmProducto.Text == "Puertas" && cbmMaterial.Text == "Madera" || cbmProducto.Text == "Instalacion" || cbmProducto.Text == "Lacado")
             {
                 Calcular();
+            }
+            if (cbmProducto.Text == "Puertas" && cbmMaterial.Text == "Melamina")
+            {
+                CalcularPuertaMelamina();
             }
             else if (cbmProducto.Text == "Closet" && cbmMaterial.Text == "Melamina")
             {
@@ -1244,15 +1397,62 @@ namespace Capa_P
             }
         }
 
+        // Bandera para evitar llamadas recursivas
+        private bool isUpdating = false;
+
+        private void ActualizarTotales()
+        {
+            if (isUpdating) return; // Evitar recursión infinita
+            isUpdating = true;
+
+            try
+            {
+                // Leer valores actuales
+                double subtotal = double.TryParse(lblSubTotal.Text, out var tempSubtotal) ? tempSubtotal : 0;
+                double descuento = double.TryParse(txtDescuento.Text, out var tempDescuento) ? tempDescuento : 0;
+                double transporte = double.TryParse(txtTransporte.Text, out var tempTransporte) ? tempTransporte : 0;
+
+                // Validar que los valores no sean negativos
+                if (descuento > subtotal)
+                {
+                    descuento = 0;
+                    MessageBox.Show("El descuento no puede ser mayor al subtotal.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtDescuento.Text = "0.00"; // Ajustar automáticamente el descuento
+                }
+
+                // Calcular base para el impuesto: subtotal menos descuento
+                double baseImpuesto = subtotal - descuento;
+
+                // Calcular impuesto (ITBIS)
+                double impuesto = baseImpuesto * 0.18;
+
+                // Calcular total incluyendo transporte
+                double total = baseImpuesto + impuesto + transporte;
+
+                // Actualizar etiquetas
+                lblImpuesto.Text = impuesto.ToString("N2");
+                lblTotal.Text = total.ToString("N2");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error al actualizar los cálculos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                isUpdating = false; // Liberar la bandera
+            }
+        }
+
+
+
+
+
         private void SumarTransporte()
         {
             try
             {
-                TotalTot();
-                double total = double.Parse(lblTotal.Text);
-                double transporte = double.Parse(txtTransporte.Text);
-                double nuevoTotal = total + transporte;
-                lblTotal.Text = nuevoTotal.ToString("N2");
+
+                ActualizarTotales();
 
             }
             catch (Exception ex)
@@ -1263,10 +1463,27 @@ namespace Capa_P
                 }
             }
         }
+        private void AplicarDescuento()
+        {
+            try
+            {
+
+                ActualizarTotales();
+            }
+            catch (Exception ex)
+            {
+                if (txtDescuento.Text.Length > 0)
+                {
+                    MessageBox.Show($"Erorr al aplicar el descuento: {ex.Message} ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+
+        }
 
         private void bunifuTextBox1_TextChanged(object sender, EventArgs e)
         {
-            SumarTransporte();
+           SumarTransporte();
         }
 
         private void GuardarHeaderFactura()
@@ -1337,10 +1554,46 @@ namespace Capa_P
             }
         }
 
+        private void GuardarDocumentoEnBaseDatos(string rutaArchivo)
+        {
+            try
+            {
+                if (!File.Exists(rutaArchivo))
+                {
+                    MessageBox.Show("El archivo no existe.");
+                    return;
+                }
+
+                byte[] archivo = File.ReadAllBytes(rutaArchivo); // Leer el archivo PDF
+
+                Documento doc = new Documento();
+                doc.Numero = lblFac.Text; // Número de factura
+                doc.Archivo = archivo;
+
+                string mensaje = doc.GuardarDocumento();
+
+                if (mensaje == "Documento guardado con éxito")
+                {
+                    MessageBox.Show("Documento guardado correctamente en la base de datos.");
+                }
+                else
+                {
+                    MessageBox.Show("Error al guardar el documento en la base de datos: " + mensaje);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al guardar el documento: " + ex.Message);
+            }
+        }
+
+
         private void btnguardar_Click(object sender, EventArgs e)
         {
+            string rutaArchivo = imprimir();
             GuardarHeaderFactura();
             GuardarDetalleFactura();
+            GuardarDocumentoEnBaseDatos(rutaArchivo);
         }
 
         private void SecuenciaFiscal()
@@ -1398,7 +1651,7 @@ namespace Capa_P
 
         private void txtServicio_TextChange(object sender, EventArgs e)
         {
-            if (cbmProducto.Text != "Instalacion")
+            if (cbmProducto.Text != "Instalacion" && cbmProducto.Text != "Lacado")
             {
                 textoAnterior = txtServicio.Text;
             }
@@ -1434,11 +1687,8 @@ namespace Capa_P
                 // Asumiendo que la columna donde se almacena el tipo de producto es la columna 1
                 string producto = row.Cells[0].Value?.ToString() ?? "";
 
-                // Excluir filas que sean solo "Instalación"
-                if (producto != "Instalacion")
-                {
                     contador++;
-                }
+                
             }
 
             return contador;
@@ -1460,65 +1710,112 @@ namespace Capa_P
             string apanelado = cbmApanelado.SelectedItem?.ToString() ?? "";
             string terminacion = cbmTerminacion.SelectedItem?.ToString() ?? "";
             string tipococina = cbmTipo.SelectedItem?.ToString() ?? "";
+            string tipoMaterialCocina = cbmMaterialCocina.SelectedItem?.ToString() ?? "";
+            string tiposegundo = cbmSegundoTIpo.SelectedItem?.ToString() ?? "";
             string descripcion = "";
 
-            // Construir la descripción
-            if (Material == "Madera")
+            // Verificar si el tipo de producto es "Instalacion" o "Lacado"
+            if (tipoProducto == "Instalacion")
             {
-                if(tipoProducto == "Puertas")
-                {
-                    descripcion = $"{numeroFila}-Puerta {tipoMadera}";
-                }
-                else if(tipoProducto == "Cocina")
-                {
-                    descripcion = $"{numeroFila}-{tipoProducto} {tipococina}";
-                }
-                else
-                {
-                    descripcion = $"{numeroFila}-{tipoProducto} {tipoMadera}";
-                }
-                
+                descripcion = $"{numeroFila}-Instalacion";
+            }
+            else if (tipoProducto == "Lacado")
+            {
+                descripcion = $"{numeroFila}-Lacado";
             }
             else
             {
-                if (tipoProducto == "Puertas")
+                // Construir la descripción para otros tipos de productos
+                if (tipoProducto == "Inslatacion")
                 {
-                    descripcion = $"{numeroFila}-Puerta {Material}";
-                }
-                else if (tipoProducto == "Cocina")
-                {
-                    descripcion = $"{numeroFila}-{tipoProducto} {tipococina}";
+                    descripcion = $"{numeroFila}-{tipoProducto}";
                 }
                 else
                 {
-                    descripcion = $"{numeroFila}-{tipoProducto} {Material}";
+                    if (Material == "Madera" && tipoProducto != "Instalacion" && tipoProducto != "Lacado")
+                    {
+                        if (tipoProducto == "Puertas")
+                        {
+                            descripcion = $"{numeroFila}-Suministro Puerta {tipoMadera}";
+                        }
+                        else if (tipoProducto == "Cocinas")
+                        {
+                            if (tipococina == "Madera")
+                            {
+                                descripcion = $"{numeroFila}-Suministro {tipoProducto} {tipococina} {tipoMadera}";
+                            }
+                            else if (tipococina == "Modulares")
+                            {
+                                descripcion = $"{numeroFila}-Suministro {tipoProducto} {tipococina} {tipoMaterialCocina}";
+                            }
+                            else
+                            {
+                                descripcion = $"{numeroFila}-Suministro {tipoProducto} {tipococina}";
+                            }
+                        }
+                        else
+                        {
+                            descripcion = $"{numeroFila}-Suministro {tipoProducto} {tipoMadera}";
+                        }
+                    }
+                    else
+                    {
+                        if (tipoProducto == "Puertas" && tipoProducto != "Instalacion" && tipoProducto != "Lacado")
+                        {
+                            descripcion = $"{numeroFila}-Suministro Puerta {Material}";
+                        }
+                        else
+                        {
+                            descripcion = $"{numeroFila}-Suministro {tipoProducto} {Material}";
+                        }
+                    }
+
+                    if (tipoProducto != "Cocinas")
+                    {
+                        if (!string.IsNullOrEmpty(TipoPuerta))
+                        {
+                            if (Material == "Madera")
+                            {
+                                descripcion += $" {Material} {TipoPuerta}";
+                            }
+                            else
+                            {
+                                descripcion += $" {TipoPuerta}";
+                            }
+                        }
+
+                        if (!string.IsNullOrEmpty(apanelado))
+                        {
+                            descripcion += $" Tipo: {apanelado}";
+                        }
+                        if (!string.IsNullOrEmpty(tiposegundo))
+                        {
+                            descripcion += $", {tiposegundo} de";
+                        }
+
+                        if (!string.IsNullOrEmpty(espesor))
+                        {
+                            descripcion += $" {espesor} de espesor";
+                        }
+
+                        if (!string.IsNullOrEmpty(jamba))
+                        {
+                            if (jamba == "Dobles")
+                            {
+                                descripcion += $", jambas {jamba} y cubre mocheta";
+                            }
+                            else
+                            {
+                                descripcion += $", jambas {jamba} con marco de 10cm.";
+                            }
+                        }
+
+                        if (!string.IsNullOrEmpty(terminacion))
+                        {
+                            descripcion += $", terminacion {terminacion}";
+                        }
+                    }
                 }
-            }
-            
-
-            if (!string.IsNullOrEmpty(TipoPuerta))
-            {
-                descripcion += $" {TipoPuerta}";
-            }
-
-            if (!string.IsNullOrEmpty(apanelado))
-            {
-                descripcion += $" con  {apanelado}";
-            }
-
-            if (!string.IsNullOrEmpty(jamba))
-            {
-                descripcion += $", jambas {jamba}";
-            }
-
-            if (!string.IsNullOrEmpty(espesor))
-            {
-                descripcion += $", con espesor {espesor}";
-            }
-
-            if (!string.IsNullOrEmpty(terminacion))
-            {
-                descripcion += $", terminacion tipo {terminacion}";
             }
 
             txtServicio.Text = descripcion;
@@ -1545,6 +1842,7 @@ namespace Capa_P
         {
             BorrarLinea();
             TotalTot();
+            ActualizarTotales();
         }
 
         private void btnAutoDescripcion_Click(object sender, EventArgs e)
@@ -1560,6 +1858,7 @@ namespace Capa_P
         private void dtaVentas_CellLeave(object sender, DataGridViewCellEventArgs e)
         {
             TotalTot();
+            ActualizarTotales();
         }
 
         private void Ventas_KeyDown(object sender, KeyEventArgs e)
@@ -1589,6 +1888,78 @@ namespace Capa_P
         {
 
 
+        }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            // Verificar si hay un elemento seleccionado
+            if (listBox1.SelectedItem != null)
+            {
+                // Obtener el elemento seleccionado
+                string selectedItem = listBox1.SelectedItem.ToString();
+
+                // Confirmar la eliminación (opcional)
+                DialogResult result = MessageBox.Show($"¿Deseas borrar el elemento '{selectedItem}'?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Eliminar el elemento de la lista
+                    listBox1.Items.Remove(selectedItem);
+
+                    // Mostrar un mensaje de confirmación (opcional)
+                    MessageBox.Show($"Elemento '{selectedItem}' eliminado.", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se ha seleccionado ningún elemento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void CambioLugaCocina()
+        {
+            var lblMaderaLocation = label16.Location;
+            var cbmMaderas = cbmMadera.Location;
+
+            lblMaterialCocina.Location = lblMaderaLocation;
+            cbmMaterialCocina.Location = cbmMaderas;
+
+            label16.Visible = false;
+            cbmMadera.Visible = false;
+
+            lblMaterialCocina.Visible = true;
+            cbmMaterialCocina.Visible = true;
+        }
+
+        private void cbmTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (cbmTipo.Text == "Madera")
+            {
+                label16.Visible = true;
+                cbmMadera.Visible = true;
+
+                lblMaterialCocina.Visible = false;
+                cbmMaterialCocina.Visible = false;
+            }
+            else if(cbmTipo.Text == "Modulares")
+            {
+
+                CambioLugaCocina();
+            }
+            else
+            {
+                label16.Visible = false;
+                cbmMadera.Visible = false;
+
+                lblMaterialCocina.Visible = false;
+                cbmMaterialCocina.Visible = false;
+            }
+        }
+
+        private void txtDescuento_TextChange(object sender, EventArgs e)
+        {
+            AplicarDescuento();
         }
     }
 

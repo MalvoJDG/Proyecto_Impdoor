@@ -60,9 +60,29 @@ namespace Capa_A
                     {
                         if (parametro.Direccion == ParameterDirection.Output)
                         {
-                            parametro.valor = miquery.Parameters[parametro.Nombre].Value.ToString();
+                            var valorSalida = miquery.Parameters[parametro.Nombre].Value;
+
+                            // Verifica si el valor es nulo
+                            if (valorSalida is DBNull)
+                            {
+                                parametro.valor = null;
+                            }
+                            else
+                            {
+                                // Manejamos tipos específicos (por ejemplo, binarios, cadenas, etc.)
+                                switch (parametro.TipoDato)
+                                {
+                                    case MySqlDbType.MediumBlob:
+                                        parametro.valor = valorSalida as byte[];
+                                        break;
+                                    default:
+                                        parametro.valor = valorSalida.ToString();
+                                        break;
+                                }
+                            }
                         }
                     }
+
                 }
             }
             catch (Exception ex)

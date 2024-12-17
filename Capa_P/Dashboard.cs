@@ -62,9 +62,6 @@ namespace Capa_P
             StartDate.Value = DateTime.Today;
             EndDate.Value = DateTime.Now;
 
-            // Mostrar las fechas en un MessageBox
-            MessageBox.Show($"Fecha inicio: {StartDate.Value.ToString()}\nFecha fin: {EndDate.Value.ToString()}", "Fechas seleccionadas");
-
             LoadData();
             Customoff();
         }

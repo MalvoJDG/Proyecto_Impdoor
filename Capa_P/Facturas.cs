@@ -17,6 +17,7 @@ namespace Capa_P
         public FacturaHeader facturaH = new FacturaHeader();
         FacturaDetalle facturaDetalle = new FacturaDetalle();
         ncf ncf = new ncf();
+        Documento documento = new Documento();
 
         public Facturas()
         {
@@ -746,12 +747,47 @@ namespace Capa_P
         }
 
 
-
-        private void btnVolverimprimir_Click(object sender, EventArgs e)
+        private void btnDescargar_Click_1(object sender, EventArgs e)
         {
+            try
+            {
+                if (dtaFactura.SelectedRows.Count > 0)
+                {
+                    string factura = dtaFactura.CurrentRow.Cells[0].Value.ToString();
+                    string NombreCliente = dtaFactura.CurrentRow.Cells[6].Value.ToString();
+                    documento.Numero = factura;
+                    byte[] archivo = documento.DescargarDocumento();
 
-            
-            
+                    if (archivo != null)
+                    {
+                        using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                        {
+                            saveFileDialog.Filter = "PDF files (*.pdf)|*.pdf|All files (*.*)|*.*";
+                            saveFileDialog.Title = "Guardar archivo";
+                            saveFileDialog.FileName = $"{factura}-{NombreCliente}.pdf";
+
+                            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                            {
+                                File.WriteAllBytes(saveFileDialog.FileName, archivo);
+                                MessageBox.Show("Archivo descargado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró el documento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un documento para descargar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }
