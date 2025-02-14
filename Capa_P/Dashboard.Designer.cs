@@ -39,6 +39,7 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             this.bunifuPanel5 = new Bunifu.UI.WinForms.BunifuPanel();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.bunifuPanel4 = new Bunifu.UI.WinForms.BunifuPanel();
@@ -68,6 +69,7 @@
             this.btn30day = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.btnMonth = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.EndDate = new Bunifu.UI.WinForms.BunifuDatePicker();
+            this.btnExportar = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.bunifuPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.bunifuPanel4.SuspendLayout();
@@ -1047,12 +1049,104 @@
             this.EndDate.TabIndex = 20;
             this.EndDate.Value = new System.DateTime(2024, 3, 18, 14, 16, 0, 0);
             // 
+            // btnExportar
+            // 
+            this.btnExportar.AllowAnimations = true;
+            this.btnExportar.AllowMouseEffects = true;
+            this.btnExportar.AllowToggling = false;
+            this.btnExportar.AnimationSpeed = 200;
+            this.btnExportar.AutoGenerateColors = false;
+            this.btnExportar.AutoRoundBorders = false;
+            this.btnExportar.AutoSizeLeftIcon = true;
+            this.btnExportar.AutoSizeRightIcon = true;
+            this.btnExportar.BackColor = System.Drawing.Color.Transparent;
+            this.btnExportar.BackColor1 = System.Drawing.Color.White;
+            this.btnExportar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnExportar.BackgroundImage")));
+            this.btnExportar.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
+            this.btnExportar.ButtonText = "Exportar";
+            this.btnExportar.ButtonTextMarginLeft = 0;
+            this.btnExportar.ColorContrastOnClick = 45;
+            this.btnExportar.ColorContrastOnHover = 45;
+            this.btnExportar.Cursor = System.Windows.Forms.Cursors.Default;
+            borderEdges7.BottomLeft = true;
+            borderEdges7.BottomRight = true;
+            borderEdges7.TopLeft = true;
+            borderEdges7.TopRight = true;
+            this.btnExportar.CustomizableEdges = borderEdges7;
+            this.btnExportar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btnExportar.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnExportar.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnExportar.DisabledForecolor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnExportar.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.ButtonStates.Disabled;
+            this.btnExportar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportar.ForeColor = System.Drawing.Color.DimGray;
+            this.btnExportar.IconLeftAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExportar.IconLeftCursor = System.Windows.Forms.Cursors.Default;
+            this.btnExportar.IconLeftPadding = new System.Windows.Forms.Padding(11, 3, 3, 3);
+            this.btnExportar.IconMarginLeft = 11;
+            this.btnExportar.IconPadding = 10;
+            this.btnExportar.IconRightAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExportar.IconRightCursor = System.Windows.Forms.Cursors.Default;
+            this.btnExportar.IconRightPadding = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.btnExportar.IconSize = 25;
+            this.btnExportar.IdleBorderColor = System.Drawing.Color.Transparent;
+            this.btnExportar.IdleBorderRadius = 20;
+            this.btnExportar.IdleBorderThickness = 1;
+            this.btnExportar.IdleFillColor = System.Drawing.Color.White;
+            this.btnExportar.IdleIconLeftImage = null;
+            this.btnExportar.IdleIconRightImage = null;
+            this.btnExportar.IndicateFocus = false;
+            this.btnExportar.Location = new System.Drawing.Point(1049, 692);
+            this.btnExportar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExportar.Name = "btnExportar";
+            this.btnExportar.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
+            this.btnExportar.OnDisabledState.BorderRadius = 20;
+            this.btnExportar.OnDisabledState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
+            this.btnExportar.OnDisabledState.BorderThickness = 1;
+            this.btnExportar.OnDisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.btnExportar.OnDisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(160)))), ((int)(((byte)(168)))));
+            this.btnExportar.OnDisabledState.IconLeftImage = null;
+            this.btnExportar.OnDisabledState.IconRightImage = null;
+            this.btnExportar.onHoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.btnExportar.onHoverState.BorderRadius = 20;
+            this.btnExportar.onHoverState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
+            this.btnExportar.onHoverState.BorderThickness = 1;
+            this.btnExportar.onHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+            this.btnExportar.onHoverState.ForeColor = System.Drawing.Color.White;
+            this.btnExportar.onHoverState.IconLeftImage = null;
+            this.btnExportar.onHoverState.IconRightImage = null;
+            this.btnExportar.OnIdleState.BorderColor = System.Drawing.Color.Transparent;
+            this.btnExportar.OnIdleState.BorderRadius = 20;
+            this.btnExportar.OnIdleState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
+            this.btnExportar.OnIdleState.BorderThickness = 1;
+            this.btnExportar.OnIdleState.FillColor = System.Drawing.Color.White;
+            this.btnExportar.OnIdleState.ForeColor = System.Drawing.Color.DimGray;
+            this.btnExportar.OnIdleState.IconLeftImage = null;
+            this.btnExportar.OnIdleState.IconRightImage = null;
+            this.btnExportar.OnPressedState.BorderColor = System.Drawing.Color.White;
+            this.btnExportar.OnPressedState.BorderRadius = 20;
+            this.btnExportar.OnPressedState.BorderStyle = Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderStyles.Solid;
+            this.btnExportar.OnPressedState.BorderThickness = 1;
+            this.btnExportar.OnPressedState.FillColor = System.Drawing.Color.White;
+            this.btnExportar.OnPressedState.ForeColor = System.Drawing.Color.DimGray;
+            this.btnExportar.OnPressedState.IconLeftImage = null;
+            this.btnExportar.OnPressedState.IconRightImage = null;
+            this.btnExportar.Size = new System.Drawing.Size(98, 30);
+            this.btnExportar.TabIndex = 114;
+            this.btnExportar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnExportar.TextAlignment = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnExportar.TextMarginLeft = 0;
+            this.btnExportar.TextPadding = new System.Windows.Forms.Padding(0);
+            this.btnExportar.UseDefaultRadiusAndThickness = true;
+            this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.ClientSize = new System.Drawing.Size(1626, 786);
+            this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.bunifuPanel5);
             this.Controls.Add(this.bunifuPanel4);
             this.Controls.Add(this.bunifuPanel3);
@@ -1124,5 +1218,6 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btnMonth;
         private Bunifu.UI.WinForms.BunifuDatePicker EndDate;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btnExportar;
     }
 }

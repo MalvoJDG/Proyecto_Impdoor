@@ -5,6 +5,7 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
 using System;
+using System.Data;
 using System.Drawing.Imaging;
 using System.Globalization;
 using System.IO;
@@ -32,6 +33,7 @@ namespace Capa_P
         int cantidad = 0;
         float preciou = 0;
         int pageNumber = 1;
+        private string rutaPDF = ""; // Variable global para almacenar la ruta del pdf
 
 
         public Ventas()
@@ -922,24 +924,39 @@ namespace Capa_P
 
         }
 
-
-        private string imprimir()
+        private string ObtenerRutaPDF()
         {
-            string rutaArchivo = "";
+            SaveFileDialog save = new SaveFileDialog();
+            save.DefaultExt = "pdf";
+            save.Filter = "Archivos PDF (*.pdf)|*.pdf";
 
+            if (swtipe.Checked == true)
+            {
+                save.FileName = lblFac.Text + "-" + txtNombre.Text + ".pdf";
+            }
+            else
+            {
+                save.FileName = ".pdf";
+            }
+
+            if (save.ShowDialog() == DialogResult.OK)
+            {
+                return save.FileName; // Devuelve la ruta seleccionada
+            }
+
+            return null; // Retorna null si el usuario cancela
+        }
+
+
+        private void imprimir(string rutaArchivo)
+        {
             try
             {
-                SaveFileDialog save = new SaveFileDialog();
-                if (swtipe.Checked == true)
+                if (string.IsNullOrEmpty(rutaArchivo))
                 {
-                    save.FileName = lblFac.Text + "-" + txtNombre.Text + ".pdf";
+                    MessageBox.Show("No se ha proporcionado una ruta válida.");
+                    return;
                 }
-                else
-                {
-                    save.FileName = ".pdf";
-                }
-                save.DefaultExt = "pdf";
-                save.Filter = "Archivos PDF (*.pdf)|*.pdf";
 
                 string plantilla_html = Properties.Resources.plantilla.ToString();
 
@@ -964,8 +981,22 @@ namespace Capa_P
                 plantilla_html = plantilla_html.Replace("@Direccion", txtDireccion.Text);
                 plantilla_html = plantilla_html.Replace("@Contacto", txtTelefono.Text);
                 plantilla_html = plantilla_html.Replace("@Proyecto", txtProyecto.Text);
-                plantilla_html = plantilla_html.Replace("@ENTRADA", txtEntrada.Text);
-                plantilla_html = plantilla_html.Replace("@Salida", txtSalida.Text);
+                if(txtEntrada.Text == "01-01-0001")
+                {
+                    plantilla_html = plantilla_html.Replace("@ENTRADA", "");
+                }
+                else
+                {
+                    plantilla_html = plantilla_html.Replace("@ENTRADA", txtEntrada.Text);
+                }
+                if (txtSalida.Text == "01-01-0001")
+                {
+                    plantilla_html = plantilla_html.Replace("@Salida", "");
+                }
+                else
+                {
+                    plantilla_html = plantilla_html.Replace("@Salida", txtSalida.Text);
+                }
                 plantilla_html = plantilla_html.Replace("@Entregada", txtEntrega.Text);
 
                 // Verifica si hay un valor válido en txtTransporte.Text para reemplazar en la plantilla HTML
@@ -1072,11 +1103,7 @@ namespace Capa_P
                 plantilla_html = plantilla_html.Replace("@img", imagenHtml);
 
 
-
-                if (save.ShowDialog() == DialogResult.OK)
-                {
-                    rutaArchivo = save.FileName;
-                    using (FileStream stream = new FileStream(save.FileName, FileMode.Create))
+                    using (FileStream stream = new FileStream(rutaArchivo, FileMode.Create))
                     {
                         Document pdfDoc = new Document(PageSize.A4, 25, 25, 55, 195);
                         PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
@@ -1117,7 +1144,7 @@ namespace Capa_P
 
                            
                     }
-                }
+                
                 
             }
             catch (Exception ex)
@@ -1125,7 +1152,6 @@ namespace Capa_P
                 MessageBox.Show("Error al imprimir la factura: " + ex.Message);
             }
 
-            return rutaArchivo;
         }
 
         public class Footer : PdfPageEventHelper
@@ -1238,16 +1264,20 @@ namespace Capa_P
             }
         }
 
-
-
-
-
-
-
         private void btnImprimir_Click(object sender, EventArgs e)
         {
-            imprimir();
-            // comentario para probar push
+            // Obtener la ruta del archivo donde se guardará el PDF
+            rutaPDF = ObtenerRutaPDF();
+
+            if (!string.IsNullOrEmpty(rutaPDF))
+            {
+                // Generar el PDF en la ruta seleccionada
+                imprimir(rutaPDF);
+            }
+            else
+            {
+                MessageBox.Show("No se seleccionó ninguna ruta para guardar el PDF.");
+            }
         }
 
         private void txtCantidad_Leave(object sender, EventArgs e)
@@ -1489,16 +1519,46 @@ namespace Capa_P
         private void GuardarHeaderFactura()
         {
             String msj = "";
-
-            if (lblFac.Text == string.Empty)
-            {
-                MessageBox.Show("La cotizacion debe tener un codigo identificador");
-                return;
-            }
+            
 
             try
             {
+                DateTime entrada;
+                DateTime salida;
 
+                if (string.IsNullOrWhiteSpace(txtEntrada.Text))
+                {
+                    Console.WriteLine("La entrada está vacía.");
+                    entrada = DateTime.MinValue; // O manejarlo de otra forma
+                }
+                else if (DateTime.TryParse(txtEntrada.Text, out entrada))
+                {
+                    Console.WriteLine("Entrada válida: " + entrada);
+                }
+                else
+                {
+                    Console.WriteLine("Entrada inválida.");
+                }
+
+                if (string.IsNullOrWhiteSpace(txtSalida.Text))
+                {
+                    Console.WriteLine("La salida está vacía.");
+                    salida = DateTime.MinValue; // O manejarlo de otra forma
+                }
+                else if (DateTime.TryParse(txtSalida.Text, out salida))
+                {
+                    Console.WriteLine("Salida válida: " + salida);
+                }
+                else
+                {
+                    Console.WriteLine("Salida inválida.");
+                }
+
+                if (lblFac.Text == string.Empty)
+                {
+                    MessageBox.Show("La cotizacion debe tener un codigo identificador");
+                    return;
+                }
                 facturaH.Factura = lblFac.Text;
                 facturaH.SubTotal = float.Parse(lblSubTotal.Text);
                 facturaH.ITBIS = float.Parse(lblImpuesto.Text);
@@ -1510,8 +1570,22 @@ namespace Capa_P
                 facturaH.Estado_Pago = "Pendiente";
                 facturaH.Cliente = txtNombre.Text;
                 facturaH.Rnc = txtRnc.Text;
-
-
+                facturaH.Entrada = entrada;
+                facturaH.Salida = salida;
+                facturaH.Titulo = txtTitulo.Text;
+                facturaH.Proyecto = txtProyecto.Text;
+                facturaH.Entregada = txtEntrega.Text;
+                facturaH.Asesor = txtAsesor.Text;
+                
+                if(txtTransporte.Text != string.Empty)
+                {
+                    facturaH.Transporte = float.Parse(txtTransporte.Text);
+                }
+                if(txtDescuento.Text != string.Empty)
+                {
+                    facturaH.Descuento = float.Parse(txtDescuento.Text);
+                }
+                
                 msj = facturaH.GuardarFacturaHeader();
                 MessageBox.Show(msj);
 
@@ -1528,6 +1602,8 @@ namespace Capa_P
 
             try
             {
+                facturaD.Factura = lblFac.Text;
+                facturaD.EliminarDetalle();
 
                 foreach (DataGridViewRow Row in dtaVentas.Rows)
                 {
@@ -1572,13 +1648,9 @@ namespace Capa_P
 
                 string mensaje = doc.GuardarDocumento();
 
-                if (mensaje == "Documento guardado con éxito")
+                if (mensaje != string.Empty)
                 {
-                    MessageBox.Show("Documento guardado correctamente en la base de datos.");
-                }
-                else
-                {
-                    MessageBox.Show("Error al guardar el documento en la base de datos: " + mensaje);
+                    MessageBox.Show($"{mensaje}");
                 }
             }
             catch (Exception ex)
@@ -1590,10 +1662,10 @@ namespace Capa_P
 
         private void btnguardar_Click(object sender, EventArgs e)
         {
-            string rutaArchivo = imprimir();
+
             GuardarHeaderFactura();
             GuardarDetalleFactura();
-            GuardarDocumentoEnBaseDatos(rutaArchivo);
+            GuardarDocumentoEnBaseDatos(rutaPDF);
         }
 
         private void SecuenciaFiscal()
@@ -1957,9 +2029,162 @@ namespace Capa_P
             }
         }
 
+        private void CargarHeader()
+        {
+            try
+            {
+                facturaH.Cliente = txtNombre.Text;
+
+                DataTable dt = facturaH.BuscarPorCliente();
+
+                dtaFacturasHeader.DataSource = dt;
+                PanelFacturas.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Este cliente no posee facturas o cotizaciones");
+            }
+
+        }
+
+        private void ObtenerDetalleCompleto()
+        {
+            try
+            {
+                facturaH.Factura = dtaFacturasHeader.CurrentRow.Cells[0].Value.ToString();
+
+                DataTable dt = facturaH.ObtenerFacturaConDetalle();
+
+                dtaFacturasHeader.DataSource = dt;
+                PanelFacturas.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Este cliente no posee facturas o cotizaciones");
+            }
+
+        }
+
         private void txtDescuento_TextChange(object sender, EventArgs e)
         {
             AplicarDescuento();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            PanelFacturas.Visible = false;
+        }
+
+        private void btgCargar_Click(object sender, EventArgs e)
+        {
+            CargarHeader();
+        }
+
+        private void dtaFacturasHeader_DoubleClick(object sender, EventArgs e)
+        {
+            ObtenerDetalleCompleto();
+        }
+
+        private void CargarDatosParaActualizar()
+        {
+            // Comprobar si la celda está vacía antes de asignarla
+            lblFac.Text = dtaFacturasHeader.CurrentRow.Cells[0].Value?.ToString() ?? string.Empty;
+            lblNCF.Text = dtaFacturasHeader.CurrentRow.Cells[12].Value?.ToString() ?? string.Empty;
+
+            // Para la fecha de entrada, comprobar si el valor no es null antes de asignarlo
+            if (dtaFacturasHeader.CurrentRow.Cells[13].Value != DBNull.Value)
+            {
+                DateTime fechaEntrada = (DateTime)dtaFacturasHeader.CurrentRow.Cells[13].Value;
+                txtEntrada.Text = fechaEntrada.ToString("dd-MM-yyyy"); // Formato: Año-Mes-Día
+            }
+            else
+            {
+                txtEntrada.Text = string.Empty; // O cualquier valor predeterminado
+            }
+
+            // Para la fecha de salida, igual
+            if (dtaFacturasHeader.CurrentRow.Cells[14].Value != DBNull.Value)
+            {
+                DateTime fechaSalida = (DateTime)dtaFacturasHeader.CurrentRow.Cells[14].Value;
+                txtSalida.Text = fechaSalida.ToString("dd-MM-yyyy"); // Ajusta el formato si prefieres otro
+            }
+            else
+            {
+                txtSalida.Text = string.Empty; // O cualquier valor predeterminado
+            }
+
+            // Comprobar si otras celdas son null antes de asignar el valor
+            txtProyecto.Text = dtaFacturasHeader.CurrentRow.Cells[15].Value?.ToString() ?? string.Empty;
+            txtTitulo.Text = dtaFacturasHeader.CurrentRow.Cells[16].Value?.ToString() ?? string.Empty;
+            txtAsesor.Text = dtaFacturasHeader.CurrentRow.Cells[17].Value?.ToString() ?? string.Empty;
+            txtEntrega.Text = dtaFacturasHeader.CurrentRow.Cells[18].Value?.ToString() ?? string.Empty;
+            txtTransporte.Text = dtaFacturasHeader.CurrentRow.Cells[19].Value?.ToString() ?? string.Empty;
+            txtDescuento.Text = dtaFacturasHeader.CurrentRow.Cells[20].Value?.ToString() ?? string.Empty;
+
+            // Para la segunda parte del código (recorrido de filas):
+            foreach (DataGridViewRow row in dtaFacturasHeader.Rows)
+            {
+                if (!row.IsNewRow) // Asegurarte de no copiar la fila vacía
+                {
+                    // Crear una nueva fila
+                    DataGridViewRow newRow = new DataGridViewRow();
+
+                    // Asignar solo las celdas de las columnas específicas a la nueva fila
+                    newRow.Cells.Add(new DataGridViewTextBoxCell { Value = row.Cells["Descripcion"].Value?.ToString() ?? string.Empty });
+                    newRow.Cells.Add(new DataGridViewTextBoxCell { Value = row.Cells["Producto"].Value?.ToString() ?? string.Empty });
+                    newRow.Cells.Add(new DataGridViewTextBoxCell { Value = row.Cells["Material"].Value?.ToString() ?? string.Empty });
+                    newRow.Cells.Add(new DataGridViewTextBoxCell { Value = row.Cells["Madera"].Value?.ToString() ?? string.Empty });
+                    newRow.Cells.Add(new DataGridViewTextBoxCell { Value = row.Cells["Apanelado"].Value?.ToString() ?? string.Empty });
+                    newRow.Cells.Add(new DataGridViewTextBoxCell { Value = row.Cells["Jambas"].Value?.ToString() ?? string.Empty });
+                    newRow.Cells.Add(new DataGridViewTextBoxCell { Value = row.Cells["Size"].Value?.ToString() ?? string.Empty });
+                    newRow.Cells.Add(new DataGridViewTextBoxCell { Value = row.Cells["Cantidad"].Value?.ToString() ?? string.Empty });
+                    newRow.Cells.Add(new DataGridViewTextBoxCell
+                    {
+                        Value = decimal.TryParse(row.Cells["PrecioUnit"].Value?.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal precioUnit)
+                        ? precioUnit.ToString("N2", CultureInfo.InvariantCulture)
+                        : string.Empty
+                    });
+                    newRow.Cells.Add(new DataGridViewTextBoxCell
+                    {
+                        Value = decimal.TryParse(row.Cells["D_Itbis"].Value?.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal DItbis)
+                        ? DItbis.ToString("N2", CultureInfo.InvariantCulture)
+                        : string.Empty
+                    });
+                    newRow.Cells.Add(new DataGridViewTextBoxCell
+                    {
+                        Value = decimal.TryParse(row.Cells["D_Total"].Value?.ToString(), NumberStyles.Any, CultureInfo.InvariantCulture, out decimal DTotal)
+                        ? DTotal.ToString("N2", CultureInfo.InvariantCulture)
+                        : string.Empty
+                    });
+
+                    // Agregar la nueva fila a dtaVentas
+                    dtaVentas.Rows.Add(newRow);
+                }
+            }
+        }
+
+
+        private void btnConfirmarCarga_Click(object sender, EventArgs e)
+        {
+            // Deshabilitar el evento TextChanged
+            txtDescuento.TextChanged -= txtDescuento_TextChange;
+
+            try
+            {
+                // Realizar las operaciones necesarias
+                CargarDatosParaActualizar();
+                TotalTot();
+                ActualizarTotales();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Rehabilitar el evento TextChanged
+                txtDescuento.TextChanged += txtDescuento_TextChange;
+            }
         }
     }
 
