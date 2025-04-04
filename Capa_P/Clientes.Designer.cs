@@ -64,7 +64,6 @@
             Bunifu.UI.WinForms.BunifuTextBox.StateProperties stateProperties24 = new Bunifu.UI.WinForms.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges borderEdges5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2.BorderEdges();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.bunifuVScrollBar2 = new Bunifu.UI.WinForms.BunifuVScrollBar();
             this.dtaClientes = new Bunifu.UI.WinForms.BunifuDataGridView();
             this.btnEditar = new Bunifu.UI.WinForms.BunifuButton.BunifuButton2();
             this.txtFiltro = new Bunifu.UI.WinForms.BunifuTextBox();
@@ -99,47 +98,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 111;
             this.pictureBox1.TabStop = false;
-            // 
-            // bunifuVScrollBar2
-            // 
-            this.bunifuVScrollBar2.AllowCursorChanges = true;
-            this.bunifuVScrollBar2.AllowHomeEndKeysDetection = false;
-            this.bunifuVScrollBar2.AllowIncrementalClickMoves = true;
-            this.bunifuVScrollBar2.AllowMouseDownEffects = true;
-            this.bunifuVScrollBar2.AllowMouseHoverEffects = true;
-            this.bunifuVScrollBar2.AllowScrollingAnimations = true;
-            this.bunifuVScrollBar2.AllowScrollKeysDetection = true;
-            this.bunifuVScrollBar2.AllowScrollOptionsMenu = true;
-            this.bunifuVScrollBar2.AllowShrinkingOnFocusLost = false;
-            this.bunifuVScrollBar2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.bunifuVScrollBar2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuVScrollBar2.BackgroundImage")));
-            this.bunifuVScrollBar2.BindingContainer = null;
-            this.bunifuVScrollBar2.BorderColor = System.Drawing.Color.Silver;
-            this.bunifuVScrollBar2.BorderRadius = 6;
-            this.bunifuVScrollBar2.BorderThickness = 2;
-            this.bunifuVScrollBar2.DurationBeforeShrink = 2000;
-            this.bunifuVScrollBar2.LargeChange = 10;
-            this.bunifuVScrollBar2.Location = new System.Drawing.Point(1167, 434);
-            this.bunifuVScrollBar2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.bunifuVScrollBar2.Maximum = 100;
-            this.bunifuVScrollBar2.Minimum = 0;
-            this.bunifuVScrollBar2.MinimumThumbLength = 18;
-            this.bunifuVScrollBar2.Name = "bunifuVScrollBar2";
-            this.bunifuVScrollBar2.OnDisable.ScrollBarBorderColor = System.Drawing.Color.Silver;
-            this.bunifuVScrollBar2.OnDisable.ScrollBarColor = System.Drawing.Color.Transparent;
-            this.bunifuVScrollBar2.OnDisable.ThumbColor = System.Drawing.Color.Silver;
-            this.bunifuVScrollBar2.ScrollBarBorderColor = System.Drawing.Color.Silver;
-            this.bunifuVScrollBar2.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.bunifuVScrollBar2.ShrinkSizeLimit = 3;
-            this.bunifuVScrollBar2.Size = new System.Drawing.Size(29, 254);
-            this.bunifuVScrollBar2.SmallChange = 1;
-            this.bunifuVScrollBar2.TabIndex = 109;
-            this.bunifuVScrollBar2.ThumbColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(32)))), ((int)(((byte)(51)))));
-            this.bunifuVScrollBar2.ThumbLength = 24;
-            this.bunifuVScrollBar2.ThumbMargin = 1;
-            this.bunifuVScrollBar2.ThumbStyle = Bunifu.UI.WinForms.BunifuVScrollBar.ThumbStyles.Inset;
-            this.bunifuVScrollBar2.Value = 0;
-            this.bunifuVScrollBar2.Scroll += new System.EventHandler<Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs>(this.bunifuVScrollBar2_Scroll);
             // 
             // dtaClientes
             // 
@@ -198,6 +156,7 @@
             this.dtaClientes.HeaderForeColor = System.Drawing.Color.White;
             this.dtaClientes.Location = new System.Drawing.Point(37, 395);
             this.dtaClientes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtaClientes.MultiSelect = false;
             this.dtaClientes.Name = "dtaClientes";
             this.dtaClientes.ReadOnly = true;
             this.dtaClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -218,7 +177,6 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
             this.dtaClientes.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dtaClientes.RowTemplate.Height = 40;
-            this.dtaClientes.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.dtaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtaClientes.Size = new System.Drawing.Size(1125, 292);
             this.dtaClientes.TabIndex = 108;
@@ -1184,7 +1142,7 @@
             this.bunifuButton21.IdleIconLeftImage = null;
             this.bunifuButton21.IdleIconRightImage = null;
             this.bunifuButton21.IndicateFocus = false;
-            this.bunifuButton21.Location = new System.Drawing.Point(1044, 342);
+            this.bunifuButton21.Location = new System.Drawing.Point(1017, 342);
             this.bunifuButton21.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.bunifuButton21.Name = "bunifuButton21";
             this.bunifuButton21.OnDisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(191)))), ((int)(((byte)(191)))));
@@ -1236,7 +1194,6 @@
             this.Controls.Add(this.bunifuButton21);
             this.Controls.Add(this.txtDireccion);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.bunifuVScrollBar2);
             this.Controls.Add(this.dtaClientes);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.txtFiltro);
@@ -1269,7 +1226,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Bunifu.UI.WinForms.BunifuVScrollBar bunifuVScrollBar2;
         private Bunifu.UI.WinForms.BunifuDataGridView dtaClientes;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton2 btnEditar;
         private Bunifu.UI.WinForms.BunifuTextBox txtFiltro;

@@ -37,6 +37,7 @@ namespace Capa_P
             this.bunifuPanel4.Tag = fh;
 
             fh.Show();
+            fh.Focus();
 
         }
 

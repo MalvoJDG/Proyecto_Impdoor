@@ -32,7 +32,7 @@
             }
 
         table#acprintTable {
-            margin-top: 90px; /* Ajusta este valor según sea necesario */
+            margin-top: 80px; /* Ajusta este valor según sea necesario */
         }
 
         .linea {
@@ -86,11 +86,11 @@
             <td style="width: 60%;">
                 <table id="acprintTable">
                     <tr>
-                        <td align="left" style="font-size: 18px;"><strong>Impdoor Dominicana, SRL</strong></td>
+                        <td align="left" style="font-size: 16px;"><strong>1-3141683-7</strong></td>
                     </tr>
                     <tr>
                         <td align="left" style="font-size: 12px;">
-                            RNC: 1-3141683-7
+                            Av. Buenaventura Freites, Esq. Calle Central, Plaza Civil Center, 4to piso, Suite 410, Los Jardines, Santo Domingo, RD 10602.
                         </td>
                     </tr>
                 </table>
@@ -105,13 +105,13 @@
             <td style="width: 45%;">
                 <table class="border" style="width: 100%;">
                     <tr>
-                        <td align="center" style="font-size: 12px;"><strong>ASESOR CLIENTE: @Asesor</strong></td>
-                    </tr>
-                    <tr>
                         <td align="center" style="font-size: 14px;"><strong>COTIZACION NO. @NumFac</strong></td>
                     </tr>
                     <tr>
                         <td align="center" style="font-size: 14px;"><strong>@Fecha</strong></td>
+                    </tr>
+                    <tr>
+                        <td align="center" style="font-size: 12px;"><strong>ASESOR CLIENTE: @Asesor</strong></td>
                     </tr>
                 </table>
             </td>
@@ -156,7 +156,7 @@
         </tr>
         <tr>
             <td colspan="3">
-                <div style="text-align: center; margin-top: 20px; color: cornflowerblue;">
+                <div style="text-align: center; margin-top: 20px; color: cornflowerblue; font-weight: bold; font-family: 'Arial', sans-serif;">
                     @Titulo
                 </div>
                 <table class="border" style="width: 100%;">
@@ -164,18 +164,18 @@
                         <tr>
                             <th>ARTICULO / DESCRIPCION</th>
                             <th align="center">MEDIDAS</th>
-                            <th align="center">P. UNIDAD</th>
                             <th align="center">CANT.</th>
-                            <th align="center">VALOR</th>
+                            <th align="center">P. UNIDAD</th>
+                            <th align="center">VALORES</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!--tr>
-                            <td>2 fulano</td>
-                            <td>20</td>
-                            <td>19.8</td>
-                            <td>40000</td>
-                        </tr-->
+                <td>2 fulano</td>
+                <td>20</td>
+                <td>19.8</td>
+                <td>40000</td>
+            </tr-->
                         @Lista
                     </tbody>
                 </table>
@@ -217,7 +217,15 @@
                             <strong>Sub-Total:</strong>
                         </td>
                         <td style="width: 50%; padding: 10px; text-align: right; font-size: 15px;">
-                            <strong>@SubTotal</strong>
+                            <strong><u>@SubTotal</u></strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%; padding: 10px; border-right: 1px solid black; font-size: 13px;">
+                            <strong>Descuento:</strong>
+                        </td>
+                        <td style="width: 50%; padding: 10px; text-align: right; font-size: 15px;">
+                            <strong><u>@Descuento</u></strong>
                         </td>
                     </tr>
                     <tr>
@@ -233,16 +241,16 @@
                         <td style="width: 50%; padding: 10px; border-right: 1px solid black; font-size: 13px;">
                             <strong>Transporte:</strong>
                         </td>
-                        <td style="width: 50%; padding: 10px; text-align: right; font-size: 13px;">
+                        <td style="width: 50%; padding: 10px; text-align: right; font-size: 15px;">
                             <strong>@TRANSPORTE</strong>
                         </td>
                     </tr>
                     <tr>
-                        <td style="width: 50%; padding: 10px; border-right: 1px solid black; font-size: 13px;">
+                        <td style="width: 50%; padding: 10px; border-right: 1px solid black; font-size: 15px;">
                             <strong>Total a Pagar:</strong>
                         </td>
-                        <td style="width: 50%; padding: 10px; text-align: right; font-size: 13px;">
-                            <strong> @Total</strong>
+                        <td style="width: 50%; padding: 10px; text-align: right; font-size: 15px;">
+                            <strong><u>@Total</u></strong>
                         </td>
                     </tr>
                     <tr>

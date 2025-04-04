@@ -99,7 +99,10 @@ namespace Capa_P
             {
                 SaveFileDialog save = new SaveFileDialog();
 
-                save.FileName = ".pdf";
+                // Suponiendo que la primera columna del DataGridView se llama "Codigo"
+                string codigo = dtaFacturas.Rows[0].Cells["Factura"].Value.ToString();
+
+                save.FileName = codigo + "-Ficha-" + txtCliente_NombreR.Text + ".pdf";
                 save.DefaultExt = "pdf";
                 save.Filter = "Archivos PDF (*.pdf)|*.pdf";
 
@@ -225,8 +228,8 @@ namespace Capa_P
                 {
                     filas += "<tr>";
                     filas += "<td style='font-size: 10px; width: 48%;'>" + Row.Cells["Descripcion"].Value.ToString() + "</td>";
-                    filas += "<td align='center' style='font-size: 11; font-weight: bold; width: 15%;'>" + Row.Cells["Size"].Value.ToString() + "</td>";
-                    filas += "<td align='center' style='width: 9%; font-weight: bold; font-size: 11px;'>" + Row.Cells["Cantidad"].Value.ToString() + "</td>";
+                    filas += "<td align='center' style='font-size: 11; font-weight: bold; width: 15%; text-align: center;'>" + Row.Cells["Size"].Value.ToString() + "</td>";
+                    filas += "<td align='center' style='width: 9%; font-weight: bold; font-size: 11px; text-align: center;'>" + Row.Cells["Cantidad"].Value.ToString() + "</td>";
                     filas += "</tr>";
                 }
                 plantilla_html = plantilla_html.Replace("@Lista", filas);
@@ -453,6 +456,32 @@ namespace Capa_P
         private void txtFechaSalida_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void listBox1_DoubleClick(object sender, EventArgs e)
+        {
+            // Verificar si hay un elemento seleccionado
+            if (listBox1.SelectedItem != null)
+            {
+                // Obtener el elemento seleccionado
+                string selectedItem = listBox1.SelectedItem.ToString();
+
+                // Confirmar la eliminación (opcional)
+                DialogResult result = MessageBox.Show($"¿Deseas borrar el elemento '{selectedItem}'?", "Confirmar eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    // Eliminar el elemento de la lista
+                    listBox1.Items.Remove(selectedItem);
+
+                    // Mostrar un mensaje de confirmación (opcional)
+                    MessageBox.Show($"Elemento '{selectedItem}' eliminado.", "Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se ha seleccionado ningún elemento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

@@ -3,12 +3,12 @@ using ClosedXML.Excel;
 using DocumentFormat.OpenXml.Drawing;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.parser;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Windows;
 using System.Windows.Forms;
-
 
 namespace Capa_P
 {
@@ -16,7 +16,9 @@ namespace Capa_P
     {
         public FacturaHeader facturaH = new FacturaHeader();
         FacturaDetalle facturaDetalle = new FacturaDetalle();
+        FacturaHeader facturaHeader = new FacturaHeader();
         ncf ncf = new ncf();
+        Documento documento = new Documento();
 
         public Facturas()
         {
@@ -39,7 +41,30 @@ namespace Capa_P
             dtaFactura.ClearSelection();
         }
 
+        private void bunifuVScrollBar2_Scroll(object sender, Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs e)
+        {
+            // Obtener la posición actual del scrollbar
+            int scrollValue = e.Value;
 
+            // Calcular la posición de la primera fila visible en el DataGridView
+            int primeraFilaVisible = scrollValue;
+
+            // Verificar si la primera fila visible es menor que cero
+            if (primeraFilaVisible < 0)
+            {
+                primeraFilaVisible = 0;
+            }
+
+            // Verificar si la primera fila visible excede el rango de filas visibles
+            if (primeraFilaVisible >= dtaFactura.RowCount)
+            {
+                primeraFilaVisible = dtaFactura.RowCount - 1;
+            }
+
+            // Actualizar la vista del DataGridView para mostrar las filas visibles
+            dtaFactura.FirstDisplayedScrollingRowIndex = primeraFilaVisible;
+            dtaFactura.Refresh();
+        }
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
@@ -73,31 +98,6 @@ namespace Capa_P
             {
                 cargarHeader();
             }
-        }
-
-        private void bunifuVScrollBar2_Scroll(object sender, Bunifu.UI.WinForms.BunifuVScrollBar.ScrollEventArgs e)
-        {
-            // Obtener la posición actual del scrollbar
-            int scrollValue = e.Value;
-
-            // Calcular la posición de la primera fila visible en el DataGridView
-            int primeraFilaVisible = scrollValue;
-
-            // Verificar si la primera fila visible es menor que cero
-            if (primeraFilaVisible < 0)
-            {
-                primeraFilaVisible = 0;
-            }
-
-            // Verificar si la primera fila visible excede el rango de filas visibles
-            if (primeraFilaVisible >= dtaFactura.RowCount)
-            {
-                primeraFilaVisible = dtaFactura.RowCount - 1;
-            }
-
-            // Actualizar la vista del DataGridView para mostrar las filas visibles
-            dtaFactura.FirstDisplayedScrollingRowIndex = primeraFilaVisible;
-            dtaFactura.Refresh();
         }
 
         private void CargarDetalle()
@@ -286,7 +286,12 @@ namespace Capa_P
 
         private void AsignarFacturas_Click(object sender, EventArgs e)
         {
-            try
+
+        }
+
+        /*
+         
+        try
             {
                 if (dtaFactura.CurrentRow != null)
                 {
@@ -338,9 +343,8 @@ namespace Capa_P
             {
                 MessageBox.Show($"Error al asignar NCF: {ex.Message}");
             }
-        }
 
-
+          */
 
 
         private void MontoPanel_Click(object sender, EventArgs e)
@@ -709,7 +713,7 @@ namespace Capa_P
                 try
                 {
                     // Abrir el PDF existente en modo lectura
-                    PdfReader reader = new PdfReader(selectedPdfPath);
+                    iTextSharp.text.pdf.PdfReader reader = new iTextSharp.text.pdf.PdfReader(selectedPdfPath);
 
                     // Crear un PdfStamper para modificar el PDF
                     PdfStamper stamper = new PdfStamper(reader, new FileStream(outputPdfPath, FileMode.Create));
@@ -748,13 +752,223 @@ namespace Capa_P
         }
 
 
-
-        private void btnVolverimprimir_Click(object sender, EventArgs e)
+        private void btnDescargar_Click_1(object sender, EventArgs e)
         {
+            try
+            {
+                if (dtaFactura.SelectedRows.Count > 0)
+                {
+                    string factura = dtaFactura.CurrentRow.Cells[0].Value.ToString();
+                    string NombreCliente = dtaFactura.CurrentRow.Cells[6].Value.ToString();
+                    documento.Numero = factura;
+                    byte[] archivo = documento.DescargarDocumento();
 
-            
-            
+                    if (archivo != null)
+                    {
+                        using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                        {
+                            saveFileDialog.Filter = "PDF files (*.pdf)|*.pdf|All files (*.*)|*.*";
+                            saveFileDialog.Title = "Guardar archivo";
+                            saveFileDialog.FileName = $"{factura}-{NombreCliente}.pdf";
+
+                            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                            {
+                                File.WriteAllBytes(saveFileDialog.FileName, archivo);
+                                MessageBox.Show("Archivo descargado correctamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se encontró el documento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un documento para descargar", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ocurrió un error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
+
+        private void btnDescargarSinImagenes_Click(object sender, EventArgs e)
+        {
+            string factura = dtaFactura.CurrentRow.Cells[0].Value.ToString();
+            documento.Numero = factura;
+            byte[] archivo = documento.DescargarDocumento();
+            ProcesarPDFConPaginasSeleccionadas(archivo, "123");
+        }
+
+        public void ProcesarPDFConPaginasSeleccionadas(byte[] pdfOriginal, string numeroFiscal)
+        {
+            using (MemoryStream originalStream = new MemoryStream(pdfOriginal))
+            using (MemoryStream nuevoStream = new MemoryStream())
+            {
+                PdfReader reader = new PdfReader(originalStream);
+                PdfStamper stamper = new PdfStamper(reader, nuevoStream);
+
+                // Obtener el número total de páginas
+                int totalPaginas = reader.NumberOfPages;
+
+                // Iterar por cada página del PDF original
+                for (int i = 1; i <= totalPaginas; i++)
+                {
+                    PdfDictionary dict = reader.GetPageN(i);
+
+                    // Verificar si la página está "vacía" (sin texto ni imágenes)
+                    bool esPaginaVacia = !ContieneContenido(dict);
+
+                    if (i != 1 && i != totalPaginas && !esPaginaVacia)
+                    {
+                        // Eliminar imágenes de las páginas intermedias
+                        EliminarImagenesDePagina(dict);
+                    }
+                }
+
+                if (dtaFactura.CurrentRow != null)
+                {
+                    // Obtener el valor de la columna NCF
+                    var creditoFiscal = dtaFactura.CurrentRow.Cells["NCF"].Value;
+
+                    // Verificar si la columna NCF ya tiene un valor
+                    if (creditoFiscal != null && !string.IsNullOrWhiteSpace(creditoFiscal.ToString()))
+                    {
+                        MessageBox.Show("Ya tiene un valor asignado. No se puede agregar un nuevo NCF.");
+                        return; // Salir del método si la columna ya tiene un valor
+                    }
+
+                    // Obtener el ID de la factura
+                    string idFactura = dtaFactura.CurrentRow.Cells[0].Value.ToString();
+
+                    // Obtener y asignar el nuevo NCF
+                    string mensaje = ncf.ObtenerNuevoNCF(out numeroFiscal);
+
+                    if (!string.IsNullOrEmpty(numeroFiscal))
+                    {
+                        string mensajeAsignacion = ncf.AsignarNCF(idFactura, out numeroFiscal);
+                        MessageBox.Show(mensajeAsignacion);
+                        cargarHeader(); // Actualizar la vista
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje); // Mensaje de error si no se pudo obtener un NCF
+                    }
+
+                    Font fontNegrita = FontFactory.GetFont(FontFactory.HELVETICA_BOLD, 12, BaseColor.BLACK);
+
+                    // Agregar el texto en la primera página
+                    PdfContentByte contenidoPrimeraPagina = stamper.GetOverContent(1);
+                    ColumnText.ShowTextAligned(
+                        contenidoPrimeraPagina,
+                        Element.ALIGN_RIGHT,
+                        new Phrase("NCF: " + numeroFiscal, fontNegrita),
+                        550, // Posición X
+                        780, // Posición Y
+                        0    // Rotación
+                    );
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, selecciona una factura.");
+                }
+
+                stamper.Close();
+                reader.Close();
+
+                // Mostrar cuadro de diálogo para guardar
+                using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                {
+                    saveFileDialog.Filter = "PDF Files (*.pdf)|*.pdf";
+                    saveFileDialog.Title = "Guardar Factura Sin Imágenes en Páginas Seleccionadas";
+                    saveFileDialog.FileName = "Factura_Procesada.pdf";
+
+                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        File.WriteAllBytes(saveFileDialog.FileName, nuevoStream.ToArray());
+                        MessageBox.Show("Factura guardada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Guardado cancelado por el usuario.", "Cancelado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+        }
+
+
+        // Método para eliminar imágenes de una página (sin cambios)
+        private void EliminarImagenesDePagina(PdfDictionary dict)
+        {
+            PdfDictionary recursos = (PdfDictionary)PdfReader.GetPdfObject(dict.Get(PdfName.RESOURCES));
+
+            if (recursos != null)
+            {
+                PdfDictionary xObject = (PdfDictionary)PdfReader.GetPdfObject(recursos.Get(PdfName.XOBJECT));
+                if (xObject != null)
+                {
+                    List<PdfName> clavesParaEliminar = new List<PdfName>();
+
+                    foreach (PdfName key in xObject.Keys)
+                    {
+                        PdfObject obj = xObject.Get(key);
+                        if (obj.IsIndirect())
+                        {
+                            PdfDictionary xObjDict = (PdfDictionary)PdfReader.GetPdfObject(obj);
+                            PdfName subtype = (PdfName)PdfReader.GetPdfObject(xObjDict.Get(PdfName.SUBTYPE));
+
+                            if (PdfName.IMAGE.Equals(subtype))
+                            {
+                                clavesParaEliminar.Add(key);
+                            }
+                        }
+                    }
+
+                    foreach (PdfName key in clavesParaEliminar)
+                    {
+                        xObject.Remove(key);
+                    }
+                }
+            }
+        }
+
+        // Método para verificar si una página contiene contenido (sin cambios)
+        private bool ContieneContenido(PdfDictionary dict)
+        {
+            PdfDictionary recursos = (PdfDictionary)PdfReader.GetPdfObject(dict.Get(PdfName.RESOURCES));
+            PdfDictionary xObject = recursos != null ? (PdfDictionary)PdfReader.GetPdfObject(recursos.Get(PdfName.XOBJECT)) : null;
+
+            if (xObject != null && xObject.Keys.Count > 0)
+            {
+                return true; // Hay imágenes u objetos gráficos
+            }
+
+            PdfObject contenido = PdfReader.GetPdfObject(dict.Get(PdfName.CONTENTS));
+            if (contenido != null)
+            {
+                if (contenido is PdfArray contenidoArray)
+                {
+                    if (contenidoArray.ArrayList.Count > 0)
+                    {
+                        return true; // Hay contenido en el array
+                    }
+                }
+                else if (contenido is PRStream contenidoStream)
+                {
+                    byte[] datos = PdfReader.GetStreamBytes(contenidoStream);
+                    if (datos != null && datos.Length > 0)
+                    {
+                        return true; // Hay contenido en el stream
+                    }
+                }
+            }
+
+            return false;
+        }
+
     }
 }
 
